@@ -1,0 +1,487 @@
+#< ignore
+---
+title: "A New Makro 101 Model"
+author: "Sebastian Kranz"
+date: "12 Mai 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error=TRUE)
+```
+#>
+
+#< settings
+lang: de
+slides: TRUE
+slide.type: frame
+use.whiskers: TRUE
+#>
+
+#< precompute
+```{r}
+# r_ == r_NAI - 0.001 * (Y_-Y_NAI)
+exdat = compute_frame(
+  Y_NAI = 100,
+  slope_Yr = -0.001,
+  r_NAI = 0.03,
+  Y = 110,
+  Y_max = 115,
+  u = 1-  0.5*((Y_max-Y) / Y_max),
+  
+  r_cb = r_NAI + slope_Yr*(Y-Y_NAI),
+  Epi = c(0.02,0.054),
+  P_lag = 1.5 / (1+0.02),
+  EP = P_lag * (1+Epi),
+  slope_ws = 0.002,
+  tau = 20,
+  ws_P = 0.6,
+  mu = 1/ws_P -1,
+  ws = ws_P + slope_ws*(Y-Y_NAI),
+  Ew = ws * tau,
+  W = Ew*EP,
+  pi = Epi + (1+Epi) * (ws-ws_P)/(ws_P),
+  Y__min = 80,
+  Y__max = 120,
+  r__min = 0,
+  r__max = r_cb(Y=Y__min),
+  ws__min = ws(Y=Y__min),
+  ws__max = ws(Y=Y__max),
+  w__min = Ew(ws = ws__min),
+  w__max = Ew(ws = ws__max),
+  W__min = W(Ew = w__min),
+  W__max = W(Ew = w__max),
+  pi__min = pi(ws = ws__min),
+  pi__max = pi(ws = ws__max)
+  
+)
+
+dedat = compute_frame(
+  Y_NAI = 3000,
+  slope_Yr = -0.001,
+  r_NAI = 0.03,
+  Y = 3100,
+  r_cb = 0.02,
+  slope_Yr = (r_cb-r_NAI) / (Y - Y_NAI),
+  r_cb_fun = r_NAI + slope_Yr*(Y-Y_NAI),
+  Epi = c(0.02,0.06),
+  P_lag = 1,
+  EP = P_lag * (1+Epi),
+  slope_ws = 0.002,
+  tau = 20,
+  ws_P = 0.5,
+  mu = 1/ws_P -1,
+  ws = ws_P + slope_ws*(Y-Y_NAI),
+  Ew = ws * tau,
+  W = Ew*EP,
+  pi = Epi + (1+Epi) * (ws-ws_P)/(ws_P),
+  Y__min = 2800,
+  Y__max = 3200,
+  r__min = 0,
+  r__max = r_cb_fun(Y=Y__min),
+  ws__min = ws(Y=Y__min),
+  ws__max = ws(Y=Y__max),
+  w__min = Ew(ws = ws__min),
+  w__max = Ew(ws = ws__max),
+  W__min = W(Ew = w__min),
+  W__max = W(Ew = w__max),
+  pi__min = pi(ws = ws__min),
+  pi__max = pi(ws = ws__max)
+  
+)
+
+
+.whiskers = as.list(exdat[1,])
+```
+#>
+
+#. frame Motivation
+- Unzufrieden mit IS-LM Modell
+  - Geldpolitik unter Annahme fester Preise???
+  - Statisches Gleichgewichtskonzept unintuitiv
+      - Multiplikatordynamiken
+      - Man sagt IS-LM Model gilt nur für "short-run"
+  - Geldmengenpolitik scheint weniger realitätsnah als Zinspolitik
+  - Unklare Verknüpfung mit long-run und angebotsseitigen Faktoren.
+
+- DSGE Makro
+  - Zu kompliziert (auch für Master inhaltlich sehr limitiert).
+  - Für meinen Geschmack sind Akteure zu rational bei komplizierten dynamischen Entscheidungen fürs ganze Leben.
+
+#. frame Überblick
+- Einfaches dynamisches 101 Modell
+- Übernimmt sehr viele Ideen des 3-Equation Modells im Textbuch von Carlin & Soskice
+- Explizites Timing innerhalb einer Periode.
+- Einige Ziele:
+  - short-, intermediate- und long-run komplett integrierbar
+  - Konsistent mit intuitiven Stories, z. B. Lohnverhandlungen: <br>
+    Inflation + Anteil von Produktivitätszuwachs
+  - Modellrahmen sinnvoll für viele spannende Themen, z. B. auch Umverteilungswirkung von EZB Politik, Schuldendynamiken.
+  
+#. frame Ablauf einer Periode im Grundmodell
+
+1. Inflations- und Einkommenserwartungen werden gebildet
+2. ZB legt Zinssatz fest.
+3. Nachfrage und geplante Ersparnis werden festgelegt
+4. Lohnverhandlungen
+5. Preissetzung
+
+  => aus 4 und 5 folgt Phillipskurve und Inflationsdynamik
+
+
+#. frame Schritt 1: Erwartungen bilden
+
+- Zunächst: reine adaptive Inflationserwartungen
+$$E\pi_t = \pi_{t-1}$$
+- Erwartetes Preisniveau: $$EP_t = (1+E\pi_t)P_{t-1}$$
+
+#. frame Schritt 2: Zentralbank legt Zinssatz fest
+
+- Annahme: Zentralbank kann direkt Nominalzins $i_t \geq 0$ festlegen.
+
+  - Instrumente: Kreditvergabe an Banken, Verzinsung von Zentralbankguthaben, Wertpapierkäufe und Verkäufe...
+
+- Entsprechender Realzins gemäß Fischergleichung
+$$r_t = i_t - E\pi_t$$
+
+  - Da Inflationserwartungen gegeben, kann Zentralbank auch direkt Realzins festlegen.
+
+- Wir diskutieren erst später, welcher natürliche Zins sich ohne Eingreifen der Zentralbank einstellen würde.
+
+#. frame Schritt 3: Nachfrage
+
+#. column
+- Nachfrage $Y_t$, sei zunächst nur eine fallende Funktion des Realzinses:
+$$Y_t = Y(r_{t})$$
+- Idee: Investitionen steigen mit niedrigeren Zinsen. Details später.
+
+#. column
+#< pane Yr
+xy: [Y_,r_]
+xaxis:
+  latex: Y
+yaxis:
+  label: r
+show_ticks: TRUE
+curves:
+  Yr_curve:
+    label: Yr
+    eq: r_ == r_NAI + slope_Yr * (Y_-Y_NAI)
+    colors: red
+    tooltip: Die Yr Kurve beschreibt welche Nachfrage Y sich als Funktion des Realzinses r einstellt. Sie ähnelt der IS Kurve aus dem IS-LM Modell. Wir nennen die Kurve Yr statt IS, da in unserem Modell die Gleichung Investitionen = Sparvolumen nicht immer gelten wird.
+  r_cb_curve:
+    latex: r_cb
+    colors: blue
+    eq: r_ == r_cb
+    tooltip: r_cb = {{r_cb}} ist der Realzins, der in unserem einfachen Modell direkt von der Zentralbank gesetzt wird.
+xmarkers:
+  Y:
+    latex: Y_t
+    to: r_cb
+    tooltip: Y_t = {{Y}} ist die reale Nachfrage = BIP, die sich in Periode t beim Zinssatz r_cb = {{r_cb}} bildet.
+datavar: exdat
+#>
+
+#< plotpane Yr
+
+#>
+
+#< ignore
+#. frame Schritt 4: Arbeitsnachfrage und Arbeitslosenquote
+
+
+- Vorher bestimmt: Nachfrage $Y_t$
+- Feste Arbeitsproduktivität: $\tau$, realer Output pro Stunde Arbeit.
+- Arbeitsnachfrage in Stunden: $H_t = Y_t / \tau$
+- Arbeitslosenquote: 
+$$u_t = (H_max - H_t(Y_t)) / H_max$$
+  - $H_max$ Zahl der Arbeitsstunden bei 100% Vollbeschäftigung.
+  - Sehr vereinfachte Umrechnung von Nachfrage $Y_t$ in Arbeitslosenquote $u_t$: kein Kündigungsschutz, keine Kurzarbeit, keine Teilzeit, keine Überstunden, ...
+#>
+
+#. frame Schritt 4: Lohnverhandlungen
+
+- Vorher bestimmt: Nachfrage $Y_t$, erwartetes Preisniveau $EP_t$
+- Feste Arbeitsproduktivität: $\tau$, realer Output pro Stunde Arbeit.
+- Arbeitsnachfrage in Stunden: $H_t = Y_t / \tau$
+- Augehandelter Nominallohn:
+  $$W_t = EP_t \cdot \tau \cdot ws(Y_t / \tau)$$
+  - $ws(H_t)$ (wage share) ist der beabsichtigte Anteil am Output, den die Arbeitnehmer als Lohn erhalten. Steigt in der Arbeitsnachfrage $H_t$.
+  
+- Erwarteter Reallohn pro Stunde: $Ew_t = W_t / EP_t$
+
+
+#. frame Illustration Lohnverhandlungen
+
+
+- Beispiel: Sei $EP_t = 1.5$ und $\tau=20$.
+
+#< pane nominalwage
+xy: [Y_,W_]
+xaxis:
+  label: Y
+yaxis:
+curves:
+  W_curve:
+    latex: W(Y)
+    eq: W_ == EP*tau*(ws_P + slope_ws*(Y_-Y_NAI))
+    color: red
+    tooltip: Der Nominallohn W in Euro pro Stunde, als Funktion der Nachfrage Y. 
+xmarkers:
+  Y:
+    latex: Y_t
+    to: W
+    tooltip: Y_t = {{Y}} ist die reale Nachfrage = BIP. Sie wurde zuvor bestimmt.
+ymarkers:
+  W:
+    latex: W_t
+    to: Y
+    tooltip: W_t = {{W}} Euro / Stunde ist der ausgehandelte Nominallohn bei der Nachfrage Y_t = {{Y}}.
+datavar: exdat
+#>
+
+#< pane realwage
+xy: [Y_,w_]
+xaxis:
+  label: Y
+yaxis:
+  label:
+curves:
+  Ew_curve:
+    latex: Ew(Y)
+    eq: w_ = tau*(ws_P + slope_ws*(Y_-Y_NAI))
+    color: lila
+    tooltip: Der entsprechende erwartete Reallohn Ew, gegeben dem erwarteten Preisniveau EP_t, als Funktion der Nachfrage Y.
+xmarkers:
+  Y:
+    latex: Y_t
+    to: Ew
+    tooltip: Y_t = {{Y}} ist die reale Nachfrage = BIP. Sie wurde zuvor bestimmt.
+ymarkers:
+  Ew:
+    latex: Ew_t
+    to: Y
+    tooltip: Ew_t = {{Ew}} Baskets / Stunde ist der erwartete Reallohn, der Eintritt, wenn die Inflation dem erwarteten Wert E\pi_t entspricht.
+datavar: exdat
+#>
+
+
+#< pane wageshare
+xy: [Y_,ws_]
+xaxis:
+  label: Y
+yaxis:
+  label:
+show_ticks: TRUE
+curves:
+  ws_P_curve:
+    latex: ws_P
+    eq: ws_ == ws_P
+    color: brown
+    tooltip: Die ws_P Kurve beschreibt die Lohnquote, die sich nach der Preissetzung tatsächlich bildet. Sie ist proportional zum resultierenden Reallohn. Unter der Annahme, dass die Firmen einen konstanten relativen Preisaufschlag auf den Nominallohn setzen, verläuft die ws_P Kurve horizontal. 
+  ws_curve:
+    latex: ws(Y/\tau)
+    eq: ws_ == ws_P + slope_ws*(Y_-Y_NAI)
+    color: blue
+    tooltip: |
+      Die ws Kurve beschreibt die Lohnquote, die beim ausgehandelten Nominallohn herauskäme, wenn die Inflationserwartungen korrekt wären. Wir betrachten die ws(Y/ \tau) Kurve als exogen gegeben. Ihr Verlauf hängt von den Arbeitsmarktinstitutionen, sowie den Verhandlungsstrategien von Arbeitgebern, Arbeitnehmern und Gewerkschaften ab.
+xmarkers:
+  Y_NAI:
+    tooltip: Y_NAI ist das Nachfrageniveau bei dem die Inflationsrate bei ihrem erwarteten Wert verbleibt. NAI steht für 'Non-Accelerating Inflation'.
+    latex: Y_NAI
+    to: ws_P
+  Y:
+    latex: Y_t
+    to: ws
+    tooltip: Y_t = {{Y}} ist die reale Nachfrage = BIP. Sie wurde zuvor bestimmt.
+ymarkers:
+  ws:
+    latex: ws_t
+    to: Y
+    tooltip: ws_t = {{ws*100}}% ist die erwartete Lohnquote, die Eintritt, wenn die Inflation dem erwarteten Wert E\pi_t entspricht.
+datavar: exdat
+#>
+
+<table style="width=100%; table-layout: fixed;"><tr>
+<td style="margin: 0; padding:0;">
+#< plotpane nominalwage
+title: Nominallöhne
+width: 200
+height: 200
+#>
+</td>
+<td style="margin: 0; padding:0;">
+#< plotpane realwage
+title: Erw. Reallöhne
+width: 200
+height: 200
+#>
+</td><td>
+#< plotpane wageshare
+title: Erw. Lohnquote
+width: 200
+height: 200
+show: [ws_curve, Y, ws]
+#>
+</td></tr></table>
+
+
+#. frame Schritt 5: Preissetzung
+
+- Firmen wählen einfach festen relativen Aufschlag $\mu$ auf Lohnstückkosten:
+
+$$P_t = (1+\mu) W_t / \tau$$
+
+- Eine Mikrofundierung: Monopolistischer Wettbewerb mit iso-elastischer Nachfrage. Andere Bestandteile der variablen Kosten sind proportional zu Löhnen.
+
+#. frame Lohn- und Preissetzung
+- Wenn wir die Löhne $W_t$ einsetzen erhalten wir
+$$
+\begin{eqnarray*}
+P_t & = & EP_t & \cdot (1+\mu) \cdot ws(Y_t / \tau) & \Leftrightarrow \\
+(1+\pi_t) & = & (1+E\pi_t) & \cdot (1+\mu) \cdot ws(Y_t / \tau) &
+\end{eqnarray*}
+$$
+Die realisierte Inflationsrate kann über oder unter dem erwarteten Niveau liegen.
+
+#. frame Lohn- und Preissetzung
+- Die Preissetzung legt im Nachhinein eine Lohnquote $ws_p$ fest, die von der Beabsichtigten $ws(Y_t / \tau)$ abweichen kann.
+$${ws}_{P}=\left(W_t/\tau\right)/P_t=\frac{1}{1+\mu}$$
+- Wir haben
+$$
+\begin{eqnarray*}
+ws(Y_t / \tau) & > & {ws}_{P} & \Leftrightarrow \\
+\pi_t & > & E\pi_t
+\end{eqnarray*}
+$$
+- Sei $Y_{NAI}$ das Output level, bei dem die Inflation gleich ihrem erwarteten Niveau bleibt (NAI = Non-Accelerating Inflation)
+$$ws(Y_{NAI} / \tau)=ws_P$$
+
+#< ignore
+library(EconCurves)
+#>
+
+#. frame Grafische Darstellung
+
+#< pane wageshare
+xy: [Y_,ws_]
+xaxis:
+  label: Y
+yaxis:
+  label: ws
+curves:
+  ws_P_curve:
+    latex: ws_P
+    eq: ws_ == ws_P
+    colors: brown
+    tooltip: Die ws_P Kurve beschreibt die Lohnquote, die sich nach der Preissetzung tatsächlich bildet. Sie ist proportional zum resultierenden Reallohn. Unter der Annahme, dass die Firmen einen konstanten relativen Preisaufschlag auf den Nominallohn setzen, verläuft die ws_P Kurve horizontal. 
+  ws_curve:
+    label: ws
+    eq: ws_ == ws_P + 0.01*(Y_-Y_NAI)
+    colors: blue
+    tooltip: Die ws Kurve beschreibt die Lohnquote, die beim ausgehandelten Nominallohn herauskäme, wenn die Inflationserwartungen korrekt wären. Die Kurve steigt in Y und ist proportional zum ausgehandelten Nominallohn. 
+ymarkers:
+xmarkers:
+  Y_NAI:
+    tooltip: Y_NAI ist das Nachfrageniveau bei dem die Inflationsrate bei ihrem erwarteten Wert verbleibt. NAI steht für 'Non-Accelerating Inflation'.
+    latex: Y_NAI
+    to: ws_P 
+datavar: exdat
+#>
+
+#< plotpane wageshare
+show: .all
+#>
+
+#. frame Philipps-Kurve
+
+- Wir hatten folgende Gleichung für die Inflationsrate hergeleitet:
+$$
+\begin{eqnarray*}
+(1+\pi_t) & = & (1+E\pi_t) & \cdot (1+\mu) \cdot ws(Y_t / \tau) &
+\end{eqnarray*}
+$$
+- Sie lässt sich umformen zu
+$$
+\begin{eqnarray*}
+\pi_{t} &= &E\pi_{t}+(1+E\pi_{t})\frac{ws(Y_{t}/\tau)-ws_{P}}{ws_{P}}
+\end{eqnarray*}
+$$
+  - Wir bezeichnen diesen Zusammenhang zwischen der Inflation $\pi$ und Output $Y$ als Phillipskurve.
+  
+#. frame Phillipskurve  
+
+#< pane pc_pane
+xy: [Y_,pi_]
+xaxis:
+  latex: Y
+yaxis:
+  latex: \pi
+  num.ticks: 2
+show.ticks: TRUE
+curves:
+  pc:
+    latex: PC|E\pi_{{.row}}
+    eq: pi_ == Epi + (1+Epi) * (slope_ws*(Y_-Y_NAI) ) / ws_P
+    colors: purple
+    tooltip: Diese Phillips-Kurve zeigt den Zusammenhang zwischen Inflation und Nachfrage in einer Periode, für gegebene Inflationserwartungen E\pi_{{.row}} = {{Epi}}.
+ymarkers:
+  Epi:
+    latex: E\pi_{{.row}}
+    to: Y_NAI
+    tooltip: Erwartete Inflation E\pi_{{.row}} = {{Epi}}.
+  pi:
+    latex: \pi_{{.row}}
+    to: Y
+    tooltip: Realisierte Inflationsrate \pi_{{.row}} = {{pi}} in dieser Periode.
+    
+xmarkers:
+  Y_NAI:
+    tooltip: Y_NAI = {{Y_NAI}} ist das Nachfrageniveau bei dem die Inflationsrate bei ihrem erwarteten Wert verbleibt. NAI steht für 'Non-Accelerating Inflation'.
+    latex: Y_NAI
+#    to: Epi
+  Y:
+    latex: Y_t
+#    to: pi
+    tooltip: Y_t = {{Y}} ist die reale Nachfrage = BIP in dieser Periode.
+datavar: exdat
+#>
+
+
+#< plotpane pc_pane
+show: .all
+data_rows: [1]
+#>
+
+#. frame Erwartete Inflation und Lage der Phillipskurve
+
+#< panequiz
+panes:
+  pc_pane:
+data_rows: [1,2]
+#. layout
+<table style = "table-layout: fixed; width: 100%;"><tr>
+<td style="vertical-align: top; width: 40%; padding-top: 0px;">{{menu}}{{text}}</td>
+<td style="vertical-align: top;">{{pane}}</td>
+</tr></table>
+#. step 1
+show:
+  1: .all
+  2: .none
+find: pc_2
+show_success: pc_2
+#. tell
+Nehmen Sie an in der nächsten Periode t=2 sind die Inflationsewartungen gegeben durch die heutige Inflation:
+$E\pi_2 = \pi_1 = {{Epi_2}}$. Hierdurch wird sich die Phillipskurve verschieben. Klicken Sie auf einen Punkt der resultierenden Phillipskurve in Periode 2.
+#. success
+Genau, an der Stelle $Y_{NAI}={{Y_NAI}}$ wird der y-Wert der Phillipskurve jetzt der neuen erwarteten Inflation $E\pi_2 = {{Epi_2}}$ entsprechen.
+#. step 2
+find: pi_2
+show_success: Y_2
+hide_success: Y_1
+#. tell
+Angenommen die Nachfrage beträgt in Periode 2 weiterhin $Y_2={{Y_2}}$. Welche Inflationsrate wird sich dann in Periode 2 einstellen?
+#. success
+Genau, wir brauchen einfach nur den Schnittpunkt von Y_2 mit der neuen Phillipskurve.
+#>
+
