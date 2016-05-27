@@ -16,6 +16,25 @@ lang: de
 slides: TRUE
 slide.type: frame
 use.whiskers: TRUE
+whiskers.round: 2
+#>
+
+#< css
+table.frametable {
+  table-layout: fixed; width: 100%;
+}
+
+td.leftcol {
+  vertical-align: top;
+  width: 50%;
+  padding-top: 0px;
+  padding-right: 5px;
+}
+td.rightcol {
+  vertical-align: top;
+  padding-top: 0px;
+}
+
 #>
 
 #< precompute
@@ -27,8 +46,9 @@ exdat = compute_frame(
   r_NAI = 0.03,
   Y = 110,
   Y_max = 115,
-  u = 1-  0.5*((Y_max-Y) / Y_max),
-  
+  u_NAI = 0.05,
+  c_Okun = 3,
+  u = u_NAI - (1/c_Okun) * ((Y-Y_NAI) / Y_NAI),
   r_cb = r_NAI + slope_Yr*(Y-Y_NAI),
   Epi = c(0.02,0.054),
   P_lag = 1.5 / (1+0.02),
@@ -45,6 +65,8 @@ exdat = compute_frame(
   Y__max = 120,
   r__min = 0,
   r__max = r_cb(Y=Y__min),
+  u__min = 0,
+  u__max = u(Y=Y__min),
   ws__min = ws(Y=Y__min),
   ws__max = ws(Y=Y__max),
   w__min = Ew(ws = ws__min),
@@ -186,33 +208,19 @@ datavar: exdat
 
 #>
 
-#< ignore
-#. frame Schritt 4: Arbeitsnachfrage und Arbeitslosenquote
-
-
-- Vorher bestimmt: Nachfrage $Y_t$
-- Feste Arbeitsproduktivität: $\tau$, realer Output pro Stunde Arbeit.
-- Arbeitsnachfrage in Stunden: $H_t = Y_t / \tau$
-- Arbeitslosenquote: 
-$$u_t = (H_max - H_t(Y_t)) / H_max$$
-  - $H_max$ Zahl der Arbeitsstunden bei 100% Vollbeschäftigung.
-  - Sehr vereinfachte Umrechnung von Nachfrage $Y_t$ in Arbeitslosenquote $u_t$: kein Kündigungsschutz, keine Kurzarbeit, keine Teilzeit, keine Überstunden, ...
-#>
-
 #. frame Schritt 4: Lohnverhandlungen
 
-- Vorher bestimmt: Nachfrage $Y_t$, erwartetes Preisniveau $EP_t$
+- Vorher bestimmt: Nachfrage $Y_t$
+- Idee: Arbeitsnachfrage und ausgehandelte Löhne steigen in $Y_t$
 - Feste Arbeitsproduktivität: $\tau$, realer Output pro Stunde Arbeit.
-- Arbeitsnachfrage in Stunden: $H_t = Y_t / \tau$
 - Augehandelter Nominallohn:
-  $$W_t = EP_t \cdot \tau \cdot ws(Y_t / \tau)$$
-  - $ws(H_t)$ (wage share) ist der beabsichtigte Anteil am Output, den die Arbeitnehmer als Lohn erhalten. Steigt in der Arbeitsnachfrage $H_t$.
+  $$W_t = EP_t \cdot \tau \cdot ws(Y_t)$$
+  - $ws(Y_t)$ (wage share) ist der beabsichtigte Anteil am Output, den die Arbeitnehmer als Lohn erhalten. Steigt in $Y_t$.
   
 - Erwarteter Reallohn pro Stunde: $Ew_t = W_t / EP_t$
 
 
 #. frame Illustration Lohnverhandlungen
-
 
 - Beispiel: Sei $EP_t = 1.5$ und $\tau=20$.
 
@@ -280,11 +288,11 @@ curves:
     color: brown
     tooltip: Die ws_P Kurve beschreibt die Lohnquote, die sich nach der Preissetzung tatsächlich bildet. Sie ist proportional zum resultierenden Reallohn. Unter der Annahme, dass die Firmen einen konstanten relativen Preisaufschlag auf den Nominallohn setzen, verläuft die ws_P Kurve horizontal. 
   ws_curve:
-    latex: ws(Y/\tau)
+    latex: ws(Y)
     eq: ws_ == ws_P + slope_ws*(Y_-Y_NAI)
     color: blue
     tooltip: |
-      Die ws Kurve beschreibt die Lohnquote, die beim ausgehandelten Nominallohn herauskäme, wenn die Inflationserwartungen korrekt wären. Wir betrachten die ws(Y/ \tau) Kurve als exogen gegeben. Ihr Verlauf hängt von den Arbeitsmarktinstitutionen, sowie den Verhandlungsstrategien von Arbeitgebern, Arbeitnehmern und Gewerkschaften ab.
+      Die ws Kurve beschreibt die Lohnquote, die beim ausgehandelten Nominallohn herauskäme, wenn die Inflationserwartungen korrekt wären. Wir betrachten im Moment, die ws(Y) Kurve als exogen gegeben. Ihr Verlauf hängt von den Arbeitsmarktinstitutionen, sowie den Verhandlungsstrategien von Arbeitgebern, Arbeitnehmern und Gewerkschaften ab.
 xmarkers:
   Y_NAI:
     tooltip: Y_NAI ist das Nachfrageniveau bei dem die Inflationsrate bei ihrem erwarteten Wert verbleibt. NAI steht für 'Non-Accelerating Inflation'.
@@ -404,7 +412,7 @@ $$
 - Sie lässt sich umformen zu
 $$
 \begin{eqnarray*}
-\pi_{t} &= &E\pi_{t}+(1+E\pi_{t})\frac{ws(Y_{t}/\tau)-ws_{P}}{ws_{P}}
+\pi_{t} &= &E\pi_{t}+(1+E\pi_{t})\frac{ws(Y_{t}/\tau)-ws_{P} }{ws_{P} }
 \end{eqnarray*}
 $$
   - Wir bezeichnen diesen Zusammenhang zwischen der Inflation $\pi$ und Output $Y$ als Phillipskurve.
@@ -453,6 +461,166 @@ show: .all
 data_rows: [1]
 #>
 
+#. frame BIP und Arbeitslosigkeit: Okun'sche Faustregel
+
+#< portrait 'Arthur Okun'
+url: https://upload.wikimedia.org/wikipedia/en/8/84/Arthur_Melvin_Okun.jpg
+link: http://www.econlib.org/library/Enc/bios/Okun.html
+align: right
+#>
+- Die Okun'sche Faustregel (Okun'sches Gesetz):
+
+
+    *Eine um 1% höhere Arbeitslosenquote entsprichte einer Reduktion von Y um ca. 2%-3% (relativ zu Y_NAI).*
+
+    $$(Y - Y_{NAI}) / Y_{NAI} = - c \cdot (u-u_{NAI})$$
+
+    mit c = 2 bis 3.
+
+- Empirisch geschätzt, hängt vom Land, aktueller Situation und Zeitrahmen ab
+  - Höhere Nachfrage Y führt erstmal zu Überstunden und Abbau von Lagern und nur zum Teil zu Neueinstellungen.
+  - Umgekehrt führt Rückgang von Y um 1% nicht im gleichen Maße zu Entlassungen.
+  - Längere anhaltende Nachfrageschocks können sich stärker auf Arbeitslosigkeit auswirken.
+
+
+#. frame Beispiel für Okun'sche Faustregel
+
+#< pane Okun_pane
+xy: [Y_,u_]
+xaxis:
+  latex: Y
+yaxis:
+  latex: u
+curves:
+  okun_curve:
+    latex: u(Y)
+    eq: u_ == u_NAI - (1 / c_Okun) * (Y_-Y_NAI) / Y_NAI 
+    colors: lila
+    tooltip: Arbeitslosenquote als Funktion des BIP Y gemäß der Okun'schen Faustregel mit c={{c_Okun}} und u_NAI = {{u_NAI}}.
+ymarkers:
+  u:
+    latex: u_t
+    to: Y
+    tooltip: u_t = {{round(u*100,2)}}% ist die Arbeitslosenquote in dieser Periode.
+  u_NAI:
+    latex: u_NAI
+    to: Y_NAI
+    tooltip: u_NAI ist die "natürliche" Arbeitslosequote, auch NAIRU (Non-Accelerating Inflation Rate of Unemployment) genannt. Sie ist die Arbeitslosenquote, bei der die Inflationsrate \pi_t genau ihren Erwartungen E\pi_t entspricht.
+xmarkers:
+  Y_NAI:
+    tooltip: Y_NAI = {{Y_NAI}} ist das Nachfrageniveau bei dem die Inflationsrate bei ihrem erwarteten Wert verbleibt. NAI steht für 'Non-Accelerating Inflation'.
+    latex: Y_NAI
+    to: u_NAI
+  Y:
+    latex: Y_t
+    to: u
+    tooltip: Y_t = {{Y}} ist die reale Nachfrage = BIP in dieser Periode.
+datavar: exdat
+#>
+
+
+
+<table style = "table-layout: fixed; width: 100%;"><tr>
+<td style="vertical-align: top; width: 40%; padding-top: 0px; padding-right: 10px">
+
+-  Beispielsweiser Zusammenhang von BIP Y und Arbeitslosigkeit u gemäß einer Okun'schen Faustregel.
+- $u_{NAI}$ = 5% und c = 3.
+</td><td>
+#< plotpane Okun_pane
+width: 320
+height: 280
+#>
+</td></tr>
+</table>
+
+#. frame Phillipskurve: Arbeitslosigkeit vs Inflation
+
+
+#< pane pc_u_pane
+xy: [u_,pi_]
+xaxis:
+  latex: u
+yaxis:
+  latex: \pi
+curves:
+  pcu:
+    latex: UPC|E\pi_{{.row}}
+    eq: pi_ == Epi + (1+Epi) * (slope_ws*( (Y_NAI-Y_NAI*c_Okun*(u_-u_NAI)-Y_NAI)) ) / ws_P
+    colors: lila
+    tooltip: Diese Phillips-Kurve zeigt den Zusammenhang zwischen Inflation und Arbeitslosikeit in einer Periode, für gegebene Inflationserwartungen E\pi_{{.row}} = {{Epi}}.
+ymarkers:
+  Epi:
+    latex: E\pi_{{.row}}
+    to: u_NAI
+    tooltip: Erwartete Inflation E\pi_{{.row}} = {{Epi}}.
+  pi:
+    latex: \pi_{{.row}}
+    to: u
+    tooltip: Realisierte Inflationsrate \pi_{{.row}} = {{pi}} in dieser Periode.
+xmarkers:
+  u:
+    latex: u_t
+    to: pi
+    tooltip: u_t = {{round(u*100,2)}}% ist die Arbeitslosenquote in dieser Periode.
+  u_NAI:
+    latex: u_NAI
+    to: Epi
+    tooltip: u_NAI ist die "natürliche" Arbeitslosequote, auch NAIRU (Non-Accelerating Inflation Rate of Unemployment) genannt. Sie ist die Arbeitslosenquote, bei der die Inflationsrate \pi_t genau ihren Erwartungen E\pi_t entspricht.
+datavar: exdat
+#>
+
+<table style = "table-layout: fixed; width: 100%;">
+<tr><td style="vertical-align: top; width: 35%; padding-top: 0px;">
+- Resultierende Phillipskurve für Zusammenhang von Arbeitslosigkeit u und Inflationsrate $\pi$.
+</td><td>
+#< plotpane pc_u_pane
+width: 320
+height: 280
+
+#>
+</td></tr>
+</table>
+
+#. frame Inflations-Arbeitslosigkeit-Tradeoff
+
+<table class="frametable">
+<tr><td class="leftcol" style="width: 50%;">
+
+In unserem Beispiel hat die Zentralbank durch den niedrigen Zinssatz von $r_{cb}$={{r_cb*100}}% die Nachfrage auf Y={{Y}} > Y_NAI = {{Y_NAI}} angekurbelt und die Arbeitslosigkeit auf u = {{round(u*100,2)}}% unter das "natürliche" Niveau von u_NAI = {{u_NAI*100}}% gesenkt. Dafür beträgt die Inflationsrate $\pi_t$ = {{round(pi*100,2)}}%, statt der erwarteten $E\pi_t$ = {{Epi*100}}%.
+
+
+</td><td class="rightcol">
+#< plotpane pc_u_pane
+width: 250
+height: 250
+#>
+</td></tr>
+</table>
+
+
+#. frame Inflations-Arbeitslosigkeit-Tradeoff
+
+<table class="frametable">
+<tr><td class="leftcol" style="width: 55%;">
+#< quiz pi_u_tradeoff
+question: Nehmen Sie an die Zentralbank möchte 'lieber 5% Inflation, statt 5% Arbeitslosigkeit' und belässt in allen zukünftigen Perioden den Zinssatz r_cb bei 2%. Die Yr und ws Kurven bleiben gleich. Was passiert in unserem Modell?
+sc:
+  - Die Arbeitslosenquote bleibt in jeder Periode bei u={{round(u*100,2)}}% und die Inflationsrate bei $\pi$={{round(pi*100,2)}}%
+  - Die Arbeitslosenquote bleibt bei u={{round(u*100,2)}}%, aber die Inflationsrate steigt jedes Jahr an.*
+  - Die Arbeitslosenquote geht langsam auf Ihr natürliches Niveau $u_NAI$={{u_NAI*100}}% zurück, die Inflationsrate bleibt aber bei 
+#>  
+
+</td><td class="rightcol">
+#< plotpane pc_u_pane
+width: 200
+height: 200
+xaxis:
+  num.ticks: 3
+#>
+</td></tr>
+</table>
+
+
 #. frame Erwartete Inflation und Lage der Phillipskurve
 
 #< panequiz
@@ -460,8 +628,8 @@ panes:
   pc_pane:
 data_rows: [1,2]
 #. layout
-<table style = "table-layout: fixed; width: 100%;"><tr>
-<td style="vertical-align: top; width: 40%; padding-top: 0px;">{{menu}}{{text}}</td>
+<table class=".frametable"><tr>
+<td class="leftcol", style="width: 40%;"> {{menu}}{{text}}</td>
 <td style="vertical-align: top;">{{pane}}</td>
 </tr></table>
 #. step 1
