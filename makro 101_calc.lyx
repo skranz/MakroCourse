@@ -1,0 +1,238 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Anteil der Arbeitnehmer am Erlös
+\begin_inset Formula 
+\[
+P=(1+\mu)\left(W/\tau\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+ws_{P}=\left(W/\tau\right)/P=\frac{1}{1+\mu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We have
+\begin_inset Formula 
+\begin{eqnarray*}
+P_{t} & = & EP_{t}(1+\mu)ws(Y_{t}/\tau)\\
+P_{t} & = & EP_{t}(1+\psi(Y_{t}))
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\pi_{t} & = & \frac{P_{t}-P_{t-1}}{P_{t-1}}\\
+ & = & \frac{EP_{t}-P_{t-1}}{P_{t-1}}+\frac{P_{t}-EP_{t}}{P_{t-1}}\\
+ & = & \frac{EP_{t}-P_{t-1}}{P_{t-1}}+\frac{(1+\psi(Y_{t}))EP_{t}-EP_{t}}{P_{t-1}}\\
+ & = & E\pi_{t}+\psi(Y_{t})\frac{EP_{t}}{P_{t-1}}\\
+ & = & E\pi_{t}+(1+E\pi_{t})\psi(Y_{t})
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Alternative Berechnung:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+(1+\pi_{t}) & = & (1+E\pi_{t})\cdot(1+\mu)\cdot ws(Y_{t}/\tau)\\
+ & = & (1+E\pi_{t})\cdot ws/ws_{P}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\pi_{t}=(1+E\pi_{t})\cdot ws/ws_{P}-1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\pi_{t} & = & (1+E\pi_{t})\cdot ws/ws_{P}-1\\
+ & = & E\pi_{t}(ws/ws_{P})+\psi\\
+ & = & E\pi_{t}(\psi+1)+\psi
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\psi(Y)=(1+\mu)\cdot ws(Y_{t}/\tau)-1$
+\end_inset
+
+ we can then write it
+\begin_inset Formula 
+\[
+\pi_{t}=\psi(Y_{t})+\left(\psi(Y_{t})-1\right)E\pi_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+or 
+\begin_inset Formula 
+\begin{eqnarray*}
+\pi_{t} & = & E\pi_{t}+(1+E\pi_{t})\psi(Y_{t})\\
+\pi_{t} & = & E\pi_{t}+(1+E\pi_{t})\frac{ws(Y_{t}/\tau)-ws_{P}}{ws_{P}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can write
+\begin_inset Formula 
+\[
+\psi=\frac{ws(Y_{t}/\tau)}{ws_{P}}-1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\pi_{t} & = & \frac{P_{t}-P_{t-1}}{P_{t-1}}\Leftrightarrow\\
+\pi_{t} & = & E\pi_{t}+(1+E\pi_{t})\psi(Y_{t})
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Okuns Law and Phillips curve
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+u=u_{NAI}-(1/c)*((Y-Y_{NAI})/Y_{NAI})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+((Y-Y_{NAI})/Y_{NAI}) & = & -c(u-u_{NAI})\\
+Y & = & Y_{NAI}-Y_{NAI}c(u-u_{NAI})
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

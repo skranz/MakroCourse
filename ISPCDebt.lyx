@@ -1,0 +1,421 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Goverment Debt
+\end_layout
+
+\begin_layout Itemize
+We have a fixed nominal interest rate 
+\begin_inset Formula $r$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Variation: exogenous nominal interest rate 
+\begin_inset Formula $i$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Government does not care about inflation, but only about about output gap
+ and debt gap.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+u_{G}=-\frac{1}{2}w_{y}(y_{T}-y)^{2}-\frac{1}{2}w_{D}(D-D_{T})^{2}-\frac{1}{2}w_{\pi}(\pi-\pi_{T})^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $m$
+\end_inset
+
+ be the Keynesian multiplicator and 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ the slope of the PC.
+\end_layout
+
+\begin_layout Itemize
+The FOC for government expenditures
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{du_{G}}{dG} & = & w_{y}(y_{T}-y)\frac{dy}{dG}-w_{D}(D-D_{T})\frac{dD}{dG}-w_{\pi}(\pi-\pi_{T})\frac{dy}{dG}\frac{d\pi}{dy}\\
+ & = & w_{y}(y_{T}-y)m-w_{D}(D-D_{T})-w_{\pi}(\pi-\pi_{T})m\alpha=0
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+w_{y}(y_{T}-y)m & = & w_{D}(D-D_{T})+w_{\pi}(\pi-\pi_{T})m\alpha
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Investments and Capital Stocks
+\end_layout
+
+\begin_layout Subsection
+First attempt
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y_{t}=\tau K_{t}^{\kappa}L_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Labor productivity is given as
+\begin_inset Formula 
+\[
+MPL=\frac{\partial y}{\partial L}=\tau K_{t}^{\kappa}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assuming that each firm faces a demand function with constant elasticity,
+ the domestic price level will be given by
+\begin_inset Formula 
+\[
+P=(1+\mu)\frac{W}{MPL}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $W$
+\end_inset
+
+ is the nominal wage level.
+ We assume that firms' profits will be paid out to capital holders.
+ The firms' nominal profits are given by
+\begin_inset Formula 
+\begin{eqnarray*}
+\Pi & = & Py-WL=(1+\mu)\frac{W}{MPL}\cdot MPL\cdot L-WL\\
+ & = & (1+\mu)\frac{W}{MPL}\cdot MPL\cdot L-W\cdot L\\
+ & = & \mu\cdot W\cdot L
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The firm's real profits are given by
+\begin_inset Formula 
+\[
+\frac{\Pi}{P}=\frac{\mu}{1+\mu}\frac{L}{MPL}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we assume that these profits are paid out to capital owners, we have
+ the following real profit per capital owner:
+\begin_inset Formula 
+\begin{eqnarray*}
+r_{K} & = & \frac{\Pi/P}{K}=\frac{\mu}{1+\mu}\frac{L}{K\cdot MPL}\\
+ & = & \frac{\mu}{1+\mu}\frac{L}{K\cdot\tau K^{\kappa}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+That is a weird prediction: A larger productivity 
+\begin_inset Formula $\tau$
+\end_inset
+
+ leads to lower real returns to capital...
+\end_layout
+
+\begin_layout Standard
+Given that 
+\begin_inset Formula $\mu=\frac{1}{1-\eta}$
+\end_inset
+
+ we have
+\begin_inset Formula 
+\[
+\frac{\mu}{1+\mu}=\frac{\frac{1}{1-\eta}}{1+\frac{1}{1-\eta}}=\frac{1}{1-\eta+1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Second attempt
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y_{t}=\tau K_{t}^{\kappa}L_{t}^{\lambda}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Labor and capital productivity are given as
+\begin_inset Formula 
+\begin{eqnarray*}
+MPL & = & \frac{\partial y}{\partial L}=\lambda\tau K^{\kappa}L^{\lambda-1}=\frac{\lambda y}{L}\\
+MPK & = & \frac{\partial y}{\partial K}=\kappa\tau K^{\kappa-1}L^{\lambda}=\frac{\kappa y}{K}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Marginal cost of labor is given as follows
+\begin_inset Formula 
+\[
+MC_{L}=\frac{W}{MPL}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Marginal cost of capital: a firm rents one unit of capital for one period
+ at a nominal interest rate of 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ The capital depreciates, but the firm has to give back the whole unit of
+ capital.
+ So marginal cost to produce one extra output unit with the unit of capital
+ satisfies
+\begin_inset Formula 
+\[
+MC_{K}=\frac{i+\delta P}{MPK}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In equilibrium with market power, firm's choose labor, capital and prices
+ such that
+\begin_inset Formula 
+\[
+P=(1+\mu)(MC_{L})=(1+\mu)(MC_{K})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Firms' nominal revenues are given by
+\begin_inset Formula 
+\begin{eqnarray*}
+Py & = & (1+\mu)\frac{W}{MPL}\cdot\frac{L}{\lambda}MPL\\
+ & = & \frac{(1+\mu)}{\lambda}WL
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Firms' nominal profits are given
+\begin_inset Formula 
+\begin{eqnarray*}
+\Pi & = & Py-WL-iK\\
+ & = & \left(\frac{(1+\mu)}{\lambda}-1\right)WL-iK
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These profits will be distributed as a risk premium to capital or to entrepreneu
+rs.
+\end_layout
+
+\begin_layout Standard
+Demand for capital:
+\begin_inset Formula 
+\begin{eqnarray*}
+MR & = & MC_{K}\\
+\frac{MR}{P} & = & \frac{MC_{K}}{P}\\
+1-\frac{1}{\eta} & = & \frac{r+\delta}{MPK}
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+MPK=\frac{r+\delta}{1-\frac{1}{\eta}}=\frac{r+\delta}{1+\mu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The firm's real profits are given by
+\begin_inset Formula 
+\[
+\frac{\Pi}{P}=\frac{\mu}{1+\mu}\frac{L}{MPL}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we assume that these profits are paid out to capital owners, we have
+ the following real profit per capital owner:
+\begin_inset Formula 
+\begin{eqnarray*}
+r_{K} & = & \frac{\Pi/P}{K}=\frac{\mu}{1+\mu}\frac{L}{K\cdot MPL}\\
+ & = & \frac{\mu}{1+\mu}\frac{L}{K\cdot\tau K^{\kappa}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+That is a weird prediction: A larger productivity 
+\begin_inset Formula $\tau$
+\end_inset
+
+ leads to lower real returns to capital...
+\end_layout
+
+\begin_layout Standard
+Given that 
+\begin_inset Formula $\mu=\frac{1}{1-\eta}$
+\end_inset
+
+ we have
+\begin_inset Formula 
+\[
+\frac{\mu}{1+\mu}=\frac{\frac{1}{1-\eta}}{1+\frac{1}{1-\eta}}=\frac{1}{1-\eta+1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

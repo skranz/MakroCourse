@@ -1,0 +1,168 @@
+---
+title: "Solow Modell"
+author: "Sebastian Kranz"
+date: "Tuesday, December 30, 2014"
+output: html_document
+exercise_tag: "## Exercise"
+---
+
+## Exercise 1: Load Penn World Tables
+
+Laden Sie zunächst die Penn World Tables im Stata Format aus dem Internet:
+
+http://www.rug.nl/research/ggdc/data/pwt/v80/pwt80.zip
+
+Entpacken Sie die ZIP Datei in ihrem Uebungsblatt Ordner
+
+```{r}
+library(foreign)
+library(dplyr)
+dat = read.dta("pwt80.dta")
+descr = view.stata.var(dat)
+dat = mutate(dat,
+  gdp_cap = cgdpe / pop,
+  y = cgdpe / pop,
+  k = ck / pop,
+  ci = csh_i
+)
+
+wgi = read.csv("wgi.csv")
+colnames(wgi)[2] = "countrycode"
+d = left_join(dat, select(wgi,-country),by = c("countrycode","year"))
+library(countrycode)
+d$region = countrycode(d$countrycode,"wb","region")
+d$continent = countrycode(d$countrycode,"wb","continent")
+
+dat = d
+
+```
+
+## Aufgabe 1 
+Determine the relationship between savings rates and per capita incomes in 1960
+and 2000. To do this, you will need to download for all countries the variable ci and y in both 1960 and 2000 in the PWT7.1.
+
+The variable labeled ci is the investment share of GDP (i.e. savings rate) and the variable labeled y is per capita GDP of a country expressed relative to the US level in percentage terms. Thus if y=50 in the data, it means that country i has a per capita GDP in 1960 that is ½ the US level in that year. Hand in a scatter plot for 1960 and 2000. 
+
+```{r}
+library(dplyr)
+library(sktools)
+
+d = filter(dat, year==1960 | year == 2000)
+d = select(d,ci,y,year,country) 
+library(rCharts)
+rPlot(y ~ ci | year, data = d, type = 'point', color = 'country')
+
+
+
+```
+
+Also calculate and hand in the correlation coefficient for saving rates and income levels in 1960 and 2000.
+```{r}
+summarise(group_by(dat,year), cor.y.ci = cor(y,ci,use = "complete.obs"))
+lm(y ~ ci, data=dat)
+```
+
+
+Generate a motion plot
+```{r}
+unique(dat$country)
+countries = c("Russia","Germany","France","Greece","Spain","China","India","Poland","United States")
+d = filter(dat, country %in% countries)
+d = filter(dat, year >= 1996)
+p = gvisMotionChart(data = d,idvar = "country",timevar = "year",xvar = "ci",yvar="gdp_cap", colorvar="region", sizevar="pop")
+plot(p)
+
+
+```
+
+```{r}
+
+p = gvisMotionChart(data = dat,idvar = "country",timevar = "year",xvar = "ci",yvar="gdp_cap", colorvar="continent", sizevar="pop")
+plot(p)
+
+```
+
+```{r}
+cat(paste0(colnames(d), collapse=" + "))
+library(regtools)
+
+d$YEAR = as.factor(d$year) 
+reg1 =lm(gdp_cap ~  ci + ControlofCorruption + GovernmentEffectiveness + PoliticalStabilityNoViolence + RegulatoryQuality + RuleofLaw+year,data=d)
+
+effectplot(reg1,numeric.effect = "25-75")
+
+reg1 =lm(gdp_cap ~  ci + ControlofCorruption + GovernmentEffectiveness + PoliticalStabilityNoViolence + RegulatoryQuality + RuleofLaw+year+hc,data=d)
+
+
+reg1 =lm(gdp_cap ~  ci + ControlofCorruption + PoliticalStabilityNoViolence + RegulatoryQuality + RuleofLaw+year+hc,data=d)
+
+d = mutate(group_by(d,country), avg.savings = mean(ci, na.rm=TRUE))
+reg1 =lm(gdp_cap ~  avg.savings + year+hc,data=d)
+
+effectplot(reg1,numeric.effect = "10-90", show.ci=TRUE)
+
+```
+
+Let us analyse growth
+
+```{r}
+library(sktools)
+library(tidyr)
+library(regtools)
+
+dl = left_join(expand(dat, countrycode,year),dat)
+dat = arrange(dl, countrycode, year)
+
+dol = do(group_by(dat, country),
+        transform.for.growth.analysis(.,ahead=5, fixed.vars=c("year","country","countrycode","continent","region")))
+
+dn = do(group_by(dat, country),
+        transform.for.growth.analysis(.,ahead=5, overlapping=FALSE, fixed.vars=c("year","country","countrycode","continent","region")))
+
+dg = dn
+
+d = filter(dg, year>=1996)
+cat(paste0(colnames(dg), collapse=" + "))
+
+reg = lm(data = dg, gdp_cap_growth ~ pop_growth + gdp_cap_start + hc_start + csh_i_start+
+         ControlofCorruption_start + PoliticalStabilityNoViolence_start + RegulatoryQuality_start + RuleofLaw_start+GovernmentEffectiveness_start)
+
+
+effectplot(reg, show.ci=TRUE)
+           
+reg = lm(data = dg, gdp_cap_growth ~ pop_growth + csh_i_start+ gdp_cap_start + hc_start + year + region)
+
+rd = regression.data(formula(reg), data=get.regression.data(reg))
+effectplot(reg,rd, show.ci=TRUE)
+
+
+reg = lm(data = dg, gdp_cap_growth ~ pop_growth + csh_i_start+ gdp_cap_start + hc_start + year + continent)
+
+ereg = expanded.regression(reg)
+effectplot(ereg, show.ci=TRUE)
+
+
+```
+
+
+Question 2: Calibrated Solow Model. Next calculate the average annual population growth rate
+for each country between 1960 and 2000. If either the 1960 or 2000 data is missing, use the first
+the years closest to these years for which data is available. For this you will need to download
+the variable labeled POP in the PWT7.1. Now use the savings rate for 2000 for each country you
+imported in Question 1. Assume all countries have the same depreciation rate δ= .05, the same
+rate of exogenous technological change, γ=.02, and the same TFP parameter A=1. Use the
+formula for the ratio of the balanced growth path per capita output for the Solow model that we
+used in the 2/10/2014 class BGP
+US t
+BGP
+i t y y , , / , where the comparison is being made to the US. More
+specifically, take the average savings rate and average annual population growth rate for each
+country and compute its output per capita relative to the US level.
+Hand in a scatter plot which relates Solow relative GDPs per capita BGP
+US t
+BGP
+i t y y , , 100 / and actual
+relative 2000 GDPs per capita (i.e. y in the data). We multiply Solow relative GDP pre capita by
+100 so as to put it in percentage terms as is the case with the variable y.
+Note: On Friday, Seyed teach you a few tricks for downloading and importing the data into
+excel.

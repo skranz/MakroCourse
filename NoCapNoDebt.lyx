@@ -1,0 +1,260 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+\newcommand{\hide}[1]{{\textcolor{white}{\Large #1}}}
+
+%\setbeamertemplate{footline}[page number]{}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,left]{date in head/foot}%
+    \hskip2pt \insertframenumber{} / \inserttotalframenumber 
+  \end{beamercolorbox}}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \insertsubsection
+  \end{beamercolorbox}%
+
+  \vskip0pt%
+}
+\beamertemplatenavigationsymbolsempty 
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language american
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 0
+\use_mathdots 0
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\use_refstyle 0
+\notefontcolor #ffffff
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+A simple macro model without debt, capital or interest
+\end_layout
+
+\begin_layout BeginFrame
+Motivation: 
+\begin_inset Quotes eld
+\end_inset
+
+Secular Stagnation
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+AEA Panel on 
+\begin_inset Quotes eld
+\end_inset
+
+Secular Stagnation
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+For attainable real interest rates (given a zero lower bound on nominal
+ interest rates), desired savings exceed real investments.
+\end_layout
+
+\begin_layout Itemize
+What happens if desired savings of individual exceed demand for real investments
+?
+\end_layout
+
+\begin_layout Itemize
+It seems as if savings go into 
+\begin_inset Quotes eld
+\end_inset
+
+store of values
+\begin_inset Quotes erd
+\end_inset
+
+, like cash, gold, land, ...
+\end_layout
+
+\begin_layout Itemize
+We want to better understand business cycles and stabiliziation policy in
+ such a world.
+\end_layout
+
+\begin_layout Itemize
+We take an extrem modell, without loans (no interest rate) and no productive
+ capital, i.e.
+ no real investments.
+\end_layout
+
+\begin_layout BeginFrame
+Model
+\end_layout
+
+\begin_layout Itemize
+An economy inhabited by continuum of representative inhabitants of measure
+ 1 who are consumers and producers.
+\end_layout
+
+\begin_layout Itemize
+Each period consists of several stages.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Stage 0 (Savings): Each inhabitant has an amount of money 
+\begin_inset Formula $M_{t}$
+\end_inset
+
+ and decides, how much he wants to save 
+\begin_inset Formula $S_{t}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Stage 1 (Taxes): The state decides how much taxes 
+\begin_inset Formula $T_{t}$
+\end_inset
+
+ it takes from the inhabitants.
+\end_layout
+
+\begin_layout Itemize
+Stage 2 (Price-setting): Inhabitants are producers and set a price 
+\begin_inset Formula $P_{t}$
+\end_inset
+
+ for their services.
+ Each inhabitant can provide at most one unit of services.
+ Inhabitants try to set the highest price, at which they exactly deliever
+ one unit of service.
+ We assume everybody sets the same price.
+\end_layout
+
+\begin_layout Itemize
+Stage 3 (Consumption): Inhabitants spend 
+\begin_inset Formula $C_{t}=M_{t}-T_{t}-S_{t}$
+\end_inset
+
+ on consumption.
+ Real consumption is given by 
+\begin_inset Formula 
+\[
+c_{t}=\frac{C_{t}}{P_{t}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout BeginFrame
+Price-Setting
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $z_{t}=c_{t}-1$
+\end_inset
+
+ be the excess demand, above the desired supply.
+\end_layout
+
+\begin_layout Itemize
+Assume prices in period 
+\begin_inset Formula $t$
+\end_inset
+
+ are set by the following simple rule of thumb:
+\begin_inset Formula 
+\[
+P_{t}=P_{t-1}(1+\alpha z_{t-1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The price is equal to the previous period price plus a markup that depends
+ on the excess demand.
+\end_layout
+
+\begin_layout Itemize
+The equilibrium price level in which desired supply meets demand is given
+ by
+\begin_inset Formula 
+\[
+P_{t}^{*}=C_{t}=M_{t}-T_{t}-S_{t}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\end_body
+\end_document
