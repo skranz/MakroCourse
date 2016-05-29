@@ -19,7 +19,43 @@ use.whiskers: TRUE
 whiskers.round: 2
 #>
 
+#< head
+
+<link href='https://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
+
+
+<link href='https://fonts.googleapis.com/css?family=Kalam:400,700' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=Sniglet' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=Signika:400,600' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=Catamaran:500' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=BenchNine:700' rel='stylesheet' type='text/css'>
+#>
+
 #< css
+body {
+  font-family: 'Signika';
+  font-family: 'BenchNine';
+  font-family: 'Sniglet';
+  font-size: 1.5em;
+}
+/* Corrects mistake in nested list rendering */
+li p {
+    margin: 0 0 0px;
+}
+/* Make lists take less space */
+ol, ul {
+    padding-left: 30px;
+}
+
+td ol, td ul {
+  padding-left: 10px;
+}
+}
+
 table.frametable {
   table-layout: fixed; width: 100%;
 }
@@ -35,6 +71,9 @@ td.rightcol {
   padding-top: 0px;
 }
 
+.tooltip-inner {
+    white-space: pre-wrap;
+}
 #>
 
 #< precompute
@@ -50,7 +89,7 @@ exdat = compute_frame(
   c_Okun = 3,
   u = u_NAI - (1/c_Okun) * ((Y-Y_NAI) / Y_NAI),
   r_cb = r_NAI + slope_Yr*(Y-Y_NAI),
-  Epi = c(0.02,0.054),
+  Epi = c(0.02,0.054,0.089),
   P_lag = 1.5 / (1+0.02),
   EP = P_lag * (1+Epi),
   slope_ws = 0.002,
@@ -171,13 +210,6 @@ $$r_t = i_t - E\pi_t$$
 - Wir diskutieren erst später, welcher natürliche Zins sich ohne Eingreifen der Zentralbank einstellen würde.
 
 #. frame Schritt 3: Nachfrage
-
-#. column
-- Nachfrage $Y_t$, sei zunächst nur eine fallende Funktion des Realzinses:
-$$Y_t = Y(r_{t})$$
-- Idee: Investitionen steigen mit niedrigeren Zinsen. Details später.
-
-#. column
 #< pane Yr
 xy: [Y_,r_]
 xaxis:
@@ -204,9 +236,20 @@ xmarkers:
 datavar: exdat
 #>
 
-#< plotpane Yr
+<table class="frametable">
+<td class="leftcol" style="width: 35%;">
 
+- Nachfrage $Y_t$, sei zunächst nur eine fallende Funktion des Realzinses:
+$$Y_t = Y(r_{t})$$
+- Idee: Investitionen steigen mit niedrigeren Zinsen. Details später.
+
+</td><td class="rightcol" style="width: 35%;">
+
+#< plotpane Yr
+width: 320
+height: 300
 #>
+</td></table>
 
 #. frame Schritt 4: Lohnverhandlungen
 
@@ -547,7 +590,11 @@ curves:
     latex: UPC|E\pi_{{.row}}
     eq: pi_ == Epi + (1+Epi) * (slope_ws*( (Y_NAI-Y_NAI*c_Okun*(u_-u_NAI)-Y_NAI)) ) / ws_P
     colors: lila
-    tooltip: Diese Phillips-Kurve zeigt den Zusammenhang zwischen Inflation und Arbeitslosikeit in einer Periode, für gegebene Inflationserwartungen E\pi_{{.row}} = {{Epi}}.
+    tooltip: |
+      Diese Phillips-Kurve zeigt den Zusammenhang
+      zwischen Inflation und Arbeitslosikeit
+      in einer Periode, für gegebene
+      Inflationserwartungen E\pi_{{.row}} = {{Epi}}.
 ymarkers:
   Epi:
     latex: E\pi_{{.row}}
@@ -565,14 +612,21 @@ xmarkers:
   u_NAI:
     latex: u_NAI
     to: Epi
-    tooltip: u_NAI ist die "natürliche" Arbeitslosequote, auch NAIRU (Non-Accelerating Inflation Rate of Unemployment) genannt. Sie ist die Arbeitslosenquote, bei der die Inflationsrate \pi_t genau ihren Erwartungen E\pi_t entspricht.
+    tooltip: |
+      u_NAI ist die "natürliche" Arbeitslosequote,
+      auch NAIRU (Non-Accelerating Inflation Rate
+      of Unemployment) genannt.
+      
+      Sie ist die Arbeitslosenquote, bei der die
+      Inflationsrate \pi_t genau ihren Erwartungen
+      E\pi_t entspricht.
 datavar: exdat
 #>
 
-<table style = "table-layout: fixed; width: 100%;">
-<tr><td style="vertical-align: top; width: 35%; padding-top: 0px;">
+<table class="frametable">
+<tr><td class="leftcol" style="width: 35%;">
 - Resultierende Phillipskurve für Zusammenhang von Arbeitslosigkeit u und Inflationsrate $\pi$.
-</td><td>
+</td><td class="rightcol">
 #< plotpane pc_u_pane
 width: 320
 height: 280
@@ -586,7 +640,15 @@ height: 280
 <table class="frametable">
 <tr><td class="leftcol" style="width: 50%;">
 
-In unserem Beispiel hat die Zentralbank durch den niedrigen Zinssatz von $r_{cb}$={{r_cb*100}}% die Nachfrage auf Y={{Y}} > Y_NAI = {{Y_NAI}} angekurbelt und die Arbeitslosigkeit auf u = {{round(u*100,2)}}% unter das "natürliche" Niveau von u_NAI = {{u_NAI*100}}% gesenkt. Dafür beträgt die Inflationsrate $\pi_t$ = {{round(pi*100,2)}}%, statt der erwarteten $E\pi_t$ = {{Epi*100}}%.
+Unser Beispiel: 
+
+-> Zentralbank setzte niedrigen Zinssatz von $r_{cb}$={{r_cb*100}}%
+
+-> Nachfrage auf Y={{Y}}, über das "natürliche" Niveau von Y_NAI = {{Y_NAI}} angekurbelt
+
+-> Arbeitslosigkeit auf u = {{round(u*100,2)}}% unter das "natürliche" Niveau von u_NAI = {{u_NAI*100}}% gesenkt. 
+
+-> Aber Inflationsrate $\pi_t$ = {{round(pi*100,2)}}%, statt der erwarteten $E\pi_t$ = {{Epi*100}}%.
 
 
 </td><td class="rightcol">
@@ -602,12 +664,13 @@ height: 250
 
 <table class="frametable">
 <tr><td class="leftcol" style="width: 55%;">
+
 #< quiz pi_u_tradeoff
-question: Nehmen Sie an die Zentralbank möchte 'lieber 5% Inflation, statt 5% Arbeitslosigkeit' und belässt in allen zukünftigen Perioden den Zinssatz r_cb bei 2%. Die Yr und ws Kurven bleiben gleich. Was passiert in unserem Modell?
+question: Nehmen Sie an die Zentralbank möchte *lieber 5% Inflation, statt 5% Arbeitslosigkeit* und belässt in allen zukünftigen Perioden den Zinssatz r_cb bei 2%. Die Yr und ws Kurven bleiben gleich. Was passiert in unserem Modell?
 sc:
-  - Die Arbeitslosenquote bleibt in jeder Periode bei u={{round(u*100,2)}}% und die Inflationsrate bei $\pi$={{round(pi*100,2)}}%
-  - Die Arbeitslosenquote bleibt bei u={{round(u*100,2)}}%, aber die Inflationsrate steigt jedes Jahr an.*
-  - Die Arbeitslosenquote geht langsam auf Ihr natürliches Niveau $u_NAI$={{u_NAI*100}}% zurück, die Inflationsrate bleibt aber bei 
+  - Die Arbeitslosenquote bleibt in jeder Periode bei {{round(u*100,2)}}% und die Inflationsrate bleibt bei {{round(pi*100,2)}}%.
+  - Die Arbeitslosenquote bleibt bei {{round(u*100,2)}}%, aber die Inflationsrate steigt jede Periode immer weiter an.*
+  - Die Arbeitslosenquote steigt langsam von {{round(u*100,2)}}% auf ihr natürliches Niveau u_NAI={{u_NAI*100}}% an, die Inflationsrate verbleibt bei {{round(pi*100,2)}}%.
 #>  
 
 </td><td class="rightcol">
@@ -619,6 +682,69 @@ xaxis:
 #>
 </td></tr>
 </table>
+
+#. frame Lohn- Preisspirale t=2
+
+#< panequiz
+direct_click: TRUE
+panes:
+  pc_pane:
+    width: 300
+    height: 280
+data_rows: [2,1]
+#. layout
+<table class=".frametable"><tr>
+<td class="leftcol", style="width: 50%;"> {{menu}}{{text}}</td>
+<td style="vertical-align: top;">{{pane}}</td>
+</tr></table>
+#. step 1
+show:
+  2: .none
+  1: .all
+find: pc_2
+show_success: [Epi_2]
+hide_success: [pi_1]
+#. tell
+In der nächsten Periode t=2 sind die Inflationsewartungen gegeben durch die heutige Inflation:
+$E\pi_2 = \pi_1 = {{Epi_2}}$. Hierdurch wird sich die Phillipskurve verschieben. Klicken Sie auf einen Punkt der resultierenden Phillipskurve in Periode 2.
+#. success
+Genau, an der Stelle $Y_{NAI}={{Y_NAI}}$ wird der y-Wert der Phillipskurve jetzt der neuen erwarteten Inflation $E\pi_2 = {{Epi_2}}$ entsprechen.
+#. step 2
+find: pi_2
+#. tell
+Welche Inflationsrate wird sich in Periode 2 einstellen, wenn die Nachfrage weiterhin Y={{Y_2}} beträgt? Klicken Sie in die Abbildung.
+#. success
+Genau, die Inflationsrate wird von $\pi_1={{pi_1}}$ auf $\pi_2={{round(pi_2,3)}}$ ansteigen.
+#>
+
+#. frame Lohn- Preisspirale t=3
+#< precompute
+```{r}
+.whiskers = as.list(exdat[3,])
+```
+#>
+<table class="frametable">
+<tr><td class="leftcol" style="width: 35%;">
+
+- In Periode t=3 ist die erwartete Inflation schon $E\pi_3=\pi_2={{Epi}}$.
+- Die Phillipskurve verschiebt sich noch weiter nach oben und die Inflation steigt noch weiter an.
+- Solange Y > Y_NAI haben wir eine ständig steigende Inflationsrate...
+
+</td><td class="rightcol">
+
+#< plotpane pc_pane
+width: 320
+height: 280
+data_rows: [3,2,1]
+show:
+  - [pc, Epi,pi,Y,Y_NAI]
+  - [pc, Epi]
+  - [pc, Epi]
+#>
+</td></tr>
+</table>
+
+
 
 
 #. frame Erwartete Inflation und Lage der Phillipskurve
