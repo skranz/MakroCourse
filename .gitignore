@@ -9,6 +9,8 @@
 *.xlsx
 *.lyx\~
 *.png
+.ups
+Rprof.out
 
 /Data
 /Cache

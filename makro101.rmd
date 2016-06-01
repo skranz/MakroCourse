@@ -17,6 +17,8 @@ slides: TRUE
 slide.type: frame
 use.whiskers: TRUE
 whiskers.round: 2
+use.clicker: TRUE
+clicker.dir: 'D:/libraries/RTutor2/apps/clicker'
 #>
 
 #< head
@@ -683,9 +685,9 @@ xaxis:
 </td></tr>
 </table>
 
-#. frame Lohn- Preisspirale t=2
+#. frame Lohn- Preisspirale t=2 (1)
 
-#< panequiz
+#< panequiz lohnpreis1
 direct_click: TRUE
 panes:
   pc_pane:
@@ -709,6 +711,11 @@ In der nächsten Periode t=2 sind die Inflationsewartungen gegeben durch die heu
 $E\pi_2 = \pi_1 = {{Epi_2}}$. Hierdurch wird sich die Phillipskurve verschieben. Klicken Sie auf einen Punkt der resultierenden Phillipskurve in Periode 2.
 #. success
 Genau, an der Stelle $Y_{NAI}={{Y_NAI}}$ wird der y-Wert der Phillipskurve jetzt der neuen erwarteten Inflation $E\pi_2 = {{Epi_2}}$ entsprechen.
+#>
+
+#. frame Lohn- Preisspirale t=2 (2)
+#< panequiz lohnpreis2
+continue: lohnpreis1
 #. step 2
 find: pi_2
 #. tell
@@ -716,6 +723,7 @@ Welche Inflationsrate wird sich in Periode 2 einstellen, wenn die Nachfrage weit
 #. success
 Genau, die Inflationsrate wird von $\pi_1={{pi_1}}$ auf $\pi_2={{round(pi_2,3)}}$ ansteigen.
 #>
+
 
 #. frame Lohn- Preisspirale t=3
 #< precompute
@@ -746,18 +754,13 @@ show:
 
 
 
-
+#< ignore
 #. frame Erwartete Inflation und Lage der Phillipskurve
 
 #< panequiz
 panes:
   pc_pane:
 data_rows: [1,2]
-#. layout
-<table class=".frametable"><tr>
-<td class="leftcol", style="width: 40%;"> {{menu}}{{text}}</td>
-<td style="vertical-align: top;">{{pane}}</td>
-</tr></table>
 #. step 1
 show:
   1: .all
@@ -779,3 +782,4 @@ Angenommen die Nachfrage beträgt in Periode 2 weiterhin $Y_2={{Y_2}}$. Welche I
 Genau, wir brauchen einfach nur den Schnittpunkt von Y_2 mit der neuen Phillipskurve.
 #>
 
+#>
