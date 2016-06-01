@@ -81,17 +81,19 @@ td.rightcol {
 #< precompute
 ```{r}
 # r_ == r_NAI - 0.001 * (Y_-Y_NAI)
+# in row4 the centralbank sets Y=Y_NAI
 exdat = compute_frame(
+  t = c(1,2,3,2,2),
   Y_NAI = 100,
   slope_Yr = -0.001,
   r_NAI = 0.03,
-  Y = 110,
+  Y = c(110,110,110,100,90),
   Y_max = 115,
   u_NAI = 0.05,
   c_Okun = 3,
   u = u_NAI - (1/c_Okun) * ((Y-Y_NAI) / Y_NAI),
   r_cb = r_NAI + slope_Yr*(Y-Y_NAI),
-  Epi = c(0.02,0.054,0.089),
+  Epi = c(0.02,0.054,0.089,0.054,0.054),
   P_lag = 1.5 / (1+0.02),
   EP = P_lag * (1+Epi),
   slope_ws = 0.002,
@@ -212,7 +214,7 @@ $$r_t = i_t - E\pi_t$$
 - Wir diskutieren erst später, welcher natürliche Zins sich ohne Eingreifen der Zentralbank einstellen würde.
 
 #. frame Schritt 3: Nachfrage
-#< pane Yr
+#< pane Yr_pane
 xy: [Y_,r_]
 xaxis:
   latex: Y
@@ -247,7 +249,7 @@ $$Y_t = Y(r_{t})$$
 
 </td><td class="rightcol" style="width: 35%;">
 
-#< plotpane Yr
+#< plotpane Yr_pane
 width: 320
 height: 300
 #>
@@ -391,28 +393,24 @@ $$P_t = (1+\mu) W_t / \tau$$
 - Wenn wir die Löhne $W_t$ einsetzen erhalten wir
 $$
 \begin{eqnarray*}
-P_t & = & EP_t & \cdot (1+\mu) \cdot ws(Y_t / \tau) & \Leftrightarrow \\
-(1+\pi_t) & = & (1+E\pi_t) & \cdot (1+\mu) \cdot ws(Y_t / \tau) &
+P_t & = & EP_t & \cdot (1+\mu) \cdot ws(Y_t) & \Leftrightarrow \\
+(1+\pi_t) & = & (1+E\pi_t) & \cdot (1+\mu) \cdot ws(Y_t ) &
 \end{eqnarray*}
 $$
 Die realisierte Inflationsrate kann über oder unter dem erwarteten Niveau liegen.
 
 #. frame Lohn- und Preissetzung
-- Die Preissetzung legt im Nachhinein eine Lohnquote $ws_p$ fest, die von der Beabsichtigten $ws(Y_t / \tau)$ abweichen kann.
+- Die Preissetzung legt im Nachhinein eine Lohnquote $ws_p$ fest, die von der Beabsichtigten $ws(Y_t)$ abweichen kann.
 $${ws}_{P}=\left(W_t/\tau\right)/P_t=\frac{1}{1+\mu}$$
 - Wir haben
 $$
 \begin{eqnarray*}
-ws(Y_t / \tau) & > & {ws}_{P} & \Leftrightarrow \\
+ws(Y_t) & > & {ws}_{P} & \Leftrightarrow \\
 \pi_t & > & E\pi_t
 \end{eqnarray*}
 $$
 - Sei $Y_{NAI}$ das Output level, bei dem die Inflation gleich ihrem erwarteten Niveau bleibt (NAI = Non-Accelerating Inflation)
-$$ws(Y_{NAI} / \tau)=ws_P$$
-
-#< ignore
-library(EconCurves)
-#>
+$$ws(Y_{NAI})=ws_P$$
 
 #. frame Grafische Darstellung
 
@@ -432,11 +430,20 @@ curves:
     label: ws
     eq: ws_ == ws_P + 0.01*(Y_-Y_NAI)
     colors: blue
-    tooltip: Die ws Kurve beschreibt die Lohnquote, die beim ausgehandelten Nominallohn herauskäme, wenn die Inflationserwartungen korrekt wären. Die Kurve steigt in Y und ist proportional zum ausgehandelten Nominallohn. 
+    tooltip: |
+      Die ws Kurve beschreibt die Lohnquote,
+      die beim ausgehandelten Nominallohn herauskäme,
+      wenn die Inflationserwartungen korrekt wären.
+      Die Kurve steigt in Y und ist proportional zum
+      ausgehandelten Nominallohn. 
 ymarkers:
 xmarkers:
   Y_NAI:
-    tooltip: Y_NAI ist das Nachfrageniveau bei dem die Inflationsrate bei ihrem erwarteten Wert verbleibt. NAI steht für 'Non-Accelerating Inflation'.
+    tooltip: |
+      Y_NAI ist das Nachfrageniveau, bei dem die
+      Inflationsrate bei ihrem erwarteten Wert
+      verbleibt.
+      NAI steht für 'Non-Accelerating Inflation'.
     latex: Y_NAI
     to: ws_P 
 datavar: exdat
@@ -451,16 +458,16 @@ show: .all
 - Wir hatten folgende Gleichung für die Inflationsrate hergeleitet:
 $$
 \begin{eqnarray*}
-(1+\pi_t) & = & (1+E\pi_t) & \cdot (1+\mu) \cdot ws(Y_t / \tau) &
+(1+\pi_t) & = & (1+E\pi_t) & \cdot (1+\mu) \cdot ws(Y_t ) &
 \end{eqnarray*}
 $$
 - Sie lässt sich umformen zu
 $$
 \begin{eqnarray*}
-\pi_{t} &= &E\pi_{t}+(1+E\pi_{t})\frac{ws(Y_{t}/\tau)-ws_{P} }{ws_{P} }
+\pi_{t} &= &E\pi_{t}+(1+E\pi_{t})\frac{ws(Y_{t})-ws_{P} }{ws_{P} }
 \end{eqnarray*}
 $$
-  - Wir bezeichnen diesen Zusammenhang zwischen der Inflation $\pi$ und Output $Y$ als Phillipskurve.
+  - Wir bezeichnen diesen Zusammenhang zwischen der Inflation $\pi_t$ und BIP $Y_T$ als Phillipskurve.
   
 #. frame Phillipskurve  
 
@@ -470,33 +477,46 @@ xaxis:
   latex: Y
 yaxis:
   latex: \pi
-  num.ticks: 2
 show.ticks: TRUE
 curves:
   pc:
-    latex: PC|E\pi_{{.row}}
+    latex: PC|E\pi_{{t}}
     eq: pi_ == Epi + (1+Epi) * (slope_ws*(Y_-Y_NAI) ) / ws_P
     colors: purple
-    tooltip: Diese Phillips-Kurve zeigt den Zusammenhang zwischen Inflation und Nachfrage in einer Periode, für gegebene Inflationserwartungen E\pi_{{.row}} = {{Epi}}.
+    tooltip: |
+      Diese Phillips-Kurve zeigt den Zusammenhang
+      zwischen Inflation und Nachfrage in einer
+      Periode, für gegebene Inflationserwartungen
+      E\pi_{{t}} = {{Epi}}.
 ymarkers:
   Epi:
-    latex: E\pi_{{.row}}
+    latex: E\pi_{{t}}
     to: Y_NAI
-    tooltip: Erwartete Inflation E\pi_{{.row}} = {{Epi}}.
+    tooltip: |
+      Erwartete Inflation E\pi_{{t}} = {{Epi}}.
   pi:
-    latex: \pi_{{.row}}
+    latex: \pi_{{t}}
     to: Y
-    tooltip: Realisierte Inflationsrate \pi_{{.row}} = {{pi}} in dieser Periode.
+    tooltip: |
+      Realisierte Inflationsrate
+      \pi_{{t}} = {{pi}}
+      in dieser Periode.
     
 xmarkers:
   Y_NAI:
-    tooltip: Y_NAI = {{Y_NAI}} ist das Nachfrageniveau bei dem die Inflationsrate bei ihrem erwarteten Wert verbleibt. NAI steht für 'Non-Accelerating Inflation'.
+    tooltip: |
+      Y_NAI ist das Nachfrageniveau, bei dem die
+      Inflationsrate bei ihrem erwarteten Wert
+      verbleibt.
+      NAI steht für 'Non-Accelerating Inflation'.
     latex: Y_NAI
 #    to: Epi
   Y:
-    latex: Y_t
+    latex: Y_{{t}}
 #    to: pi
-    tooltip: Y_t = {{Y}} ist die reale Nachfrage = BIP in dieser Periode.
+    tooltip: |
+      Y_{{t}} = {{Y}} ist die reale Nachfrage = BIP
+      in dieser Periode.
 datavar: exdat
 #>
 
@@ -516,7 +536,7 @@ align: right
 - Die Okun'sche Faustregel (Okun'sches Gesetz):
 
 
-    *Eine um 1% höhere Arbeitslosenquote entsprichte einer Reduktion von Y um ca. 2%-3% (relativ zu Y_NAI).*
+    *Eine um 1% höhere Arbeitslosenquote entsprichte einer Reduktion von Y um ca. 2%-3% von Y_NAI.*
 
     $$(Y - Y_{NAI}) / Y_{NAI} = - c \cdot (u-u_{NAI})$$
 
@@ -541,25 +561,42 @@ curves:
     latex: u(Y)
     eq: u_ == u_NAI - (1 / c_Okun) * (Y_-Y_NAI) / Y_NAI 
     colors: lila
-    tooltip: Arbeitslosenquote als Funktion des BIP Y gemäß der Okun'schen Faustregel mit c={{c_Okun}} und u_NAI = {{u_NAI}}.
+    tooltip: |
+      Arbeitslosenquote als Funktion des BIP Y,
+      gemäß der Okun'schen Faustregel 
+      mit c={{c_Okun}} und u_NAI = {{u_NAI}}.
 ymarkers:
   u:
     latex: u_t
     to: Y
-    tooltip: u_t = {{round(u*100,2)}}% ist die Arbeitslosenquote in dieser Periode.
+    tooltip: |
+      u_t = {{round(u*100,2)}}% ist die
+      Arbeitslosenquote in dieser Periode.
   u_NAI:
     latex: u_NAI
     to: Y_NAI
-    tooltip: u_NAI ist die "natürliche" Arbeitslosequote, auch NAIRU (Non-Accelerating Inflation Rate of Unemployment) genannt. Sie ist die Arbeitslosenquote, bei der die Inflationsrate \pi_t genau ihren Erwartungen E\pi_t entspricht.
+    tooltip: |
+      u_NAI ist die "natürliche" Arbeitslosequote,
+      auch NAIRU (Non-Accelerating Inflation Rate of
+      Unemployment) genannt.
+      Sie ist die Arbeitslosenquote, bei der die
+      Inflationsrate \pi_t genau ihren Erwartungen
+      E\pi_t entspricht.
 xmarkers:
   Y_NAI:
-    tooltip: Y_NAI = {{Y_NAI}} ist das Nachfrageniveau bei dem die Inflationsrate bei ihrem erwarteten Wert verbleibt. NAI steht für 'Non-Accelerating Inflation'.
+    tooltip: |
+      Y_NAI ist das Nachfrageniveau, bei dem die
+      Inflationsrate bei ihrem erwarteten Wert
+      verbleibt.
+      NAI steht für 'Non-Accelerating Inflation'.
     latex: Y_NAI
     to: u_NAI
   Y:
     latex: Y_t
     to: u
-    tooltip: Y_t = {{Y}} ist die reale Nachfrage = BIP in dieser Periode.
+    tooltip: |
+      Y_t = {{Y}} ist die reale Nachfrage = BIP
+      in dieser Periode.
 datavar: exdat
 #>
 
@@ -568,7 +605,7 @@ datavar: exdat
 <table style = "table-layout: fixed; width: 100%;"><tr>
 <td style="vertical-align: top; width: 40%; padding-top: 0px; padding-right: 10px">
 
--  Beispielsweiser Zusammenhang von BIP Y und Arbeitslosigkeit u gemäß einer Okun'schen Faustregel.
+-  Beispielhafter Zusammenhang von BIP Y und Arbeitslosigkeit u gemäß einer Okun'schen Faustregel.
 - $u_{NAI}$ = 5% und c = 3.
 </td><td>
 #< plotpane Okun_pane
@@ -589,23 +626,23 @@ yaxis:
   latex: \pi
 curves:
   pcu:
-    latex: UPC|E\pi_{{.row}}
+    latex: UPC|E\pi_{{t}}
     eq: pi_ == Epi + (1+Epi) * (slope_ws*( (Y_NAI-Y_NAI*c_Okun*(u_-u_NAI)-Y_NAI)) ) / ws_P
     colors: lila
     tooltip: |
       Diese Phillips-Kurve zeigt den Zusammenhang
       zwischen Inflation und Arbeitslosikeit
       in einer Periode, für gegebene
-      Inflationserwartungen E\pi_{{.row}} = {{Epi}}.
+      Inflationserwartungen E\pi_{{t}} = {{Epi}}.
 ymarkers:
   Epi:
-    latex: E\pi_{{.row}}
+    latex: E\pi_{{t}}
     to: u_NAI
-    tooltip: Erwartete Inflation E\pi_{{.row}} = {{Epi}}.
+    tooltip: Erwartete Inflation E\pi_{{t}} = {{Epi}}.
   pi:
-    latex: \pi_{{.row}}
+    latex: \pi_{{t}}
     to: u
-    tooltip: Realisierte Inflationsrate \pi_{{.row}} = {{pi}} in dieser Periode.
+    tooltip: Realisierte Inflationsrate \pi_{{t}} = {{pi}} in dieser Periode.
 xmarkers:
   u:
     latex: u_t
@@ -752,7 +789,81 @@ show:
 </td></tr>
 </table>
 
+#. frame Zur Lohn-Preis Spirale
 
+- Nehme an Arbeitsproduktivität $\tau$ sei konstant.
+- Wenn $Y_{t-1} = Y_t = Y_NAI$, steigen die Nominallöhne mit der erwarteten Inflationsrate $E\pi_t$.
+- Sei $Y_{t-1} = Y_t > Y_NAI$ 
+  - Arbeitnehmer forder eine Lohnsteigerung über die erwartete Inflationsrate hinaus.
+  - Die Firmen reagieren aber mit entsprechend höherer Preissteigerung.
+  - Resultierende Reallöhne steigen nicht, nur die Inflation steigt an.
+  - Inflationsdruck bleibt bestehen solange $Y_t > Y_NAI$.
+
+#. frame Einperiodiger Nachfrageboom
+#< precompute
+```{r}
+.whiskers = as.list(exdat[1,])
+```
+#>
+
+<table class="frametable">
+<tr><td class="leftcol" style="width: 55%;">
+
+#< quiz back_to_Y_NAI
+question: In Periode t=1 haben wir $Y_1$={{Y[1]}}, aber die Zentralbank möchte eine Lohn-Preis Spirale vermeiden und setzt in allen zukünftigen Perioden t=2,3,... den Zinssatz $r_t$={{r_NAI[1]}}, so dass $Y_t = Y_{NAI}$={{Y_NAI[1]}}. Was passiert?
+sc:
+  - Die Arbeitslosenquote springt ab Periode 2 sofort wieder von u_1={{round(u*100,2)}}% auf u_NAI={{round(u_NAI*100,2)}}% aber die Inflation bleibt stets bei pi_1={{round(pi*100,2)}}%.*
+  - Die Arbeitslosenquote steigt langsam wieder auf u_NAI={{round(u_NAI*100,2)}}% und die Inflationsrate sinkt langsam wieder auf E\pi_1 = {{round(Epi*100,2)}}% ab.
+  - Die Arbeitslosenquote bleibt stets bei u_1={{round(u*100,2)}}% und die Inflationsrate bleibt stets bei pi_1 = {{round(pi*100,2)}}%.
+#>  
+
+</td><td class="rightcol">
+<table><tr>
+#< plotpane pc_u_pane
+width: 200
+height: 200
+title: Phillipskurve in t=1
+xaxis:
+  num.ticks: 3
+#>
+</tr><tr>
+#< plotpane Yr_pane
+title: t \geq 2
+data_rows: 4
+width: 200
+height: 200
+xaxis:
+  num.ticks: 3
+#>
+</tr></table>
+</td></tr>
+</table>
+
+#. frame Persistente Inflationserwartungen
+- Auch bei einem Rückgang von $Y_1={{Y}}$ auf Y_NAI bleiben die  Inflationserwartungen auf dem Niveau von $E\pi_t=\pi_{t-1}=...=\pi_1={{pi}}$ bestehen.
+- Ein einmaliger kurzer Boom erhöht in unserem Modell dauerhaft die Inflationsrate.
+- Um die Inflationsrate wieder zu reduzieren, müsste die Zentralbank die Zinsen erstmal stärker anheben, so dass für eine oder mehrere Perioden wir eine kleine Rezession mit $Y_t < Y_{NAI}$ haben.
+
+#. frame 
+
+
+#< panequiz
+panes:
+  pc_pane:
+data_rows: [1,2,5]
+#. step 1
+show:
+  1: [pc,Y_NAI,Epi,Y]
+  2: [pc,Epi]
+  5: .none
+find: Y_5
+#. tell
+Angenommen, die Zentralbank möchte in t=2 gleich wieder eine Inflationsrate von $\pi_2=E\pi_1$=2% haben. Welches Nachfrageniveau $Y_2$ muss sie dafür mit ihrem Zinssatz $r_2$ induzieren. Markieren Sie dieses $Y_2$ in dem Abbild links. 
+#. success
+Genau, wir müssen die Phillipskurve von t=2 betrachten und dass jenige Y implementieren, an dem die resultierende Inflationsrate gleich 2% ist, also $Y_2={{Y_5}}.$
+#>
+
+.frame 
 
 #< ignore
 #. frame Erwartete Inflation und Lage der Phillipskurve
