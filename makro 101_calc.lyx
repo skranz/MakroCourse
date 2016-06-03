@@ -59,6 +59,10 @@
 
 \begin_body
 
+\begin_layout Section
+Labor market, y and inflation
+\end_layout
+
 \begin_layout Standard
 Anteil der Arbeitnehmer am Erlös
 \begin_inset Formula 
@@ -228,7 +232,260 @@ Y & = & Y_{NAI}-Y_{NAI}c(u-u_{NAI})
 \end_inset
 
 
-\begin_inset Newline newline
+\end_layout
+
+\begin_layout Section
+Central bank's preferences
+\end_layout
+
+\begin_layout Standard
+Assume the central bank has the following preferences
+\begin_inset Formula 
+\[
+U_{cb}=-\alpha_{\pi}(\pi-\pi_{T})^{2}-\alpha_{y}(Y_{NAI}-Y)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The indifference curves have the following slope
+\begin_inset Formula 
+\[
+\frac{d\pi}{dy}=-\frac{\partial U/\partial y}{\partial U/\partial\pi}=\frac{\alpha_{\pi}\left(\pi-\pi_{T}\right)}{\alpha_{y}\left(y_{NAI}-y\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consider a simplified Phillips curve of the form
+\begin_inset Formula 
+\[
+\text{\pi=E\pi}+b_{PC}(Y-Y_{NAI})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then the chosen point 
+\begin_inset Formula $\pi,Y$
+\end_inset
+
+ must have the same slope than the indifference curve:
+\begin_inset Formula 
+\[
+b_{PC}=\frac{\alpha_{\pi}\left(\pi-\pi_{T}\right)}{\alpha_{y}\left(Y_{NAI}-Y\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Reformulating gives us the monetary rule:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\pi=\pi_{T}-b_{PC}\frac{\alpha_{y}}{\alpha_{\pi}}(Y-Y_{NAI})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+or
+\begin_inset Formula 
+\[
+\pi=\pi_{T}-b_{MR}(Y-Y_{NAI})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(Y-Y_{NAI}\right)=-\frac{\alpha_{\pi}\left(\pi-\pi_{T}\right)}{\alpha_{y}b_{PC}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Eingesetzt in die Phillipskurve liefert:
+\begin_inset Formula 
+\[
+\text{\pi=E\pi}-\frac{\alpha_{\pi}\left(\pi-\pi_{T}\right)}{\alpha_{y}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Alternative formulation
+\end_layout
+
+\begin_layout Standard
+By adjusting its interest rate 
+\begin_inset Formula $i_{t}$
+\end_inset
+
+ the central bank can pick a 
+\begin_inset Formula $(Y_{t},\pi_{t})$
+\end_inset
+
+ combination from the current period's Phillips curve.
+ Consider two extremes:
+\end_layout
+
+\begin_layout Itemize
+Pure inflation target.
+ Set 
+\begin_inset Formula $\pi_{t}=\pi_{T}$
+\end_inset
+
+.
+ The corresponding 
+\begin_inset Formula $Y_{t}$
+\end_inset
+
+ shall be denoted by 
+\begin_inset Formula $Y_{t,\pi}$
+\end_inset
+
+ We have then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\pi_{T} & = & E\pi_{t}+b_{pc}(Y_{t}-Y_{NAI})\\
+Y_{t,\pi} & = & Y_{NAI}+\frac{1}{b_{pc}}(\pi_{T}-E\pi_{T})
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Y_{t}=Y_{NAI}+\frac{1}{b_{pc}}(\pi_{t}-E\pi_{t})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Alternatively, it could set 
+\begin_inset Formula $Y_{t}=Y_{NAI}$
+\end_inset
+
+, leading to 
+\begin_inset Formula $\pi_{t}=E\pi_{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Assume the centralbank picks a mixture and chooses the following target
+ inflation rate
+\begin_inset Formula 
+\[
+\pi_{t}=\sigma\pi_{T}+(1-\sigma)E\pi_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Rearranging, we get 
+\begin_inset Formula 
+\[
+E\pi_{t}=\frac{\pi_{t}-\sigma\pi_{T}}{1-\sigma}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Plugging into the PC yields
+\begin_inset Formula 
+\begin{eqnarray*}
+\pi_{t} & = & \frac{\pi_{t}-\sigma\pi_{T}}{1-\sigma}+b_{pc}(Y_{t}-Y_{NAI})\\
+\pi_{t}(1-\frac{1}{1-\sigma}) & = & -\frac{\sigma}{1-\sigma}\pi_{T}+b_{pc}(Y_{t}-Y_{NAI})
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+-\pi_{t}(\frac{\sigma}{1-\sigma}) & = & -\frac{\sigma}{1-\sigma}\pi_{T}+b_{pc}(Y_{t}-Y_{NAI})\\
+\pi_{t} & = & \pi_{T}-b_{pc}\frac{1-\sigma}{\sigma}(Y_{t}-Y_{NAI})
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+We can write it as
+\begin_inset Formula 
+\[
+\pi_{t}=\pi_{T}-b_{mr}(Y_{t}-Y_{NAI})
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+b_{mr}=\frac{1-\sigma}{\sigma}b_{pc}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Corresponding interest rate:
+\begin_inset Formula 
+\begin{eqnarray*}
+Y_{t} & = & Y_{NAI}+\frac{1}{b_{pc}}(\pi_{t}-E\pi_{t})\\
+ & = & Y_{NAI}+\frac{1}{b_{pc}}(\sigma\pi_{T}+(1-\sigma)E\pi_{t}-E\pi_{t})\\
+ & = & Y_{NAI}-\frac{\sigma}{b_{pc}}(E\pi_{t}-\pi_{T})
+\end{eqnarray*}
+
 \end_inset
 
 

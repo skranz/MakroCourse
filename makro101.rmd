@@ -21,6 +21,34 @@ use.clicker: TRUE
 clicker.dir: 'D:/libraries/RTutor2/apps/clicker'
 #>
 
+#< layout 2col
+whiskers:
+  default:
+    leftcol.width: '50%'
+  mobile:
+    leftcol.width: 6
+##. default
+{{main}}
+<table class="frametable">
+<tr><td class="leftcol" style="width: {{leftcol.width}}">
+{{leftcol}}
+</td><td class="rightcol">
+{{rightcol}}
+</td></tr></table>
+{{bottom}}
+##. mobile
+{{main}}
+<div class="row">
+<div class="col-sm-{{leftcol.width}}">
+{{leftcol}}
+</div>
+<div class="col-sm-{{12-leftcol.width}}">
+{{rightcol}}
+</div>
+</div>
+#>
+
+
 #< head
 
 <link href='https://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
@@ -35,9 +63,29 @@ clicker.dir: 'D:/libraries/RTutor2/apps/clicker'
 <link href='https://fonts.googleapis.com/css?family=Catamaran:500' rel='stylesheet' type='text/css'>
 
 <link href='https://fonts.googleapis.com/css?family=BenchNine:700' rel='stylesheet' type='text/css'>
+
+<script>
+$(document).on("click","hide",function() {
+  $(this).toggleClass("shown_hide");
+});
+</script>
 #>
 
 #< css
+hide {
+  /*visibility: hidden; */
+  color: #cccccc;
+  background-color: #cccccc;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+hide.shown_hide {
+  visibility: visible;
+  color: #000055;
+  background-color: #ffffff;
+}
+
 body {
   font-family: 'Signika';
   font-family: 'BenchNine';
@@ -83,17 +131,18 @@ td.rightcol {
 # r_ == r_NAI - 0.001 * (Y_-Y_NAI)
 # in row4 the centralbank sets Y=Y_NAI
 exdat = compute_frame(
-  t = c(1,2,3,2,2),
+  t = c(1,2,3,2,2,3,2,3),
   Y_NAI = 100,
   slope_Yr = -0.001,
   r_NAI = 0.03,
-  Y = c(110,110,110,100,90),
+  Y = c(110,110,110,100,90,100,95,95),
   Y_max = 115,
   u_NAI = 0.05,
   c_Okun = 3,
   u = u_NAI - (1/c_Okun) * ((Y-Y_NAI) / Y_NAI),
   r_cb = r_NAI + slope_Yr*(Y-Y_NAI),
-  Epi = c(0.02,0.054,0.089,0.054,0.054),
+  pi_T = 0.02,
+  Epi = c(0.02,0.054,0.089,0.054,0.054,0.02,0.054,0.03),
   P_lag = 1.5 / (1+0.02),
   EP = P_lag * (1+Epi),
   slope_ws = 0.002,
@@ -104,6 +153,11 @@ exdat = compute_frame(
   Ew = ws * tau,
   W = Ew*EP,
   pi = Epi + (1+Epi) * (ws-ws_P)/(ws_P),
+  b_pc = (1+Epi)*slope_ws / ws_P,
+  Y_T = Y_NAI + (1/b_pc)*(pi_T-Epi),
+  alpha_y = 1 / Y_NAI,
+  alpha_pi = 1,
+  b_mr = - b_pc * alpha_y / alpha_pi,
   Y__min = 80,
   Y__max = 120,
   r__min = 0,
@@ -570,7 +624,7 @@ ymarkers:
     latex: u_t
     to: Y
     tooltip: |
-      u_t = {{round(u*100,2)}}% ist die
+      u_t = {{perc(u)}} ist die
       Arbeitslosenquote in dieser Periode.
   u_NAI:
     latex: u_NAI
@@ -647,7 +701,7 @@ xmarkers:
   u:
     latex: u_t
     to: pi
-    tooltip: u_t = {{round(u*100,2)}}% ist die Arbeitslosenquote in dieser Periode.
+    tooltip: u_t = {{perc(u)}} ist die Arbeitslosenquote in dieser Periode.
   u_NAI:
     latex: u_NAI
     to: Epi
@@ -685,9 +739,9 @@ Unser Beispiel:
 
 -> Nachfrage auf Y={{Y}}, über das "natürliche" Niveau von Y_NAI = {{Y_NAI}} angekurbelt
 
--> Arbeitslosigkeit auf u = {{round(u*100,2)}}% unter das "natürliche" Niveau von u_NAI = {{u_NAI*100}}% gesenkt. 
+-> Arbeitslosigkeit auf u = {{perc(u)}} unter das "natürliche" Niveau von u_NAI = {{perc(u_NAI)}} gesenkt. 
 
--> Aber Inflationsrate $\pi_t$ = {{round(pi*100,2)}}%, statt der erwarteten $E\pi_t$ = {{Epi*100}}%.
+-> Aber Inflationsrate $\pi_t$ = {{perc(pi)}}, statt der erwarteten $E\pi_t$ = {{perc(Epi)}}.
 
 
 </td><td class="rightcol">
@@ -707,9 +761,9 @@ height: 250
 #< quiz pi_u_tradeoff
 question: Nehmen Sie an die Zentralbank möchte *lieber 5% Inflation, statt 5% Arbeitslosigkeit* und belässt in allen zukünftigen Perioden den Zinssatz r_cb bei 2%. Die Yr und ws Kurven bleiben gleich. Was passiert in unserem Modell?
 sc:
-  - Die Arbeitslosenquote bleibt in jeder Periode bei {{round(u*100,2)}}% und die Inflationsrate bleibt bei {{round(pi*100,2)}}%.
-  - Die Arbeitslosenquote bleibt bei {{round(u*100,2)}}%, aber die Inflationsrate steigt jede Periode immer weiter an.*
-  - Die Arbeitslosenquote steigt langsam von {{round(u*100,2)}}% auf ihr natürliches Niveau u_NAI={{u_NAI*100}}% an, die Inflationsrate verbleibt bei {{round(pi*100,2)}}%.
+  - Die Arbeitslosenquote bleibt in jeder Periode bei {{perc(u)}} und die Inflationsrate bleibt bei {{perc(pi)}}.
+  - Die Arbeitslosenquote bleibt bei {{perc(u)}}, aber die Inflationsrate steigt jede Periode immer weiter an.*
+  - Die Arbeitslosenquote steigt langsam von {{perc(u)}} auf ihr natürliches Niveau u_NAI={{perc(u_NAI)}} an, die Inflationsrate verbleibt bei {{perc(pi)}}.
 #>  
 
 </td><td class="rightcol">
@@ -758,7 +812,7 @@ find: pi_2
 #. tell
 Welche Inflationsrate wird sich in Periode 2 einstellen, wenn die Nachfrage weiterhin Y={{Y_2}} beträgt? Klicken Sie in die Abbildung.
 #. success
-Genau, die Inflationsrate wird von $\pi_1={{pi_1}}$ auf $\pi_2={{round(pi_2,3)}}$ ansteigen.
+Genau, die Inflationsrate wird von $\pi_1={{perc(pi_1)}}$ auf $\pi_2={{perc(pi_2)}}$ ansteigen.
 #>
 
 
@@ -812,9 +866,9 @@ show:
 #< quiz back_to_Y_NAI
 question: In Periode t=1 haben wir $Y_1$={{Y[1]}}, aber die Zentralbank möchte eine Lohn-Preis Spirale vermeiden und setzt in allen zukünftigen Perioden t=2,3,... den Zinssatz $r_t$={{r_NAI[1]}}, so dass $Y_t = Y_{NAI}$={{Y_NAI[1]}}. Was passiert?
 sc:
-  - Die Arbeitslosenquote springt ab Periode 2 sofort wieder von u_1={{round(u*100,2)}}% auf u_NAI={{round(u_NAI*100,2)}}% aber die Inflation bleibt stets bei pi_1={{round(pi*100,2)}}%.*
-  - Die Arbeitslosenquote steigt langsam wieder auf u_NAI={{round(u_NAI*100,2)}}% und die Inflationsrate sinkt langsam wieder auf E\pi_1 = {{round(Epi*100,2)}}% ab.
-  - Die Arbeitslosenquote bleibt stets bei u_1={{round(u*100,2)}}% und die Inflationsrate bleibt stets bei pi_1 = {{round(pi*100,2)}}%.
+  - Die Arbeitslosenquote springt ab Periode 2 sofort wieder von u_1={{perc(u)}} auf u_NAI={{perc(u_NAI)}} aber die Inflation bleibt stets bei pi_1={{perc(pi)}}.*
+  - Die Arbeitslosenquote steigt langsam wieder auf u_NAI={{perc(u_NAI)}} und die Inflationsrate sinkt langsam wieder auf E\pi_1 = {{perc(Epi)}} ab.
+  - Die Arbeitslosenquote bleibt stets bei u_1={{perc(u)}} und die Inflationsrate bleibt stets bei pi_1 = {{perc(pi)}}.
 #>  
 
 </td><td class="rightcol">
@@ -840,12 +894,11 @@ xaxis:
 </table>
 
 #. frame Persistente Inflationserwartungen
-- Auch bei einem Rückgang von $Y_1={{Y}}$ auf Y_NAI bleiben die  Inflationserwartungen auf dem Niveau von $E\pi_t=\pi_{t-1}=...=\pi_1={{pi}}$ bestehen.
+- Auch bei einem Rückgang von $Y_1={{Y}}$ auf Y_NAI bleiben die  Inflationserwartungen auf dem Niveau von $E\pi_t = \pi_{t-1} = \pi_1 = {{pi}}$ bestehen.
 - Ein einmaliger kurzer Boom erhöht in unserem Modell dauerhaft die Inflationsrate.
-- Um die Inflationsrate wieder zu reduzieren, müsste die Zentralbank die Zinsen erstmal stärker anheben, so dass für eine oder mehrere Perioden wir eine kleine Rezession mit $Y_t < Y_{NAI}$ haben.
+- Um die Inflationsrate wieder zu reduzieren, müsste die Zentralbank die Zinsen erstmal stärker anheben, so dass für eine oder mehrere Perioden wir eine Rezession mit $Y_t < Y_{NAI}$ haben.
 
-#. frame 
-
+#. frame Abrupte Inflationsabsenkung
 
 #< panequiz
 panes:
@@ -858,12 +911,133 @@ show:
   5: .none
 find: Y_5
 #. tell
-Angenommen, die Zentralbank möchte in t=2 gleich wieder eine Inflationsrate von $\pi_2=E\pi_1$=2% haben. Welches Nachfrageniveau $Y_2$ muss sie dafür mit ihrem Zinssatz $r_2$ induzieren. Markieren Sie dieses $Y_2$ in dem Abbild links. 
+Angenommen, die Zentralbank möchte in t=2 sofort wieder eine Inflationsrate von $\pi_2=E\pi_1$=2% haben. Welches Nachfrageniveau $Y_2$ muss sie dafür mit ihrem Zinssatz $r_2$ induzieren? Markieren Sie dieses $Y_2$ in dem Abbild links. 
 #. success
-Genau, wir müssen die Phillipskurve von t=2 betrachten und dass jenige Y implementieren, an dem die resultierende Inflationsrate gleich 2% ist, also $Y_2={{Y_5}}.$
+Genau, wir müssen die Phillipskurve von t=2 betrachten und dasjenige Y implementieren, an dem die resultierende Inflationsrate gleich 2% ist, also $Y_2={{Y_5}}.$
 #>
 
-.frame 
+#. frame Abrupte Inflationsabsenkung
+
+#< precompute
+```{r}
+.whiskers = w =as.list(exdat[c(1,5),])
+```
+#>
+- Also, wenn die Zentralbank nach dem Boom in t=1 mit $Y_1={{Y[1]}}$ und $\pi_1={{pi[1]}}$ die Inflationsrate sofort wieder auf {{round(Epi[1]*100)}}% absenken möchte, muss Sie eine Rezession mit $Y_2={{Y[2]}}$ induzieren.
+- In unserem Beispiel ist die Yr Kurve gegeben durch:
+$$r = {{r_NAI}} + {{slope_Yr[1]}}*(Y-Y_{NAI})$$
+und die Okun'sche Faustregel durch
+$${{c_Okun[1]}} (u -u_{NAI}) = (Y-Y_{NAI}) / {Y_NAI}$$
+- Die Zentralbank muss also einen Zins von $r_2$ auf <hide>{{perc(r_cb[2])}}</hide> anheben.
+- Dies resultiert in unserem Beispiel in einer Arbeitslosenquote von $u_2$=<hide>{{perc(u[2])}}</hide>.
+
+
+#. frame [2col] Tradeoff der Zentralbank
+
+##. leftcol, width=50%
+- Nehmen Sie an die Zentralbank möchte zwar die Inflation wieder Richtung ihres Inflationsziels $\pi_T$={{perc(pi_T)}} lenken, aber möchte hierfür Y nicht allzu stark unter $Y_{NAI}$ drücken.
+
+##. rightcol
+
+#< plotpane pc_pane
+data_rows: 2
+points:
+  A:
+    xy: [Y_T, pi_T]
+    tooltip: |
+      Zentralbank hat nur das Ziel, sofort wieder
+      die Inflationsrate pi_T = {{perc(pi_T)}}
+      herzustellen.
+  B:
+    xy: [Y_NAI, Epi]
+    tooltip: |
+      Zentralbank hat nur das Ziel, jede Periode
+      das BIP auf dem Niveau Y=Y_NAI zu halten.
+#>
+
+
+
+#. frame Langsamerer Inflationsabsenkung
+
+#< precompute
+```{r}
+.whiskers = w =as.list(exdat[c(1,7,8),])
+```
+#>
+
+
+
+#< panequiz
+panes:
+  pc_pane:
+    yrange: [0, 0.08]
+    xrange: [80, 110]
+    data_yrange: FALSE
+    data_xrange: FALSE
+    width: 300
+    height: 300
+    curves:
+      cb_pref:
+        eq: pi == pi_star + sqrt(-((a_Y * ((Y_NAI - Y)/Y_NAI)^2 - const)/a_pi))
+        color: red
+data_rows: {1: 1, 2: 7,3: 8}
+#. step 1
+show:
+  1: 
+  2: [pc,Epi,Y_NAI,Y]
+  3: 
+find: pi_2
+#. tell
+- Die Zentralbank könnte auch die Inflation weniger abrupt absenken.
+
+- Nehmen Sie an Zentralbank setzt in t=2 den Zinssatz auf $r_2$ = {{perc(r_cb[2])}}, so dass $Y_2$ = {{Y[2]}}. Klicken Sie auf die resultierende Inflationsrate $pi_2$.
+#. success
+- Genau, wir bekommen $\pi_2$={{perc(pi[2])}}.
+#>
+
+#. frame Präferenzen über Inflation und Output-Gap
+
+- Nehmen Sie an die Zentralbank hat ein Inflationsziel von $\pi_T$={{pi_T}}.
+- Weiterhin hat die Zentralbank ggf. einen Disnutzen, wenn das BIP unter Y_NAI fällt.
+- Vereinfacht, nehmen wir folgende Präferenzen der Zentralbank an:
+
+
+#< precompute
+```{r}
+.whiskers = w =as.list(exdat[c(1,7,8),])
+```
+#>
+
+
+
+#< panequiz
+panes:
+  pc_pane:
+    yrange: [0, 0.08]
+    xrange: [80, 110]
+    data_yrange: FALSE
+    data_xrange: FALSE
+    width: 300
+    height: 300
+    curves:
+      cb_pref:
+        eq: pi == pi_star + sqrt(-((a_Y * ((Y_NAI - Y)/Y_NAI)^2 - const)/a_pi))
+        color: red
+data_rows: {1: 1, 2: 7,3: 8}
+#. step 1
+show:
+  1: 
+  2: [pc,Epi,Y_NAI,Y]
+  3: 
+find: pi_2
+#. tell
+- Die Zentralbank könnte auch die Inflation weniger abrupt absenken.
+
+- Nehmen Sie an Zentralbank setzt in t=2 den Zinssatz auf $r_2$ = {{perc(r_cb[2])}}, so dass $Y_2$ = {{Y[2]}}. Klicken Sie auf die resultierende Inflationsrate $pi_2$.
+#. success
+- Genau, wir bekommen $\pi_2$={{perc(pi[2])}}.
+#>
+
 
 #< ignore
 #. frame Erwartete Inflation und Lage der Phillipskurve
