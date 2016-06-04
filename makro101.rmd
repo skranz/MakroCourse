@@ -267,7 +267,7 @@ $$r_t = i_t - E\pi_t$$
 
 - Wir diskutieren erst später, welcher natürliche Zins sich ohne Eingreifen der Zentralbank einstellen würde.
 
-#. frame Schritt 3: Nachfrage
+#. frame [2col] Schritt 3: Nachfrage
 #< pane Yr_pane
 xy: [Y_,r_]
 xaxis:
@@ -294,20 +294,18 @@ xmarkers:
 datavar: exdat
 #>
 
-<table class="frametable">
-<td class="leftcol" style="width: 35%;">
+##. leftcol, width=35%
 
 - Nachfrage $Y_t$, sei zunächst nur eine fallende Funktion des Realzinses:
 $$Y_t = Y(r_{t})$$
 - Idee: Investitionen steigen mit niedrigeren Zinsen. Details später.
 
-</td><td class="rightcol" style="width: 35%;">
+##. rightcol
 
 #< plotpane Yr_pane
 width: 320
 height: 300
 #>
-</td></table>
 
 #. frame Schritt 4: Lohnverhandlungen
 
@@ -526,6 +524,7 @@ $$
 #. frame Phillipskurve  
 
 #< pane pc_pane
+datavar: exdat
 xy: [Y_,pi_]
 xaxis:
   latex: Y
@@ -555,7 +554,12 @@ ymarkers:
       Realisierte Inflationsrate
       \pi_{{t}} = {{pi}}
       in dieser Periode.
-    
+  pi_T:
+    latex: \pi_T
+    to: Y_T
+    tooltip: |
+      pi_T = {{perc(pi_T)}} ist das Inflations-
+      ziel der Zentralbank.
 xmarkers:
   Y_NAI:
     tooltip: |
@@ -571,7 +575,14 @@ xmarkers:
     tooltip: |
       Y_{{t}} = {{Y}} ist die reale Nachfrage = BIP
       in dieser Periode.
-datavar: exdat
+  Y_T:
+    latex: Y_{T,t}
+    to: pi_T
+    tooltip: |
+      Y_T{{t}} = {{perc(Y_T)}} ist das BIP bei dem das 
+      Inflationsziel in Periode {{t}} erreicht werden
+      würde.
+
 #>
 
 
@@ -602,7 +613,7 @@ align: right
   - Längere anhaltende Nachfrageschocks können sich stärker auf Arbeitslosigkeit auswirken.
 
 
-#. frame Beispiel für Okun'sche Faustregel
+#. frame [2col] Beispiel für Okun'sche Faustregel
 
 #< pane Okun_pane
 xy: [Y_,u_]
@@ -654,22 +665,17 @@ xmarkers:
 datavar: exdat
 #>
 
-
-
-<table style = "table-layout: fixed; width: 100%;"><tr>
-<td style="vertical-align: top; width: 40%; padding-top: 0px; padding-right: 10px">
-
+##. leftcol, width=40%
 -  Beispielhafter Zusammenhang von BIP Y und Arbeitslosigkeit u gemäß einer Okun'schen Faustregel.
 - $u_{NAI}$ = 5% und c = 3.
-</td><td>
+
+##. rightcol
 #< plotpane Okun_pane
 width: 320
 height: 280
 #>
-</td></tr>
-</table>
 
-#. frame Phillipskurve: Arbeitslosigkeit vs Inflation
+#. frame [2col] Phillipskurve: Arbeitslosigkeit vs Inflation
 
 
 #< pane pc_u_pane
@@ -716,23 +722,18 @@ xmarkers:
 datavar: exdat
 #>
 
-<table class="frametable">
-<tr><td class="leftcol" style="width: 35%;">
+##. leftcol, width=35%
 - Resultierende Phillipskurve für Zusammenhang von Arbeitslosigkeit u und Inflationsrate $\pi$.
-</td><td class="rightcol">
+
+##. rightcol
 #< plotpane pc_u_pane
 width: 320
 height: 280
-
 #>
-</td></tr>
-</table>
 
-#. frame Inflations-Arbeitslosigkeit-Tradeoff
+#. frame [2col] Inflations-Arbeitslosigkeit-Tradeoff
 
-<table class="frametable">
-<tr><td class="leftcol" style="width: 50%;">
-
+##. leftcol, width=50%
 Unser Beispiel: 
 
 -> Zentralbank setzte niedrigen Zinssatz von $r_{cb}$={{r_cb*100}}%
@@ -743,20 +744,15 @@ Unser Beispiel:
 
 -> Aber Inflationsrate $\pi_t$ = {{perc(pi)}}, statt der erwarteten $E\pi_t$ = {{perc(Epi)}}.
 
-
-</td><td class="rightcol">
+##. rightcol
 #< plotpane pc_u_pane
 width: 250
 height: 250
 #>
-</td></tr>
-</table>
 
+#. frame [2col] Inflations-Arbeitslosigkeit-Tradeoff
 
-#. frame Inflations-Arbeitslosigkeit-Tradeoff
-
-<table class="frametable">
-<tr><td class="leftcol" style="width: 55%;">
+##. leftcol, width=55%
 
 #< quiz pi_u_tradeoff
 question: Nehmen Sie an die Zentralbank möchte *lieber 5% Inflation, statt 5% Arbeitslosigkeit* und belässt in allen zukünftigen Perioden den Zinssatz r_cb bei 2%. Die Yr und ws Kurven bleiben gleich. Was passiert in unserem Modell?
@@ -766,15 +762,13 @@ sc:
   - Die Arbeitslosenquote steigt langsam von {{perc(u)}} auf ihr natürliches Niveau u_NAI={{perc(u_NAI)}} an, die Inflationsrate verbleibt bei {{perc(pi)}}.
 #>  
 
-</td><td class="rightcol">
+##. rightcol
 #< plotpane pc_u_pane
 width: 200
 height: 200
 xaxis:
   num.ticks: 3
 #>
-</td></tr>
-</table>
 
 #. frame Lohn- Preisspirale t=2 (1)
 
@@ -816,20 +810,19 @@ Genau, die Inflationsrate wird von $\pi_1={{perc(pi_1)}}$ auf $\pi_2={{perc(pi_2
 #>
 
 
-#. frame Lohn- Preisspirale t=3
+#. frame [2col] Lohn- Preisspirale t=3
 #< precompute
 ```{r}
 .whiskers = as.list(exdat[3,])
 ```
 #>
-<table class="frametable">
-<tr><td class="leftcol" style="width: 35%;">
 
+##. leftcol, width=35%
 - In Periode t=3 ist die erwartete Inflation schon $E\pi_3=\pi_2={{Epi}}$.
 - Die Phillipskurve verschiebt sich noch weiter nach oben und die Inflation steigt noch weiter an.
 - Solange Y > Y_NAI haben wir eine ständig steigende Inflationsrate...
 
-</td><td class="rightcol">
+##. rightcol
 
 #< plotpane pc_pane
 width: 320
@@ -840,28 +833,25 @@ show:
   - [pc, Epi]
   - [pc, Epi]
 #>
-</td></tr>
-</table>
 
 #. frame Zur Lohn-Preis Spirale
 
 - Nehme an Arbeitsproduktivität $\tau$ sei konstant.
-- Wenn $Y_{t-1} = Y_t = Y_NAI$, steigen die Nominallöhne mit der erwarteten Inflationsrate $E\pi_t$.
-- Sei $Y_{t-1} = Y_t > Y_NAI$ 
+- Wenn $Y_{t-1} = Y_t = Y_{NAI}$, steigen die Nominallöhne mit der erwarteten Inflationsrate $E\pi_t$.
+- Sei $Y_{t-1} = Y_t > Y_{NAI}$ 
   - Arbeitnehmer forder eine Lohnsteigerung über die erwartete Inflationsrate hinaus.
   - Die Firmen reagieren aber mit entsprechend höherer Preissteigerung.
   - Resultierende Reallöhne steigen nicht, nur die Inflation steigt an.
   - Inflationsdruck bleibt bestehen solange $Y_t > Y_NAI$.
 
-#. frame Einperiodiger Nachfrageboom
+#. frame [2col] Einperiodiger Nachfrageboom
 #< precompute
 ```{r}
 .whiskers = as.list(exdat[1,])
 ```
 #>
 
-<table class="frametable">
-<tr><td class="leftcol" style="width: 55%;">
+##. leftcol, width=55%
 
 #< quiz back_to_Y_NAI
 question: In Periode t=1 haben wir $Y_1$={{Y[1]}}, aber die Zentralbank möchte eine Lohn-Preis Spirale vermeiden und setzt in allen zukünftigen Perioden t=2,3,... den Zinssatz $r_t$={{r_NAI[1]}}, so dass $Y_t = Y_{NAI}$={{Y_NAI[1]}}. Was passiert?
@@ -871,7 +861,7 @@ sc:
   - Die Arbeitslosenquote bleibt stets bei u_1={{perc(u)}} und die Inflationsrate bleibt stets bei pi_1 = {{perc(pi)}}.
 #>  
 
-</td><td class="rightcol">
+##. rightcol
 <table><tr>
 #< plotpane pc_u_pane
 width: 200
@@ -890,11 +880,9 @@ xaxis:
   num.ticks: 3
 #>
 </tr></table>
-</td></tr>
-</table>
 
 #. frame Persistente Inflationserwartungen
-- Auch bei einem Rückgang von $Y_1={{Y}}$ auf Y_NAI bleiben die  Inflationserwartungen auf dem Niveau von $E\pi_t = \pi_{t-1} = \pi_1 = {{pi}}$ bestehen.
+- Auch bei einem Rückgang von $Y_1={{Y}}$ auf $Y_{NAI}$ bleiben die  Inflationserwartungen auf dem Niveau von $E\pi_t = \pi_{t-1} = \pi_1 = {{pi}}$ bestehen.
 - Ein einmaliger kurzer Boom erhöht in unserem Modell dauerhaft die Inflationsrate.
 - Um die Inflationsrate wieder zu reduzieren, müsste die Zentralbank die Zinsen erstmal stärker anheben, so dass für eine oder mehrere Perioden wir eine Rezession mit $Y_t < Y_{NAI}$ haben.
 
@@ -940,19 +928,27 @@ $${{c_Okun[1]}} (u -u_{NAI}) = (Y-Y_{NAI}) / {Y_NAI}$$
 ##. rightcol
 
 #< plotpane pc_pane
+width: 300
+height: 300
 data_rows: 2
+show: [Epi, pc, A, B,Y_NAI, pi_T, Y_T]
+xrange: [85,105]
+yrange: [0, 0.07]
 points:
   A:
     xy: [Y_T, pi_T]
     tooltip: |
-      Zentralbank hat nur das Ziel, sofort wieder
+      Eine Zentralbank, die Punkt A wählt,
+      hat nur das Ziel, sofort wieder
       die Inflationsrate pi_T = {{perc(pi_T)}}
       herzustellen.
   B:
     xy: [Y_NAI, Epi]
     tooltip: |
-      Zentralbank hat nur das Ziel, jede Periode
-      das BIP auf dem Niveau Y=Y_NAI zu halten.
+      Eine Zentralbank, die Punkt B wählt,
+      hat nur das Ziel, das BIP auf dem 
+      Niveau Y=Y_NAI zu halten.
+
 #>
 
 
@@ -976,10 +972,6 @@ panes:
     data_xrange: FALSE
     width: 300
     height: 300
-    curves:
-      cb_pref:
-        eq: pi == pi_star + sqrt(-((a_Y * ((Y_NAI - Y)/Y_NAI)^2 - const)/a_pi))
-        color: red
 data_rows: {1: 1, 2: 7,3: 8}
 #. step 1
 show:
@@ -1019,10 +1011,6 @@ panes:
     data_xrange: FALSE
     width: 300
     height: 300
-    curves:
-      cb_pref:
-        eq: pi == pi_star + sqrt(-((a_Y * ((Y_NAI - Y)/Y_NAI)^2 - const)/a_pi))
-        color: red
 data_rows: {1: 1, 2: 7,3: 8}
 #. step 1
 show:
