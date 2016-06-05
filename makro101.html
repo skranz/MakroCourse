@@ -1,0 +1,3879 @@
+
+<!DOCTYPE html>
+<!-- template.html -->
+<html>
+<head>
+  
+<link href='https://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
+
+
+<link href='https://fonts.googleapis.com/css?family=Kalam:400,700' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=Sniglet' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=Signika:400,600' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=Catamaran:500' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=BenchNine:700' rel='stylesheet' type='text/css'>
+
+<script>
+$(document).on("click","hide",function() {
+  $(this).toggleClass("shown_hide");
+});
+</script>
+  <style>hide {
+  /*visibility: hidden; */
+  color: #cccccc;
+  background-color: #cccccc;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+hide.shown_hide {
+  visibility: visible;
+  color: #000055;
+  background-color: #ffffff;
+}
+
+body {
+  font-family: 'Signika';
+  font-family: 'BenchNine';
+  font-family: 'Sniglet';
+  font-size: 1.5em;
+}
+/* Corrects mistake in nested list rendering */
+li p {
+    margin: 0 0 0px;
+}
+/* Make lists take less space */
+ol, ul {
+    padding-left: 30px;
+}
+
+td ol, td ul {
+  padding-left: 10px;
+}
+}
+
+table.frametable {
+  table-layout: fixed; width: 100%;
+}
+
+td.leftcol {
+  vertical-align: top;
+  width: 50%;
+  padding-top: 0px;
+  padding-right: 5px;
+}
+td.rightcol {
+  vertical-align: top;
+  padding-top: 0px;
+}
+
+.tooltip-inner {
+    white-space: pre-wrap;
+}</style>
+  <style>
+mathinline {
+  display: inline;
+  font-family: "Georgia", serif;
+  font-weight: 450;
+  font-size: 1.1em;
+  font-style: italic;
+}  
+mathblock {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: block;
+  font-family: "Georgia", serif;
+  font-size: 1.25em;
+  font-weight: 450;
+  text-align: center;
+  font-style: italic;
+}  
+  
+  </style>
+</head>
+<body>
+<div id="ps__1__makro101_div" class="rtutor-static-container-div" style="">
+  
+  
+  
+  
+  
+  
+  <div id="frame__8__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Motivation</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      1 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <ul>
+<li><p>Unzufrieden mit IS-LM Modell</p>
+
+<ul>
+<li>Geldpolitik unter Annahme fester Preise???</li>
+<li>Statisches Gleichgewichtskonzept unintuitiv
+
+<ul>
+<li>Multiplikatordynamiken</li>
+<li>Man sagt IS-LM Model gilt nur für &quot;short-run&quot;</li>
+</ul></li>
+<li>Geldmengenpolitik scheint weniger realitätsnah als Zinspolitik</li>
+<li>Unklare Verknüpfung mit long-run und angebotsseitigen Faktoren.</li>
+</ul></li>
+<li><p>DSGE Makro</p>
+
+<ul>
+<li>Zu kompliziert (auch für Master inhaltlich sehr limitiert).</li>
+<li>Für meinen Geschmack sind Akteure zu rational bei komplizierten dynamischen Entscheidungen fürs ganze Leben.</li>
+</ul></li>
+</ul>
+
+  </div>
+  <div id="frame__9__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Überblick</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      2 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <ul>
+<li>Einfaches dynamisches 101 Modell</li>
+<li>Übernimmt sehr viele Ideen des 3-Equation Modells im Textbuch von Carlin &amp; Soskice</li>
+<li>Explizites Timing innerhalb einer Periode.</li>
+<li>Einige Ziele:
+
+<ul>
+<li>short-, intermediate- und long-run komplett integrierbar</li>
+<li>Konsistent mit intuitiven Stories, z. B. Lohnverhandlungen: <br>
+Inflation + Anteil von Produktivitätszuwachs</li>
+<li>Modellrahmen sinnvoll für viele spannende Themen, z. B. auch Umverteilungswirkung von EZB Politik, Schuldendynamiken.</li>
+</ul></li>
+</ul>
+
+  </div>
+  <div id="frame__10__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Ablauf einer Periode im Grundmodell</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      3 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <ol>
+<li>Inflations- und Einkommenserwartungen werden gebildet</li>
+<li>ZB legt Zinssatz fest.</li>
+<li>Nachfrage und geplante Ersparnis werden festgelegt</li>
+<li>Lohnverhandlungen</li>
+<li><p>Preissetzung</p>
+
+<p>=&gt; aus 4 und 5 folgt Phillipskurve und Inflationsdynamik</p></li>
+</ol>
+
+  </div>
+  <div id="frame__11__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Schritt 1: Erwartungen bilden</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      4 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <ul>
+<li>Zunächst: reine adaptive Inflationserwartungen
+<mathblock>Ep<sub>t</sub> = p<sub>t-1</sub> </mathblock></li>
+<li>Erwartetes Preisniveau: <mathblock>EP<sub>t</sub> = (1+Ep<sub>t</sub>)P<sub>t-1</sub> </mathblock></li>
+</ul>
+
+  </div>
+  <div id="frame__12__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Schritt 2: Zentralbank legt Zinssatz fest</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      5 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <ul>
+<li><p>Annahme: Zentralbank kann direkt Nominalzins <mathinline>i<sub>t</sub> = 0</mathinline> festlegen.</p>
+
+<ul>
+<li>Instrumente: Kreditvergabe an Banken, Verzinsung von Zentralbankguthaben, Wertpapierkäufe und Verkäufe...</li>
+</ul></li>
+<li><p>Entsprechender Realzins gemäß Fischergleichung
+<mathblock>r<sub>t</sub> = i<sub>t</sub> - Ep<sub>t</sub></mathblock></p>
+
+<ul>
+<li>Da Inflationserwartungen gegeben, kann Zentralbank auch direkt Realzins festlegen.</li>
+</ul></li>
+<li><p>Wir diskutieren erst später, welcher natürliche Zins sich ohne Eingreifen der Zentralbank einstellen würde.</p></li>
+</ul>
+
+  </div>
+  <div id="frame__13__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Schritt 3: Nachfrage</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      6 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <p><table class="frametable">
+<tr><td class="leftcol" style="width: 35%"></p>
+
+<ul>
+<li>Nachfrage <mathinline>Y<sub>t</sub></mathinline>, sei zunächst nur eine fallende Funktion des Realzinses:
+<mathblock>Y<sub>t</sub> = Y(r<sub>t</sub> )</mathblock></li>
+<li>Idee: Investitionen steigen mit niedrigeren Zinsen. Details später.</li>
+</ul>
+
+<p></td><td class="rightcol"></p>
+
+    <svg width='320' height='300' id = 'makro101_plotpane_15' class='clickable_svg'>
+<defs>
+
+  <style type="text/css"><![CDATA[
+.tooltip-inner {
+    white-space: pre-wrap;
+}
+/*
+text { font-family : "Kalam" }
+*/
+line, polyline, path, rect, circle {
+  fill: none;
+  stroke: #000000;
+/*
+  stroke-linecap: round;
+*/
+  stroke-linejoin: round;
+  stroke-miterlimit: 10.00;
+}
+
+
+.point {
+  fill: #dddd00;
+  fill: #000000;
+  fill-opacity: 0.8;
+  stroke: #000044;
+  stroke-width: 0;
+}
+
+.point:hover {
+  stroke-width: 4;
+  fill: #000044;
+  fill-opacity: 1;
+}
+
+.curve {
+  stroke-width: 3;
+  stroke-opacity: 0.8;
+}
+
+.curve:hover {
+  stroke-width: 5;
+}
+
+.marker_line {
+  stroke-width: 2;
+  stroke-opacity: 0.8;
+  stroke-dasharray: "5,5";
+  stroke-color: "#333333";
+}
+
+.marker_line:hover {
+  stroke-width: 4;
+}
+
+
+.axis {
+
+}
+
+.axis-main {
+  stroke-width: 1.5;
+}
+
+.axis-tick {
+  stroke-width: 0.5;
+}
+
+.axis-ticklabel {
+  font-size: 10.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+}
+
+.point-label {
+  font-size: 13.00pt;
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+.boxed-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+
+.label_subscript {
+  font-size: 8.00pt;
+}
+
+
+.axis-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal
+}
+
+
+.circle_marker {
+  fill: #ffff00;
+  fill-opacity: 0.7;
+  stroke-width: 0;
+  stroke-opacity: 0.7;
+  stroke: yellow;
+} 
+
+.poly_marker {
+  fill: #ffff00;
+  fill-opacity: 0.5;
+  stroke-width: 0;
+  stroke-opacity:0.5;
+  stroke: yellow;
+} 
+
+
+  ]]>
+  </style>
+  
+
+      <filter x="0" y="0" width="1" height="1" id="label_box">
+        <feFlood flood-color="white" flood-opacity="0.85"/>
+        <feComposite in="SourceGraphic"/>
+      </filter>
+    
+
+    <marker id="arrow_head" class="arrow_head" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" style ="fill: black;"/>
+    </marker>
+    
+</defs>
+<polyline points="240,240 240,149.090909090909" id="marker_Y_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Y_t = 110 ist die reale Nachfrage = BIP, die sich in Periode t beim Zinssatz r_cb = 0.02 bildet.</title></polyline>
+<polyline points="60,40 300,185.454545454545" id="curve_Yr_curve_1" class="curve" style="fill: none; stroke: #ff0000">
+<title>Die Yr Kurve beschreibt welche Nachfrage Y sich als Funktion des Realzinses r einstellt. Sie ähnelt der IS Kurve aus dem IS-LM Modell. Wir nennen die Kurve Yr statt IS, da in unserem Modell die Gleichung Investitionen = Sparvolumen nicht immer gelten wird.</title></polyline>
+<polyline points="60,149.090909090909 300,149.090909090909" id="curve_r_cb_curve_1" class="curve" style="fill: none; stroke: blue">
+<title>r_cb = 0.02 ist der Realzins, der in unserem einfachen Modell direkt von der Zentralbank gesetzt wird.</title></polyline>
+<g id="xaxis" class="axis x-axis">
+<line x1="60" x2="310" y1="250" y2="250" class="axis-main"/>
+<line x1="60" x2="60" y1="250" y2="260" class="axis-tick"/>
+<line x1="120" x2="120" y1="250" y2="260" class="axis-tick"/>
+<line x1="180" x2="180" y1="250" y2="260" class="axis-tick"/>
+<line x1="240" x2="240" y1="250" y2="260" class="axis-tick"/>
+<line x1="300" x2="300" y1="250" y2="260" class="axis-tick"/>
+<text x="60" y="275" class="axis-ticklabel"text-anchor="middle">80</text>
+<text x="120" y="275" class="axis-ticklabel"text-anchor="middle">90</text>
+<text x="180" y="275" class="axis-ticklabel"text-anchor="middle">100</text>
+<text x="240" y="275" class="axis-ticklabel"text-anchor="middle">110</text>
+<text x="300" y="275" class="axis-ticklabel"text-anchor="middle">120</text>
+<text x="300" y="290" class="axis-label" text-anchor="right">
+Y</text></g>
+<g id="yaxis" class="axis y-axis">
+<line x1="50" x2="50" y1="240" y2="20" class="axis-main"/>
+<line x1="40" x2="50" y1="221.818181818182" y2="221.818181818182" class="axis-tick"/>
+<line x1="40" x2="50" y1="185.454545454545" y2="185.454545454545" class="axis-tick"/>
+<line x1="40" x2="50" y1="149.090909090909" y2="149.090909090909" class="axis-tick"/>
+<line x1="40" x2="50" y1="112.727272727273" y2="112.727272727273" class="axis-tick"/>
+<line x1="40" x2="50" y1="76.3636363636364" y2="76.3636363636364" class="axis-tick"/>
+<line x1="40" x2="50" y1="40.0000000000001" y2="40.0000000000001" class="axis-tick"/>
+<text x="37" y="221.818181818182" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0</text>
+<text x="37" y="185.454545454545" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.01</text>
+<text x="37" y="149.090909090909" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.02</text>
+<text x="37" y="112.727272727273" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.03</text>
+<text x="37" y="76.3636363636364" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.04</text>
+<text x="37" y="40.0000000000001" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.05</text>
+<text x="40" y="10" class="axis-label" text-anchor="middle">
+r</text></g>
+<text x="60" y="40" id="geomlabel_curve_Yr_curve_1" class="boxed-label" text-anchor="start" display="yes">
+<title>Die Yr Kurve beschreibt welche Nachfrage Y sich als Funktion des Realzinses r einstellt. Sie ähnelt der IS Kurve aus dem IS-LM Modell. Wir nennen die Kurve Yr statt IS, da in unserem Modell die Gleichung Investitionen = Sparvolumen nicht immer gelten wird.</title>
+Yr</text>
+<text x="317" y="149.090909090909" id="geomlabel_curve_r_cb_curve_1" class="boxed-label" text-anchor="end" display="yes">
+<title>r_cb = 0.02 ist der Realzins, der in unserem einfachen Modell direkt von der Zentralbank gesetzt wird.</title>
+<tspan>r<tspan dy="5px" class="label_subscript">cb</tspan></tspan></text>
+<text x="240" y="240" id="geomlabel_marker_Y_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>Y_t = 110 ist die reale Nachfrage = BIP, die sich in Periode t beim Zinssatz r_cb = 0.02 bildet.</title>
+<tspan>Y<tspan dy="5px" class="label_subscript">t</tspan></tspan></text>
+<polygon class="poly_marker" display="none"/>
+<circle id="makro101_plotpane_15_circle_marker" class="circle_marker" display="none"/>
+</svg>
+    <p></td></tr></table></p>
+
+  </div>
+  <div id="frame__16__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Schritt 4: Lohnverhandlungen</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      7 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <ul>
+<li>Vorher bestimmt: Nachfrage <mathinline>Y<sub>t</sub></mathinline></li>
+<li>Idee: Arbeitsnachfrage und ausgehandelte Löhne steigen in <mathinline>Y<sub>t</sub></mathinline></li>
+<li>Feste Arbeitsproduktivität: <mathinline>t</mathinline>, realer Output pro Stunde Arbeit.</li>
+<li><p>Augehandelter Nominallohn:
+<mathblock>W<sub>t</sub> = EP<sub>t</sub> · t · ws(Y<sub>t</sub>)</mathblock></p>
+
+<ul>
+<li><mathinline>ws(Y<sub>t</sub>)</mathinline> (wage share) ist der beabsichtigte Anteil am Output, den die Arbeitnehmer als Lohn erhalten. Steigt in <mathinline>Y<sub>t</sub></mathinline>.</li>
+</ul></li>
+<li><p>Erwarteter Reallohn pro Stunde: <mathinline>Ew<sub>t</sub> = W<sub>t</sub> / EP<sub>t</sub></mathinline></p></li>
+</ul>
+
+  </div>
+  <div id="frame__17__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Illustration Lohnverhandlungen</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      8 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <ul>
+<li>Beispiel: Sei <mathinline>EP<sub>t</sub> = 1.5</mathinline> und <mathinline>t=20</mathinline>.</li>
+</ul>
+
+    
+    
+    <p><table style="width=100%; table-layout: fixed;"><tr>
+<td style="margin: 0; padding:0;"></p>
+
+    <svg width='200' height='200' id = 'makro101_plotpane_21' class='clickable_svg'>
+<defs>
+
+  <style type="text/css"><![CDATA[
+.tooltip-inner {
+    white-space: pre-wrap;
+}
+/*
+text { font-family : "Kalam" }
+*/
+line, polyline, path, rect, circle {
+  fill: none;
+  stroke: #000000;
+/*
+  stroke-linecap: round;
+*/
+  stroke-linejoin: round;
+  stroke-miterlimit: 10.00;
+}
+
+
+.point {
+  fill: #dddd00;
+  fill: #000000;
+  fill-opacity: 0.8;
+  stroke: #000044;
+  stroke-width: 0;
+}
+
+.point:hover {
+  stroke-width: 4;
+  fill: #000044;
+  fill-opacity: 1;
+}
+
+.curve {
+  stroke-width: 3;
+  stroke-opacity: 0.8;
+}
+
+.curve:hover {
+  stroke-width: 5;
+}
+
+.marker_line {
+  stroke-width: 2;
+  stroke-opacity: 0.8;
+  stroke-dasharray: "5,5";
+  stroke-color: "#333333";
+}
+
+.marker_line:hover {
+  stroke-width: 4;
+}
+
+
+.axis {
+
+}
+
+.axis-main {
+  stroke-width: 1.5;
+}
+
+.axis-tick {
+  stroke-width: 0.5;
+}
+
+.axis-ticklabel {
+  font-size: 10.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+}
+
+.point-label {
+  font-size: 13.00pt;
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+.boxed-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+
+.label_subscript {
+  font-size: 8.00pt;
+}
+
+
+.axis-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal
+}
+
+
+.circle_marker {
+  fill: #ffff00;
+  fill-opacity: 0.7;
+  stroke-width: 0;
+  stroke-opacity: 0.7;
+  stroke: yellow;
+} 
+
+.poly_marker {
+  fill: #ffff00;
+  fill-opacity: 0.5;
+  stroke-width: 0;
+  stroke-opacity:0.5;
+  stroke: yellow;
+} 
+
+
+  ]]>
+  </style>
+  
+
+      <filter x="0" y="0" width="1" height="1" id="label_box">
+        <feFlood flood-color="white" flood-opacity="0.85"/>
+        <feComposite in="SourceGraphic"/>
+      </filter>
+    
+
+    <marker id="arrow_head" class="arrow_head" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" style ="fill: black;"/>
+    </marker>
+    
+</defs>
+<polyline points="150,140 150,55.7024793388429" id="marker_Y_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Y_t = 110 ist die reale Nachfrage = BIP. Sie wurde zuvor bestimmt.</title></polyline>
+<polyline points="60,55.7024793388429 150,55.7024793388429" id="marker_W_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>W_t = 18.6 Euro / Stunde ist der ausgehandelte Nominallohn bei der Nachfrage Y_t = 110.</title></polyline>
+<polyline points="60,130.082644628099 180,30.909090909091" id="curve_W_curve_1" class="curve" style="fill: none; stroke: red">
+<title>Der Nominallohn W in Euro pro Stunde, als Funktion der Nachfrage Y.</title></polyline>
+<text x="120" y="15" class="boxed-label pane-title" text-anchor="middle">
+Nominallöhne</text>
+<g id="xaxis" class="axis x-axis">
+<line x1="60" x2="190" y1="150" y2="150" class="axis-main"/>
+<line x1="60" x2="60" y1="150" y2="160" class="axis-tick"/>
+<line x1="90" x2="90" y1="150" y2="160" class="axis-tick"/>
+<line x1="120" x2="120" y1="150" y2="160" class="axis-tick"/>
+<line x1="150" x2="150" y1="150" y2="160" class="axis-tick"/>
+<line x1="180" x2="180" y1="150" y2="160" class="axis-tick"/>
+<text x="60" y="175" class="axis-ticklabel"text-anchor="middle">80</text>
+<text x="90" y="175" class="axis-ticklabel"text-anchor="middle">90</text>
+<text x="120" y="175" class="axis-ticklabel"text-anchor="middle">100</text>
+<text x="150" y="175" class="axis-ticklabel"text-anchor="middle">110</text>
+<text x="180" y="175" class="axis-ticklabel"text-anchor="middle">120</text>
+<text x="180" y="190" class="axis-label" text-anchor="right">
+Y</text></g>
+<g id="yaxis" class="axis y-axis">
+<line x1="50" x2="50" y1="140" y2="20" class="axis-main"/>
+<line x1="40" x2="50" y1="121.818181818182" y2="121.818181818182" class="axis-tick"/>
+<line x1="40" x2="50" y1="101.157024793388" y2="101.157024793388" class="axis-tick"/>
+<line x1="40" x2="50" y1="80.495867768595" y2="80.495867768595" class="axis-tick"/>
+<line x1="40" x2="50" y1="59.8347107438017" y2="59.8347107438017" class="axis-tick"/>
+<line x1="40" x2="50" y1="39.1735537190083" y2="39.1735537190083" class="axis-tick"/>
+<text x="37" y="121.818181818182" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">17</text>
+<text x="37" y="101.157024793388" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">17.5</text>
+<text x="37" y="80.495867768595" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">18</text>
+<text x="37" y="59.8347107438017" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">18.5</text>
+<text x="37" y="39.1735537190083" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">19</text></g>
+<text x="197" y="30.909090909091" id="geomlabel_curve_W_curve_1" class="boxed-label" text-anchor="end" display="yes">
+<title>Der Nominallohn W in Euro pro Stunde, als Funktion der Nachfrage Y.</title>
+W(Y)</text>
+<text x="150" y="140" id="geomlabel_marker_Y_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>Y_t = 110 ist die reale Nachfrage = BIP. Sie wurde zuvor bestimmt.</title>
+<tspan>Y<tspan dy="5px" class="label_subscript">t</tspan></tspan></text>
+<text x="60" y="55.7024793388429" id="geomlabel_marker_W_1" class="boxed-label" text-anchor="start" display="yes">
+<title>W_t = 18.6 Euro / Stunde ist der ausgehandelte Nominallohn bei der Nachfrage Y_t = 110.</title>
+<tspan>W<tspan dy="5px" class="label_subscript">t</tspan></tspan></text>
+<polygon class="poly_marker" display="none"/>
+<circle id="makro101_plotpane_21_circle_marker" class="circle_marker" display="none"/>
+</svg>
+    <p></td>
+<td style="margin: 0; padding:0;"></p>
+
+    <svg width='200' height='200' id = 'makro101_plotpane_22' class='clickable_svg'>
+<defs>
+
+  <style type="text/css"><![CDATA[
+.tooltip-inner {
+    white-space: pre-wrap;
+}
+/*
+text { font-family : "Kalam" }
+*/
+line, polyline, path, rect, circle {
+  fill: none;
+  stroke: #000000;
+/*
+  stroke-linecap: round;
+*/
+  stroke-linejoin: round;
+  stroke-miterlimit: 10.00;
+}
+
+
+.point {
+  fill: #dddd00;
+  fill: #000000;
+  fill-opacity: 0.8;
+  stroke: #000044;
+  stroke-width: 0;
+}
+
+.point:hover {
+  stroke-width: 4;
+  fill: #000044;
+  fill-opacity: 1;
+}
+
+.curve {
+  stroke-width: 3;
+  stroke-opacity: 0.8;
+}
+
+.curve:hover {
+  stroke-width: 5;
+}
+
+.marker_line {
+  stroke-width: 2;
+  stroke-opacity: 0.8;
+  stroke-dasharray: "5,5";
+  stroke-color: "#333333";
+}
+
+.marker_line:hover {
+  stroke-width: 4;
+}
+
+
+.axis {
+
+}
+
+.axis-main {
+  stroke-width: 1.5;
+}
+
+.axis-tick {
+  stroke-width: 0.5;
+}
+
+.axis-ticklabel {
+  font-size: 10.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+}
+
+.point-label {
+  font-size: 13.00pt;
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+.boxed-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+
+.label_subscript {
+  font-size: 8.00pt;
+}
+
+
+.axis-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal
+}
+
+
+.circle_marker {
+  fill: #ffff00;
+  fill-opacity: 0.7;
+  stroke-width: 0;
+  stroke-opacity: 0.7;
+  stroke: yellow;
+} 
+
+.poly_marker {
+  fill: #ffff00;
+  fill-opacity: 0.5;
+  stroke-width: 0;
+  stroke-opacity:0.5;
+  stroke: yellow;
+} 
+
+
+  ]]>
+  </style>
+  
+
+      <filter x="0" y="0" width="1" height="1" id="label_box">
+        <feFlood flood-color="white" flood-opacity="0.85"/>
+        <feComposite in="SourceGraphic"/>
+      </filter>
+    
+
+    <marker id="arrow_head" class="arrow_head" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" style ="fill: black;"/>
+    </marker>
+    
+</defs>
+<polyline points="150,140 150,55.702479338843" id="marker_Y_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Y_t = 110 ist die reale Nachfrage = BIP. Sie wurde zuvor bestimmt.</title></polyline>
+<polyline points="60,55.702479338843 150,55.702479338843" id="marker_Ew_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Ew_t = 12.4 Baskets / Stunde ist der erwartete Reallohn, der Eintritt, wenn die Inflation dem erwarteten Wert Ep_t entspricht.</title></polyline>
+<polyline points="60,130.082644628099 180,30.9090909090909" id="curve_Ew_curve_1" class="curve" style="fill: none; stroke: lila">
+<title>Der entsprechende erwartete Reallohn Ew, gegeben dem erwarteten Preisniveau EP_t, als Funktion der Nachfrage Y.</title></polyline>
+<text x="120" y="15" class="boxed-label pane-title" text-anchor="middle">
+Erw. Reallöhne</text>
+<g id="xaxis" class="axis x-axis">
+<line x1="60" x2="190" y1="150" y2="150" class="axis-main"/>
+<line x1="60" x2="60" y1="150" y2="160" class="axis-tick"/>
+<line x1="90" x2="90" y1="150" y2="160" class="axis-tick"/>
+<line x1="120" x2="120" y1="150" y2="160" class="axis-tick"/>
+<line x1="150" x2="150" y1="150" y2="160" class="axis-tick"/>
+<line x1="180" x2="180" y1="150" y2="160" class="axis-tick"/>
+<text x="60" y="175" class="axis-ticklabel"text-anchor="middle">80</text>
+<text x="90" y="175" class="axis-ticklabel"text-anchor="middle">90</text>
+<text x="120" y="175" class="axis-ticklabel"text-anchor="middle">100</text>
+<text x="150" y="175" class="axis-ticklabel"text-anchor="middle">110</text>
+<text x="180" y="175" class="axis-ticklabel"text-anchor="middle">120</text>
+<text x="180" y="190" class="axis-label" text-anchor="right">
+Y</text></g>
+<g id="yaxis" class="axis y-axis">
+<line x1="50" x2="50" y1="140" y2="20" class="axis-main"/>
+<line x1="40" x2="50" y1="111.487603305785" y2="111.487603305785" class="axis-tick"/>
+<line x1="40" x2="50" y1="80.495867768595" y2="80.495867768595" class="axis-tick"/>
+<line x1="40" x2="50" y1="49.504132231405" y2="49.504132231405" class="axis-tick"/>
+<text x="37" y="111.487603305785" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">11.5</text>
+<text x="37" y="80.495867768595" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">12</text>
+<text x="37" y="49.504132231405" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">12.5</text></g>
+<text x="197" y="30.9090909090909" id="geomlabel_curve_Ew_curve_1" class="boxed-label" text-anchor="end" display="yes">
+<title>Der entsprechende erwartete Reallohn Ew, gegeben dem erwarteten Preisniveau EP_t, als Funktion der Nachfrage Y.</title>
+Ew(Y)</text>
+<text x="150" y="140" id="geomlabel_marker_Y_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>Y_t = 110 ist die reale Nachfrage = BIP. Sie wurde zuvor bestimmt.</title>
+<tspan>Y<tspan dy="5px" class="label_subscript">t</tspan></tspan></text>
+<text x="60" y="55.702479338843" id="geomlabel_marker_Ew_1" class="boxed-label" text-anchor="start" display="yes">
+<title>Ew_t = 12.4 Baskets / Stunde ist der erwartete Reallohn, der Eintritt, wenn die Inflation dem erwarteten Wert Ep_t entspricht.</title>
+<tspan>Ew<tspan dy="5px" class="label_subscript">t</tspan></tspan></text>
+<polygon class="poly_marker" display="none"/>
+<circle id="makro101_plotpane_22_circle_marker" class="circle_marker" display="none"/>
+</svg>
+    <p></td><td></p>
+
+    <svg width='200' height='200' id = 'makro101_plotpane_23' class='clickable_svg'>
+<defs>
+
+  <style type="text/css"><![CDATA[
+.tooltip-inner {
+    white-space: pre-wrap;
+}
+/*
+text { font-family : "Kalam" }
+*/
+line, polyline, path, rect, circle {
+  fill: none;
+  stroke: #000000;
+/*
+  stroke-linecap: round;
+*/
+  stroke-linejoin: round;
+  stroke-miterlimit: 10.00;
+}
+
+
+.point {
+  fill: #dddd00;
+  fill: #000000;
+  fill-opacity: 0.8;
+  stroke: #000044;
+  stroke-width: 0;
+}
+
+.point:hover {
+  stroke-width: 4;
+  fill: #000044;
+  fill-opacity: 1;
+}
+
+.curve {
+  stroke-width: 3;
+  stroke-opacity: 0.8;
+}
+
+.curve:hover {
+  stroke-width: 5;
+}
+
+.marker_line {
+  stroke-width: 2;
+  stroke-opacity: 0.8;
+  stroke-dasharray: "5,5";
+  stroke-color: "#333333";
+}
+
+.marker_line:hover {
+  stroke-width: 4;
+}
+
+
+.axis {
+
+}
+
+.axis-main {
+  stroke-width: 1.5;
+}
+
+.axis-tick {
+  stroke-width: 0.5;
+}
+
+.axis-ticklabel {
+  font-size: 10.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+}
+
+.point-label {
+  font-size: 13.00pt;
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+.boxed-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+
+.label_subscript {
+  font-size: 8.00pt;
+}
+
+
+.axis-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal
+}
+
+
+.circle_marker {
+  fill: #ffff00;
+  fill-opacity: 0.7;
+  stroke-width: 0;
+  stroke-opacity: 0.7;
+  stroke: yellow;
+} 
+
+.poly_marker {
+  fill: #ffff00;
+  fill-opacity: 0.5;
+  stroke-width: 0;
+  stroke-opacity:0.5;
+  stroke: yellow;
+} 
+
+
+  ]]>
+  </style>
+  
+
+      <filter x="0" y="0" width="1" height="1" id="label_box">
+        <feFlood flood-color="white" flood-opacity="0.85"/>
+        <feComposite in="SourceGraphic"/>
+      </filter>
+    
+
+    <marker id="arrow_head" class="arrow_head" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" style ="fill: black;"/>
+    </marker>
+    
+</defs>
+<polyline points="150,140 150,55.702479338843" id="marker_Y_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Y_t = 110 ist die reale Nachfrage = BIP. Sie wurde zuvor bestimmt.</title></polyline>
+<polyline points="60,55.702479338843 150,55.702479338843" id="marker_ws_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>ws_t = 62% ist die erwartete Lohnquote, die Eintritt, wenn die Inflation dem erwarteten Wert Ep_t entspricht.</title></polyline>
+<polyline points="60,130.082644628099 180,30.9090909090909" id="curve_ws_curve_1" class="curve" style="fill: none; stroke: blue">
+<title>Die ws Kurve beschreibt die Lohnquote, die beim ausgehandelten Nominallohn herauskäme, wenn die Inflationserwartungen korrekt wären. Wir betrachten im Moment, die ws(Y) Kurve als exogen gegeben. Ihr Verlauf hängt von den Arbeitsmarktinstitutionen, sowie den Verhandlungsstrategien von Arbeitgebern, Arbeitnehmern und Gewerkschaften ab.
+</title></polyline>
+<text x="120" y="15" class="boxed-label pane-title" text-anchor="middle">
+Erw. Lohnquote</text>
+<g id="xaxis" class="axis x-axis">
+<line x1="60" x2="190" y1="150" y2="150" class="axis-main"/>
+<line x1="60" x2="60" y1="150" y2="160" class="axis-tick"/>
+<line x1="90" x2="90" y1="150" y2="160" class="axis-tick"/>
+<line x1="120" x2="120" y1="150" y2="160" class="axis-tick"/>
+<line x1="150" x2="150" y1="150" y2="160" class="axis-tick"/>
+<line x1="180" x2="180" y1="150" y2="160" class="axis-tick"/>
+<text x="60" y="175" class="axis-ticklabel"text-anchor="middle">80</text>
+<text x="90" y="175" class="axis-ticklabel"text-anchor="middle">90</text>
+<text x="120" y="175" class="axis-ticklabel"text-anchor="middle">100</text>
+<text x="150" y="175" class="axis-ticklabel"text-anchor="middle">110</text>
+<text x="180" y="175" class="axis-ticklabel"text-anchor="middle">120</text>
+<text x="180" y="190" class="axis-label" text-anchor="right">
+Y</text></g>
+<g id="yaxis" class="axis y-axis">
+<line x1="50" x2="50" y1="140" y2="20" class="axis-main"/>
+<line x1="40" x2="50" y1="130.082644628099" y2="130.082644628099" class="axis-tick"/>
+<line x1="40" x2="50" y1="105.289256198347" y2="105.289256198347" class="axis-tick"/>
+<line x1="40" x2="50" y1="80.4958677685949" y2="80.4958677685949" class="axis-tick"/>
+<line x1="40" x2="50" y1="55.702479338843" y2="55.702479338843" class="axis-tick"/>
+<line x1="40" x2="50" y1="30.9090909090909" y2="30.9090909090909" class="axis-tick"/>
+<text x="37" y="130.082644628099" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.56</text>
+<text x="37" y="105.289256198347" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.58</text>
+<text x="37" y="80.4958677685949" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.6</text>
+<text x="37" y="55.702479338843" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.62</text>
+<text x="37" y="30.9090909090909" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.64</text></g>
+<text x="197" y="30.9090909090909" id="geomlabel_curve_ws_curve_1" class="boxed-label" text-anchor="end" display="yes">
+<title>Die ws Kurve beschreibt die Lohnquote, die beim ausgehandelten Nominallohn herauskäme, wenn die Inflationserwartungen korrekt wären. Wir betrachten im Moment, die ws(Y) Kurve als exogen gegeben. Ihr Verlauf hängt von den Arbeitsmarktinstitutionen, sowie den Verhandlungsstrategien von Arbeitgebern, Arbeitnehmern und Gewerkschaften ab.
+</title>
+ws(Y)</text>
+<text x="150" y="140" id="geomlabel_marker_Y_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>Y_t = 110 ist die reale Nachfrage = BIP. Sie wurde zuvor bestimmt.</title>
+<tspan>Y<tspan dy="5px" class="label_subscript">t</tspan></tspan></text>
+<text x="60" y="55.702479338843" id="geomlabel_marker_ws_1" class="boxed-label" text-anchor="start" display="yes">
+<title>ws_t = 62% ist die erwartete Lohnquote, die Eintritt, wenn die Inflation dem erwarteten Wert Ep_t entspricht.</title>
+<tspan>ws<tspan dy="5px" class="label_subscript">t</tspan></tspan></text>
+<polygon class="poly_marker" display="none"/>
+<circle id="makro101_plotpane_23_circle_marker" class="circle_marker" display="none"/>
+</svg>
+    <p></td></tr></table></p>
+
+  </div>
+  <div id="frame__24__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Schritt 5: Preissetzung</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      9 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <ul>
+<li>Firmen wählen einfach festen relativen Aufschlag <mathinline>µ</mathinline> auf Lohnstückkosten:</li>
+</ul>
+
+<p><mathblock>P<sub>t</sub> = (1+µ) W<sub>t</sub> / t</mathblock></p>
+
+<ul>
+<li>Eine Mikrofundierung: Monopolistischer Wettbewerb mit iso-elastischer Nachfrage. Andere Bestandteile der variablen Kosten sind proportional zu Löhnen.</li>
+</ul>
+
+  </div>
+  <div id="frame__25__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Lohn- und Preissetzung</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      10 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <ul>
+<li>Wenn wir die Löhne <mathinline>W<sub>t</sub></mathinline> einsetzen erhalten wir
+\[
+\begin{eqnarray*}
+P_t & = & EP_t & \cdot (1+\mu) \cdot ws(Y_t) & \Leftrightarrow \\
+(1+\pi_t) & = & (1+E\pi_t) & \cdot (1+\mu) \cdot ws(Y_t ) &
+\end{eqnarray*}
+\]
+Die realisierte Inflationsrate kann über oder unter dem erwarteten Niveau liegen.</li>
+</ul>
+
+  </div>
+  <div id="frame__26__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Lohn- und Preissetzung</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      11 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <ul>
+<li>Die Preissetzung legt im Nachhinein eine Lohnquote <mathinline>ws<sub>p</sub></mathinline> fest, die von der Beabsichtigten <mathinline>ws(Y<sub>t</sub>)</mathinline> abweichen kann.
+\[{ws}_{P}=\left(W_t/\tau\right)/P_t=\frac{1}{1+\mu}\]</li>
+<li>Wir haben
+\[
+\begin{eqnarray*}
+ws(Y_t) & > & {ws}_{P} & \Leftrightarrow \\
+\pi_t & > & E\pi_t
+\end{eqnarray*}
+\]</li>
+<li>Sei <mathinline>Y<sub>NAI</sub> </mathinline> das Output level, bei dem die Inflation gleich ihrem erwarteten Niveau bleibt (NAI = Non-Accelerating Inflation)
+<mathblock>ws(Y<sub>NAI</sub> )=ws<sub>P</sub></mathblock></li>
+</ul>
+
+  </div>
+  <div id="frame__27__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Grafische Darstellung</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      12 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    
+    
+    <svg width='420' height='300' id = 'makro101_plotpane_29' class='clickable_svg'>
+<defs>
+
+  <style type="text/css"><![CDATA[
+.tooltip-inner {
+    white-space: pre-wrap;
+}
+/*
+text { font-family : "Kalam" }
+*/
+line, polyline, path, rect, circle {
+  fill: none;
+  stroke: #000000;
+/*
+  stroke-linecap: round;
+*/
+  stroke-linejoin: round;
+  stroke-miterlimit: 10.00;
+}
+
+
+.point {
+  fill: #dddd00;
+  fill: #000000;
+  fill-opacity: 0.8;
+  stroke: #000044;
+  stroke-width: 0;
+}
+
+.point:hover {
+  stroke-width: 4;
+  fill: #000044;
+  fill-opacity: 1;
+}
+
+.curve {
+  stroke-width: 3;
+  stroke-opacity: 0.8;
+}
+
+.curve:hover {
+  stroke-width: 5;
+}
+
+.marker_line {
+  stroke-width: 2;
+  stroke-opacity: 0.8;
+  stroke-dasharray: "5,5";
+  stroke-color: "#333333";
+}
+
+.marker_line:hover {
+  stroke-width: 4;
+}
+
+
+.axis {
+
+}
+
+.axis-main {
+  stroke-width: 1.5;
+}
+
+.axis-tick {
+  stroke-width: 0.5;
+}
+
+.axis-ticklabel {
+  font-size: 10.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+}
+
+.point-label {
+  font-size: 13.00pt;
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+.boxed-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+
+.label_subscript {
+  font-size: 8.00pt;
+}
+
+
+.axis-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal
+}
+
+
+.circle_marker {
+  fill: #ffff00;
+  fill-opacity: 0.7;
+  stroke-width: 0;
+  stroke-opacity: 0.7;
+  stroke: yellow;
+} 
+
+.poly_marker {
+  fill: #ffff00;
+  fill-opacity: 0.5;
+  stroke-width: 0;
+  stroke-opacity:0.5;
+  stroke: yellow;
+} 
+
+
+  ]]>
+  </style>
+  
+
+      <filter x="0" y="0" width="1" height="1" id="label_box">
+        <feFlood flood-color="white" flood-opacity="0.85"/>
+        <feComposite in="SourceGraphic"/>
+      </filter>
+    
+
+    <marker id="arrow_head" class="arrow_head" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" style ="fill: black;"/>
+    </marker>
+    
+</defs>
+<polyline points="230,240 230,130.909090909091" id="marker_Y_NAI_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Y_NAI ist das Nachfrageniveau bei dem die Inflationsrate bei ihrem erwarteten Wert verbleibt. NAI steht für 'Non-Accelerating Inflation'.</title></polyline>
+<polyline points="315,240 315,85.4545454545455" id="marker_Y_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Y_t = 110 ist die reale Nachfrage = BIP. Sie wurde zuvor bestimmt.</title></polyline>
+<polyline points="60,85.4545454545455 315,85.4545454545455" id="marker_ws_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>ws_t = 62% ist die erwartete Lohnquote, die Eintritt, wenn die Inflation dem erwarteten Wert Ep_t entspricht.</title></polyline>
+<polyline points="60,130.909090909091 400,130.909090909091" id="curve_ws_P_curve_1" class="curve" style="fill: none; stroke: brown">
+<title>Die ws_P Kurve beschreibt die Lohnquote, die sich nach der Preissetzung tatsächlich bildet. Sie ist proportional zum resultierenden Reallohn. Unter der Annahme, dass die Firmen einen konstanten relativen Preisaufschlag auf den Nominallohn setzen, verläuft die ws_P Kurve horizontal.</title></polyline>
+<polyline points="60,221.818181818182 400,40.0000000000001" id="curve_ws_curve_1" class="curve" style="fill: none; stroke: blue">
+<title>Die ws Kurve beschreibt die Lohnquote, die beim ausgehandelten Nominallohn herauskäme, wenn die Inflationserwartungen korrekt wären. Wir betrachten im Moment, die ws(Y) Kurve als exogen gegeben. Ihr Verlauf hängt von den Arbeitsmarktinstitutionen, sowie den Verhandlungsstrategien von Arbeitgebern, Arbeitnehmern und Gewerkschaften ab.
+</title></polyline>
+<g id="xaxis" class="axis x-axis">
+<line x1="60" x2="410" y1="250" y2="250" class="axis-main"/>
+<line x1="60" x2="60" y1="250" y2="260" class="axis-tick"/>
+<line x1="145" x2="145" y1="250" y2="260" class="axis-tick"/>
+<line x1="230" x2="230" y1="250" y2="260" class="axis-tick"/>
+<line x1="315" x2="315" y1="250" y2="260" class="axis-tick"/>
+<line x1="400" x2="400" y1="250" y2="260" class="axis-tick"/>
+<text x="60" y="275" class="axis-ticklabel"text-anchor="middle">80</text>
+<text x="145" y="275" class="axis-ticklabel"text-anchor="middle">90</text>
+<text x="230" y="275" class="axis-ticklabel"text-anchor="middle">100</text>
+<text x="315" y="275" class="axis-ticklabel"text-anchor="middle">110</text>
+<text x="400" y="275" class="axis-ticklabel"text-anchor="middle">120</text>
+<text x="400" y="290" class="axis-label" text-anchor="right">
+Y</text></g>
+<g id="yaxis" class="axis y-axis">
+<line x1="50" x2="50" y1="240" y2="20" class="axis-main"/>
+<line x1="40" x2="50" y1="221.818181818182" y2="221.818181818182" class="axis-tick"/>
+<line x1="40" x2="50" y1="176.363636363636" y2="176.363636363636" class="axis-tick"/>
+<line x1="40" x2="50" y1="130.909090909091" y2="130.909090909091" class="axis-tick"/>
+<line x1="40" x2="50" y1="85.4545454545455" y2="85.4545454545455" class="axis-tick"/>
+<line x1="40" x2="50" y1="40.0000000000001" y2="40.0000000000001" class="axis-tick"/>
+<text x="37" y="221.818181818182" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.56</text>
+<text x="37" y="176.363636363636" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.58</text>
+<text x="37" y="130.909090909091" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.6</text>
+<text x="37" y="85.4545454545455" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.62</text>
+<text x="37" y="40.0000000000001" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.64</text></g>
+<text x="417" y="130.909090909091" id="geomlabel_curve_ws_P_curve_1" class="boxed-label" text-anchor="end" display="yes">
+<title>Die ws_P Kurve beschreibt die Lohnquote, die sich nach der Preissetzung tatsächlich bildet. Sie ist proportional zum resultierenden Reallohn. Unter der Annahme, dass die Firmen einen konstanten relativen Preisaufschlag auf den Nominallohn setzen, verläuft die ws_P Kurve horizontal.</title>
+<tspan>ws<tspan dy="5px" class="label_subscript">P</tspan></tspan></text>
+<text x="60" y="221.818181818182" id="geomlabel_curve_ws_curve_1" class="boxed-label" text-anchor="start" display="yes">
+<title>Die ws Kurve beschreibt die Lohnquote, die beim ausgehandelten Nominallohn herauskäme, wenn die Inflationserwartungen korrekt wären. Wir betrachten im Moment, die ws(Y) Kurve als exogen gegeben. Ihr Verlauf hängt von den Arbeitsmarktinstitutionen, sowie den Verhandlungsstrategien von Arbeitgebern, Arbeitnehmern und Gewerkschaften ab.
+</title>
+ws(Y)</text>
+<text x="230" y="240" id="geomlabel_marker_Y_NAI_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>Y_NAI ist das Nachfrageniveau bei dem die Inflationsrate bei ihrem erwarteten Wert verbleibt. NAI steht für 'Non-Accelerating Inflation'.</title>
+<tspan>Y<tspan dy="5px" class="label_subscript">NAI</tspan></tspan></text>
+<text x="315" y="240" id="geomlabel_marker_Y_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>Y_t = 110 ist die reale Nachfrage = BIP. Sie wurde zuvor bestimmt.</title>
+<tspan>Y<tspan dy="5px" class="label_subscript">t</tspan></tspan></text>
+<text x="60" y="85.4545454545455" id="geomlabel_marker_ws_1" class="boxed-label" text-anchor="start" display="yes">
+<title>ws_t = 62% ist die erwartete Lohnquote, die Eintritt, wenn die Inflation dem erwarteten Wert Ep_t entspricht.</title>
+<tspan>ws<tspan dy="5px" class="label_subscript">t</tspan></tspan></text>
+<polygon class="poly_marker" display="none"/>
+<circle id="makro101_plotpane_29_circle_marker" class="circle_marker" display="none"/>
+</svg>
+    
+  </div>
+  <div id="frame__30__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Philipps-Kurve</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      13 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <ul>
+<li>Wir hatten folgende Gleichung für die Inflationsrate hergeleitet:
+\[
+\begin{eqnarray*}
+(1+\pi_t) & = & (1+E\pi_t) & \cdot (1+\mu) \cdot ws(Y_t ) &
+\end{eqnarray*}
+\]</li>
+<li>Sie lässt sich umformen zu
+\[
+\begin{eqnarray*}
+\pi_{t} &= &E\pi_{t}+(1+E\pi_{t})\frac{ws(Y_{t})-ws_{P} }{ws_{P} }
+\end{eqnarray*}
+\]
+
+<ul>
+<li>Wir bezeichnen diesen Zusammenhang zwischen der Inflation <mathinline>p<sub>t</sub></mathinline> und BIP <mathinline>Y<sub>T</sub></mathinline> als Phillipskurve.</li>
+</ul></li>
+</ul>
+
+  </div>
+  <div id="frame__31__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Phillipskurve</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      14 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    
+    
+    <svg width='420' height='300' id = 'makro101_plotpane_33' class='clickable_svg'>
+<defs>
+
+  <style type="text/css"><![CDATA[
+.tooltip-inner {
+    white-space: pre-wrap;
+}
+/*
+text { font-family : "Kalam" }
+*/
+line, polyline, path, rect, circle {
+  fill: none;
+  stroke: #000000;
+/*
+  stroke-linecap: round;
+*/
+  stroke-linejoin: round;
+  stroke-miterlimit: 10.00;
+}
+
+
+.point {
+  fill: #dddd00;
+  fill: #000000;
+  fill-opacity: 0.8;
+  stroke: #000044;
+  stroke-width: 0;
+}
+
+.point:hover {
+  stroke-width: 4;
+  fill: #000044;
+  fill-opacity: 1;
+}
+
+.curve {
+  stroke-width: 3;
+  stroke-opacity: 0.8;
+}
+
+.curve:hover {
+  stroke-width: 5;
+}
+
+.marker_line {
+  stroke-width: 2;
+  stroke-opacity: 0.8;
+  stroke-dasharray: "5,5";
+  stroke-color: "#333333";
+}
+
+.marker_line:hover {
+  stroke-width: 4;
+}
+
+
+.axis {
+
+}
+
+.axis-main {
+  stroke-width: 1.5;
+}
+
+.axis-tick {
+  stroke-width: 0.5;
+}
+
+.axis-ticklabel {
+  font-size: 10.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+}
+
+.point-label {
+  font-size: 13.00pt;
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+.boxed-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+
+.label_subscript {
+  font-size: 8.00pt;
+}
+
+
+.axis-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal
+}
+
+
+.circle_marker {
+  fill: #ffff00;
+  fill-opacity: 0.7;
+  stroke-width: 0;
+  stroke-opacity: 0.7;
+  stroke: yellow;
+} 
+
+.poly_marker {
+  fill: #ffff00;
+  fill-opacity: 0.5;
+  stroke-width: 0;
+  stroke-opacity:0.5;
+  stroke: yellow;
+} 
+
+
+  ]]>
+  </style>
+  
+
+      <filter x="0" y="0" width="1" height="1" id="label_box">
+        <feFlood flood-color="white" flood-opacity="0.85"/>
+        <feComposite in="SourceGraphic"/>
+      </filter>
+    
+
+    <marker id="arrow_head" class="arrow_head" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" style ="fill: black;"/>
+    </marker>
+    
+</defs>
+<polyline points="230,240 230,20" id="marker_Y_NAI_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Y_NAI ist das Nachfrageniveau, bei dem die
+Inflationsrate bei ihrem erwarteten Wert
+verbleibt.
+NAI steht für 'Non-Accelerating Inflation'.
+</title></polyline>
+<polyline points="315,240 315,20" id="marker_Y_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Y_1 = 110 ist die reale Nachfrage = BIP
+in dieser Periode.
+</title></polyline>
+<polyline points="230,240 230,130.909090909091" id="marker_Y_T_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Y_T1 = 10000% ist das BIP bei dem das 
+Inflationsziel in Periode 1 erreicht werden
+würde.
+</title></polyline>
+<polyline points="60,130.909090909091 230,130.909090909091" id="marker_Epi_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Erwartete Inflation Ep_1 = 0.02.
+</title></polyline>
+<polyline points="60,85.4545454545455 315,85.4545454545455" id="marker_pi_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Realisierte Inflationsrate
+p_1 = 0.054
+in dieser Periode.
+</title></polyline>
+<polyline points="60,130.909090909091 230,130.909090909091" id="marker_pi_T_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>pi_T = 2% ist das Inflations-
+ziel der Zentralbank.
+</title></polyline>
+<polyline points="60,221.818181818182 400,40.0000000000001" id="curve_pc_1" class="curve" style="fill: none; stroke: #B30059">
+<title>Diese Phillips-Kurve zeigt den Zusammenhang
+zwischen Inflation und Nachfrage in einer
+Periode, für gegebene Inflationserwartungen
+Ep_1 = 0.02.
+</title></polyline>
+<g id="xaxis" class="axis x-axis">
+<line x1="60" x2="410" y1="250" y2="250" class="axis-main"/>
+<line x1="60" x2="60" y1="250" y2="260" class="axis-tick"/>
+<line x1="145" x2="145" y1="250" y2="260" class="axis-tick"/>
+<line x1="230" x2="230" y1="250" y2="260" class="axis-tick"/>
+<line x1="315" x2="315" y1="250" y2="260" class="axis-tick"/>
+<line x1="400" x2="400" y1="250" y2="260" class="axis-tick"/>
+<text x="60" y="275" class="axis-ticklabel"text-anchor="middle">80</text>
+<text x="145" y="275" class="axis-ticklabel"text-anchor="middle">90</text>
+<text x="230" y="275" class="axis-ticklabel"text-anchor="middle">100</text>
+<text x="315" y="275" class="axis-ticklabel"text-anchor="middle">110</text>
+<text x="400" y="275" class="axis-ticklabel"text-anchor="middle">120</text>
+<text x="400" y="290" class="axis-label" text-anchor="right">
+Y</text></g>
+<g id="yaxis" class="axis y-axis">
+<line x1="50" x2="50" y1="240" y2="20" class="axis-main"/>
+<line x1="40" x2="50" y1="224.491978609626" y2="224.491978609626" class="axis-tick"/>
+<line x1="40" x2="50" y1="157.647058823529" y2="157.647058823529" class="axis-tick"/>
+<line x1="40" x2="50" y1="90.8021390374332" y2="90.8021390374332" class="axis-tick"/>
+<line x1="40" x2="50" y1="23.957219251337" y2="23.957219251337" class="axis-tick"/>
+<text x="37" y="224.491978609626" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">-0.05</text>
+<text x="37" y="157.647058823529" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0</text>
+<text x="37" y="90.8021390374332" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.05</text>
+<text x="37" y="23.957219251337" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.1</text>
+<text x="40" y="10" class="axis-label" text-anchor="middle">
+p</text></g>
+<text x="417" y="40.0000000000001" id="geomlabel_curve_pc_1" class="boxed-label" text-anchor="end" display="yes">
+<title>Diese Phillips-Kurve zeigt den Zusammenhang
+zwischen Inflation und Nachfrage in einer
+Periode, für gegebene Inflationserwartungen
+Ep_1 = 0.02.
+</title>
+<tspan>PC|Ep<tspan dy="5px" class="label_subscript">1</tspan></tspan></text>
+<text x="230" y="20" id="geomlabel_marker_Y_NAI_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>Y_NAI ist das Nachfrageniveau, bei dem die
+Inflationsrate bei ihrem erwarteten Wert
+verbleibt.
+NAI steht für 'Non-Accelerating Inflation'.
+</title>
+<tspan>Y<tspan dy="5px" class="label_subscript">NAI</tspan></tspan></text>
+<text x="315" y="240" id="geomlabel_marker_Y_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>Y_1 = 110 ist die reale Nachfrage = BIP
+in dieser Periode.
+</title>
+<tspan>Y<tspan dy="5px" class="label_subscript">1</tspan></tspan></text>
+<text x="230" y="240" id="geomlabel_marker_Y_T_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>Y_T1 = 10000% ist das BIP bei dem das 
+Inflationsziel in Periode 1 erreicht werden
+würde.
+</title>
+<tspan>Y<tspan dy="5px" class="label_subscript">T,t </tspan></tspan></text>
+<text x="60" y="130.909090909091" id="geomlabel_marker_Epi_1" class="boxed-label" text-anchor="start" display="yes">
+<title>Erwartete Inflation Ep_1 = 0.02.
+</title>
+<tspan>Ep<tspan dy="5px" class="label_subscript">1</tspan></tspan></text>
+<text x="60" y="85.4545454545455" id="geomlabel_marker_pi_1" class="boxed-label" text-anchor="start" display="yes">
+<title>Realisierte Inflationsrate
+p_1 = 0.054
+in dieser Periode.
+</title>
+<tspan>p<tspan dy="5px" class="label_subscript">1</tspan></tspan></text>
+<text x="60" y="119.909090909091" id="geomlabel_marker_pi_T_1" class="boxed-label" text-anchor="start" display="yes">
+<title>pi_T = 2% ist das Inflations-
+ziel der Zentralbank.
+</title>
+<tspan>p<tspan dy="5px" class="label_subscript">T</tspan></tspan></text>
+<polygon class="poly_marker" display="none"/>
+<circle id="makro101_plotpane_33_circle_marker" class="circle_marker" display="none"/>
+</svg>
+    
+  </div>
+  <div id="frame__34__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>BIP und Arbeitslosigkeit: Okun'sche Faustregel</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      15 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    
+    <table  align='right'><tr><td STYLE='padding-left:5px;padding-right:5px;'><a href='http://www.econlib.org/library/Enc/bios/Okun.html' target='_blank'><img src=https://upload.wikimedia.org/wikipedia/en/8/84/Arthur_Melvin_Okun.jpg width ='70px' height ='auto'></a></td></tr><tr><td style='padding-bottom: 2px;padding-left: 5px;padding-right: 5px;text-align: center;white-space: normal;word-wrap: break-all;'><font size=1>Arthur Okun</font></td></tr></table>
+    <ul>
+<li><p>Die Okun&#39;sche Faustregel (Okun&#39;sches Gesetz):</p>
+
+<p><em>Eine um 1% höhere Arbeitslosenquote entsprichte einer Reduktion von Y um ca. 2%-3% von Y_NAI.</em></p>
+
+<p><mathblock>(Y - Y<sub>NAI</sub> ) / Y<sub>NAI</sub> = - c · (u-u<sub>NAI</sub> )</mathblock></p>
+
+<p>mit c = 2 bis 3.</p></li>
+<li><p>Empirisch geschätzt, hängt vom Land, aktueller Situation und Zeitrahmen ab</p>
+
+<ul>
+<li>Höhere Nachfrage Y führt erstmal zu Überstunden und Abbau von Lagern und nur zum Teil zu Neueinstellungen.</li>
+<li>Umgekehrt führt Rückgang von Y um 1% nicht im gleichen Maße zu Entlassungen.</li>
+<li>Längere anhaltende Nachfrageschocks können sich stärker auf Arbeitslosigkeit auswirken.</li>
+</ul></li>
+</ul>
+
+  </div>
+  <div id="frame__36__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Beispiel für Okun'sche Faustregel</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      16 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    
+    <p><table class="frametable">
+<tr><td class="leftcol" style="width: 40%"></p>
+
+<ul>
+<li> Beispielhafter Zusammenhang von BIP Y und Arbeitslosigkeit u gemäß einer Okun&#39;schen Faustregel.</li>
+<li><mathinline>u<sub>NAI</sub> </mathinline> = 5% und c = 3.</li>
+</ul>
+
+<p></td><td class="rightcol"></p>
+
+    <svg width='320' height='280' id = 'makro101_plotpane_38' class='clickable_svg'>
+<defs>
+
+  <style type="text/css"><![CDATA[
+.tooltip-inner {
+    white-space: pre-wrap;
+}
+/*
+text { font-family : "Kalam" }
+*/
+line, polyline, path, rect, circle {
+  fill: none;
+  stroke: #000000;
+/*
+  stroke-linecap: round;
+*/
+  stroke-linejoin: round;
+  stroke-miterlimit: 10.00;
+}
+
+
+.point {
+  fill: #dddd00;
+  fill: #000000;
+  fill-opacity: 0.8;
+  stroke: #000044;
+  stroke-width: 0;
+}
+
+.point:hover {
+  stroke-width: 4;
+  fill: #000044;
+  fill-opacity: 1;
+}
+
+.curve {
+  stroke-width: 3;
+  stroke-opacity: 0.8;
+}
+
+.curve:hover {
+  stroke-width: 5;
+}
+
+.marker_line {
+  stroke-width: 2;
+  stroke-opacity: 0.8;
+  stroke-dasharray: "5,5";
+  stroke-color: "#333333";
+}
+
+.marker_line:hover {
+  stroke-width: 4;
+}
+
+
+.axis {
+
+}
+
+.axis-main {
+  stroke-width: 1.5;
+}
+
+.axis-tick {
+  stroke-width: 0.5;
+}
+
+.axis-ticklabel {
+  font-size: 10.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+}
+
+.point-label {
+  font-size: 13.00pt;
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+.boxed-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+
+.label_subscript {
+  font-size: 8.00pt;
+}
+
+
+.axis-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal
+}
+
+
+.circle_marker {
+  fill: #ffff00;
+  fill-opacity: 0.7;
+  stroke-width: 0;
+  stroke-opacity: 0.7;
+  stroke: yellow;
+} 
+
+.poly_marker {
+  fill: #ffff00;
+  fill-opacity: 0.5;
+  stroke-width: 0;
+  stroke-opacity:0.5;
+  stroke: yellow;
+} 
+
+
+  ]]>
+  </style>
+  
+
+      <filter x="0" y="0" width="1" height="1" id="label_box">
+        <feFlood flood-color="white" flood-opacity="0.85"/>
+        <feComposite in="SourceGraphic"/>
+      </filter>
+    
+
+    <marker id="arrow_head" class="arrow_head" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" style ="fill: black;"/>
+    </marker>
+    
+</defs>
+<polyline points="180,220 180,132.632821723731" id="marker_Y_NAI_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Y_NAI ist das Nachfrageniveau, bei dem die
+Inflationsrate bei ihrem erwarteten Wert
+verbleibt.
+NAI steht für 'Non-Accelerating Inflation'.
+</title></polyline>
+<polyline points="240,220 240,179.858323494687" id="marker_Y_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Y_t = 110 ist die reale Nachfrage = BIP
+in dieser Periode.
+</title></polyline>
+<polyline points="60,179.858323494687 240,179.858323494687" id="marker_u_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>u_t = 1.67% ist die
+Arbeitslosenquote in dieser Periode.
+</title></polyline>
+<polyline points="60,132.632821723731 180,132.632821723731" id="marker_u_NAI_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>u_NAI ist die "natürliche" Arbeitslosequote,
+auch NAIRU (Non-Accelerating Inflation Rate of
+Unemployment) genannt.
+Sie ist die Arbeitslosenquote, bei der die
+Inflationsrate p_t genau ihren Erwartungen
+Ep_t entspricht.
+</title></polyline>
+<polyline points="60,38.1818181818182 291,220" id="curve_okun_curve_1" class="curve" style="fill: none; stroke: #6A3D9A">
+<title>Arbeitslosenquote als Funktion des BIP Y,
+gemäß der Okun'schen Faustregel 
+mit c=3 und u_NAI = 0.05.
+</title></polyline>
+<g id="xaxis" class="axis x-axis">
+<line x1="60" x2="310" y1="230" y2="230" class="axis-main"/>
+<line x1="60" x2="60" y1="230" y2="240" class="axis-tick"/>
+<line x1="120" x2="120" y1="230" y2="240" class="axis-tick"/>
+<line x1="180" x2="180" y1="230" y2="240" class="axis-tick"/>
+<line x1="240" x2="240" y1="230" y2="240" class="axis-tick"/>
+<line x1="300" x2="300" y1="230" y2="240" class="axis-tick"/>
+<text x="60" y="255" class="axis-ticklabel"text-anchor="middle">80</text>
+<text x="120" y="255" class="axis-ticklabel"text-anchor="middle">90</text>
+<text x="180" y="255" class="axis-ticklabel"text-anchor="middle">100</text>
+<text x="240" y="255" class="axis-ticklabel"text-anchor="middle">110</text>
+<text x="300" y="255" class="axis-ticklabel"text-anchor="middle">120</text>
+<text x="300" y="270" class="axis-label" text-anchor="right">
+Y</text></g>
+<g id="yaxis" class="axis y-axis">
+<line x1="50" x2="50" y1="220" y2="20" class="axis-main"/>
+<line x1="40" x2="50" y1="203.471074380165" y2="203.471074380165" class="axis-tick"/>
+<line x1="40" x2="50" y1="132.632821723731" y2="132.632821723731" class="axis-tick"/>
+<line x1="40" x2="50" y1="61.7945690672963" y2="61.7945690672963" class="axis-tick"/>
+<text x="37" y="203.471074380165" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0</text>
+<text x="37" y="132.632821723731" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.05</text>
+<text x="37" y="61.7945690672963" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.1</text>
+<text x="40" y="10" class="axis-label" text-anchor="middle">
+u</text></g>
+<text x="291" y="220" id="geomlabel_curve_okun_curve_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>Arbeitslosenquote als Funktion des BIP Y,
+gemäß der Okun'schen Faustregel 
+mit c=3 und u_NAI = 0.05.
+</title>
+u(Y)</text>
+<text x="180" y="220" id="geomlabel_marker_Y_NAI_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>Y_NAI ist das Nachfrageniveau, bei dem die
+Inflationsrate bei ihrem erwarteten Wert
+verbleibt.
+NAI steht für 'Non-Accelerating Inflation'.
+</title>
+<tspan>Y<tspan dy="5px" class="label_subscript">NAI</tspan></tspan></text>
+<text x="240" y="220" id="geomlabel_marker_Y_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>Y_t = 110 ist die reale Nachfrage = BIP
+in dieser Periode.
+</title>
+<tspan>Y<tspan dy="5px" class="label_subscript">t</tspan></tspan></text>
+<text x="60" y="179.858323494687" id="geomlabel_marker_u_1" class="boxed-label" text-anchor="start" display="yes">
+<title>u_t = 1.67% ist die
+Arbeitslosenquote in dieser Periode.
+</title>
+<tspan>u<tspan dy="5px" class="label_subscript">t</tspan></tspan></text>
+<text x="60" y="132.632821723731" id="geomlabel_marker_u_NAI_1" class="boxed-label" text-anchor="start" display="yes">
+<title>u_NAI ist die "natürliche" Arbeitslosequote,
+auch NAIRU (Non-Accelerating Inflation Rate of
+Unemployment) genannt.
+Sie ist die Arbeitslosenquote, bei der die
+Inflationsrate p_t genau ihren Erwartungen
+Ep_t entspricht.
+</title>
+<tspan>u<tspan dy="5px" class="label_subscript">NAI</tspan></tspan></text>
+<polygon class="poly_marker" display="none"/>
+<circle id="makro101_plotpane_38_circle_marker" class="circle_marker" display="none"/>
+</svg>
+    <p></td></tr></table></p>
+
+  </div>
+  <div id="frame__39__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Phillipskurve: Arbeitslosigkeit vs Inflation</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      17 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    
+    <p><table class="frametable">
+<tr><td class="leftcol" style="width: 35%"></p>
+
+<ul>
+<li>Resultierende Phillipskurve für Zusammenhang von Arbeitslosigkeit u und Inflationsrate <mathinline>p</mathinline>.</li>
+</ul>
+
+<p></td><td class="rightcol"></p>
+
+    <svg width='320' height='280' id = 'makro101_plotpane_41' class='clickable_svg'>
+<defs>
+
+  <style type="text/css"><![CDATA[
+.tooltip-inner {
+    white-space: pre-wrap;
+}
+/*
+text { font-family : "Kalam" }
+*/
+line, polyline, path, rect, circle {
+  fill: none;
+  stroke: #000000;
+/*
+  stroke-linecap: round;
+*/
+  stroke-linejoin: round;
+  stroke-miterlimit: 10.00;
+}
+
+
+.point {
+  fill: #dddd00;
+  fill: #000000;
+  fill-opacity: 0.8;
+  stroke: #000044;
+  stroke-width: 0;
+}
+
+.point:hover {
+  stroke-width: 4;
+  fill: #000044;
+  fill-opacity: 1;
+}
+
+.curve {
+  stroke-width: 3;
+  stroke-opacity: 0.8;
+}
+
+.curve:hover {
+  stroke-width: 5;
+}
+
+.marker_line {
+  stroke-width: 2;
+  stroke-opacity: 0.8;
+  stroke-dasharray: "5,5";
+  stroke-color: "#333333";
+}
+
+.marker_line:hover {
+  stroke-width: 4;
+}
+
+
+.axis {
+
+}
+
+.axis-main {
+  stroke-width: 1.5;
+}
+
+.axis-tick {
+  stroke-width: 0.5;
+}
+
+.axis-ticklabel {
+  font-size: 10.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+}
+
+.point-label {
+  font-size: 13.00pt;
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+.boxed-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+
+.label_subscript {
+  font-size: 8.00pt;
+}
+
+
+.axis-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal
+}
+
+
+.circle_marker {
+  fill: #ffff00;
+  fill-opacity: 0.7;
+  stroke-width: 0;
+  stroke-opacity: 0.7;
+  stroke: yellow;
+} 
+
+.poly_marker {
+  fill: #ffff00;
+  fill-opacity: 0.5;
+  stroke-width: 0;
+  stroke-opacity:0.5;
+  stroke: yellow;
+} 
+
+
+  ]]>
+  </style>
+  
+
+      <filter x="0" y="0" width="1" height="1" id="label_box">
+        <feFlood flood-color="white" flood-opacity="0.85"/>
+        <feComposite in="SourceGraphic"/>
+      </filter>
+    
+
+    <marker id="arrow_head" class="arrow_head" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" style ="fill: black;"/>
+    </marker>
+    
+</defs>
+<polyline points="94.2857142857143,220 94.2857142857143,79.504132231405" id="marker_u_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>u_t = 1.67% ist die Arbeitslosenquote in dieser Periode.</title></polyline>
+<polyline points="162.857142857143,220 162.857142857143,120.826446280992" id="marker_u_NAI_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>u_NAI ist die "natürliche" Arbeitslosequote,
+auch NAIRU (Non-Accelerating Inflation Rate
+of Unemployment) genannt.
+
+Sie ist die Arbeitslosenquote, bei der die
+Inflationsrate p_t genau ihren Erwartungen
+Ep_t entspricht.
+</title></polyline>
+<polyline points="60,120.826446280992 162.857142857143,120.826446280992" id="marker_Epi_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Erwartete Inflation Ep_1 = 0.02.</title></polyline>
+<polyline points="60,79.504132231405 94.2857142857143,79.504132231405" id="marker_pi_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Realisierte Inflationsrate p_1 = 0.054 in dieser Periode.</title></polyline>
+<polyline points="60,58.8429752066117 300,203.471074380165" id="curve_pcu_1" class="curve" style="fill: none; stroke: #6A3D9A">
+<title>Diese Phillips-Kurve zeigt den Zusammenhang
+zwischen Inflation und Arbeitslosikeit
+in einer Periode, für gegebene
+Inflationserwartungen Ep_1 = 0.02.
+</title></polyline>
+<g id="xaxis" class="axis x-axis">
+<line x1="60" x2="310" y1="230" y2="230" class="axis-main"/>
+<line x1="60" x2="60" y1="230" y2="240" class="axis-tick"/>
+<line x1="101.142857142857" x2="101.142857142857" y1="230" y2="240" class="axis-tick"/>
+<line x1="142.285714285714" x2="142.285714285714" y1="230" y2="240" class="axis-tick"/>
+<line x1="183.428571428571" x2="183.428571428571" y1="230" y2="240" class="axis-tick"/>
+<line x1="224.571428571429" x2="224.571428571429" y1="230" y2="240" class="axis-tick"/>
+<line x1="265.714285714286" x2="265.714285714286" y1="230" y2="240" class="axis-tick"/>
+<text x="60" y="255" class="axis-ticklabel"text-anchor="middle">0</text>
+<text x="101.142857142857" y="255" class="axis-ticklabel"text-anchor="middle">0.02</text>
+<text x="142.285714285714" y="255" class="axis-ticklabel"text-anchor="middle">0.04</text>
+<text x="183.428571428571" y="255" class="axis-ticklabel"text-anchor="middle">0.06</text>
+<text x="224.571428571429" y="255" class="axis-ticklabel"text-anchor="middle">0.08</text>
+<text x="265.714285714286" y="255" class="axis-ticklabel"text-anchor="middle">0.1</text>
+<text x="300" y="270" class="axis-label" text-anchor="right">
+u</text></g>
+<g id="yaxis" class="axis y-axis">
+<line x1="50" x2="50" y1="220" y2="20" class="axis-main"/>
+<line x1="40" x2="50" y1="205.901798736023" y2="205.901798736023" class="axis-tick"/>
+<line x1="40" x2="50" y1="145.133689839572" y2="145.133689839572" class="axis-tick"/>
+<line x1="40" x2="50" y1="84.365580943121" y2="84.365580943121" class="axis-tick"/>
+<line x1="40" x2="50" y1="23.59747204667" y2="23.59747204667" class="axis-tick"/>
+<text x="37" y="205.901798736023" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">-0.05</text>
+<text x="37" y="145.133689839572" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0</text>
+<text x="37" y="84.365580943121" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.05</text>
+<text x="37" y="23.59747204667" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.1</text>
+<text x="40" y="10" class="axis-label" text-anchor="middle">
+p</text></g>
+<text x="317" y="203.471074380165" id="geomlabel_curve_pcu_1" class="boxed-label" text-anchor="end" display="yes">
+<title>Diese Phillips-Kurve zeigt den Zusammenhang
+zwischen Inflation und Arbeitslosikeit
+in einer Periode, für gegebene
+Inflationserwartungen Ep_1 = 0.02.
+</title>
+<tspan>UPC|Ep<tspan dy="5px" class="label_subscript">1</tspan></tspan></text>
+<text x="94.2857142857143" y="220" id="geomlabel_marker_u_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>u_t = 1.67% ist die Arbeitslosenquote in dieser Periode.</title>
+<tspan>u<tspan dy="5px" class="label_subscript">t</tspan></tspan></text>
+<text x="162.857142857143" y="220" id="geomlabel_marker_u_NAI_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>u_NAI ist die "natürliche" Arbeitslosequote,
+auch NAIRU (Non-Accelerating Inflation Rate
+of Unemployment) genannt.
+
+Sie ist die Arbeitslosenquote, bei der die
+Inflationsrate p_t genau ihren Erwartungen
+Ep_t entspricht.
+</title>
+<tspan>u<tspan dy="5px" class="label_subscript">NAI</tspan></tspan></text>
+<text x="60" y="120.826446280992" id="geomlabel_marker_Epi_1" class="boxed-label" text-anchor="start" display="yes">
+<title>Erwartete Inflation Ep_1 = 0.02.</title>
+<tspan>Ep<tspan dy="5px" class="label_subscript">1</tspan></tspan></text>
+<text x="60" y="79.504132231405" id="geomlabel_marker_pi_1" class="boxed-label" text-anchor="start" display="yes">
+<title>Realisierte Inflationsrate p_1 = 0.054 in dieser Periode.</title>
+<tspan>p<tspan dy="5px" class="label_subscript">1</tspan></tspan></text>
+<polygon class="poly_marker" display="none"/>
+<circle id="makro101_plotpane_41_circle_marker" class="circle_marker" display="none"/>
+</svg>
+    <p></td></tr></table></p>
+
+  </div>
+  <div id="frame__42__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Inflations-Arbeitslosigkeit-Tradeoff</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      18 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <p><table class="frametable">
+<tr><td class="leftcol" style="width: 50%">
+Unser Beispiel: </p>
+
+<p>-&gt; Zentralbank setzte niedrigen Zinssatz von <mathinline>r<sub>cb</sub> </mathinline>=2%</p>
+
+<p>-&gt; Nachfrage auf Y=110, über das &quot;natürliche&quot; Niveau von Y_NAI = 100 angekurbelt</p>
+
+<p>-&gt; Arbeitslosigkeit auf u = 1.67% unter das &quot;natürliche&quot; Niveau von u_NAI = 5% gesenkt. </p>
+
+<p>-&gt; Aber Inflationsrate <mathinline>p<sub>t</sub></mathinline> = 5.4%, statt der erwarteten <mathinline>Ep<sub>t</sub></mathinline> = 2%.</p>
+
+<p></td><td class="rightcol"></p>
+
+    <svg width='250' height='250' id = 'makro101_plotpane_43' class='clickable_svg'>
+<defs>
+
+  <style type="text/css"><![CDATA[
+.tooltip-inner {
+    white-space: pre-wrap;
+}
+/*
+text { font-family : "Kalam" }
+*/
+line, polyline, path, rect, circle {
+  fill: none;
+  stroke: #000000;
+/*
+  stroke-linecap: round;
+*/
+  stroke-linejoin: round;
+  stroke-miterlimit: 10.00;
+}
+
+
+.point {
+  fill: #dddd00;
+  fill: #000000;
+  fill-opacity: 0.8;
+  stroke: #000044;
+  stroke-width: 0;
+}
+
+.point:hover {
+  stroke-width: 4;
+  fill: #000044;
+  fill-opacity: 1;
+}
+
+.curve {
+  stroke-width: 3;
+  stroke-opacity: 0.8;
+}
+
+.curve:hover {
+  stroke-width: 5;
+}
+
+.marker_line {
+  stroke-width: 2;
+  stroke-opacity: 0.8;
+  stroke-dasharray: "5,5";
+  stroke-color: "#333333";
+}
+
+.marker_line:hover {
+  stroke-width: 4;
+}
+
+
+.axis {
+
+}
+
+.axis-main {
+  stroke-width: 1.5;
+}
+
+.axis-tick {
+  stroke-width: 0.5;
+}
+
+.axis-ticklabel {
+  font-size: 10.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+}
+
+.point-label {
+  font-size: 13.00pt;
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+.boxed-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+
+.label_subscript {
+  font-size: 8.00pt;
+}
+
+
+.axis-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal
+}
+
+
+.circle_marker {
+  fill: #ffff00;
+  fill-opacity: 0.7;
+  stroke-width: 0;
+  stroke-opacity: 0.7;
+  stroke: yellow;
+} 
+
+.poly_marker {
+  fill: #ffff00;
+  fill-opacity: 0.5;
+  stroke-width: 0;
+  stroke-opacity:0.5;
+  stroke: yellow;
+} 
+
+
+  ]]>
+  </style>
+  
+
+      <filter x="0" y="0" width="1" height="1" id="label_box">
+        <feFlood flood-color="white" flood-opacity="0.85"/>
+        <feComposite in="SourceGraphic"/>
+      </filter>
+    
+
+    <marker id="arrow_head" class="arrow_head" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" style ="fill: black;"/>
+    </marker>
+    
+</defs>
+<polyline points="84.2857142857143,190 84.2857142857143,70.5785123966942" id="marker_u_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>u_t = 1.67% ist die Arbeitslosenquote in dieser Periode.</title></polyline>
+<polyline points="132.857142857143,190 132.857142857143,105.702479338843" id="marker_u_NAI_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>u_NAI ist die "natürliche" Arbeitslosequote,
+auch NAIRU (Non-Accelerating Inflation Rate
+of Unemployment) genannt.
+
+Sie ist die Arbeitslosenquote, bei der die
+Inflationsrate p_t genau ihren Erwartungen
+Ep_t entspricht.
+</title></polyline>
+<polyline points="60,105.702479338843 132.857142857143,105.702479338843" id="marker_Epi_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Erwartete Inflation Ep_1 = 0.02.</title></polyline>
+<polyline points="60,70.5785123966942 84.2857142857143,70.5785123966942" id="marker_pi_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Realisierte Inflationsrate p_1 = 0.054 in dieser Periode.</title></polyline>
+<polyline points="60,53.0165289256199 230,175.95041322314" id="curve_pcu_1" class="curve" style="fill: none; stroke: #6A3D9A">
+<title>Diese Phillips-Kurve zeigt den Zusammenhang
+zwischen Inflation und Arbeitslosikeit
+in einer Periode, für gegebene
+Inflationserwartungen Ep_1 = 0.02.
+</title></polyline>
+<g id="xaxis" class="axis x-axis">
+<line x1="60" x2="240" y1="200" y2="200" class="axis-main"/>
+<line x1="60" x2="60" y1="200" y2="210" class="axis-tick"/>
+<line x1="89.1428571428571" x2="89.1428571428571" y1="200" y2="210" class="axis-tick"/>
+<line x1="118.285714285714" x2="118.285714285714" y1="200" y2="210" class="axis-tick"/>
+<line x1="147.428571428571" x2="147.428571428571" y1="200" y2="210" class="axis-tick"/>
+<line x1="176.571428571429" x2="176.571428571429" y1="200" y2="210" class="axis-tick"/>
+<line x1="205.714285714286" x2="205.714285714286" y1="200" y2="210" class="axis-tick"/>
+<text x="60" y="225" class="axis-ticklabel"text-anchor="middle">0</text>
+<text x="89.1428571428571" y="225" class="axis-ticklabel"text-anchor="middle">0.02</text>
+<text x="118.285714285714" y="225" class="axis-ticklabel"text-anchor="middle">0.04</text>
+<text x="147.428571428571" y="225" class="axis-ticklabel"text-anchor="middle">0.06</text>
+<text x="176.571428571429" y="225" class="axis-ticklabel"text-anchor="middle">0.08</text>
+<text x="205.714285714286" y="225" class="axis-ticklabel"text-anchor="middle">0.1</text>
+<text x="230" y="240" class="axis-label" text-anchor="right">
+u</text></g>
+<g id="yaxis" class="axis y-axis">
+<line x1="50" x2="50" y1="190" y2="20" class="axis-main"/>
+<line x1="40" x2="50" y1="178.01652892562" y2="178.01652892562" class="axis-tick"/>
+<line x1="40" x2="50" y1="126.363636363636" y2="126.363636363636" class="axis-tick"/>
+<line x1="40" x2="50" y1="74.7107438016529" y2="74.7107438016529" class="axis-tick"/>
+<line x1="40" x2="50" y1="23.0578512396695" y2="23.0578512396695" class="axis-tick"/>
+<text x="37" y="178.01652892562" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">-0.05</text>
+<text x="37" y="126.363636363636" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0</text>
+<text x="37" y="74.7107438016529" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.05</text>
+<text x="37" y="23.0578512396695" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.1</text>
+<text x="40" y="10" class="axis-label" text-anchor="middle">
+p</text></g>
+<text x="247" y="175.95041322314" id="geomlabel_curve_pcu_1" class="boxed-label" text-anchor="end" display="yes">
+<title>Diese Phillips-Kurve zeigt den Zusammenhang
+zwischen Inflation und Arbeitslosikeit
+in einer Periode, für gegebene
+Inflationserwartungen Ep_1 = 0.02.
+</title>
+<tspan>UPC|Ep<tspan dy="5px" class="label_subscript">1</tspan></tspan></text>
+<text x="84.2857142857143" y="190" id="geomlabel_marker_u_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>u_t = 1.67% ist die Arbeitslosenquote in dieser Periode.</title>
+<tspan>u<tspan dy="5px" class="label_subscript">t</tspan></tspan></text>
+<text x="132.857142857143" y="190" id="geomlabel_marker_u_NAI_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>u_NAI ist die "natürliche" Arbeitslosequote,
+auch NAIRU (Non-Accelerating Inflation Rate
+of Unemployment) genannt.
+
+Sie ist die Arbeitslosenquote, bei der die
+Inflationsrate p_t genau ihren Erwartungen
+Ep_t entspricht.
+</title>
+<tspan>u<tspan dy="5px" class="label_subscript">NAI</tspan></tspan></text>
+<text x="60" y="105.702479338843" id="geomlabel_marker_Epi_1" class="boxed-label" text-anchor="start" display="yes">
+<title>Erwartete Inflation Ep_1 = 0.02.</title>
+<tspan>Ep<tspan dy="5px" class="label_subscript">1</tspan></tspan></text>
+<text x="60" y="70.5785123966942" id="geomlabel_marker_pi_1" class="boxed-label" text-anchor="start" display="yes">
+<title>Realisierte Inflationsrate p_1 = 0.054 in dieser Periode.</title>
+<tspan>p<tspan dy="5px" class="label_subscript">1</tspan></tspan></text>
+<polygon class="poly_marker" display="none"/>
+<circle id="makro101_plotpane_43_circle_marker" class="circle_marker" display="none"/>
+</svg>
+    <p></td></tr></table></p>
+
+  </div>
+  <div id="frame__44__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Inflations-Arbeitslosigkeit-Tradeoff</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      19 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <p><table class="frametable">
+<tr><td class="leftcol" style="width: 55%"></p>
+
+    <div id="quiz__45__makro101_div" class="rtutor-container-div" style="">
+      <div id="quiz__45__makro101_output" class="shiny-html-output"></div>
+    </div>
+    <p></td><td class="rightcol"></p>
+
+    <svg width='200' height='200' id = 'makro101_plotpane_46' class='clickable_svg'>
+<defs>
+
+  <style type="text/css"><![CDATA[
+.tooltip-inner {
+    white-space: pre-wrap;
+}
+/*
+text { font-family : "Kalam" }
+*/
+line, polyline, path, rect, circle {
+  fill: none;
+  stroke: #000000;
+/*
+  stroke-linecap: round;
+*/
+  stroke-linejoin: round;
+  stroke-miterlimit: 10.00;
+}
+
+
+.point {
+  fill: #dddd00;
+  fill: #000000;
+  fill-opacity: 0.8;
+  stroke: #000044;
+  stroke-width: 0;
+}
+
+.point:hover {
+  stroke-width: 4;
+  fill: #000044;
+  fill-opacity: 1;
+}
+
+.curve {
+  stroke-width: 3;
+  stroke-opacity: 0.8;
+}
+
+.curve:hover {
+  stroke-width: 5;
+}
+
+.marker_line {
+  stroke-width: 2;
+  stroke-opacity: 0.8;
+  stroke-dasharray: "5,5";
+  stroke-color: "#333333";
+}
+
+.marker_line:hover {
+  stroke-width: 4;
+}
+
+
+.axis {
+
+}
+
+.axis-main {
+  stroke-width: 1.5;
+}
+
+.axis-tick {
+  stroke-width: 0.5;
+}
+
+.axis-ticklabel {
+  font-size: 10.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+}
+
+.point-label {
+  font-size: 13.00pt;
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+.boxed-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+
+.label_subscript {
+  font-size: 8.00pt;
+}
+
+
+.axis-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal
+}
+
+
+.circle_marker {
+  fill: #ffff00;
+  fill-opacity: 0.7;
+  stroke-width: 0;
+  stroke-opacity: 0.7;
+  stroke: yellow;
+} 
+
+.poly_marker {
+  fill: #ffff00;
+  fill-opacity: 0.5;
+  stroke-width: 0;
+  stroke-opacity:0.5;
+  stroke: yellow;
+} 
+
+
+  ]]>
+  </style>
+  
+
+      <filter x="0" y="0" width="1" height="1" id="label_box">
+        <feFlood flood-color="white" flood-opacity="0.85"/>
+        <feComposite in="SourceGraphic"/>
+      </filter>
+    
+
+    <marker id="arrow_head" class="arrow_head" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" style ="fill: black;"/>
+    </marker>
+    
+</defs>
+<polyline points="77.1428571428571,140 77.1428571428571,55.702479338843" id="marker_u_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>u_t = 1.67% ist die Arbeitslosenquote in dieser Periode.</title></polyline>
+<polyline points="111.428571428571,140 111.428571428571,80.495867768595" id="marker_u_NAI_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>u_NAI ist die "natürliche" Arbeitslosequote,
+auch NAIRU (Non-Accelerating Inflation Rate
+of Unemployment) genannt.
+
+Sie ist die Arbeitslosenquote, bei der die
+Inflationsrate p_t genau ihren Erwartungen
+Ep_t entspricht.
+</title></polyline>
+<polyline points="60,80.495867768595 111.428571428571,80.495867768595" id="marker_Epi_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Erwartete Inflation Ep_1 = 0.02.</title></polyline>
+<polyline points="60,55.702479338843 77.1428571428571,55.702479338843" id="marker_pi_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Realisierte Inflationsrate p_1 = 0.054 in dieser Periode.</title></polyline>
+<polyline points="60,43.305785123967 180,130.082644628099" id="curve_pcu_1" class="curve" style="fill: none; stroke: #6A3D9A">
+<title>Diese Phillips-Kurve zeigt den Zusammenhang
+zwischen Inflation und Arbeitslosikeit
+in einer Periode, für gegebene
+Inflationserwartungen Ep_1 = 0.02.
+</title></polyline>
+<g id="xaxis" class="axis x-axis">
+<line x1="60" x2="190" y1="150" y2="150" class="axis-main"/>
+<line x1="60" x2="60" y1="150" y2="160" class="axis-tick"/>
+<line x1="111.428571428571" x2="111.428571428571" y1="150" y2="160" class="axis-tick"/>
+<line x1="162.857142857143" x2="162.857142857143" y1="150" y2="160" class="axis-tick"/>
+<text x="60" y="175" class="axis-ticklabel"text-anchor="middle">0</text>
+<text x="111.428571428571" y="175" class="axis-ticklabel"text-anchor="middle">0.05</text>
+<text x="162.857142857143" y="175" class="axis-ticklabel"text-anchor="middle">0.1</text>
+<text x="180" y="190" class="axis-label" text-anchor="right">
+u</text></g>
+<g id="yaxis" class="axis y-axis">
+<line x1="50" x2="50" y1="140" y2="20" class="axis-main"/>
+<line x1="40" x2="50" y1="131.541079241614" y2="131.541079241614" class="axis-tick"/>
+<line x1="40" x2="50" y1="95.0802139037433" y2="95.0802139037433" class="axis-tick"/>
+<line x1="40" x2="50" y1="58.6193485658726" y2="58.6193485658726" class="axis-tick"/>
+<line x1="40" x2="50" y1="22.158483228002" y2="22.158483228002" class="axis-tick"/>
+<text x="37" y="131.541079241614" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">-0.05</text>
+<text x="37" y="95.0802139037433" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0</text>
+<text x="37" y="58.6193485658726" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.05</text>
+<text x="37" y="22.158483228002" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.1</text>
+<text x="40" y="10" class="axis-label" text-anchor="middle">
+p</text></g>
+<text x="197" y="130.082644628099" id="geomlabel_curve_pcu_1" class="boxed-label" text-anchor="end" display="yes">
+<title>Diese Phillips-Kurve zeigt den Zusammenhang
+zwischen Inflation und Arbeitslosikeit
+in einer Periode, für gegebene
+Inflationserwartungen Ep_1 = 0.02.
+</title>
+<tspan>UPC|Ep<tspan dy="5px" class="label_subscript">1</tspan></tspan></text>
+<text x="77.1428571428571" y="140" id="geomlabel_marker_u_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>u_t = 1.67% ist die Arbeitslosenquote in dieser Periode.</title>
+<tspan>u<tspan dy="5px" class="label_subscript">t</tspan></tspan></text>
+<text x="111.428571428571" y="140" id="geomlabel_marker_u_NAI_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>u_NAI ist die "natürliche" Arbeitslosequote,
+auch NAIRU (Non-Accelerating Inflation Rate
+of Unemployment) genannt.
+
+Sie ist die Arbeitslosenquote, bei der die
+Inflationsrate p_t genau ihren Erwartungen
+Ep_t entspricht.
+</title>
+<tspan>u<tspan dy="5px" class="label_subscript">NAI</tspan></tspan></text>
+<text x="60" y="80.495867768595" id="geomlabel_marker_Epi_1" class="boxed-label" text-anchor="start" display="yes">
+<title>Erwartete Inflation Ep_1 = 0.02.</title>
+<tspan>Ep<tspan dy="5px" class="label_subscript">1</tspan></tspan></text>
+<text x="60" y="55.702479338843" id="geomlabel_marker_pi_1" class="boxed-label" text-anchor="start" display="yes">
+<title>Realisierte Inflationsrate p_1 = 0.054 in dieser Periode.</title>
+<tspan>p<tspan dy="5px" class="label_subscript">1</tspan></tspan></text>
+<polygon class="poly_marker" display="none"/>
+<circle id="makro101_plotpane_46_circle_marker" class="circle_marker" display="none"/>
+</svg>
+    <p></td></tr></table></p>
+
+  </div>
+  <div id="frame__47__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Lohn- Preisspirale t=2 (1)</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      20 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    
+    <div id="panequiz__48__makro101_div" class="rtutor-container-div" style="">
+      <div id="panequiz__48__makro101_output" class="shiny-html-output"></div>
+    </div>
+    
+  </div>
+  <div id="frame__49__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Lohn- Preisspirale t=2 (2)</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      21 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <div id="panequiz__50__makro101_div" class="rtutor-container-div" style="">
+      <div id="panequiz__50__makro101_output" class="shiny-html-output"></div>
+    </div>
+    
+  </div>
+  <div id="frame__51__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Lohn- Preisspirale t=3</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      22 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <p><table class="frametable">
+<tr><td class="leftcol" style="width: 35%"></p>
+
+<ul>
+<li>In Periode t=3 ist die erwartete Inflation schon <mathinline>Ep<sub>3=</sub>p<sub>2=0.089</sub></mathinline>.</li>
+<li>Die Phillipskurve verschiebt sich noch weiter nach oben und die Inflation steigt noch weiter an.</li>
+<li>Solange Y &gt; Y_NAI haben wir eine ständig steigende Inflationsrate...</li>
+</ul>
+
+<p></td><td class="rightcol"></p>
+
+    <svg width='320' height='280' id = 'makro101_plotpane_54' class='clickable_svg'>
+<defs>
+
+  <style type="text/css"><![CDATA[
+.tooltip-inner {
+    white-space: pre-wrap;
+}
+/*
+text { font-family : "Kalam" }
+*/
+line, polyline, path, rect, circle {
+  fill: none;
+  stroke: #000000;
+/*
+  stroke-linecap: round;
+*/
+  stroke-linejoin: round;
+  stroke-miterlimit: 10.00;
+}
+
+
+.point {
+  fill: #dddd00;
+  fill: #000000;
+  fill-opacity: 0.8;
+  stroke: #000044;
+  stroke-width: 0;
+}
+
+.point:hover {
+  stroke-width: 4;
+  fill: #000044;
+  fill-opacity: 1;
+}
+
+.curve {
+  stroke-width: 3;
+  stroke-opacity: 0.8;
+}
+
+.curve:hover {
+  stroke-width: 5;
+}
+
+.marker_line {
+  stroke-width: 2;
+  stroke-opacity: 0.8;
+  stroke-dasharray: "5,5";
+  stroke-color: "#333333";
+}
+
+.marker_line:hover {
+  stroke-width: 4;
+}
+
+
+.axis {
+
+}
+
+.axis-main {
+  stroke-width: 1.5;
+}
+
+.axis-tick {
+  stroke-width: 0.5;
+}
+
+.axis-ticklabel {
+  font-size: 10.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+}
+
+.point-label {
+  font-size: 13.00pt;
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+.boxed-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+
+.label_subscript {
+  font-size: 8.00pt;
+}
+
+
+.axis-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal
+}
+
+
+.circle_marker {
+  fill: #ffff00;
+  fill-opacity: 0.7;
+  stroke-width: 0;
+  stroke-opacity: 0.7;
+  stroke: yellow;
+} 
+
+.poly_marker {
+  fill: #ffff00;
+  fill-opacity: 0.5;
+  stroke-width: 0;
+  stroke-opacity:0.5;
+  stroke: yellow;
+} 
+
+
+  ]]>
+  </style>
+  
+
+      <filter x="0" y="0" width="1" height="1" id="label_box">
+        <feFlood flood-color="white" flood-opacity="0.85"/>
+        <feComposite in="SourceGraphic"/>
+      </filter>
+    
+
+    <marker id="arrow_head" class="arrow_head" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" style ="fill: black;"/>
+    </marker>
+    
+</defs>
+<polyline points="60,95.4337265787648 180,95.4337265787648" id="marker_Epi_3" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Erwartete Inflation Ep_3 = 0.089.
+</title></polyline>
+<polyline points="60,66.8077723802915 240,66.8077723802915" id="marker_pi_3" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Realisierte Inflationsrate
+p_3 = 0.1253
+in dieser Periode.
+</title></polyline>
+<polyline points="240,220 240,20" id="marker_Y_3" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Y_3 = 110 ist die reale Nachfrage = BIP
+in dieser Periode.
+</title></polyline>
+<polyline points="180,220 180,20" id="marker_Y_NAI_3" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Y_NAI ist das Nachfrageniveau, bei dem die
+Inflationsrate bei ihrem erwarteten Wert
+verbleibt.
+NAI steht für 'Non-Accelerating Inflation'.
+</title></polyline>
+<polyline points="60,123.034508863794 180,123.034508863794" id="marker_Epi_2" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Erwartete Inflation Ep_2 = 0.054.
+</title></polyline>
+<polyline points="60,149.846697369251 180,149.846697369251" id="marker_Epi_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Erwartete Inflation Ep_1 = 0.02.
+</title></polyline>
+<polyline points="60,152.685634975711 300,38.1818181818182" id="curve_pc_3" class="curve" style="fill: none; stroke: #B30059">
+<title>Diese Phillips-Kurve zeigt den Zusammenhang
+zwischen Inflation und Nachfrage in einer
+Periode, für gegebene Inflationserwartungen
+Ep_3 = 0.089.
+</title></polyline>
+<polyline points="60,178.446365108405 300,67.6226526191829" id="curve_pc_2" class="curve" style="fill: none; stroke: #FF80BF">
+<title>Diese Phillips-Kurve zeigt den Zusammenhang
+zwischen Inflation und Nachfrage in einer
+Periode, für gegebene Inflationserwartungen
+Ep_2 = 0.054.
+</title></polyline>
+<polyline points="60,203.471074380165 300,96.222320358337" id="curve_pc_1" class="curve" style="fill: none; stroke: #CCCCCC">
+<title>Diese Phillips-Kurve zeigt den Zusammenhang
+zwischen Inflation und Nachfrage in einer
+Periode, für gegebene Inflationserwartungen
+Ep_1 = 0.02.
+</title></polyline>
+<g id="xaxis" class="axis x-axis">
+<line x1="60" x2="310" y1="230" y2="230" class="axis-main"/>
+<line x1="60" x2="60" y1="230" y2="240" class="axis-tick"/>
+<line x1="120" x2="120" y1="230" y2="240" class="axis-tick"/>
+<line x1="180" x2="180" y1="230" y2="240" class="axis-tick"/>
+<line x1="240" x2="240" y1="230" y2="240" class="axis-tick"/>
+<line x1="300" x2="300" y1="230" y2="240" class="axis-tick"/>
+<text x="60" y="255" class="axis-ticklabel"text-anchor="middle">80</text>
+<text x="120" y="255" class="axis-ticklabel"text-anchor="middle">90</text>
+<text x="180" y="255" class="axis-ticklabel"text-anchor="middle">100</text>
+<text x="240" y="255" class="axis-ticklabel"text-anchor="middle">110</text>
+<text x="300" y="255" class="axis-ticklabel"text-anchor="middle">120</text>
+<text x="300" y="270" class="axis-label" text-anchor="right">
+Y</text></g>
+<g id="yaxis" class="axis y-axis">
+<line x1="50" x2="50" y1="220" y2="20" class="axis-main"/>
+<line x1="40" x2="50" y1="205.04826193931" y2="205.04826193931" class="axis-tick"/>
+<line x1="40" x2="50" y1="165.618572960696" y2="165.618572960696" class="axis-tick"/>
+<line x1="40" x2="50" y1="126.188883982083" y2="126.188883982083" class="axis-tick"/>
+<line x1="40" x2="50" y1="86.7591950034698" y2="86.7591950034698" class="axis-tick"/>
+<line x1="40" x2="50" y1="47.3295060248565" y2="47.3295060248565" class="axis-tick"/>
+<text x="37" y="205.04826193931" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">-0.05</text>
+<text x="37" y="165.618572960696" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0</text>
+<text x="37" y="126.188883982083" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.05</text>
+<text x="37" y="86.7591950034698" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.1</text>
+<text x="37" y="47.3295060248565" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.15</text>
+<text x="40" y="10" class="axis-label" text-anchor="middle">
+p</text></g>
+<text x="317" y="38.1818181818182" id="geomlabel_curve_pc_3" class="boxed-label" text-anchor="end" display="yes">
+<title>Diese Phillips-Kurve zeigt den Zusammenhang
+zwischen Inflation und Nachfrage in einer
+Periode, für gegebene Inflationserwartungen
+Ep_3 = 0.089.
+</title>
+<tspan>PC|Ep<tspan dy="5px" class="label_subscript">3</tspan></tspan></text>
+<text x="60" y="95.4337265787648" id="geomlabel_marker_Epi_3" class="boxed-label" text-anchor="start" display="yes">
+<title>Erwartete Inflation Ep_3 = 0.089.
+</title>
+<tspan>Ep<tspan dy="5px" class="label_subscript">3</tspan></tspan></text>
+<text x="60" y="66.8077723802915" id="geomlabel_marker_pi_3" class="boxed-label" text-anchor="start" display="yes">
+<title>Realisierte Inflationsrate
+p_3 = 0.1253
+in dieser Periode.
+</title>
+<tspan>p<tspan dy="5px" class="label_subscript">3</tspan></tspan></text>
+<text x="240" y="220" id="geomlabel_marker_Y_3" class="boxed-label" text-anchor="middle" display="yes">
+<title>Y_3 = 110 ist die reale Nachfrage = BIP
+in dieser Periode.
+</title>
+<tspan>Y<tspan dy="5px" class="label_subscript">3</tspan></tspan></text>
+<text x="180" y="20" id="geomlabel_marker_Y_NAI_3" class="boxed-label" text-anchor="middle" display="yes">
+<title>Y_NAI ist das Nachfrageniveau, bei dem die
+Inflationsrate bei ihrem erwarteten Wert
+verbleibt.
+NAI steht für 'Non-Accelerating Inflation'.
+</title>
+<tspan>Y<tspan dy="5px" class="label_subscript">NAI</tspan></tspan></text>
+<text x="317" y="67.6226526191829" id="geomlabel_curve_pc_2" class="boxed-label" text-anchor="end" display="yes">
+<title>Diese Phillips-Kurve zeigt den Zusammenhang
+zwischen Inflation und Nachfrage in einer
+Periode, für gegebene Inflationserwartungen
+Ep_2 = 0.054.
+</title>
+<tspan>PC|Ep<tspan dy="5px" class="label_subscript">2</tspan></tspan></text>
+<text x="60" y="123.034508863794" id="geomlabel_marker_Epi_2" class="boxed-label" text-anchor="start" display="yes">
+<title>Erwartete Inflation Ep_2 = 0.054.
+</title>
+<tspan>Ep<tspan dy="5px" class="label_subscript">2</tspan></tspan></text>
+<text x="60" y="203.471074380165" id="geomlabel_curve_pc_1" class="boxed-label" text-anchor="start" display="yes">
+<title>Diese Phillips-Kurve zeigt den Zusammenhang
+zwischen Inflation und Nachfrage in einer
+Periode, für gegebene Inflationserwartungen
+Ep_1 = 0.02.
+</title>
+<tspan>PC|Ep<tspan dy="5px" class="label_subscript">1</tspan></tspan></text>
+<text x="60" y="149.846697369251" id="geomlabel_marker_Epi_1" class="boxed-label" text-anchor="start" display="yes">
+<title>Erwartete Inflation Ep_1 = 0.02.
+</title>
+<tspan>Ep<tspan dy="5px" class="label_subscript">1</tspan></tspan></text>
+<polygon class="poly_marker" display="none"/>
+<circle id="makro101_plotpane_54_circle_marker" class="circle_marker" display="none"/>
+</svg>
+    <p></td></tr></table></p>
+
+  </div>
+  <div id="frame__55__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Zur Lohn-Preis Spirale</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      23 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <ul>
+<li>Nehme an Arbeitsproduktivität <mathinline>t</mathinline> sei konstant.</li>
+<li>Wenn <mathinline>Y<sub>t-1</sub> = Y<sub>t</sub> = Y<sub>NAI</sub> </mathinline>, steigen die Nominallöhne mit der erwarteten Inflationsrate <mathinline>Ep<sub>t</sub></mathinline>.</li>
+<li>Sei <mathinline>Y<sub>t-1</sub> = Y<sub>t</sub> > Y<sub>NAI</sub> </mathinline> 
+
+<ul>
+<li>Arbeitnehmer forder eine Lohnsteigerung über die erwartete Inflationsrate hinaus.</li>
+<li>Die Firmen reagieren aber mit entsprechend höherer Preissteigerung.</li>
+<li>Resultierende Reallöhne steigen nicht, nur die Inflation steigt an.</li>
+<li>Inflationsdruck bleibt bestehen solange <mathinline>Y<sub>t</sub> > Y<sub>NAI</sub></mathinline>.</li>
+</ul></li>
+</ul>
+
+  </div>
+  <div id="frame__56__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Einperiodiger Nachfrageboom</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      24 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <p><table class="frametable">
+<tr><td class="leftcol" style="width: 55%"></p>
+
+    <div id="quiz__59__makro101_div" class="rtutor-container-div" style="">
+      <div id="quiz__59__makro101_output" class="shiny-html-output"></div>
+    </div>
+    <p></td><td class="rightcol">
+<table><tr></p>
+
+    <svg width='200' height='200' id = 'makro101_plotpane_60' class='clickable_svg'>
+<defs>
+
+  <style type="text/css"><![CDATA[
+.tooltip-inner {
+    white-space: pre-wrap;
+}
+/*
+text { font-family : "Kalam" }
+*/
+line, polyline, path, rect, circle {
+  fill: none;
+  stroke: #000000;
+/*
+  stroke-linecap: round;
+*/
+  stroke-linejoin: round;
+  stroke-miterlimit: 10.00;
+}
+
+
+.point {
+  fill: #dddd00;
+  fill: #000000;
+  fill-opacity: 0.8;
+  stroke: #000044;
+  stroke-width: 0;
+}
+
+.point:hover {
+  stroke-width: 4;
+  fill: #000044;
+  fill-opacity: 1;
+}
+
+.curve {
+  stroke-width: 3;
+  stroke-opacity: 0.8;
+}
+
+.curve:hover {
+  stroke-width: 5;
+}
+
+.marker_line {
+  stroke-width: 2;
+  stroke-opacity: 0.8;
+  stroke-dasharray: "5,5";
+  stroke-color: "#333333";
+}
+
+.marker_line:hover {
+  stroke-width: 4;
+}
+
+
+.axis {
+
+}
+
+.axis-main {
+  stroke-width: 1.5;
+}
+
+.axis-tick {
+  stroke-width: 0.5;
+}
+
+.axis-ticklabel {
+  font-size: 10.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+}
+
+.point-label {
+  font-size: 13.00pt;
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+.boxed-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+
+.label_subscript {
+  font-size: 8.00pt;
+}
+
+
+.axis-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal
+}
+
+
+.circle_marker {
+  fill: #ffff00;
+  fill-opacity: 0.7;
+  stroke-width: 0;
+  stroke-opacity: 0.7;
+  stroke: yellow;
+} 
+
+.poly_marker {
+  fill: #ffff00;
+  fill-opacity: 0.5;
+  stroke-width: 0;
+  stroke-opacity:0.5;
+  stroke: yellow;
+} 
+
+
+  ]]>
+  </style>
+  
+
+      <filter x="0" y="0" width="1" height="1" id="label_box">
+        <feFlood flood-color="white" flood-opacity="0.85"/>
+        <feComposite in="SourceGraphic"/>
+      </filter>
+    
+
+    <marker id="arrow_head" class="arrow_head" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" style ="fill: black;"/>
+    </marker>
+    
+</defs>
+<polyline points="77.1428571428571,140 77.1428571428571,55.702479338843" id="marker_u_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>u_t = 1.67% ist die Arbeitslosenquote in dieser Periode.</title></polyline>
+<polyline points="111.428571428571,140 111.428571428571,80.495867768595" id="marker_u_NAI_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>u_NAI ist die "natürliche" Arbeitslosequote,
+auch NAIRU (Non-Accelerating Inflation Rate
+of Unemployment) genannt.
+
+Sie ist die Arbeitslosenquote, bei der die
+Inflationsrate p_t genau ihren Erwartungen
+Ep_t entspricht.
+</title></polyline>
+<polyline points="60,80.495867768595 111.428571428571,80.495867768595" id="marker_Epi_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Erwartete Inflation Ep_1 = 0.02.</title></polyline>
+<polyline points="60,55.702479338843 77.1428571428571,55.702479338843" id="marker_pi_1" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Realisierte Inflationsrate p_1 = 0.054 in dieser Periode.</title></polyline>
+<polyline points="60,43.305785123967 180,130.082644628099" id="curve_pcu_1" class="curve" style="fill: none; stroke: #6A3D9A">
+<title>Diese Phillips-Kurve zeigt den Zusammenhang
+zwischen Inflation und Arbeitslosikeit
+in einer Periode, für gegebene
+Inflationserwartungen Ep_1 = 0.02.
+</title></polyline>
+<text x="120" y="15" class="boxed-label pane-title" text-anchor="middle">
+Phillipskurve in t=1</text>
+<g id="xaxis" class="axis x-axis">
+<line x1="60" x2="190" y1="150" y2="150" class="axis-main"/>
+<line x1="60" x2="60" y1="150" y2="160" class="axis-tick"/>
+<line x1="111.428571428571" x2="111.428571428571" y1="150" y2="160" class="axis-tick"/>
+<line x1="162.857142857143" x2="162.857142857143" y1="150" y2="160" class="axis-tick"/>
+<text x="60" y="175" class="axis-ticklabel"text-anchor="middle">0</text>
+<text x="111.428571428571" y="175" class="axis-ticklabel"text-anchor="middle">0.05</text>
+<text x="162.857142857143" y="175" class="axis-ticklabel"text-anchor="middle">0.1</text>
+<text x="180" y="190" class="axis-label" text-anchor="right">
+u</text></g>
+<g id="yaxis" class="axis y-axis">
+<line x1="50" x2="50" y1="140" y2="20" class="axis-main"/>
+<line x1="40" x2="50" y1="131.541079241614" y2="131.541079241614" class="axis-tick"/>
+<line x1="40" x2="50" y1="95.0802139037433" y2="95.0802139037433" class="axis-tick"/>
+<line x1="40" x2="50" y1="58.6193485658726" y2="58.6193485658726" class="axis-tick"/>
+<line x1="40" x2="50" y1="22.158483228002" y2="22.158483228002" class="axis-tick"/>
+<text x="37" y="131.541079241614" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">-0.05</text>
+<text x="37" y="95.0802139037433" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0</text>
+<text x="37" y="58.6193485658726" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.05</text>
+<text x="37" y="22.158483228002" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.1</text>
+<text x="40" y="10" class="axis-label" text-anchor="middle">
+p</text></g>
+<text x="197" y="130.082644628099" id="geomlabel_curve_pcu_1" class="boxed-label" text-anchor="end" display="yes">
+<title>Diese Phillips-Kurve zeigt den Zusammenhang
+zwischen Inflation und Arbeitslosikeit
+in einer Periode, für gegebene
+Inflationserwartungen Ep_1 = 0.02.
+</title>
+<tspan>UPC|Ep<tspan dy="5px" class="label_subscript">1</tspan></tspan></text>
+<text x="77.1428571428571" y="140" id="geomlabel_marker_u_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>u_t = 1.67% ist die Arbeitslosenquote in dieser Periode.</title>
+<tspan>u<tspan dy="5px" class="label_subscript">t</tspan></tspan></text>
+<text x="111.428571428571" y="140" id="geomlabel_marker_u_NAI_1" class="boxed-label" text-anchor="middle" display="yes">
+<title>u_NAI ist die "natürliche" Arbeitslosequote,
+auch NAIRU (Non-Accelerating Inflation Rate
+of Unemployment) genannt.
+
+Sie ist die Arbeitslosenquote, bei der die
+Inflationsrate p_t genau ihren Erwartungen
+Ep_t entspricht.
+</title>
+<tspan>u<tspan dy="5px" class="label_subscript">NAI</tspan></tspan></text>
+<text x="60" y="80.495867768595" id="geomlabel_marker_Epi_1" class="boxed-label" text-anchor="start" display="yes">
+<title>Erwartete Inflation Ep_1 = 0.02.</title>
+<tspan>Ep<tspan dy="5px" class="label_subscript">1</tspan></tspan></text>
+<text x="60" y="55.702479338843" id="geomlabel_marker_pi_1" class="boxed-label" text-anchor="start" display="yes">
+<title>Realisierte Inflationsrate p_1 = 0.054 in dieser Periode.</title>
+<tspan>p<tspan dy="5px" class="label_subscript">1</tspan></tspan></text>
+<polygon class="poly_marker" display="none"/>
+<circle id="makro101_plotpane_60_circle_marker" class="circle_marker" display="none"/>
+</svg>
+    <p></tr><tr></p>
+
+    <svg width='200' height='200' id = 'makro101_plotpane_61' class='clickable_svg'>
+<defs>
+
+  <style type="text/css"><![CDATA[
+.tooltip-inner {
+    white-space: pre-wrap;
+}
+/*
+text { font-family : "Kalam" }
+*/
+line, polyline, path, rect, circle {
+  fill: none;
+  stroke: #000000;
+/*
+  stroke-linecap: round;
+*/
+  stroke-linejoin: round;
+  stroke-miterlimit: 10.00;
+}
+
+
+.point {
+  fill: #dddd00;
+  fill: #000000;
+  fill-opacity: 0.8;
+  stroke: #000044;
+  stroke-width: 0;
+}
+
+.point:hover {
+  stroke-width: 4;
+  fill: #000044;
+  fill-opacity: 1;
+}
+
+.curve {
+  stroke-width: 3;
+  stroke-opacity: 0.8;
+}
+
+.curve:hover {
+  stroke-width: 5;
+}
+
+.marker_line {
+  stroke-width: 2;
+  stroke-opacity: 0.8;
+  stroke-dasharray: "5,5";
+  stroke-color: "#333333";
+}
+
+.marker_line:hover {
+  stroke-width: 4;
+}
+
+
+.axis {
+
+}
+
+.axis-main {
+  stroke-width: 1.5;
+}
+
+.axis-tick {
+  stroke-width: 0.5;
+}
+
+.axis-ticklabel {
+  font-size: 10.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+}
+
+.point-label {
+  font-size: 13.00pt;
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+.boxed-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+
+.label_subscript {
+  font-size: 8.00pt;
+}
+
+
+.axis-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal
+}
+
+
+.circle_marker {
+  fill: #ffff00;
+  fill-opacity: 0.7;
+  stroke-width: 0;
+  stroke-opacity: 0.7;
+  stroke: yellow;
+} 
+
+.poly_marker {
+  fill: #ffff00;
+  fill-opacity: 0.5;
+  stroke-width: 0;
+  stroke-opacity:0.5;
+  stroke: yellow;
+} 
+
+
+  ]]>
+  </style>
+  
+
+      <filter x="0" y="0" width="1" height="1" id="label_box">
+        <feFlood flood-color="white" flood-opacity="0.85"/>
+        <feComposite in="SourceGraphic"/>
+      </filter>
+    
+
+    <marker id="arrow_head" class="arrow_head" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" style ="fill: black;"/>
+    </marker>
+    
+</defs>
+<polyline points="120,140 120,70.5785123966942" id="marker_Y_4" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Y_t = 100 ist die reale Nachfrage = BIP, die sich in Periode t beim Zinssatz r_cb = 0.03 bildet.</title></polyline>
+<polyline points="60,30.9090909090909 180,110.247933884298" id="curve_Yr_curve_4" class="curve" style="fill: none; stroke: #ff0000">
+<title>Die Yr Kurve beschreibt welche Nachfrage Y sich als Funktion des Realzinses r einstellt. Sie ähnelt der IS Kurve aus dem IS-LM Modell. Wir nennen die Kurve Yr statt IS, da in unserem Modell die Gleichung Investitionen = Sparvolumen nicht immer gelten wird.</title></polyline>
+<polyline points="60,70.5785123966942 180,70.5785123966942" id="curve_r_cb_curve_4" class="curve" style="fill: none; stroke: blue">
+<title>r_cb = 0.03 ist der Realzins, der in unserem einfachen Modell direkt von der Zentralbank gesetzt wird.</title></polyline>
+<text x="120" y="15" class="boxed-label pane-title" text-anchor="middle">
+t = 2</text>
+<g id="xaxis" class="axis x-axis">
+<line x1="60" x2="190" y1="150" y2="150" class="axis-main"/>
+<line x1="60" x2="60" y1="150" y2="160" class="axis-tick"/>
+<line x1="90" x2="90" y1="150" y2="160" class="axis-tick"/>
+<line x1="120" x2="120" y1="150" y2="160" class="axis-tick"/>
+<line x1="150" x2="150" y1="150" y2="160" class="axis-tick"/>
+<line x1="180" x2="180" y1="150" y2="160" class="axis-tick"/>
+<text x="60" y="175" class="axis-ticklabel"text-anchor="middle">80</text>
+<text x="90" y="175" class="axis-ticklabel"text-anchor="middle">90</text>
+<text x="120" y="175" class="axis-ticklabel"text-anchor="middle">100</text>
+<text x="150" y="175" class="axis-ticklabel"text-anchor="middle">110</text>
+<text x="180" y="175" class="axis-ticklabel"text-anchor="middle">120</text>
+<text x="180" y="190" class="axis-label" text-anchor="right">
+Y</text></g>
+<g id="yaxis" class="axis y-axis">
+<line x1="50" x2="50" y1="140" y2="20" class="axis-main"/>
+<line x1="40" x2="50" y1="130.082644628099" y2="130.082644628099" class="axis-tick"/>
+<line x1="40" x2="50" y1="110.247933884298" y2="110.247933884298" class="axis-tick"/>
+<line x1="40" x2="50" y1="90.4132231404959" y2="90.4132231404959" class="axis-tick"/>
+<line x1="40" x2="50" y1="70.5785123966943" y2="70.5785123966943" class="axis-tick"/>
+<line x1="40" x2="50" y1="50.7438016528926" y2="50.7438016528926" class="axis-tick"/>
+<line x1="40" x2="50" y1="30.9090909090909" y2="30.9090909090909" class="axis-tick"/>
+<text x="37" y="130.082644628099" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0</text>
+<text x="37" y="110.247933884298" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.01</text>
+<text x="37" y="90.4132231404959" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.02</text>
+<text x="37" y="70.5785123966943" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.03</text>
+<text x="37" y="50.7438016528926" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.04</text>
+<text x="37" y="30.9090909090909" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.05</text>
+<text x="40" y="10" class="axis-label" text-anchor="middle">
+r</text></g>
+<text x="60" y="30.9090909090909" id="geomlabel_curve_Yr_curve_4" class="boxed-label" text-anchor="start" display="yes">
+<title>Die Yr Kurve beschreibt welche Nachfrage Y sich als Funktion des Realzinses r einstellt. Sie ähnelt der IS Kurve aus dem IS-LM Modell. Wir nennen die Kurve Yr statt IS, da in unserem Modell die Gleichung Investitionen = Sparvolumen nicht immer gelten wird.</title>
+Yr</text>
+<text x="197" y="70.5785123966942" id="geomlabel_curve_r_cb_curve_4" class="boxed-label" text-anchor="end" display="yes">
+<title>r_cb = 0.03 ist der Realzins, der in unserem einfachen Modell direkt von der Zentralbank gesetzt wird.</title>
+<tspan>r<tspan dy="5px" class="label_subscript">cb</tspan></tspan></text>
+<text x="120" y="140" id="geomlabel_marker_Y_4" class="boxed-label" text-anchor="middle" display="yes">
+<title>Y_t = 100 ist die reale Nachfrage = BIP, die sich in Periode t beim Zinssatz r_cb = 0.03 bildet.</title>
+<tspan>Y<tspan dy="5px" class="label_subscript">t</tspan></tspan></text>
+<polygon class="poly_marker" display="none"/>
+<circle id="makro101_plotpane_61_circle_marker" class="circle_marker" display="none"/>
+</svg>
+    <p></tr></table></p>
+
+<p></td></tr></table></p>
+
+  </div>
+  <div id="frame__62__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Persistente Inflationserwartungen</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      25 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <ul>
+<li>Auch bei einem Rückgang von <mathinline>Y<sub>1=110</sub></mathinline> auf <mathinline>Y<sub>NAI</sub> </mathinline> bleiben die  Inflationserwartungen auf dem Niveau von <mathinline>Ep<sub>t</sub> = p<sub>t-1</sub> = p<sub>1</sub> = 0.054</mathinline> bestehen.</li>
+<li>Ein einmaliger kurzer Boom erhöht in unserem Modell dauerhaft die Inflationsrate.</li>
+<li>Um die Inflationsrate wieder zu reduzieren, müsste die Zentralbank die Zinsen erstmal stärker anheben, so dass für eine oder mehrere Perioden wir eine Rezession mit <mathinline>Y<sub>t</sub> < Y<sub>NAI</sub> </mathinline> haben.</li>
+</ul>
+
+  </div>
+  <div id="frame__63__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Abrupte Inflationsabsenkung</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      26 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    
+    <div id="panequiz__64__makro101_div" class="rtutor-container-div" style="">
+      <div id="panequiz__64__makro101_output" class="shiny-html-output"></div>
+    </div>
+    
+  </div>
+  <div id="frame__65__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Abrupte Inflationsabsenkung</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      27 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    
+    <ul>
+<li>Also, wenn die Zentralbank nach dem Boom in t=1 mit <mathinline>Y<sub>1=110</sub></mathinline> und <mathinline>p<sub>1=0.054</sub></mathinline> die Inflationsrate sofort wieder auf 2% absenken möchte, muss Sie eine Rezession mit <mathinline>Y<sub>2=90</sub></mathinline> induzieren.</li>
+<li>In unserem Beispiel ist die Yr Kurve gegeben durch:
+<mathblock>r = 0.03 + -0.001*(Y-Y<sub>NAI</sub> )</mathblock>
+und die Okun&#39;sche Faustregel durch
+<mathblock>3 (u -u<sub>NAI</sub> ) = (Y-Y<sub>NAI</sub> ) / Y<sub>NAI</sub> </mathblock></li>
+<li>Die Zentralbank muss also einen Zins von <mathinline>r<sub>2</sub></mathinline> auf <hide>4%</hide> anheben.</li>
+<li>Dies resultiert in unserem Beispiel in einer Arbeitslosenquote von <mathinline>u<sub>2</sub></mathinline>=<hide>8.33%</hide>.</li>
+</ul>
+
+  </div>
+  <div id="frame__68__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Tradeoff der Zentralbank</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      28 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <p><table class="frametable">
+<tr><td class="leftcol" style="width: 50%"></p>
+
+<ul>
+<li>Nehmen Sie an die Zentralbank möchte zwar die Inflation wieder Richtung ihres Inflationsziels <mathinline>p<sub>T</sub></mathinline>=2% lenken, aber möchte hierfür Y nicht allzu stark unter <mathinline>Y<sub>NAI</sub> </mathinline> drücken.</li>
+</ul>
+
+<p></td><td class="rightcol"></p>
+
+    <svg width='300' height='300' id = 'makro101_plotpane_69' class='clickable_svg'>
+<defs>
+
+  <style type="text/css"><![CDATA[
+.tooltip-inner {
+    white-space: pre-wrap;
+}
+/*
+text { font-family : "Kalam" }
+*/
+line, polyline, path, rect, circle {
+  fill: none;
+  stroke: #000000;
+/*
+  stroke-linecap: round;
+*/
+  stroke-linejoin: round;
+  stroke-miterlimit: 10.00;
+}
+
+
+.point {
+  fill: #dddd00;
+  fill: #000000;
+  fill-opacity: 0.8;
+  stroke: #000044;
+  stroke-width: 0;
+}
+
+.point:hover {
+  stroke-width: 4;
+  fill: #000044;
+  fill-opacity: 1;
+}
+
+.curve {
+  stroke-width: 3;
+  stroke-opacity: 0.8;
+}
+
+.curve:hover {
+  stroke-width: 5;
+}
+
+.marker_line {
+  stroke-width: 2;
+  stroke-opacity: 0.8;
+  stroke-dasharray: "5,5";
+  stroke-color: "#333333";
+}
+
+.marker_line:hover {
+  stroke-width: 4;
+}
+
+
+.axis {
+
+}
+
+.axis-main {
+  stroke-width: 1.5;
+}
+
+.axis-tick {
+  stroke-width: 0.5;
+}
+
+.axis-ticklabel {
+  font-size: 10.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+}
+
+.point-label {
+  font-size: 13.00pt;
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+.boxed-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal;
+  filter: url(#label_box);
+}
+
+
+.label_subscript {
+  font-size: 8.00pt;
+}
+
+
+.axis-label {
+  font-size: 11.00pt;
+  /*font-family: Arial;*/
+  font-weight: normal
+}
+
+
+.circle_marker {
+  fill: #ffff00;
+  fill-opacity: 0.7;
+  stroke-width: 0;
+  stroke-opacity: 0.7;
+  stroke: yellow;
+} 
+
+.poly_marker {
+  fill: #ffff00;
+  fill-opacity: 0.5;
+  stroke-width: 0;
+  stroke-opacity:0.5;
+  stroke: yellow;
+} 
+
+
+  ]]>
+  </style>
+  
+
+      <filter x="0" y="0" width="1" height="1" id="label_box">
+        <feFlood flood-color="white" flood-opacity="0.85"/>
+        <feComposite in="SourceGraphic"/>
+      </filter>
+    
+
+    <marker id="arrow_head" class="arrow_head" markerWidth="10" markerHeight="10" refx="0" refy="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" style ="fill: black;"/>
+    </marker>
+    
+</defs>
+<polyline points="60,70.2857142857143 225,70.2857142857143" id="marker_Epi_2" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Erwartete Inflation Ep_2 = 0.054.
+</title></polyline>
+<polyline points="225,240 225,20" id="marker_Y_NAI_2" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Y_NAI ist das Nachfrageniveau, bei dem die
+Inflationsrate bei ihrem erwarteten Wert
+verbleibt.
+NAI steht für 'Non-Accelerating Inflation'.
+</title></polyline>
+<polyline points="60,177.142857142857 118.548387096774,177.142857142857" id="marker_pi_T_2" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>pi_T = 2% ist das Inflations-
+ziel der Zentralbank.
+</title></polyline>
+<polyline points="118.548387096774,240 118.548387096774,177.142857142857" id="marker_Y_T_2" class="marker_line" style="fill: none; stroke: #333333" stroke-dasharray="5,5">
+<title>Y_T2 = 9032.26% ist das BIP bei dem das 
+Inflationsziel in Periode 2 erreicht werden
+würde.
+</title></polyline>
+<polyline points="60,235.914285714286 275.094876660342,20" id="curve_pc_2" class="curve" style="fill: none; stroke: #B30059">
+<title>Diese Phillips-Kurve zeigt den Zusammenhang
+zwischen Inflation und Nachfrage in einer
+Periode, für gegebene Inflationserwartungen
+Ep_2 = 0.054.
+</title></polyline>
+<g id="xaxis" class="axis x-axis">
+<line x1="60" x2="290" y1="250" y2="250" class="axis-main"/>
+<line x1="60" x2="60" y1="250" y2="260" class="axis-tick"/>
+<line x1="115" x2="115" y1="250" y2="260" class="axis-tick"/>
+<line x1="170" x2="170" y1="250" y2="260" class="axis-tick"/>
+<line x1="225" x2="225" y1="250" y2="260" class="axis-tick"/>
+<line x1="280" x2="280" y1="250" y2="260" class="axis-tick"/>
+<text x="60" y="275" class="axis-ticklabel"text-anchor="middle">85</text>
+<text x="115" y="275" class="axis-ticklabel"text-anchor="middle">90</text>
+<text x="170" y="275" class="axis-ticklabel"text-anchor="middle">95</text>
+<text x="225" y="275" class="axis-ticklabel"text-anchor="middle">100</text>
+<text x="280" y="275" class="axis-ticklabel"text-anchor="middle">105</text>
+<text x="280" y="290" class="axis-label" text-anchor="right">
+Y</text></g>
+<g id="yaxis" class="axis y-axis">
+<line x1="50" x2="50" y1="240" y2="20" class="axis-main"/>
+<line x1="40" x2="50" y1="240" y2="240" class="axis-tick"/>
+<line x1="40" x2="50" y1="177.142857142857" y2="177.142857142857" class="axis-tick"/>
+<line x1="40" x2="50" y1="114.285714285714" y2="114.285714285714" class="axis-tick"/>
+<line x1="40" x2="50" y1="51.4285714285715" y2="51.4285714285715" class="axis-tick"/>
+<text x="37" y="240" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0</text>
+<text x="37" y="177.142857142857" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.02</text>
+<text x="37" y="114.285714285714" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.04</text>
+<text x="37" y="51.4285714285715" class="axis-ticklabel" text-anchor="end" alignment-baseline="middle">0.06</text>
+<text x="40" y="10" class="axis-label" text-anchor="middle">
+p</text></g>
+<circle cx="118.548387096774" cy="177.142857142857" r="5" class="point" id="point_A_2" fill="#dddd00">
+<title>Eine Zentralbank, die Punkt A wählt,
+hat nur das Ziel, sofort wieder
+die Inflationsrate pi_T = 2%
+herzustellen.
+</title></circle>
+<text x="124.548387096774" y="177.142857142857" id="label__point_A_2" class="point-label">
+<title>Eine Zentralbank, die Punkt A wählt,
+hat nur das Ziel, sofort wieder
+die Inflationsrate pi_T = 2%
+herzustellen.
+</title>
+A</text>
+<circle cx="225" cy="70.2857142857143" r="5" class="point" id="point_B_2" fill="#dddd00">
+<title>Eine Zentralbank, die Punkt B wählt,
+hat nur das Ziel, das BIP auf dem 
+Niveau Y=Y_NAI zu halten.
+</title></circle>
+<text x="231" y="70.2857142857143" id="label__point_B_2" class="point-label">
+<title>Eine Zentralbank, die Punkt B wählt,
+hat nur das Ziel, das BIP auf dem 
+Niveau Y=Y_NAI zu halten.
+</title>
+B</text>
+<text x="60" y="70.2857142857143" id="geomlabel_marker_Epi_2" class="boxed-label" text-anchor="start" display="yes">
+<title>Erwartete Inflation Ep_2 = 0.054.
+</title>
+<tspan>Ep<tspan dy="5px" class="label_subscript">2</tspan></tspan></text>
+<text x="275.094876660342" y="20" id="geomlabel_curve_pc_2" class="boxed-label" text-anchor="middle" display="yes">
+<title>Diese Phillips-Kurve zeigt den Zusammenhang
+zwischen Inflation und Nachfrage in einer
+Periode, für gegebene Inflationserwartungen
+Ep_2 = 0.054.
+</title>
+<tspan>PC|Ep<tspan dy="5px" class="label_subscript">2</tspan></tspan></text>
+<text x="225" y="240" id="geomlabel_marker_Y_NAI_2" class="boxed-label" text-anchor="middle" display="yes">
+<title>Y_NAI ist das Nachfrageniveau, bei dem die
+Inflationsrate bei ihrem erwarteten Wert
+verbleibt.
+NAI steht für 'Non-Accelerating Inflation'.
+</title>
+<tspan>Y<tspan dy="5px" class="label_subscript">NAI</tspan></tspan></text>
+<text x="60" y="177.142857142857" id="geomlabel_marker_pi_T_2" class="boxed-label" text-anchor="start" display="yes">
+<title>pi_T = 2% ist das Inflations-
+ziel der Zentralbank.
+</title>
+<tspan>p<tspan dy="5px" class="label_subscript">T</tspan></tspan></text>
+<text x="118.548387096774" y="240" id="geomlabel_marker_Y_T_2" class="boxed-label" text-anchor="middle" display="yes">
+<title>Y_T2 = 9032.26% ist das BIP bei dem das 
+Inflationsziel in Periode 2 erreicht werden
+würde.
+</title>
+<tspan>Y<tspan dy="5px" class="label_subscript">T,t </tspan></tspan></text>
+<polygon class="poly_marker" display="none"/>
+<circle id="makro101_plotpane_69_circle_marker" class="circle_marker" display="none"/>
+</svg>
+    <p></td></tr></table></p>
+
+  </div>
+  <div id="frame__70__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Langsamerer Inflationsabsenkung</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      29 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    
+    
+    <div id="panequiz__73__makro101_div" class="rtutor-container-div" style="">
+      <div id="panequiz__73__makro101_output" class="shiny-html-output"></div>
+    </div>
+    
+  </div>
+  <div id="frame__74__makro101_div" class="rtutor-static-container-div" style="display: block;">
+    <div class="rtutor-slide-title-bar">
+      <table width='100%'><tr><td>
+      <h4>Präferenzen über Inflation und Output-Gap</h4>
+      </td><td align='right' valign='top' nowrap>
+      <table><tr><td valign='center' nowrap>
+      <button id="rtPrevBtn" type="button" class="btn btn-default action-button btn-xs">&lt;</button>
+      <button id="rtNextBtn" type="button" class="btn btn-default action-button btn-xs">&gt;</button>
+      <button id="rtForwardBtn" type="button" class="btn btn-default action-button btn-xs">&gt;&gt;</button>
+      <button id="rtSlideMenuBtn" type="button" class="btn btn-default action-button btn-xs">
+        <i class="fa fa-bars"></i>
+        
+      </button>
+      </td><td valign='center' nowrap style='padding-left: 5px'>
+      30 of 30
+      </td></tr></table>
+      </td></tr></table>
+    </div>
+    <ul>
+<li>Nehmen Sie an die Zentralbank hat ein Inflationsziel von <mathinline>p<sub>T</sub></mathinline>=0.02.</li>
+<li>Weiterhin hat die Zentralbank ggf. einen Disnutzen, wenn das BIP unter Y_NAI fällt.</li>
+<li>Vereinfacht, nehmen wir folgende Präferenzen der Zentralbank an:</li>
+</ul>
+
+    
+    <div id="panequiz__77__makro101_div" class="rtutor-container-div" style="">
+      <div id="panequiz__77__makro101_output" class="shiny-html-output"></div>
+    </div>
+    
+  </div>
+</div>
+<script>
+$("div").css("display","block")      
+    </script>
+</body>
+</html>
+
