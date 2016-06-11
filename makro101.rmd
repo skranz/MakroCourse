@@ -72,6 +72,27 @@ $(document).on("click","hide",function() {
 #>
 
 #< css
+@media print {
+  body {
+    position: relative;
+  }
+  .slide_title {
+    page-break-after: avoid;
+  }
+  .slide-container-div {
+    position: relative;
+/*
+    orphans: 3;
+    widows: 3;
+*/
+    page-break-inside: avoid;
+  }
+  /* Overwrite bootstrap css */
+  a[href]:after {
+    content: "";
+  }
+}
+
 hide {
   /*visibility: hidden; */
   color: #cccccc;
@@ -87,10 +108,8 @@ hide.shown_hide {
 }
 
 body {
-  font-family: 'Signika';
-  font-family: 'BenchNine';
-  font-family: 'Sniglet';
-  font-size: 1.5em;
+  font-family: 'Sniglet', 'Comic Sans MS', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
 }
 /* Corrects mistake in nested list rendering */
 li p {
@@ -445,7 +464,7 @@ $$P_t = (1+\mu) W_t / \tau$$
 - Wenn wir die Löhne $W_t$ einsetzen erhalten wir
 $$
 \begin{eqnarray*}
-P_t & = & EP_t & \cdot (1+\mu) \cdot ws(Y_t) & \Leftrightarrow \\
+P_t & = & EP_t & \cdot (1+\mu) \cdot ws(Y_t) & \\
 (1+\pi_t) & = & (1+E\pi_t) & \cdot (1+\mu) \cdot ws(Y_t ) &
 \end{eqnarray*}
 $$

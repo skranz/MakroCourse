@@ -1,0 +1,490 @@
+#< ignore
+---
+title: "Fischerei Modell"
+author: "Sebastian Kranz"
+date: "9.6.2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error=TRUE)
+```
+#>
+
+#. include slide_defaults.rmd
+
+#< precompute
+```{r}
+dat = data_frame(
+  Smax = 100,
+  g = 0.5,
+  H_MSY = g*Smax/4,
+  H_const = H_MSY *0.75,
+  S_MSY = Smax / 2,
+  S1 = 25,
+  S2 = 75,
+  e=0.025,
+  p = 2,
+  w = 1,
+  E_MSY = (g*Smax*e) / (2*Smax*e^2),  
+  E_max = 2*E_MSY,
+  E=c(5,30, E_MSY[1]),
+  SE = pmax(Smax*(1-(e/g)*E),0),
+  E_star = (g*(p*Smax*e-w)) / (2*p*Smax*e^2),
+  H_star = e*E_star*Smax*(1-(e/g)*E_star),
+  S__min = 0,
+  S__max = Smax*1.1,
+  G__min = -3,
+  G__max = H_MSY*1.05,
+  H__min = 0,
+  H__max = G__max,
+  E__min = 0,
+  E__max = E_max
+)
+.whiskers = as.list(dat[1,])
+```
+
+#>
+
+
+#< pane SG_pane
+hide: H, H_const, SE
+datavar: dat
+xy: [S_,G_]
+xaxis:
+  label: S
+#  axis.offset: 0
+yaxis:
+  label:
+#  axis.offset: 0
+curves:
+  G:
+    eq: G_ == g*(1-S_/Smax)*S_
+    latex: G(S)
+    colors: green
+    tooltip: |
+      Die G(S) Kurve zeigt die natürliche Veränderungsrate
+      in Menge pro Zeiteinheit, des Fischbestandes
+      als Funktion des aktuellen Bestandes S.
+      Beachten Sie, dass G(S) negativ sein kann.
+    labx: 0.9*Smax
+  H_const:
+    eq: G_ == H_const
+    latex: H
+    tooltip: |
+      Die Fangmenge H.
+      Zunächst nehmen wir vereinfacht an,
+      dass H nicht vom Fischbestand S
+      abhängt.
+    colors: red
+  H:  
+    eq: G_ == e*E*S_
+    latex: H(S|E)
+    tooltip: |
+      Die Fangmenge H als Funktion des Fischbestandes S
+      für gegebene Fangaufwand E.
+    colors: red
+  zero:
+    eq: G_ == 0
+    label: ''
+    color: black
+xmarkers:
+  Smax:
+    latex: 'S_{max}'
+  SE: 
+    latex: S(E)
+    tooltip:
+      S(E) ist der gleichgewichtige Fischbestand
+      bei einem Fangaufwand in Höhe von E.
+
+#>
+
+
+#. frame Erneuerbare Ressourcen: Biologische Wachstumsprozesse
+
+- Erneuerbare (regenerierbare) natürliche Ressourcen (z.B. Fische im Ozean, Wälder) können sich ohne menschliche Eingriffe erneuern
+
+- Der Zuwachs kann in Stück oder in Gewichtseinheiten als Biomasse gemessen werden
+
+- Vermehrung eines Ressourcenbestandes durch Neuzugänge (Geburt) oder durch Zunahme an Größe und Gewicht einzelner Individuen
+
+- Zunahme des Bestandes durch natürliche Einflussfaktoren begrenzt: Sterblichkeit, Reduktion durch Räuber, unzureichende Nahrungsverfügbarkeit, räumliche Einschränkungen
+
+#. frame Arten von Modellen für Biologische Wachstumsprozesse
+
+- Zwischen verschiedenen Spezies gibt es Wechselbeziehungen, z.B. in Form von Nahrungsketten
+
+– Mehr-Spezies-Modelle (z. B. Lotka-Volterra Dynamiken) 
+
+- Befischung noch nicht geschlechtsreifer oder nicht ausgewachsener Fische ineffizient
+
+– Fragen der optimalen Nutzung von Alters- oder Gewichtsklassen
+
+– Kohortenmodelle
+
+- Wir betrachten nur ein einfaches Ein-Spezies-Modell ohne Kohorteneffekte und mit konstanten Umweltbedingungen
+
+#. frame Fischfang & Nachhaltigkeit: Einleitende Fragen
+
+- Betrachten Sie ein Binnenmeer, in dem kommerziell Fisch gefangen wird. Nehmen Sie an der Fangaufwand steigt, z.B mehr Boote sind täglich unterwegs. Diskutieren Sie ob man aus folgenden Ereignissen mit großer Sicherheit folgern kann, dass die Erhöhung des Fangaufwandes aus nachhaltiger Wohlfahrtsperspektive schädlich bzw. sinnvoll ist.
+
+1. Der Fischbestand im Meer geht langfristig auf ein niedrigeres Niveau zurück.
+
+2. Die Fangmenge steigt kurzfristig.
+
+3. Die Fangmenge sinkt langfristig.
+
+4. Die Fangmenge steigt langfristig.
+
+#. frame 3A.1 Fischerei: Grundmodell
+
+- Schaefer's (1957) Standardmodell einer Fischerei
+
+- $S(t)$:  Bestand an Fisch zum Zeitpunkt t
+ 
+
+- $\dot{S}(t)=\frac{dS(t)}{dt}$: Veränderungsrate des Bestandes (kontinuierliche Zeit)
+
+- $\chi(S)=\frac{\dot{S} }{S}$: Wachstumsrate.
+  - Soll nur vom Bestand S abhängen nicht direkt von t
+ 
+- Logistischer Wachstumsprozess:
+
+$$\chi(S)=g\cdot(1-\frac{S}{S_{max} })$$
+$$G(S)\equiv\dot{S}=g\cdot(1-\frac{S}{S_{max} })S$$
+
+
+
+#. frame 3A.1 Fischerei: Grundmodell
+
+a) Zeichnen Sie qualitativ einen Graphen mit dem Fischbestand S  auf der x-Achse und der Veränderungsrate des Fischbestands G(s) auf der y-Achse.
+
+#< note Lösung
+Beispiel für $g$={{g}} und $S_{max}$={{Smax}}:
+#< plotpane SG_pane
+hide: [H_const]
+#>
+#>
+
+b) Welche Fischbestände S bilden ein natürliches Gleichgewicht, dergestalt, dass sich ohne menschliches Eingreifen der Fischbestand nicht ändert?
+
+#< note Lösung
+Der Fischbestand ändert sich nicht, wenn die Veränderungsrate G(S) gleich 0 ist. Also haben wir folgende zwei Gleichgewichtspunkte: $S=0$ und $S=S_{max}$. 
+#>
+
+c) Nehmen Sie an, die Fischpopulation startet von einem beliebigen Startwert $S_{0}>0$. Zu welchen Wert wird der Fischbestand langfristig konvergieren?
+
+#< note Lösung
+Der Fischbestand konvergiert langfristig gegen $S_{max}$.
+
+Um dies zu sehen, betrachten Sie das Bild aus a) und unterscheiden Sie 2 Fälle:
+
+1. Für alle Fischbestände S mit $0 < S < S_{max}$ wächst der Fischbestand, da G(S) > 0, d.h. S entwickelt sich Richtung $S_max$.
+
+2. Wenn $S > S_{max}$ ist die Veränderungsrate G(S) negativ, d.h. der Fischbestand schrumpft. D.h. der Fischbestand wird sich auch Richtung $S_{max}$ bewegen. 
+#>
+
+
+
+#. frame 3A.2 Fischerei mit fester Fangmenge
+
+- Angenommen pro Zeiteinheit wird eine konstante Menge $H$ an Fisch gefangen (Harvest)
+
+- Die Veränderungsrate der Fischpopulation sei gegeben durch $\dot{S}=G(S)-H$.
+
+Aufgabe: 
+
+a) Zeigen Sie grafisch den gleichgewichtigen Fischbestand bei einer konstanten Fangmenge H und schreiben Sie mathematische Bedingung auf.
+
+#< note Lösung
+Wir zeichnen die Fangmenge H als horizontale Kurve in unsere Abbildung. (Sie ist horizontal, da wir im Moment annehmen, dass die Fangmenge nicht vom Fischbestand abhängt.)
+
+#< plotpane SG_pane
+xmarkers:
+  S1:
+    latex: S_1
+  S2:
+    latex: S_2
+#>
+
+Der Fischbestand ist in einem Gleichgewicht, wenn die Fangmenge $H$ gleich der Natürlichen Veränderungsrate G(S) ist:
+
+$$G(S^{*})=H$$
+
+Das sind in der Abbildung die Fischbestände $S_1$ und $S_2$.
+#>
+
+b) Welcher Gleichgewichtige Fischbestand $S_1$ oder $S_2$ ist stabil in dem Sinne, dass bei kleinen Veränderungen des Fischbestandes die Menge sich wieder zum Gleichgewichtspunkt hinbewegt?
+
+#< note Lösung
+Wir untersuchen S1 und S2 anhand der Abbildung aus a).
+
+S1: Wenn der Fischbestand S leicht unter S1 fällt, ist die Ernte H größer als die natürliche Veränderungsrate G(S). D.h. der Fischbestand schrumpft weiter. Somit ist S1 kein stabiles Gleichgewicht.
+
+S2: Wenn der Fischbestand S leicht unter S2 fällt, ist die Ernte H kleiner als G(S), d.h. der Fischbestand wächst wieder in Richtung S2. Wenn der Fischbestand leicht über S2 ansteigt, ist die Ernte H größer als die natürliche Veränderungsrate G(S) und der Bestand schrumpft wieder in Richtung G(S). Somit ist S2 das einzige stabile Gleichgewicht.
+#>
+
+c) Wie hoch ist die maximale Fangrate $H_{MSY}$, die nachhaltig umsetzbar ist?
+  – MSY steht für “Maximum Sustainable Yield”
+#< note Lösung
+Die maximale, nachhaltig umsetzbare Fangmenge ist die maximale natürliche Veräderungsrate, d.h.
+
+\[
+H_{MSY}=\max_{S}G(S)
+\]
+
+Grafisch:
+#< plotpane SG_pane
+hide: H_const
+curves:
+  H_MSY:
+    eq: G_ == H_MSY
+    colors: lila
+    latex: H_MSY
+xmarkers:
+  S_MSY:
+#>
+
+$S_{MSY}$ ist der Fischbestand, bei der die nachhaltige Fangrate maximiert wird. Mathematisch finden wir $S_{MSY}$ durch die Bedingung erster Ordnung:
+
+$$G'(S_{MSY})	=	g[1-2\frac{S_{MSY} }{S_{max} }]=0$$
+$$\Rightarrow	S_{MSY}=\frac{S_{max} }{2}$$
+
+Die entsprechende Fangrate ist einfach gegeben durch
+
+$$
+\begin{eqnarray*}
+H_{MSY} & = & G(S_{MSY})\\
+ & = & g\cdot(1-\frac{S_{MSY} }{S_{max} })S_{MSY}\\
+ & = & g\cdot(1-\frac{1}{2})\frac{S_{max} }{2}\\
+ & = & g\frac{S_{max} }{4}
+\end{eqnarray*}
+$$
+#>
+ 
+
+d) Gehen Sie von einem Startfischbestand von $S^0$  und einer konstanten Fangrate von H aus. Bei welchen Werten von $S^0}$ und H wird der Fischbestand langfristig ausgelöscht, bei welchen Werten stabilisiert er sich auf einem positiven Niveau?
+
+#< note Lösung
+Dies ist im Prinzip nur eine Variante von Aufgabe b). Überlegen Sie sich selbst die Lösung.
+#>
+
+#. frame 3A.3 Fischerei mit Monopolisten
+
+- Es gebe ein einziges Fischfangunternehmen, welches das Recht hat, im See zu fischen
+
+- Fangmenge (H) hängt vom Bestand (S) und vom Fangaufwand (E) ab. (E steht für “Effort” und ist z.B. in Fangstunden gemessen.)
+
+– Spezielle Form der Fangmenge: $H=eES$
+  – e>0 ist ein Parameter
+
+- Seien $w>0$ die festen Kosten für eine Fangstunde (eine Einheit des Aufwandes E)
+
+- Sei $p>0$ der feste Preis für eine Einheit des gefangenen Fisches.
+
+– Wir nehmen an das der See nur einen sehr kleinen Teil des Gesamtangebots für Fisch ausmacht. Deshalb Preis sei der Preis p approximativ unabhängig von der Fangmenge H.
+
+#. frame 3A.3 Fischerei mit Monopolisten
+
+a) Bestimmen Sie für ein gegebenen konstanten Fangaufwand E den resultierenden langfristigen Fischbestand S(E) grafisch und mathematisch.
+
+#< note Lösung
+Der langfristige Fischbestand S(E) ist wieder durch die Bedingung gegeben, dass die Fangrate gleich der natürlichen Veränderungsrate des Fischbestandes ist.
+
+$$G(S)=H(S)$$
+
+Grafisch:
+#< plotpane SG_pane
+hide: H_const
+curves:
+  G:
+    labx: '0.25*Smax'
+#>
+
+Mathematisch müssen wir die Gleichung nach S auflösen:
+
+$$
+\begin{eqnarray*}
+G(S) & = & H(S)\\
+g\cdot(1-\frac{S}{S_{max} })S & = & eES\\
+g(1-\frac{S}{S_{max} }) & = & eE\\
+1-\frac{S}{S_{max} } & = & \frac{e}{g}E\\
+S(E) & = & S_{max}(1-\frac{e}{g}E)
+\end{eqnarray*}
+$$
+
+#>
+b) Gibt es für einen festen Fangaufwand E mehrere gleichgewichtige Fischbestände? Gibt es Startwerte des Bestandes $S^0>0$, so dass die Fischpopulation langfristig ausstirbt?
+
+#< note Lösung
+i) Wir sehen anhand der Abbildung in a), dass es nur einen gleichgewichtigen Fischbestand S(E) gibt. Das ist ein Unterschied zu unserem früheren, einfacheren Modell mit fester Fangrate H.
+
+ii) Bei einer Situation wie in der Abbildung der Lösung von a) wird für jeden Fischbestand $S^0 > 0$ der Fischbestand sich im Laufe der Zeit zu $S(E) > 0$ bewegen. (Argumentieren Sie wieder mit Fangrate H und natürlicher Wachstumsrate jeweils links und rechts von S(E)).
+
+Jedoch kann bei einem sehr hohen Fangaufwand E, das langfristige Gleichgewicht bei $S(E) = 0$ liegen, d.h. der Fischbestand wird langfristig ausgerottet. Hier ist eine grafische Darstellung.
+
+#< plotpane SG_pane
+hide: H_const
+data_rows: 2
+#>
+#>
+
+
+c) Finden Sie grafisch den Aufwand $E_{MSY}$, der die maximale Fangmenge $H_{MSY}$ erzielt.
+
+#< note Lösung
+In unserer bisherigen Abbildung, muss die $H(S|E_{MSY})$ Kurve durch den Hochpunkt der G(S) Kurve verlaufen.
+#< plotpane SG_pane
+hide: H_const
+data_rows: 3
+curves:
+  H:
+    latex: 'H(S|E_{MSY})'
+    stop: !TRUE
+xmarkers:
+  SE:
+    latex: S_MSY
+#>
+#>
+
+d) Die langfristige Fangmenge als Funktion nur von E ist gegeben durch:
+$$H(E)\equiv eES(E) $$. Wir bezeichnen $H(E)$ auch als “Yield-Effort” Kurve. Berechnen Sie $H(E)$ und die Fanganstrengung $E_{MSY}$, welche nachhaltig die Fangmenge maximiert. Erstellen Sie ein Diagramm.
+
+#< note Lösung
+Wenn wir aus Aufgabe a) die Lösung 
+$$S(E) = S_{max}(1-\frac{e}{g}E)$$
+einsetzen erhalten wir für die Yield-Effort-Kurve
+$$H(E)=eES(E)=S_{max}(eE-\frac{1}{g}e^{2}E^{2})$$
+Die langfristige Fangmenge ist eine umgekehrte Parabel im Fangaufwand E.
+
+#< pane EH_pane
+datavar: dat
+xy: [E_,H_]
+xaxis:
+  label: E
+yaxis:
+  label: H
+curves:
+  HE:
+    eq: H_ == Smax*(e*E_- (1/g)*e^2*E_^2)
+    colors: purple
+    latex: H(E)
+    labx: 0.9*E_max
+
+xmarkers:
+  E_MSY:
+#>
+#< plotpane EH_pane
+#>
+Den Aufwand $E_{MSY}$ maximiert die H(E) Funktion. Wir finden ihn über die Bedingung erster Ordnung:
+$$
+H'(E_{MSY})	=	0
+$$
+$$
+S_{max}(e-2\frac{1}{g}e^{2}E)	=	0
+$$
+$$
+E_{MSY}	=	\frac{g}{2e}
+$$ 
+
+
+#> note
+
+e) Bestimmen Sie rechnerisch und grafisch anhand der “Yield-Effort” Kurve den Fangaufwand E^{*}, der den langfristigen Profit des Fischereiunternehmens maximiert. Wie verhält sich E^{*} zu E_{MSY}? 
+
+#< note Lösung
+Der langfristige Profit der Firma, als Funktion von E ist gegben durch
+$$
+\pi(E)=pH(E)-wE
+$$
+Die Bedingung erster Ordnung für Profitmaximierung ist das der Grenzgewinn einer zusätzlichen Anstrengungseinheit im Optimum $E^*$ gleich 0 sein muss:
+$$
+\pi'(E^*)=pH'(E^*)-w = 0
+$$
+Sie kann umgeschrieben werden zu
+$$
+H'(E^*) = w / p
+$$
+Die zusätzliche langfristige Fangmenge einer zusätzlichen Anstrengungseinheit ist im Optimum gleich dem Verhältnis von Anstrengungskosten zu Preis.
+In unserem E-H Diagramm, finden wir die profitmaximalen Anstrengungen $E^*$ also dort, wo die Steigung der Yield-Effort Kurve gleich w / p ist.
+#< plotpane EH_pane
+curves:
+  tangent:
+    label: Steigung w/p
+    color: grey
+    eq: (H_ - H_star) == (w / p) * (E_-E_star)
+    labrel: 1
+xmarkers:
+  E_star:
+    latex: E^*
+#>
+
+
+
+#>
+
+- [f)]Ist der gleichgewichtige Fischbestand S^{*}=S(E^{*})
+  größer oder kleiner als S(E_{MSY})
+ ? (D.h. ist bei einen gewinnmaximierenden Monopolisten der Fischbestand größer oder kleiner, als wenn die langfristige Fangmenge maximiert wird?)
+
+- [g)]Der Nutzen eines Konsumenten für eine Einheit Fisch sei konstant p
+ . Wie hoch ist der langfristig wohlfahrtsmaximierenden Fangaufwand E^{o}
+ ? Was ist die Beziehung zwischen E^{o}
+ , E^{*}
+  und E_{MSY}
+ ?
+
+Stelle zunächst Zusammenhang zwischen H
+  und E
+  dar.
+
+#. frame 3A.4 Fischerei mit freiem Marktzutritt
+
+- Nehmen Sie nun an, es besteht freier Marktzutritt. Es gibt viele kleine Fischer, die so lange Fische fangen können, wie sie möchten.
+
+- Seien E
+  die aggregierten Fangstunden aller Fischer
+
+- Gesamtgewinn der Fischereibranche:\Pi(E)=p\tilde{H}(E)-wE
+ 
+
+- Freier Marktzutritt \Rightarrow
+ so lange Marktzutritt bis jeder Fischer Null Gewinne macht. Der Fangaufwand E_{w}
+ im Wettbewerbsgleichgewicht erfüllt somit die Bedingung\Pi(E_{w})=0
+ 
+
+#. frame 3A.4 Fischerei mit freiem Marktzutritt
+
+- [a)] Seien E_{w}
+ , H_{w}=\tilde{H}(E_{w})
+ , und S_{w}=S(E_{w})
+  der Fangaufwand / Fangmenge / Fischbestand unter Wettbewerb mit freien Marktzutritt. Bestimmen Sie E_{w}
+  und H_{w}
+  grafisch. Vergleichen Sie grafisch E_{w}
+ , H_{w}
+  und S_{w}
+  mit dem wohlfahrtsoptimalen Fangaufwand E^{o}
+  / Fangmenge H^{o}=\tilde{H}(E^{o})
+  und Fischbestand S^{o}=S(E^{o})
+  (welche dem gewinnmaximierenden Mengen eines monopolistischen Seebesitzers entsprechen, d.e. E^{o}=E^{*}
+ , H^{o}=H^{*}
+  und S^{o}=S^{*}
+ ) 
+
+- [b)]Was ist die Intuition für den zu hohen Fangaufwand bei freiem Marktzutritt?
+
+- [c)]Diskutieren Sie anhand der grafischen Analyse wie sich Aufwand, Fangmenge und Fischbestand im Wettbewerb im Vergleich zu einem konstanten Fangaufwand E_{MSY}
+  der die maximalen nachhaltigen Fangmenge H_{MSY}
+  erzielt verhalten.
+
+- [d)]Berechnen Sie Fischbestand S_{w}
+  und Fangmenge H_{w}
+  im Wettbewerbsgleichgewicht. Wie hängen sie von den Kosten w
+  pro Fangaufwand und vom (als fest angenommenen) Weltmarktpreis p
+  von Fisch ab?
+
+Im Marktgleichgewicht gelten 3 Bedingungen:
+
+#. frame 3A.5 Umweltpolitische Instrumente zum Fischfang
+
+- Diskutieren Sie Vor- und Nachteile verschiedener möglicher umweltpolitischer Instrumente um eine wohlfahrtsoptimale Intensität der Befischung zu erzielen.
