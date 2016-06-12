@@ -32,6 +32,7 @@ dat = data_frame(
   SE = pmax(Smax*(1-(e/g)*E),0),
   E_star = (g*(p*Smax*e-w)) / (2*p*Smax*e^2),
   H_star = e*E_star*Smax*(1-(e/g)*E_star),
+  E_w = 2*E_star,
   S__min = 0,
   S__max = Smax*1.1,
   G__min = -3,
@@ -390,7 +391,7 @@ $$
 
 #> note
 
-e) Bestimmen Sie rechnerisch und grafisch anhand der “Yield-Effort” Kurve den Fangaufwand E^{*}, der den langfristigen Profit des Fischereiunternehmens maximiert. Wie verhält sich E^{*} zu E_{MSY}? 
+e) Bestimmen Sie rechnerisch und grafisch anhand der “Yield-Effort” Kurve den Fangaufwand $E^*$, der den langfristigen Profit des Fischereiunternehmens maximiert. Wie verhält sich $E^*$ zu $E_{MSY}$? 
 
 #< note Lösung
 Der langfristige Profit der Firma, als Funktion von E ist gegben durch
@@ -418,72 +419,183 @@ xmarkers:
   E_star:
     latex: E^*
 #>
+Wir sehen, dass der gewinnmaximierende Fangaufwand §E^*$ niemals größer ist, als der Aufwand $E_{MSY}$, der den Fangertrag maximiert:
+$$
+E^* \leq E_{MSY}
+$$
+Beide sind nur dann gleich groß, wenn es keine Kosten des Fangaufwandes gäbe, $w=0$, sonst gilt strikt
+$$
+E^* < E_{MSY}
+$$.
 
-
-
+Mathematisch haben wir bereits in d) berechnet, dass
+$$
+H'(E)	=	S_{max}(e-2\frac{1}{g}e^{2}E)
+$$
+Auflösen der Bedingung
+$$H'(E^*) = w / p$$
+liefert
+$$E^{*}=\frac{g(pS_{max}e-w)}{2pS_{max}e^{2} }$$
+oder etwas schöner geschrieben
+$$E^{*}==\frac{g}{2e}(\frac{S_{max}-\frac{w}{ep}  }{S_{max} })$$
 #>
 
-- [f)]Ist der gleichgewichtige Fischbestand S^{*}=S(E^{*})
-  größer oder kleiner als S(E_{MSY})
- ? (D.h. ist bei einen gewinnmaximierenden Monopolisten der Fischbestand größer oder kleiner, als wenn die langfristige Fangmenge maximiert wird?)
+f) Ist der gleichgewichtige Fischbestand $S(E^*)$ größer oder kleiner als $S(E_{MSY})$?
 
-- [g)]Der Nutzen eines Konsumenten für eine Einheit Fisch sei konstant p
- . Wie hoch ist der langfristig wohlfahrtsmaximierenden Fangaufwand E^{o}
- ? Was ist die Beziehung zwischen E^{o}
- , E^{*}
-  und E_{MSY}
- ?
+#< note Lösung
+Der langfristige Fischbestand S(E), sinkt ja im Fangaufwand E. Da $E^* \leq E_{MSY}$ muss also gelten, dass
+$$
+S(E^{*})\geq S(E_{MSY})
+$$
+D.h. bei eine, gewinnmaximierenden Monopolisten ist der langfristige Fischbestand größer, als wenn die langfristige Fangmenge maximiert wird.
 
-Stelle zunächst Zusammenhang zwischen H
-  und E
-  dar.
+Der Grund liegt in den Kosten des Fangaufwandes w, die es profitabler machen, etwas weniger Aufwand zu betreiben, als notwendig wäre um die Fangmenge zu maximieren.
+#>
+  
+g) Der Nutzen eines Konsumenten für eine Einheit Fisch sei konstant p. Wie hoch ist der langfristig wohlfahrtsmaximierenden Fangaufwand $E^o$? Was ist die Beziehung zwischen $E^o$, $E^*$ und $E_{MSY}$?
+
+#< note Lösung
+Wir definieren die nachhiltige Wohlfahrt $W(E)$ als Nutzen der Konsumenten aus dem im See gefangenen Fische minus den Kosten des langfristigen Fangaufwandes. Wir haben dann also
+$$
+W(E) = p*H(E) - w*E
+$$
+Diese Wohlfahrtsfunktion ist dann aber gleich der Gewinnfunktion des Fischereiunternehmens.
+$$
+\pi(E) = p*H(E) - w*E
+$$
+Somit ist das wohlfahrtsoptimale Anstrengungsniveau gleich dem Gewinnmaximalen:
+$$
+E^{o} = E^{*} \leq E_{MSY}
+$$
+#>
 
 #. frame 3A.4 Fischerei mit freiem Marktzutritt
 
 - Nehmen Sie nun an, es besteht freier Marktzutritt. Es gibt viele kleine Fischer, die so lange Fische fangen können, wie sie möchten.
 
-- Seien E
-  die aggregierten Fangstunden aller Fischer
+- Seien E die aggregierten Fangstunden aller Fischer
 
-- Gesamtgewinn der Fischereibranche:\Pi(E)=p\tilde{H}(E)-wE
- 
+- Gesamtgewinn der Fischereibranche:
+$$
+\Pi(E)=p\tilde{H}(E)-wE
+$$
 
-- Freier Marktzutritt \Rightarrow
- so lange Marktzutritt bis jeder Fischer Null Gewinne macht. Der Fangaufwand E_{w}
- im Wettbewerbsgleichgewicht erfüllt somit die Bedingung\Pi(E_{w})=0
+- Freier Marktzutritt 
+
+   - so lange Marktzutritt bis jeder Fischer Null Gewinne macht. 
+   - Der Fangaufwand $E_{w}$ im Wettbewerbsgleichgewicht erfüllt somit die Bedingung $\Pi(E_{w})=0$.
  
 
 #. frame 3A.4 Fischerei mit freiem Marktzutritt
 
-- [a)] Seien E_{w}
- , H_{w}=\tilde{H}(E_{w})
- , und S_{w}=S(E_{w})
-  der Fangaufwand / Fangmenge / Fischbestand unter Wettbewerb mit freien Marktzutritt. Bestimmen Sie E_{w}
-  und H_{w}
-  grafisch. Vergleichen Sie grafisch E_{w}
- , H_{w}
-  und S_{w}
-  mit dem wohlfahrtsoptimalen Fangaufwand E^{o}
-  / Fangmenge H^{o}=\tilde{H}(E^{o})
-  und Fischbestand S^{o}=S(E^{o})
-  (welche dem gewinnmaximierenden Mengen eines monopolistischen Seebesitzers entsprechen, d.e. E^{o}=E^{*}
- , H^{o}=H^{*}
-  und S^{o}=S^{*}
- ) 
+a) Seien $E_{w}$, $H_{w}=\tilde{H}(E_{w})$, und $S_{w}=S(E_{w})$ der Fangaufwand / Fangmenge / Fischbestand unter Wettbewerb mit freien Marktzutritt. Bestimmen Sie $E_{w}$ und $H_{w}$ grafisch. Wie verhalten sich Fangaufwand, langfristige Fangmenge und Fischbestand im Vergleich zu den wohlfahrtsoptimalen Mengen, und den "maximum-sustainable yields"?
 
-- [b)]Was ist die Intuition für den zu hohen Fangaufwand bei freiem Marktzutritt?
+#< note Lösung
+Sei $\Pi(E)$ der langfrisitige gesamte Gewinn aller wettberwerblichen Fischer als Funktion des gesamten Fangaufwandes:
 
-- [c)]Diskutieren Sie anhand der grafischen Analyse wie sich Aufwand, Fangmenge und Fischbestand im Wettbewerb im Vergleich zu einem konstanten Fangaufwand E_{MSY}
-  der die maximalen nachhaltigen Fangmenge H_{MSY}
-  erzielt verhalten.
+$$\Pi(E) = pH(E) - wE$$
 
-- [d)]Berechnen Sie Fischbestand S_{w}
-  und Fangmenge H_{w}
-  im Wettbewerbsgleichgewicht. Wie hängen sie von den Kosten w
-  pro Fangaufwand und vom (als fest angenommenen) Weltmarktpreis p
-  von Fisch ab?
+Im langfristigen Wettbewerbsgleichgewicht, wird es solange Markteintritt, und somit eine Erhöhung von E geben, bis jede Firma Null Gewinne macht. Somit müssen beim gleichgewichtigen Fangaufwand $E_w$ auch die Gesamtgewinne 0 sein:
 
-Im Marktgleichgewicht gelten 3 Bedingungen:
+$$\Pi(E_w) = pH(E_w) - wE_w = 0$$
+
+Umformen nach $H(E)$ liefert
+
+$$H(E_w) = (w / p) E_w$$
+
+Wir finden also $E_w$ durch den Schnittpunkt der Yield-Effort-Kurve $H(E)$ mit einer geraden durch den Ursprung mit Steigung W / p.
+
+Grafische Darstellung:
+
+#< plotpane EH_pane
+curves:
+  tangent:
+    label: Steigung w/p
+    color: grey
+    eq: (H_ - H_star) == (w / p) * (E_-E_star)
+    labrel: 1
+  tangentw:
+    label: Steigung w/p
+    color: grey
+    eq: (H_ ) == (w / p) * (E_)
+    labrel: 1
+xmarkers:
+  E_star:
+    latex: E^{*}
+    labrel: 0
+  E_w:
+  E_MSY:
+    labrel: 0
+#>
+Rechnerisch finden wir $E_w$ indem wir die Bedingung
+$$H(E_w) = (w / p) E_w$$
+nach $E_w$ auflösen. Wir finden:
+
+$$S_{max}(eE_{w}-\frac{1}{g}e^{2}E_{w}^{2}) = \frac{w}{p}E_{w}$$
+
+$$S_{max}(e-\frac{1}{g}e^{2}E_{w}) = \frac{w}{p}$$
+
+$$\frac{1}{g}e^{2}S_{max}E_{w} = S_{max}e-\frac{w}{p}$$
+
+$$E_{w} = \frac{g}{e}\left(\frac{S_{max}-\frac{w}{ep}}{S_{max}}\right)$$
+
+Erinnern wir uns an die Lösung des Fangaufwandes eines Monopolisten:
+
+$$E^{*}==\frac{g}{2e}(\frac{S_{max}-\frac{w}{ep}  }{S_{max} })$$
+
+Wir, dass unter freiem Markteintritt der Fangaufwand doppelt so groß ist:
+
+$$E_w = 2 E^(*)$$
+
+Somit ist der Fangaufwand $E_w$ auch doppelt so hoch, als der wohlfahrtsoptimale Fangaufwand $E^o=E^*$.
+
+In unserer Grafik ist $E_w > E_{MSY}$ doch bei hohen Kosten $w$ des Fangaufwandes, kann auch $E_w < E_{MSY}$ gelten.
+
+Ein höherer Fangaufwand bedeutet, dass der langfristige Fischbestand kleiner sein wird, d.h. $S(E_w) < S(E^*)$. Ob die Fangmenge $H_w$ auch kleiner sein wird, lässt sich nicht allgemein sagen. Per Definition ist sie aber nicht größer als $H_MSY$.
+
+#>
+
+b) Was ist die Intuition für den zu hohen Fangaufwand bei freiem Marktzutritt?
+
+#< note Lösung
+Wenn es aufgrund des freien Markteintritt mehrere Fischer gibt, hat der Fangaufwand eines Fischers eine negative Externalität auf andere Fischer, da der Fangaufwand den Fischbestand $S(E)$ reduziert. Da diese negative Externalität nicht internalisiert wird, ist der resultierende Fangaufwand zu hoch.
+
+Wenn es nur einen einzigen Fischer gibt (kein freier Markteintritt), berücksichtigt er vollständig alle Effekte seines Fangaufwandes auf den Fischbestand und wählt somit den Wohlfahrtsoptimalen Fangwaufwand.
+
+Man kann auch sagen, dass bei freien Markteintritt die Eigentumsrechte auf den See im Fisch nicht wohl definiert sind, und deshalb die negativen Effekte eines hohen Fangaufwandes nicht internalisiert werden.
+#>
+
+c) Diskutieren Sie anhand der grafischen Analyse wie sich Aufwand, Fangmenge und Fischbestand im Wettbewerb im Vergleich zu einem konstanten Fangaufwand E_{MSY} der die maximalen nachhaltigen Fangmenge H_{MSY} erzielt verhalten.
+
+#< note Lösung
+siehe Abbildung und Diskussion in a).
+ä>
+
+d) Berechnen Sie Fischbestand S_{w} und Fangmenge H_{w} im Wettbewerbsgleichgewicht. Wie hängen sie von den Kosten w
+pro Fangaufwand und vom (als fest angenommenen) Weltmarktpreis p von Fisch ab?
+
+#< note Lösung
+
+$S_w$ lässt sich auf mehrere Arten berechnen. Ein schneller Weg ist die Lösung dieser Gleichung:
+
+$$H_{w}=e S_w E_w= (w/p) E_w$$
+
+aufgelöst nach $S_w$ gibt
+
+$$S_w = \frac{w}{pe}$$
+
+Je niedriger die Kosten $w$ des Fangaufwandes, oder je höher der Weltmarktpreis $p$, destor mehr wird gefangen, und desto kleiner ist der resultierende Fischbestand im See.
+
+Auch $H_w$ lässt sich nun auf mehrere Arten und weisen berechnen. Z.B. über die Bedingung:
+
+$$H_w=G(S_w)=g(1-\frac{S}{S_{max} })S_w$$
+
+Womit wir hätten
+
+$$H_w = g(1-\frac{\frac{w}{ep}}{S_{max} })\frac{w}{ep}$$
+
+Der Zusammenhang zwischen $w$, und $p$ und der langfristigen Fangmenge ist hier nicht monoton.
+#> 
 
 #. frame 3A.5 Umweltpolitische Instrumente zum Fischfang
 
