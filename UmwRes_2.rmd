@@ -202,10 +202,17 @@ Um x^o berechnen zu können, muss die Umweltbehörde den Verlauf der Grenzschade
 
 #. frame 2.3 Steuern auf Schadstoffe (Pigou-Steuern)
 
+#< portrait 'A.C. Pigou'
+url: https://upload.wikimedia.org/wikipedia/commons/0/01/A.C._Pigou.jpg
+link: https://en.wikipedia.org/wiki/Arthur_Cecil_Pigou
+align: right
+#>
 - Nehmen Sie nun an, dass der freigesetzte Schadstoff besteuert wird. Es soll einen festen Mengensteuersatz von t pro ausgestoßener Schadstoffeinheit geben.
 
-- Welcher Mengensteuersatz t^{o} auf x maximiert die Gesamtwohlfahrt?
+- Wir nennen den Wohlfahrtsoptimalen Mengensteuersatz t^{o}, den Pigou-Steuersatz nach dem Ökonomen A. C. Pigou.
 
+
+- Bestimmen Sie rechnerisch und grafisch den Pigousteuersatz t^{o} auf x. 
 #< note Lösung
 Sei
 
@@ -267,7 +274,7 @@ xmarkers:
 
 #>
 
-- Welche Informationen muss die Umweltbehörde besitzen um den wohlfahrtsoptimalen Mengensteuersatz t^{o} bestimmen zu können? Welche der Parameter \gamma und \sigma muss die Behörde kennen?
+- Welche Informationen muss die Umweltbehörde besitzen um den wohlfahrtsoptimalen Pigousteuersatz t^{o} bestimmen zu können? Welche der Parameter \gamma und \sigma muss die Behörde kennen?
 
 #< note Lösung
 Die Umweltbehörde muss den Grenzschaden $S'(x^o)$ kennen. Da in unserem Beispiel der Grenzschaden konstant ist, $S'(x)=\sigma$, muss die Behörde nur $\sigma$ kennen. D.h. die Behörde muss nur einschätzen, welchen zusätzlichen Schaden eine zusätzliche Schadstoffeinheit generiert, braucht aber keine Informationen über die Gewinnfunktion der Firma.
@@ -278,7 +285,7 @@ Die Umweltbehörde muss den Grenzschaden $S'(x^o)$ kennen. Da in unserem Beispie
 - Nehmen Sie an, die Schadensfunktion von B hat folgende quadratische Form $$S(x)=\phi x{}^{2}$$.
  
 
-- Welcher Mengensteuersatz t^{o} auf den Schadstoff maximiert nun die Gesamtwohlfahrt? Welche der Parameter \gamma und \phi muss nun die Behörde kennen?
+- Finden Sie nun den Pigou-Steuersatz t^{o}, und illustrieren Sie die Ergebnisse grafisch.  Welche der Parameter \gamma und \phi muss nun die Behörde kennen?
 
 #< note Lösung
 Der Grenzschaden steigt nun in $x$:
@@ -353,6 +360,26 @@ yrange: [-1,4]
   wohlfahrtsoptimale Produktionsmenge x^{o} implementiert wird.
 
 #< note Lösung
+Erinnern wir uns an die Wohlfahrtsfunktion:
+
+$$W(x) = G(x) - S(x) + const \tag{1}$$
+
+Die Konstante const, sei eine beliebige Konstante, die nicht direkt von $x$ abhängt. (Vorher haben wir const = 0 gesetzt. Dies ist eine ewtas allgemeinere Formulierung.)
+
+Bei einem Steuertarif T(x) ist der Nettogewinn der Firma
+
+$$\Pi(x) = G(x)-T(x)$$
+
+Damit Nettogewinnmaximierung zum gleichen $x$ führt wie Wohlfahrtsmaximierung, können wir den Steuertarif gleich der Schadensfunktion setzen:
+
+$$T^{o}(x) = S(x)$$
+
+Dann ist die Nettogewinnfunktion 
+
+$$\Pi(x) = G(x)-S(x) \tag{2}$$
+
+Wenn wir  dass das wohlfahrtsoptimale $x^o$ auch diesen Nettogewinn maximiert, d.h. die Firma wird $x=x^o$ wählen.
+
 #>
 
 #. frame Zwischenfazit: Pigou-Steuern
@@ -383,12 +410,12 @@ yrange: [-1,4]
 – Falls E(x)<0 hat die Aktivität insgesamt eine negative Externalität
 
 - Die Gesamtwohlfahrt als Funktion von x
-  istW(x)=G(x)+E(x)+const
+  ist
+  
+  W(x)=G(x)+E(x)+const
  
 
-– const
-  ist eine Konstante, die unabhängig von x
-  ist
+– const ist eine Konstante, die unabhängig von xist
 
 #. frame 2.5 Optimale Lenkungssteuern: Allgemeinerer Rahmen
 
@@ -427,15 +454,23 @@ yrange: [-1,4]
 
 #. frame 2.6 Eigentumsrechte & Verhandlungen (Coase Theorem)
 
+
+#< portrait 'R. Coase'
+url: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Coase_scan_10_edited.jpg/330px-Coase_scan_10_edited.jpg
+link: https://en.wikipedia.org/wiki/Ronald_Coase
+align: right
+#>
+
 - Bisherige Perspektive:
 
-– Unregulierte Märkte → mangelnde Internalisierung von Externalitäten → suboptimale Entscheidungen aus Wohlfahrtssicht
+  + Unregulierte Märkte => mangelnde Internalisierung von Externalitäten => suboptimale Entscheidungen aus Wohlfahrtssicht
 
 - Nahe liegende Forderung: Staatliche Eingriffe wie Steuern (Pigou) oder Verordnungen
 
+
 - R. Coase (“The Problem of Social Cost”, J. of Law and Economics 1960) bezweifelt die Notwendigkeit staatlicher Intervention
 
-- Argument: Suboptimaler Zustand → Anreize für die Beteiligten, die vorhandenen Effizienzgewinne durch Verhandlungen auszuschöpfen
+- Argument: Suboptimaler Zustand => Anreize für die Beteiligten, die vorhandenen Effizienzgewinne durch Verhandlungen auszuschöpfen
 
 #. frame Eigentumsrechte & Verhandlungen (Coase Theorem)
 
@@ -478,19 +513,123 @@ Aber: Es ist ist egal wie die Eigentumsrechte auf Verschmutzung verteilt werden,
   $$S(x)=\sigma x$$
  
 
-a) Nehmen Sie an, der Produzent A hat das Recht auf beliebige Verschmutzung. B kann aber A einen Vertrag anbieten, der A's Verschmutzung begrenzt im Gegenzug von Zahlungen von B an A. Wenn A den Vertrag ablehnt finden keine weiteren Verhandlungen statt (“take-it-or-leave-it”). Welchen Vertrag wird B optimalerweise anbieten, d.h. welche Zahlungen z
-  leistet B an A und welches x
-  wird vertraglich gewählt?
+a) Nehmen Sie an, der Produzent A hat das Recht auf beliebige Verschmutzung. B kann aber A einen Vertrag anbieten, der A's Verschmutzung begrenzt im Gegenzug von Zahlungen von B an A. Wenn A den Vertrag ablehnt finden keine weiteren Verhandlungen statt (“take-it-or-leave-it”). Welchen Vertrag wird B optimalerweise anbieten, d.h. welche Zahlungen z leistet B an A und welches x wird vertraglich gewählt?
 
-b) Lösen Sie Aufgabe a) mit der Variante, dass A ein Recht auf Verschmutzung in Höhe von x_{r}
-  mit x^{o}<x_{r}\leq x^{*}
-  hat. Zeigen Sie, dass weiterhin vertraglich x=x^{o}
-  gewählt wird und sich nur die Zahlungen des B and A verändern.
+#< note Lösung
+
+Zur Erinnerung: Der Wohlfahrtsoptimale Schadstoffausstoß ist gegeben durch $x^o=\gamma - \sigma$ und ohne Steuern und Verhandlungen, würde die Firma $x^* = \gamma$ wählen.
+
+Nehmen Sie an, B bietet A einen Vertrag (x,z) an, bei dem sich A verpflichtet nur eine Schadstoffmenge $x<x^*$ auszustossen und erhält im Gegenzug eine Zahlung $z$.
+
+Falls A den Vertrag ablehnt, gibt es (per Annahme) keine weiteren Verhandlungen und A wählt $x=x^*$ und erhält den Gewinn $G(x^*)$.
+
+Wenn A den Vertrag annimmt, erhält er einen Gesamtgewinn von $G(x) + z$.
+
+Die minimale Zahlung $z(x)$ damit A bereit ist einen Vertrag mit Ausstoss $x$ anzunehmen ist deshalb:
+
+$$z(x) = G(x^*) - G(x)$$
+
+B muss A für den entgangenen Gewinn aufgrund der Schadstoffreduktion kompensieren. Da wir nehmen, dass es nach einer etwaigen Ablehnung kein Gegenangebot gibt, hat B hier die vollstädnige Verhandlungsmacht und wird nur $z(x)$ als Zahlung anbieten.
+
+Die Frage für B ist, welches x er im Vertrag anbietet. Der resultierende Nutzen für B bei Vertragsannahme ist:
+
+$$U_b(x) = -S(x) - z(x)$$
+
+Wenn wir die Zahlungen einsetzen haben wir
+
+$$
+\begin{align*}
+U_B(x) & =  -S(x) -  (G(x^*) - G(x)) \\\\
+       & =  G(x) - S(x) - G(x^*) \\\\
+       & =  W(x) - G(x^*)
+\end{align*}
+$$
+
+D.h. der Nutzen des B lässt sich schreiben als die Wohlfahrt $W(x)$, minus dem Gewinn des A ohne Vertrag $G(x^*)$, der jedoch unabhängig vom im Vertrag angebotenen $x$ ist.
+
+D.h. ein Nutzenmaximierender B wird im Vertrag das wohlfahrtsoptimale $x=x^o$ anbieten, zusammen mit der Zahlung $z(x^o)$. Diesen Vertrag wird der A annehmen. Die Verhandlungen à la Coase führen also hier zu einem wohlfahrtsoptimalen Schadstoffaustoß!
+
+In unserem Beispiel haben wir
+
+$$x = x^o = \gamma - \sigma$$
+$$z = z(x^o) = G(x^*) - G(x^o)$$ 
+#>
+
+
+b) Lösen Sie Aufgabe a) mit der Variante, dass A ein Recht auf Verschmutzung in Höhe von x_{r} mit x^{o}<x_{r}\leq x^{*} hat. Zeigen Sie, dass weiterhin vertraglich x=x^{o} gewählt wird und sich nur die Zahlungen des B an A verändern.
+
+#< note Lösung
+Die Überlegungen sind sehr ähnlich wie in Teilaufgabe a).
+
+Nehmen Sie an, B bietet A einen Vertrag (x,z) an, bei dem sich A verpflichtet nur eine Schadstoffmenge $x<x_r$ auszustossen und erhält im Gegenzug eine Zahlung $z$.
+
+Falls A den Vertrag ablehnt, gibt es (per Annahme) keine weiteren Verhandlungen und A wählt $x=x_r$ und erhält den Gewinn $G(x_r)$.
+
+Wenn A den Vertrag annimmt, erhält er einen Gesamtgewinn von $G(x) + z$.
+
+Die minimale Zahlung $z(x)$ damit A bereit ist einen Vertrag mit Ausstoss $x$ anzunehmen ist deshalb:
+
+$$z(x) = G(x_r) - G(x)$$
+
+Dies ist die Zahlung die B dem A anbieten wird. Der resultierende Nutzen für B, wenn A einen Vertrag (x, z(x)) annimmt ist:
+
+$$U_b(x) = -S(x) - z(x)$$
+
+Wenn wir die Zahlungen einsetzen haben wir
+
+$$
+\begin{align*}
+U_B(x) & =  -S(x) -  (G(x_r) - G(x)) \\\\
+       & =  G(x) - S(x) - G(x_r) \\\\
+       & =  W(x) - G(x_r)
+\end{align*}
+$$
+
+D.h. der Nutzen des B lässt sich wieder schreiben als die Wohlfahrt $W(x)$, minus dem Gewinn des A ohne Vertrag $G(x_r)$, der jedoch unabhängig vom im Vertrag angebotenen $x$ ist.
+
+D.h. ein Nutzenmaximierender B wird im Vertrag das wohlfahrtsoptimale $x=x^o$ anbieten, zusammen mit der Zahlung $z(x^o)$. Diesen Vertrag wird der A annehmen. Die Verhandlungen à la Coase führen also hier zu einem wohlfahrtsoptimalen Schadstoffaustoß!
+
+Der resultierende Schadstoffausstoss $x=x^o$ Ergebnis ist unabhängig von der genauen Höhe von $x_r$. Das Verschmutzungsrecht $x_r$ bestimmt aber die Höhe der Zahlung des B an A. Je höher $x_r$, desto mehr muss B den A kompensieren. Die Höhe der Verschmutzungsrechte hate hier keine Effizienzwirkung,  aber immer noch eine Verteilungswirkung zwischen Schädiger A und Geschädigtem B.
+#>
 
 c) Nehmen Sie nun an, B hat das Recht auf 100% saubere Luft (x_{r}=0).
 Nun kann A aber B einen “take-it-or-leave-it” Vertrag anbieten, der A eine gewisse Menge x Verschmutzung zugesteht im Gegenzug von Kompensationszahlungen z an B.
 
 Welchen Vertrag wird A optimalerweise anbieten? Welches x und z wird gewählt?
+
+#< note Lösung
+Nun kann A dem B einen Vertrag anbieten, der A erlaubt $x > x_r = 0$ an Schadstoffausstoßen im Gegenzug für eine Kompensationszahlung von $z$ an B. Wenn B den Vertrag ablehnt, wird A das maximale erlaubte $x_r = 0$ ausstoßen und B hat einen Schaden von $S(x_r) = S(0) = 0$.
+
+Zunächst bestimmen wir die minimale Zahlung $z(x)$ unter der B sich nicht schlechter stellt, wenn er den Vertrag annimmt. Wir haben
+
+$$z(x) = S(x) - S(x_r)$$
+
+A muss den B für den zusätzlichen Schaden, verglichen zu einer Situation ohne Vertrag, entschädigen.
+
+Der Nutzen des A, wenn B den Vertrag annimmt, ist gegeben durch
+
+$$
+\begin{align*}
+U_A(x) & =  G(x) -  z(x) \\\\
+       & =  G(x) - S(x) + S(x_r) \\
+       & =  W(x) + S(x_r)
+\end{align*}
+$$
+
+Der Nutzen des A lässt sich also schreiben als die Wohlfahrt $W(x)$, plus dem Schaden des B ohne Vertrag $S(x_r)$, der jedoch unabhängig vom im Vertrag angebotenen $x$ ist.
+
+D.h. ein Nutzenmaximierender A wird im Vertrag das wohlfahrtsoptimale $x=x^o$ anbieten, zusammen mit der Zahlung $z(x^o) = S(x^o) - S(x_r)$. Diesen Vertrag wird der B annehmen. Die Verhandlungen à la Coase führen also wieder zu einem wohlfahrtsoptimalen Schadstoffaustoß.
+
+Die Höhe der Verschmutzungsrechte $x_r$ beinflusst die Zahlung die A dem B anbietet. Je höher die Verschmutzungsrechte $x_r$, desto weniger muss A dem B vertraglich entschädigen.
+
+In unserem Beispiel mit $x_r=0$ haben wir:
+
+$$x = x^o = \gamma - \sigma$$
+$$z = z(x^o) = S(x^o) - S(0) = \sigma (\gamma - \sigma)$$
+
+#>
+
+
 
 #. frame 2.7 Coase Theorem: Erste Diskussion
 
@@ -507,7 +646,69 @@ Welchen Vertrag wird A optimalerweise anbieten? Welches x und z wird gewählt?
 
 #. frame 2.8 Nicht-Optimalität von Pigou Steuern bei Gültigkeit des Coase Theorems
 
-- Betrachten Sie Aufgabe 2.7 mit Verträgen für den Fall, dass eine Steuer $t \geq 0$ auf die Schadstoffe erhoben wird. Bei welchem Steuersatz wird in der Verhandlungslösung, die wohlfahrtsoptimale Schadstoffmenge x^{o} gewählt?
+- Betrachten Sie Aufgabe 2.7 a) mit Verhandlungen für den Fall, dass eine Steuer $t \geq 0$ auf die Schadstoffe erhoben wird. Bei welchem Steuersatz wird in der Verhandlungslösung, die wohlfahrtsoptimale Schadstoffmenge x^{o} gewählt?
+
+#< note Lösung
+
+Wie in Aufgabe 2.7 a) kann B so viel verschmutzen wir er möchte, muss jetzt aber eine Steuer $tx$ zahlen. Weiterhin kann B dem A einen Vertrag anbieten, das Verschmutzungsniveau zu reduzieren, im Gegenzug für eine Zahlung z von B and A.
+
+Zunächst bestimmen wir das Verschmutzungsniveau ohne Vertrag. Der Nettogewinn des A ist
+
+$$\Pi(x) = G(x) - tx$$.
+
+Das profitmaximale $x_t$ erfüllt, die Bedingung erster Ordnung:
+
+$$G'(x_t) = t$$
+$$\gamma - x_t = t$$
+
+und ist somit gegeben durch
+
+$$x_t = \gamma -t$$
+
+
+Nehmen Sie an, B bietet A einen Vertrag (x,z) an, bei dem sich A verpflichtet nur eine Schadstoffmenge $x<x_t$ auszustossen und erhält im Gegenzug eine Zahlung $z$. Die minimale Zahlung $z(x)$ damit A bereit ist einen Vertrag mit Ausstoss $x$ anzunehmen ist der entgangene Nettogewinn:
+
+$$z(x) = \Pi(x_t) - \Pi(x)$$
+
+oder umgeschrieben
+
+$$z(x) = G(x_t) - t x_t - G(x) + t x$$
+
+Wenn A diesen Vertrag annimmt ist der resultierende Nutzen für B:
+
+$$U_b(x) = -S(x) - z(x)$$
+
+Wenn wir die Zahlungen einsetzen haben wir
+
+$$
+\begin{align*}
+U_B(x) & =  -S(x) -  (G(x_t) - G(x) - t(x_t-x)) \\\\
+       & =  G(x) - S(x) - tx - G(x_t) + t x_t \\\\
+       & =  W(x) - tx - G(x_t) + t x_t
+\end{align*}
+$$
+
+Die letzten beiden Terme $- G(x_t) + t x_t$ hängen nicht von $x$ ab, und beeinflussen somit nicht das Nutzenmaximierende $x$. Wir können deshalb $U_B$ auch wie folgt schreiben
+
+$$U_B(x) = W(x) - tx - const$$
+
+Der negative Term $-tx$ sorgt aber diesmal dafür, dass Nutzenmaximierung des B nicht äquivalent zu Wohlfahrtsmaximierung ist. B möchte stattdessen ein kleinere Menge $x$ im Vertrag anbieten, als wohlfahrtsoptimal ist.
+
+Nur im Falle eines Steuersatzes, von $t=0$, d.h. keine Steuern, ist Nutzenmaximierung wieder äquivalent zur Wohlfahrtsmaximierung.
+
+
+
+D.h. der Nutzen des B lässt sich schreiben als die Wohlfahrt $W(x)$, minus dem Gewinn des A ohne Vertrag $G(x^*)$, der jedoch unabhängig vom im Vertrag angebotenen $x$ ist.
+
+D.h. ein Nutzenmaximierender B wird im Vertrag das wohlfahrtsoptimale $x=x^o$ anbieten, zusammen mit der Zahlung $z(x^o)$. Diesen Vertrag wird der A annehmen. Die Verhandlungen à la Coase führen also hier zu einem wohlfahrtsoptimalen Schadstoffaustoß!
+
+In unserem Beispiel haben wir
+
+$$x = x^o = \gamma - \sigma$$
+$$z = z(x^o) = G(x^*) - G(x^o)$$ 
+
+
+#>
 
 - Wird bei dem Pigou Steuersatz t^{o} in Kombination mit Eigentumsrechten und Verhandlungen zuviel oder zuwenig Schadstoff ausgestoßen?
 
@@ -533,7 +734,7 @@ Welchen Vertrag wird A optimalerweise anbieten? Welches x und z wird gewählt?
 - Transaktionskosten müssten bei der Optimierung berücksichtigt werden:
 
 – Transaktionskosten > Kooperationsgewinn \Rightarrow
-  Kooperation unterbleibt → effizient?
+  Kooperation unterbleibt \Rightarrow effizient?
 
 – Daher müssen verschiedene Allokationsverfahren von Rechten (private Verhandlungen, bestimmte Formen staatlicher Umweltpolitik), die sich in den Transaktionskosten unterscheiden verglichen werden.
 
