@@ -13,6 +13,14 @@ knitr::opts_chunk$set(echo = TRUE, error=TRUE)
 
 #. include slide_defaults.rmd
 
+
+#< css
+@media print {
+  .slide-container-div {
+    page-break-inside: auto;
+  }
+}
+#>
 #< precompute
 ```{r}
 dat = data_frame(
@@ -229,7 +237,7 @@ ymarkers:
 xmarkers:
   x_t:
 #>
-In diesem Beispiel, sind die Steuern so hoch, das die gewählte Menge $x_t$ sogar kleiner ist, als die sozial-optimale Menge $x^0$.
+In diesem Beispiel, sind die Steuern so hoch, das die gewählte Menge $x_t$ sogar kleiner ist, als die sozial-optimale Menge $x^o$.
 
 Man kann anhand der Grafik schon sehen, dass der optimale Steuersatz $t^o$ gleich dem Grenzschaden $S'(x^o)$ sein muss, damit die Firma $x_t=x^o$ wählt.
 
@@ -353,7 +361,7 @@ Erinnern wir uns an die Wohlfahrtsfunktion:
 
 $$W(x) = G(x) - S(x) + const \tag{1}$$
 
-Die Konstante const, sei eine beliebige Konstante, die nicht direkt von $x$ abhängt. (Vorher haben wir const = 0 gesetzt. Dies ist eine ewtas allgemeinere Formulierung.)
+Die Konstante const, sei eine beliebige Konstante, die nicht direkt von $x$ abhängt. (Vorher haben wir const = 0 gesetzt. Hier ist eine etwas allgemeinere Formulierung.)
 
 Bei einem Steuertarif T(x) ist der Nettogewinn der Firma
 
@@ -367,15 +375,13 @@ Dann ist die Nettogewinnfunktion
 
 $$\Pi(x) = G(x)-S(x) \tag{2}$$
 
-Das wohlfahrtsoptimale $x=x^o$ maximiert auch diesen Nettogewinn, d.h. die Firma wird $x=x^o$ wählen.
+Das heißt bis auf eine von $x$ unabhängige Konstante ist der Nettogewinn identisch mit der Wohlfahrtsfunktion. Das wohlfahrtsoptimale $x=x^o$ maximiert somit auch diesen Nettogewinn, d.h. die Firma wird $x=x^o$ wählen.
 
 #>
 
 #. frame Zwischenfazit: Pigou-Steuern
 
-+ Wohlfahrtsoptimale Steuern auf Schadstoffe (oder andere Externalitäten) werden oft als Pigou-Steuern bezeichnet.
-
-+ Benannt nach dem englischen Ökonomen Arthur C. Pigou
++ Wohlfahrtsoptimale Mengensteuern auf Schadstoffe (oder andere Externalitäten) werden oft als Pigou-Steuern bezeichnet.
 
 + Pigou-Steuern können gegenüber direkte Verordnungen zum Schadstoffausstoß den Vorteil haben, dass weniger Informationen benötigt werden um wohlfahrtsoptimale Entscheidungen zu implementieren.
 
@@ -466,7 +472,7 @@ align: right
 
 + Eigentumsrechte auf Verschmutzung in unserem Modell:
 
-+ Verursacher hat das Recht ohne Zustimmung des Geschädigten bis zu einer gewissen Obergrenze $x_{r}$ zu verschmutzen. Geschädigte haben das Recht Verschmutzung über $x_{r}$ zu verbieten.
+  + Verursacher hat das Recht ohne Zustimmung des Geschädigten bis zu einer gewissen Obergrenze $x_{r}$ zu verschmutzen. Geschädigte haben das Recht Verschmutzung über $x_{r}$ zu verbieten.
 
 + Zwei Extremfälle sind folgende beiden Rechtregeln:
 
@@ -505,7 +511,7 @@ a) Nehmen Sie an, der Produzent A hat das Recht auf beliebige Verschmutzung. B k
 
 #< note Lösung
 
-Zur Erinnerung: Der Wohlfahrtsoptimale Schadstoffausstoß ist gegeben durch $x^o=\gamma - \sigma$ und ohne Steuern und Verhandlungen, würde die Firma $x^* = \gamma$ wählen.
+Zur Erinnerung: Der wohlfahrtsoptimale Schadstoffausstoß ist gegeben durch $x^o=\gamma - \sigma$ und ohne Steuern und Verhandlungen, würde die Firma $x^* = \gamma$ wählen.
 
 Nehmen Sie an, B bietet A einen Vertrag (x,z) an, bei dem sich A verpflichtet nur eine Schadstoffmenge $x < x^*$ auszustossen und erhält im Gegenzug eine Zahlung $z$.
 
@@ -517,7 +523,7 @@ Die minimale Zahlung $z(x)$ damit A bereit ist einen Vertrag mit Ausstoss $x$ an
 
 $$z(x) = G(x^*) - G(x)$$
 
-B muss A für den entgangenen Gewinn aufgrund der Schadstoffreduktion kompensieren. Da wir annehmen, dass es nach einer etwaigen Ablehnung kein Gegenangebot gibt, hat B hier die vollstädnige Verhandlungsmacht und wird nur $z(x)$ als Zahlung anbieten.
+B muss A für den entgangenen Gewinn aufgrund der Schadstoffreduktion kompensieren. Da wir annehmen, dass es nach einer etwaigen Ablehnung kein Gegenangebot gibt, hat B hier die vollständige Verhandlungsmacht und wird nur $z(x)$ als Zahlung anbieten.
 
 Die Frage für B ist, welches x er im Vertrag anbietet. Der resultierende Nutzen für B bei Vertragsannahme ist:
 
@@ -544,7 +550,7 @@ $$z = z(x^o) = G(x^*) - G(x^o)$$
 #>
 
 
-b) Lösen Sie Aufgabe a) mit der Variante, dass A ein Recht auf Verschmutzung hat, in Höhe von $x_{r}$ mit $x^{o}<x_{r} \leq x^{*}$. Zeigen Sie, dass weiterhin vertraglich $x=x^{o}$ gewählt wird und sich nur die Zahlungen des B an A verändern.
+b) Lösen Sie Aufgabe a) mit der Variante, dass A ein Recht auf Verschmutzung hat, in Höhe von $x_{r}$ mit $x^{o} < x_{r} \leq x^{*}$. Zeigen Sie, dass weiterhin vertraglich $x=x^{o}$ gewählt wird und sich nur die Zahlungen des B an A verändern.
 
 #< note Lösung
 Die Überlegungen sind sehr ähnlich wie in Teilaufgabe a).
@@ -577,7 +583,7 @@ D.h. der Nutzen des B lässt sich wieder schreiben als die Wohlfahrt $W(x)$, min
 
 D.h. ein Nutzenmaximierender B wird im Vertrag das wohlfahrtsoptimale $x=x^o$ anbieten, zusammen mit der Zahlung $z(x^o)$. Diesen Vertrag wird der A annehmen. Die Verhandlungen à la Coase führen also hier zu einem wohlfahrtsoptimalen Schadstoffaustoß!
 
-Der resultierende Schadstoffausstoss $x=x^o$ Ergebnis ist unabhängig von der genauen Höhe von $x_r$. Das Verschmutzungsrecht $x_r$ bestimmt aber die Höhe der Zahlung des B an A. Je höher $x_r$, desto mehr muss B den A kompensieren. Die Höhe der Verschmutzungsrechte hat hier keine Effizienzwirkung,  aber immer noch eine Verteilungswirkung zwischen Schädiger A und Geschädigtem B.
+Der resultierende Schadstoffausstoss ist $x=x^o$ unabhängig von der genauen Höhe von $x_r$. Das Verschmutzungsrecht $x_r$ bestimmt aber die Höhe der Zahlung des B an A. Je höher $x_r$, desto mehr muss B den A kompensieren. Die Höhe der Verschmutzungsrechte hat hier also keine Effizienzwirkung,  aber immer noch eine Verteilungswirkung zwischen Schädiger A und Geschädigtem B.
 #>
 
 c) Nehmen Sie nun an, B hat das Recht auf 100% saubere Luft ($x_{r}=0$).
@@ -621,7 +627,7 @@ $$z = z(x^o) = S(x^o) - S(0) = \sigma (\gamma - \sigma)$$
 
 #. frame 2.7 Coase Theorem: Erste Diskussion
 
-* Wenn die Annahmen des Coase Theorems erfüllt wären, hätten der Staat einen vergleichsweise einfachen Job.
+* Wenn die Annahmen des Coase Theorems erfüllt wären, hätte der Staat einen vergleichsweise einfachen Job.
 
 * Sie müssten nur Rechte auf Verschmutzungen festlegen und einen Rechtsrahmen zum Abschluss und Kontrolle über Verträge zur Verschmutzung schaffen.
 
@@ -704,7 +710,7 @@ Beim Pigousteuersatz $t^0 = S'(x^o) = \sigma$, haben wir
 
 $$x = \gamma - 2 \sigma < x^o$$
 
-Der Grenzschaden wird doppelt berücksichtigt. Pigou-Steuern plus Verhandlungen á la Coase führen zu einem zu starken Rückgang der Emmissionen: doppelt gemoppelt ist zu viel des Guten in unserem einfachen Modell.
+Der Grenzschaden $\sigma$ wird doppelt berücksichtigt. Pigou-Steuern plus Verhandlungen á la Coase führen zu einem zu starken Rückgang der Emmissionen: doppelt gemoppelt ist zu viel des Guten in unserem einfachen Modell.
 #>
 
 
@@ -745,7 +751,7 @@ $$S(x)	=	\sigma x$$
  
 + Laissez-Faire: A kann so viel Schadstoff ausstoßen, wie er möchte. 
 
-+ Nachdem A seine Technologie gewählt hat, kann er B einen Vertrag anbieten: "Gegen eine Zahlung von $z$ produziere ich nur $\tilde{x} < x^{*}$ . Sonst produziere ich meine optimale Menge $x^{*}$"
++ Nachdem A seine Technologie gewählt hat, kann er B einen Vertrag anbieten: "Gegen eine Zahlung von $z$ produziere ich nur $x < x^{*}$ . Sonst produziere ich meine optimale Menge $x^{*}$"
 
 + Welche Technologie wird A wählen und welchen Vertrag anbieten? Erklären Sie warum eine Ineffizienz auftritt.
 
@@ -837,17 +843,19 @@ $$S(x)	=	\phi\frac{1}{2}x^{2}$$
 
 + B weiß nur
 
-  + mit Wahrscheinlichkeit p
+  + mit Wahrscheinlichkeit $p$
     ist $\gamma=\gamma_{H}>0$
     (A ist H-Typ)
   
-  + mit Wahrscheinlichkeit 1-p
+  + mit Wahrscheinlichkeit $1-p$
     ist $\gamma=\gamma_{L}<0$
     (A ist L-Typ)
 
++ A kennt seinen Typen, d.h. sein $\gamma$.
+
 + Annahme: A hat Recht auf Verschmutzung bis zu einer Obergrenze $x_r > \frac{\gamma_{H}}{\phi}$ .
 
-+ B kann A einen Vertrag anbieten, in dem er A eine Zahlung z im Gegenzug einer Verschmutzungsmenge von maximal $\tilde{x} < x_r$ verspricht.
++ B kann A einen Vertrag anbieten, in dem er A eine Zahlung z im Gegenzug einer Verschmutzungsmenge von maximal $x < x_r$ verspricht.
 
 + Welchen Vertrag wird B optimalerweise anbieten? Zeigen Sie, dass in der Vertragslösung die Verschmutzung über den wohlfahrtsoptimalen Niveau liegt.
 
@@ -856,7 +864,7 @@ Bestimmen wir zunächst das wohlfahrtsoptimale Verschmutzungsniveau, und das Ver
 
 L-Typ:
 
-Da $\gamma_L < 0$ wird der L-Typ $x_L^*=0$ wählen und auch das wohlfahrtsoptimale Niveau ist $x_L^o=0$.
+Da $\gamma_L < 0$ wird der L-Typ $x_L^*=0$ wählen (nichts produzieren) und auch das wohlfahrtsoptimale Niveau ist $x_L^o=0$.
 
 H-Typ:
 
@@ -866,15 +874,14 @@ Die Gesamtwohlfahrt ist gegeben durch
 
 $$
 \begin{align*}
-W(x) &= G(x) - S(x)
+W(x) &= G(x) - S(x) \\
      &= \gamma_H x - \phi\frac{1}{2}x^{2}
 \end{align*}
 $$
 Die Bedingung erster Ordnung für ein Wohlfahrtsmaximum lautet:
 
-$$
-W'(x_H^o) &= \gamma_H - \phi x_H^o = 0
-$$
+$$W'(x_H^o) = \gamma_H - \phi x_H^o = 0$$
+
 und somit
 
 $$x_H^o = \frac{\gamma_{H}}{\phi} < x_r$$
@@ -888,23 +895,23 @@ $$z(x) = G_H(x_r)-G_H(x) = \gamma_{H}(x_r-x)$$
 Einen Vertrag mit $x>0$ anzubieten, macht für B nur Sinn, wenn diesen Vertrag auch der H-Typ annimmt, da der L-Typ, ja  selbst ohne Vertrag $x=0$ wählt. Der erwartete Nutzen des B, wenn er einen Vertrag (x, z(x)), mit $0 \leq x \leq x_r$ anbietet, ist
 
 $$
-\begin(align*)
+\begin{align*}
 U_B(x) &= - p S(x) - (1-p) S(0) - z(x) \\
        &= - p (	\phi\frac{1}{2}x^{2}) - \gamma_{H}(x_r-x)
-\end(align*)
+\end{align*}
 $$
 
 Die Bedingung erster Ordnung lautet:
 
-$$U_B'(x) &= - p \phi x + \gamma_{H} = 0$$
+$$U_B'(x) = - p \phi x + \gamma_{H} = 0$$
 
 oder
 
-$$x = \frac{gamma_{H}{p \phi}} = {1/p} x_H^o$$
+$$x = \frac{\gamma_H}{p \phi} = \frac{1}{p} x_H^o$$
 
-Dieses optimalerweise angebotene $x$ ist um den Faktor $1/p$ größer als die wohlfahrtsoptimale Menge $x_H^o$, wenn A ein H-Typ ist. D.h. Verhandlungen führen nicht immer zu einem effizienten Ergebnis.
+Dieses optimalerweise angebotene $x$ ist um den Faktor $1/p$ größer, als die wohlfahrtsoptimale Menge $x_H^o$, wenn A ein H-Typ ist. D.h. Verhandlungen führen nicht immer zu einem effizienten Ergebnis.
 
-Die Intuition ist wie folgt. Da B nicht den Typen des A kennt, muss er beiden den gleichen Vertrag anbieten. D.h. ein L-Typ bekommt auch die Zahlung $z$, obwohl er sogar ohne Vertrag $x=0$ gewählt hat. Nur mit der Wahrscheinlichkeit $p$ eines H-typen bringt der Vertrag und die geleistete Zahlung dem B tatsächlich etwas. Aus diesen Grund wird B im Optimum eine geringere Zahlung anbieten, kann damit aber auch nur eine weniger starke Reduktion von x durchsetzen, als Wohlfahrtsoptimal ist.
+Die Intuition ist wie folgt. Da B nicht den Typen des A kennt, muss er beiden den gleichen Vertrag anbieten. D.h. ein L-Typ bekommt auch die Zahlung $z$, obwohl er sogar ohne Vertrag $x=0$ gewählt hat. Nur mit der Wahrscheinlichkeit $p$ eines H-typen bringt der Vertrag und die geleistete Zahlung dem B tatsächlich etwas. Aus diesen Grund wird B im Optimum eine geringere Zahlung anbieten, kann damit aber auch nur eine weniger starke Reduktion von x durchsetzen, als wohlfahrtsoptimal ist.
 
 Wenn B den Typen des A kennen würde, könnte er beiden Typen unterschiedliche Verträge anbieten, und wir bekämen wieder Effizienz.
 

@@ -1,0 +1,341 @@
+#< ignore
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error=TRUE)
+```
+#>
+
+#. include slide_defaults.rmd
+
+
+#< css
+@media print {
+  .slide-container-div {
+    page-break-inside: auto;
+  }
+}
+#>
+
+#< precompute
+```{r}
+dat1 = data_frame(
+  t = 1:2,
+  a = 100,
+  b = 1,
+  c = 10,
+  R = c(50,20),
+  p = a - b *R,
+  m = p-c
+)
+.whiskers = as.list(dat1[1,])
+```
+#>
+
+
+#< pane Rp
+xy: [R_,p_]
+datavar: dat1
+xrange: [0, 100]
+yrange: [0, 110]
+xaxis:
+  latex: R
+yaxis:
+  label: p,m
+curves:
+  P:
+    eq: p_ == a - b*R_
+    colors: red
+    latex: P(R)
+    tooltip: |
+      Die inverse Nachfragefunktion nach Ressourcen.
+      Sie bestimmt den Marktpreis als Funktion der
+      Menge R in einer Periode abgebauten Ressourcen.
+xmarkers:
+  R:
+    tooltip: |
+      Abgebaute Ressourcenmenge
+      R_{{t}} = {{R}}
+    latex: R_{{t}}
+    to: p
+ymarkers:
+  p:
+    tooltip: | 
+      Ressourcenpreis 
+      in Periode {{t}}
+      = {{p}}
+    latex: p_{{t}}
+    to: R
+  m:
+    tooltip: |
+      Markup in Periode {{t}} 
+      = {{p}} - {{c}} = {{m}}
+    latex: m_{{t}}
+    opacity: 0
+    to: R
+#>
+
+#. frame
+<center>
+<h2> Umwelt- und Ressourcenökonomik </h2>
+<h2> Lösungen zu Kapitel 3b:<br> Nicht-Erneuerbare Ressourcen</h2>
+
+<h3> Uni Ulm</h3>
+<h3> Prof. Dr. Sebastian Kranz </h3>
+<h3> SoSe 2016</h3>
+</center>
+
+
+#. frame Nicht-erneuerbare Ressourcen
+
++ Nicht-erneuerbare Ressourcen:
+
+  + Erdöl, Kohle, Gas, ...
+
+  + Kupfer, Eisen, Gold, ...
+
++ Keine Zunahme der Bestände (außer vielleicht in geologischen Zeiträumen)
+
+  + bei manchen Ressourcen Recycling möglich, bei manchen unmöglich oder extrem kostenreich 
+
++ Die Dynamiken des Abbaus abhängig von Entwicklung der Nachfrage und den Angebotsverhalten der Ressourcenbesitzer
+
++ Dynamiken von Nachfrage und Angebot fossiler Brennstoffe haben wichtige Implikationen für Klimapolitik
+
+#. frame Modell: Ressourcenabbau in wettbewerblichen Märkten
+
++ Grundlegende Arbeit: Hotelling (1931): “The Economics of Exhaustible Ressources”
+
++ Textbuchkapitel: Perman et. al. Kapitel 15
+
++ Eine einzige Ressource, kein Recycling
+
++ Gesamte Menge $\bar{S}$ gegeben und bekannt
+
+  + in der Realität Vorräte unbekannt, Schätzungen der “Reichweiten” können im Zeitablauf ansteigen
+
++ Mehrere Perioden t=0,...,T
+
+  + $T=\infty$ möglich, d.h. kein fester Zeitpunkt in dem die Welt endet
+
++ $R_{t}$ = Abbaumenge in Periode t
+ 
+
+#. frame Ressource als Konsumgut
+
++ Es wird angenommen, dass die abgebaute Ressource R_{t}
+  direkt in Periode t
+  von Konsumenten konsumiert wird
+
++ Sei P(R_{t})
+  die inverse Nachfragefunktion nach der Ressource in Periode t
+ 
+
+  + Zahlungsbereitschaft für die Ressource ist unabhängig von Ressourcenangebot in vorherigen Perioden und noch verbleibenden Ressourcenbestand. D.h. Konsumenten betreiben keine Lagerhaltung und nutzen die Ressource nicht für vorausplanende Investitionen.
+
++ Die Konsumentenrente aus Ressourcenkonsum in Periode t
+  ist gegeben durch
+  
+  $$B(R_{t})=\int_{0}^{R_{t}}(P(r)-P(R_{t}))dr$$
+ 
+
++ Zeichnen Sie eine Inverse Nachfragefunktion
+#< note Lösung
+#< plotpane
+data_rows: 1
+show: [P,R,p]
+objects:
+  CS:
+    type: area
+    points: ['0','a',  'R','p',  '0','p']
+#    'fill-color': yellow
+#    'fill-opacity': 0.5
+#>
+#>
+
+#. frame Wettbewerbliche Produzenten
+
++ Der Gesamtbestand der Ressource sei auf sehr viele kleine Minenbesitzer aufgeteilt
+
+– Eigentumsrechte sind wohldefiniert.
+
+– Minenbesitzer üben keine Marktmacht aus, perfekter Wettbewerb
+
++ Konstante variable Förderkosten in Höhe von c
+  pro Ressourceneinheit
+
++ Es gibt einen festen (realen) Zinsatz i>0
+  zu dem Ressourcenbesitzer ihre Erlöse aus dem Ressourcenverkauf in anderweitige Finanzinvestitionen anlegen können.
+
+#. frame Hotelling Regel
+
++ Sei $p_{t}=P(R_{t})$ der resultierende Preis der Ressource in Periode t
+ 
+
++ Sei $m_{t}=p_{t}-c$ die Gewinnspanne (Markup) bei Förderung einer Ressourceneinheit in Periode t
+ 
+
++ Sei $\bar{m}=P(0)-c>0$
+  der maximal mögliche Markup und $\underline{m}=P(\bar{S})-c$
+  der minimal mögliche Markup (wenn alle Ressourcen auf einmal verkauft werden). Es soll gelten, dass der maximale Markup ausreichend groß im Verhältnis zum minimalen Markup ist: $\bar{m} > (1+i)\underline{m}$
+ 
+
++ Die Hotelling Regel besagt, dass bei gewinnmaximierenden Verhalten der wettbewerblichen Firmen, die Ressourcen dergestalt abgebaut werden, dass die Markups im Zeitablauf mit der Zinsrate i wachsen:
+  
+  $$m_{t+1}=(1+i)m_{t} \forall t$$
+ 
+
+#. frame Interpretation: Hotelling Regel
+
++ Die Hotelling Regel, lässt sich wie folgt interpretieren: Der Markup $m_{t}$
+  ist der Wert, den eine im Boden liegende Einheit der Ressource in Periode t
+  für den Minenbesitzer hat. Der Minenbesitzer kann sich jede Periode entscheiden, die Ressource zu fördern und den Ertrag zu Zinssatz $i$
+  anzulegen oder die Ressource im Boden zu belassen. Die Ressource im Boden zu belassen, kann als “Kapitalanlage” in die Ressource interpretiert werden. Im Gleichgewicht müssen beide Anlagemöglichkeiten die gleiche Rendite abwerfen, d.h. die jährliche Wertsteigerung der im Boden liegenden Ressource muss dem Zinsatz $i$
+  der Finanzanlage entsprechen.
+
+#. frame 3B.1 Analyse der Hotelling Regel
+
+Betrachten Sie nur den Fall von zwei Perioden t=1,2.
+
+a) Wie ist der Zusammenhang zwischen dem Markup $m_{t}$ in einer Periode und der Menge abgebauter Ressourcen $R_{t}$?
+
+#< note Lösung
+
+#< plotpane Rp
+data_rows: [1,2]
+show: [P,R,m,p]
+hide: 
+  1:
+  2: P
+#>
+
+  $$m_{t}\uparrow \Rightarrow R_{t}\downarrow$$
+
+#>
+
+b) Angenommen der Zinssatz $i$ steigt, wie würde dies die Abbaumengen $R_{1}$
+  und $R_{2}$ in beiden Perioden verändern? (Nehmen Sie an, dass alle Ressourcen $\bar{S}$ tatsächlich abgebaut werden). Führen höhere Zinsen zu frühzeitigeren oder späteren Ressourcenabbau?
+  
+#< note Lösung  
+  \frac{m_{2}}{m_{1}}=1+i
+#> 
+
+c) Beweisen Sie für das Zweiperiodenmodell, dass die Hotelling Regel gelten muss.
+#< note Lösung
+Im 2 Perioden Modell besagt die Hotelling Regel, dassm_{1}=(1+i)m_{0}
+#> 
+
+#. frame 3B.2 Berechnung des Abbaupfads
+
++ Aus dem Zeitpfad der Markups lässt sich bei Kenntniss der Nachfragefunktion und Abbaukosten, auch der genaue Abbaupfad der Ressourcen ermitteln.
+
++ Aufgabe: Sei P(R_{t})=a-bR_{t}
+  , 2 Perioden t=0,1
+ 
+
+– [a)]Finden Sie mit Hilfe der Hotelling Regel den Abbaupfad der Ressourcen (R_{0}
+ , R_{1}
+ ) und den Preispfad der Ressourcen (p_{1},p_{2})
+  in wettbewerblichen Märkten. Nehmen Sie zunächst an, dass die gesamten Ressourcen \bar{S}
+  abgebaut werden.
+
+– [b)]Was ist die maximale Ressourcenmenge S_{max}
+ , die im wettbewerblichen Gleichgewicht für gegebene Werte von a
+  und c
+  abgebaut werden würde? Was sind die Marktpreise p_{1}
+  und p_{2}
+ , wenn der Ressourcenbestand \bar{S}
+  größer ist als diese maximale Menge S_{max}
+ ? Was wäre dann der Wert einer Ressource im Boden für einen Minenbesitzer?
+
+a) Es gelten folgende Gleichungen R_{1}	=	\bar{S}-R_{0}
+P(R_{1})-c	=	(1+i)(P(R_{0})-c)
+a-bR_{1}-c	=	(1+i)(a-bR_{0}-c)
+ 
+
+#. frame Ressourcenangebot / Nachfrage und Klimawandel
+
++ Im Folgenden werden wir Variationen unseres einfachen Modells nutzen, um zu studieren welche Auswirkungen Einflussfaktoren von Ressourcenangebot und Nachfrage auf dem Zeitpfad des Ressourcenverbrauchs und CO2 Ausstoß haben. 
+
+#. frame Eine Diskussionsfrage
+
+Angenommen einige aber nicht alle Länder der Welt beschließen ein Abkommen, dass sie verpflichtet eine feste Menge weniger CO2 in die Atmosphäre auszustoßen. Es gebe nur folgende Instrumente, den CO2 Ausstoß zu verringern:
+
+1. Reduktion von Brennstoffverbrauch durch Energieeinsparmaßnahmen
+
+2. Aufforstungsmaßnahmen (Bindung von Kohlenstoff in Holz)
+
+3. Substitution fossiler Brennstoffe durch CO2 freie Stromerzeugung mit Wind, Sonne oder Kernkraft
+
+4. Carbon Capture and Storage (CCS): Abscheidung von CO2 bei Entstehung in Kraftwerken und Einspeicherung in unterirdischen geologischen Speicherstätten, z. B. ehemaligen Erdgaslagerstätten. (Technologie und Risiken noch in Erforschung, bislang Pilotprojekte)
+
+Nehmen Sie an, alle Maßnahmen hätten die gleichen Kosten pro Tonne eingesparten CO2 in den Abkommensländern. Diskutieren Sie welche Maßnahmen in den Abkommensländern am ehesten dafür geeignet sein könnten den weltweiten CO2 Zuwachs in der Atmosphäre zu verringern.
+
+#. frame 3B.3 Klimaschutzabkommen und Carbon Leakage
+
++ Nehmen Sie an, die Ressource sei ein fossiler Brennstoff (Kohle, Öl oder Gas) bei dessen Nutzung CO2 ausgestoßen wird.
+
++ Die Welt bestehe aus n
+  Ländern, die für jede Periode jeweils folgende identische Nachfragefunktion nach der Ressource haben:d=1-p
+ 
+
++ Nehmen Sie an, ein Anteil \alpha
+  der Länder schließt ein Klimaschutzabkommen mit folgender Wirkung: Jedes Teilnehmerland darf in jeder Periode nur eine maximale Menge \bar{q}
+  der Ressource verbrennen, wobei \bar{q}
+  geringer ist als die Menge, die ein Land in der Abwesenheit eines Klimaschutzabkommens konsumieren würde.
+
+#. frame 3B.4
+
++ [a)]Bestimmen Sie die weltweite Nachfragefunktion und inverse Nachfragefunktion nach der Ressource als Funktion des Klimaabkommens (\alpha
+  und \bar{q}
+ ).
+
++ [b)]Betrachten Sie ein zwei Periodenmodell t=1,2
+  und nehmen Sie an, dass ohne ein Klimaabkommen die ganzen Ressourcen \bar{S}
+  verbraucht werden würden. Bestimmen Sie die Funktion S_{max}(\alpha,\bar{q})
+ , die maximale profitable Abbaummenge gegeben ein Klimaschutzabkommen (\alpha,\bar{q})
+ . Sei S_{max}^{0}
+  die maximale profitable Abbaumenge ohne Abkommen.
+
+#. frame 
+
++ [c)]Sei n=100
+ , c=0.2
+ , i=0
+ , \bar{S}=100
+ . Zeigen Sie das ein Abkommen, bei dem sich die Hälfte der Länder verpflichtet ihren Ressourcenverbrauch zu halbieren, im Vergleich zum Zustand ohne Abkommen, keinen Einfluss auf den gesamten Ressourcenverbrauch und den Zeitpfad des Abbaus hat. Wie verändert das Abkommen die Ressourcenpreise und den Ressourcenverbrauch der Nichtabkommensländer?
+
++ [d)]Nehmen Sie die Zahlen und das Abkommen von c) aber nehmen Sie an, das Abkommen tritt erst in Periode t=2 in Kraft. Zeigen Sie, das die gleiche Menge Ressourcen, wie ohne Abkommen abgebaut wird, aber die Ressourcen bereits früher abgebaut werden.
+
+i) Weltweite Nachfragefunktion nach der Ressource:
+
+#. frame Diskussion: Carbon Leakage
+
++ Carbon Leakage:
+
+  + Ein Abkommen zur CO2 Reduktion reduziert die Nachfrage nach Kohlenstoffreichen Brennstoffen in den teilnehmenden Ländern (Nachfragefunktion bewegt sich nach unten)
+
+  + Konsequenz: weltweiter Preis der Ressource fällt
+
+  + Länder die nicht am Abkommen teilnehmen, werden wegen des günstigeren Ressourcenpreises mehr von der CO2 intensiven Ressource verbrauchen und einen höheren CO2 Ausstoß haben
+
++ Dass heißt das eingesparte CO2 in einigen Ländern wird über den Preiseffekt auf fossile Brennstoffe an anderer Stelle auf der Welt wieder in die Luft geblasen. Dieser Effekt wird oft als “Carbon Leakage” (Kohlenstoff Abfluss) bezeichnet.
+
++ Carbon Leakage ist typischerweise umso gravierender, je weniger Staaten Verpflichtungen eingehen, ihren CO2 Ausstoß zu reduzieren.
+
++ Ein partielles Abkommen reduziert den weltweiten CO2 Ausstoß nur, wenn die resultierende Senkung der Ressourcenpreise es langfristig zu teuer macht, gewisse geologische Lagerstätten auszubeuten.
+
+#. frame 3B.5 Unsichere Eigentumsrechte
+
++ Betrachten Sie eine Variation unseres ursprünglichen Hotelling Models. Nehmen Sie an, alle Ressourcen befinden sich in politisch instabilen Ländern. In jeder Periode gibt es eine Wahrscheinlichkeit \varepsilon
+  für jeden Minenbesitzer, dass er ohne Entschädigung enteignet wird.
+
++ Leiten Sie für den Fall eines 2 Perioden Modells mit Enteignungswahrscheinlichkeit eine Hotelling-Regel für die zeitliche Entwicklung des Markups aus Ressourcenverkäufen her. Nehmen Sie an, dass die Minenbesitzer risiko-neutral sind. Wie beeinflusst die Enteignungswahrscheinlichkeit \varepsilon
+  den Zeitpfad des weltweiten Ressourcenverbrauchs?
+
+#. frame 3B.6 Quellensteuer auf Kapitalerträge
+
++ Hans-Werner Sinn argumentiert in Kapitel 7 seines Buchs “Das grüne Paradoxon”, dass eine Trockenlegung von Steueroasen und eine einheitliche Quellensteuer auf Erträge von Finanzinvestitionen (weltweit oder in Industrieländern und wichtigen Schwellenländern) zu einer Verlangsamung des Klimawandels führen könnten.
+
++ Versuchen Sie mit Hilfe von unseren einfachen Hotelling Model das Argument nachzuvollziehen und diskutieren Sie den Vorschlag.#. frame Das grüne Paradoxon
+
++ U(R_{t})=B(R_{t})-C(R_{t})
+ 
