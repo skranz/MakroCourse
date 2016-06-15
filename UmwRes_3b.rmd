@@ -121,11 +121,11 @@ ymarkers:
 
 #. frame Ressource als Konsumgut
 
-+ Es wird angenommen, dass die abgebaute Ressource R_{t}
++ Es wird angenommen, dass die abgebaute Ressource $R_{t}$
   direkt in Periode t
   von Konsumenten konsumiert wird
 
-+ Sei P(R_{t})
++ Sei $P(R_{t})$
   die inverse Nachfragefunktion nach der Ressource in Periode t
  
 
@@ -137,18 +137,20 @@ ymarkers:
   $$B(R_{t})=\int_{0}^{R_{t}}(P(r)-P(R_{t}))dr$$
  
 
-+ Zeichnen Sie eine Inverse Nachfragefunktion
++ Zeichnen Sie
 #< note Lösung
-#< plotpane
+#< plotpane Rp
 data_rows: 1
-show: [P,R,p]
+show: [P,R,p,CS]
 objects:
   CS:
     type: area
-    points: ['0','a',  'R','p',  '0','p']
-#    'fill-color': yellow
-#    'fill-opacity': 0.5
+    xy: ['0','a',  'R','p',  '0','p']
+    fill: '#7777ff'
+    'fill-opacity': 0.5
 #>
+
+Die Abbildung zeigt eine Beispielhafte inverse Nachfragefunktion. Die gelbe Fläche markiert die Konsumentenrente gegeben der Ressourcenabbaumenge $R_1$ und dem zugeörigem Preis $p_1$.
 #>
 
 #. frame Wettbewerbliche Produzenten
