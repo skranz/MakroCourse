@@ -71,26 +71,23 @@ dat = data_frame(
 
 #. frame 2.1 Ein Modellbeispiel zu Externalitäten
 
-- Sei A eine Fabrik bei deren Produktion ein Schadstoffmenge x
-  freisetzt gesetzt wird
++ Sei A eine Fabrik bei deren Produktion ein Schadstoffmenge x freisetzt gesetzt wird
 
-- B sei ein benachbarter Landwirt, der durch den Schadstoff geschädigt wird.
++ B sei ein benachbarter Landwirt, der durch den Schadstoff geschädigt wird.
 
-- Der Gewinn von A sei gegeben durch folgende Funktion
++ Der Gewinn von A sei gegeben durch folgende Funktion
   $$G(x)=\gamma x-\frac{1}{2}x^{2}$$
  
-
-- Der Schaden des B durch den bei Produktion freigesetzten Schadstoffs entspricht einen Geldwert von
++ Der Schaden des B durch den bei Produktion freigesetzten Schadstoffs entspricht einen Geldwert von
   $$S(x)	=	\sigma x$$
  
-
-- Die Gesamtwohlfahrt sei gegeben durch
++ Die Gesamtwohlfahrt sei gegeben durch
   $$W(x)=G(x)-S(x)$$
  
 
 #. frame 2.1 Ein Modellbeispiel zu Externalitäten
 
-a) Welche Produktionsmenge x^{*} wird A wählen, wenn A seinen Gewinn maximiert ohne den Schaden auf B zu berücksichtigen? Stellen Sie die Lösung mit Hilfe der Grenzgewinnkurve grafisch dar.
+a) Welche Produktionsmenge $x^{*}$ wird A wählen, wenn A seinen Gewinn maximiert ohne den Schaden auf B zu berücksichtigen? Stellen Sie die Lösung mit Hilfe der Grenzgewinnkurve grafisch dar.
 
 #< note Lösung
 Die Bedingung erster Ordung zur Maximierung der Gewinnfunktion
@@ -98,7 +95,7 @@ $$G(x)=\gamma x-\frac{1}{2}x^{2}$$
 
 ist das die Ableitung nach x gleich 0 ist:
 
-$$G'(x^*)=\gamma -x = 0$$
+$$G'(x^*)=\gamma -x^* = 0$$
 
 Wir erhalten
 
@@ -147,7 +144,7 @@ curves:
 
 #>
 
-b) Bestimmen Sie die Produktionsmenge x^{o}, welche die Gesamtwohlfahrt
+b) Bestimmen Sie die Produktionsmenge $x^{o}$, welche die Gesamtwohlfahrt
  $$W(x)=G(x)-S(x)$$ maximiert. Stellen Sie die Bedingung mit Hilfe der Grenzgewinn- und Grenzschadensfunktion grafisch dar.
  
 #< note Lösung
@@ -164,21 +161,19 @@ $$G'(x^o) = S'(x^o)$$
     
 Bei unseren funktionalen Annahmen erhalten wir:
 
-$$\gamma -x^o = sigma$$
+$$\gamma -x^o = \sigma$$
 und somit
-$$x^o = sigma - \gamma$$
+$$x^o = \sigma - \gamma$$
 
 Grafische Darstellung:
 #< plotpane x_pane
 show: [GG, GS, x_star, x_o]
 #>
 
-Wir erkennen an der Grafik, dass bei positiven Grenzschaden S'(x), die wohlfahrtsoptimale Menge $x^o$ stets kleiner ist, als die profitmaximierende Menge $x^*$.
+Wir erkennen an der Grafik, dass bei positiven Grenzschaden $S'(x)$, die wohlfahrtsoptimale Menge $x^o$ stets kleiner ist, als die profitmaximierende Menge $x^*$.
 
 #>
-- Die wohlfahrtsoptimale Menge x^{o}
-  “internalisiert” die Produktionsexternalität, d.h. den bei B
-  entstehenden Schaden S(x).
++ Die wohlfahrtsoptimale Menge $x^{o}$ “internalisiert” die Produktionsexternalität, d.h. den bei B entstehenden Schaden S(x).
 
 c) Nennen Sie verschiedene mögliche Maßnahmen / umweltpolitische Instrumente mit denen A ggf. dazu bewogen werden könnte, die wohlfahrtsoptimale Produktionsmenge zu wählen. Was könnten Vor- und Nachteile der veschiedenen Instrumente sein
 
@@ -188,16 +183,16 @@ Diese Aufgabe dient der Diskussion im Kurs. Sie sollten selbst in der Lage sein,
 
 #. frame 2.2 Verordnungen
 
-- Nehmen Sie an, eine Umweltbehörde kann eine Verordnung erlassen, in der sie einen maximalen Schadstoffausstoß \bar{x} für die Fabrik festlegt. Welche Obergenze \bar{x}^{o} maximiert die Gesamtwohlfahrt?
++ Nehmen Sie an, eine Umweltbehörde kann eine Verordnung erlassen, in der sie einen maximalen Schadstoffausstoß $\bar{x}$ für die Fabrik festlegt. Welche Obergenze $\bar{x}^{o}$ maximiert die Gesamtwohlfahrt?
 
 #< note Lösung
-Die Lösung ist einfach die Obergrenze \bar{x}^{o} auf das wohlfahrtsoptimale Niveau x^o zu legen. Da die Firma für alle $x \leq x^o$ einen positiven Grenzgewinn hat, wird sie dann von sich aus x=\bar{x}^{o} wählen.
+Die Lösung ist einfach die Obergrenze $\bar{x}^{o}$ auf das wohlfahrtsoptimale Niveau $x^{o}$ zu legen. Da die Firma für alle $x \leq x^o$ einen positiven Grenzgewinn hat, wird sie dann von sich aus $x=\bar{x}^{o}$ wählen.
 #>
 
-- Welche Informationen muss die Umweltbehörde besitzen um die wohlfahrtsoptimale Schadstoffgrenze \bar{x}^{o} festlegen zu können? Welche der Parameter \gamma und \sigma muss die Behörde kennen?
++ Welche Informationen muss die Umweltbehörde besitzen um die wohlfahrtsoptimale Schadstoffgrenze $\bar{x}^{o}$ festlegen zu können? Welche der Parameter $\gamma$ und $\sigma$ muss die Behörde kennen?
 
 #< note Lösung
-Um x^o berechnen zu können, muss die Umweltbehörde den Verlauf der Grenzschadensfunktion S'(x) und den Verlauf der Grenzgewinnfunktion G'(x) kennen. In unserem Modell bedeutet, dies dass sowohl \gamma als auch \sigma bekannt sein müssen. Insbesondere, den Verlauf der Grenzgewinnfunktion zu kennen, ist sehr, sehr schwierig.
+Um $x^{o}$ berechnen zu können, muss die Umweltbehörde den Verlauf der Grenzschadensfunktion S'(x) und den Verlauf der Grenzgewinnfunktion G'(x) kennen. In unserem Modell bedeutet, dies dass sowohl $\gamma$ als auch $\sigma$ bekannt sein müssen. Insbesondere, den Verlauf der Grenzgewinnfunktion zu kennen, ist sehr, sehr schwierig.
 #>
 
 #. frame 2.3 Steuern auf Schadstoffe (Pigou-Steuern)
@@ -207,18 +202,17 @@ url: https://upload.wikimedia.org/wikipedia/commons/0/01/A.C._Pigou.jpg
 link: https://en.wikipedia.org/wiki/Arthur_Cecil_Pigou
 align: right
 #>
-- Nehmen Sie nun an, dass der freigesetzte Schadstoff besteuert wird. Es soll einen festen Mengensteuersatz von t pro ausgestoßener Schadstoffeinheit geben.
++ Nehmen Sie nun an, dass der freigesetzte Schadstoff besteuert wird. Es soll einen festen Mengensteuersatz von t pro ausgestoßener Schadstoffeinheit geben.
 
-- Wir nennen den Wohlfahrtsoptimalen Mengensteuersatz t^{o}, den Pigou-Steuersatz nach dem Ökonomen A. C. Pigou.
++ Wir nennen den Wohlfahrtsoptimalen Mengensteuersatz $t^{o}$, den Pigou-Steuersatz nach dem Ökonomen A. C. Pigou.
 
-
-- Bestimmen Sie rechnerisch und grafisch den Pigousteuersatz t^{o} auf x. 
++ Bestimmen Sie rechnerisch und grafisch den Pigousteuersatz $t^{o}$ auf x. 
 #< note Lösung
 Sei
 
 $$\Pi(x) = G(x) - tx$$
 
-der Nettogewinn der Firma, nach Zahlung der Schadstoffsteuer. Sei x_t die Gewinnoptimale Menge bei Steuersatz t. Die Bedingung erster Ordnung für Gewinnmaximierung der Firma lautet:
+der Nettogewinn der Firma, nach Zahlung der Schadstoffsteuer. Sei $x_t$ die gewinnoptimale Menge bei Steuersatz t. Die Bedingung erster Ordnung für Gewinnmaximierung der Firma lautet:
 
 $$\Pi'(x_t) = G'(x_t) - t = 0$$
 
@@ -226,7 +220,7 @@ Oder anders geschrieben:
 
 $$G'(x_t) = t \tag{1}$$
 
-Die Grafik zeigt ein Beispiel mit $\gamma ={{gamma}}$, $\sigma = {{sigma}}$$, und Mengensteuersatz $t={{2}}$
+Die Grafik zeigt ein Beispiel mit $\gamma ={{gamma}}$, $\sigma = {{sigma}}$, und Mengensteuersatz $t={{2}}$
 
 #< plotpane x_pane
 data_rows: 2
@@ -237,19 +231,19 @@ xmarkers:
 #>
 In diesem Beispiel, sind die Steuern so hoch, das die gewählte Menge $x_t$ sogar kleiner ist, als die sozial-optimale Menge $x^0$.
 
-Man kann anhand der Grafik schon sehen, dass der optimale Steuersatz $t^o$ gleich dem Grenzschaden $S'(x^o)$ entsprechen muss, damit die Firma $x_t=x^o$ wählt.
+Man kann anhand der Grafik schon sehen, dass der optimale Steuersatz $t^o$ gleich dem Grenzschaden $S'(x^o)$ sein muss, damit die Firma $x_t=x^o$ wählt.
 
 Wir können dies auch anhand der Formeln sehen. Erinnern wir uns, dass die wohlfahrtsoptimale Schadstoffmenge $x^o$ durch folgende Bedingung charakterisiert war: 
 
-$$G'(x_t) = S'(x^0) \tag{2}$$
+$$G'(x^o) = S'(x^o) \tag{2}$$
 
-Wenn wir (1) und (2) vergleichen, sehen wir dass wir die gewinnmaximierende Firma dazu bringen können, die wohlfahrtsoptimale Menge zu wählen, indem wir den Steuersatz $t$ auf das Niveau 
+Wenn wir (1) und (2) vergleichen, sehen wir, dass wir die gewinnmaximierende Firma dazu bringen können, die wohlfahrtsoptimale Menge zu wählen, indem wir den Steuersatz $t$ auf das Niveau 
 
-$t^o = S'(x^o)$
+$$t^o = S'(x^o)$$
 
 setzen. Der optimale Steuersatz entspricht dem Grenzschaden an dem optimalen Outputniveau. Dann gilt
 
-$$G'(x_t) = t^o =S'(x^o)$$
+$$G'(x_{t^o}) = t^o =S'(x^o)$$
 
 und somit folgt aus (2)
 
@@ -274,7 +268,7 @@ xmarkers:
 
 #>
 
-- Welche Informationen muss die Umweltbehörde besitzen um den wohlfahrtsoptimalen Pigousteuersatz t^{o} bestimmen zu können? Welche der Parameter \gamma und \sigma muss die Behörde kennen?
++ Welche Informationen muss die Umweltbehörde besitzen um den wohlfahrtsoptimalen Pigousteuersatz $t^{o}$ bestimmen zu können? Welche der Parameter $\gamma$ und $\sigma$ muss die Behörde kennen?
 
 #< note Lösung
 Die Umweltbehörde muss den Grenzschaden $S'(x^o)$ kennen. Da in unserem Beispiel der Grenzschaden konstant ist, $S'(x)=\sigma$, muss die Behörde nur $\sigma$ kennen. D.h. die Behörde muss nur einschätzen, welchen zusätzlichen Schaden eine zusätzliche Schadstoffeinheit generiert, braucht aber keine Informationen über die Gewinnfunktion der Firma.
@@ -282,10 +276,9 @@ Die Umweltbehörde muss den Grenzschaden $S'(x^o)$ kennen. Da in unserem Beispie
 
 #. frame 2.4 Steuern auf Schadstoffe: Nicht-linearer Schaden
 
-- Nehmen Sie an, die Schadensfunktion von B hat folgende quadratische Form $$S(x)=\phi x{}^{2}$$.
++ Nehmen Sie an, die Schadensfunktion von B hat folgende quadratische Form $$S(x)=\phi x{}^{2}$$.
  
-
-- Finden Sie nun den Pigou-Steuersatz t^{o}, und illustrieren Sie die Ergebnisse grafisch.  Welche der Parameter \gamma und \phi muss nun die Behörde kennen?
++ Finden Sie nun den Pigou-Steuersatz $t^{o}$, und illustrieren Sie die Ergebnisse grafisch.  Welche der Parameter $\gamma$ und $\phi$ muss nun die Behörde kennen?
 
 #< note Lösung
 Der Grenzschaden steigt nun in $x$:
@@ -298,7 +291,7 @@ $$G'(x^o) = S'(x^o)$$
 $$\gamma - x^o = 2 \phi x^o$$
 $$x^o = \frac {\gamma} {1+2\phi}$$
 
-Hierfür muss die Behörde also auch den Verlauf der Grenzgewinnfunktion kennen. Die Parameter \gamma und \phi müssen bekannt sein.
+Hierfür muss die Behörde also auch den Verlauf der Grenzgewinnfunktion kennen. Beide Parameter $\gamma$ und $\phi$ müssen bekannt sein.
 
 Der optimale Steuersatz ist dann:
 
@@ -353,11 +346,7 @@ yrange: [-1,4]
 #>
 #>
 
-- Angenommen die Behörde kennt die Form der Schadensfunktion S(x)
-  jedoch nicht den Parameter \gamma der Gewinnfunktion G(x).
-  Finden Sie einen nicht-linearen Steuertarif T^{o}(x),
-  der nicht von \gamma abhängt aber dafür sorgt, dass immer die
-  wohlfahrtsoptimale Produktionsmenge x^{o} implementiert wird.
++ Angenommen die Behörde kennt die Form der Schadensfunktion S(x) jedoch nicht den Parameter $\gamma$ der Gewinnfunktion G(x). Finden Sie einen nicht-linearen Steuertarif $T^{o}(x)$, der nicht von $\gamma$ abhängt aber dafür sorgt, dass immer die   wohlfahrtsoptimale Produktionsmenge $x^{o}$ implementiert wird.
 
 #< note Lösung
 Erinnern wir uns an die Wohlfahrtsfunktion:
@@ -378,79 +367,78 @@ Dann ist die Nettogewinnfunktion
 
 $$\Pi(x) = G(x)-S(x) \tag{2}$$
 
-Wenn wir  dass das wohlfahrtsoptimale $x^o$ auch diesen Nettogewinn maximiert, d.h. die Firma wird $x=x^o$ wählen.
+Das wohlfahrtsoptimale $x=x^o$ maximiert auch diesen Nettogewinn, d.h. die Firma wird $x=x^o$ wählen.
 
 #>
 
 #. frame Zwischenfazit: Pigou-Steuern
 
-- Wohlfahrtsoptimale Steuern auf Schadstoffe (oder andere Externalitäten) werden oft als Pigou-Steuern bezeichnet.
++ Wohlfahrtsoptimale Steuern auf Schadstoffe (oder andere Externalitäten) werden oft als Pigou-Steuern bezeichnet.
 
-– Benannt nach dem englischen Ökonomen Arthur C. Pigou
++ Benannt nach dem englischen Ökonomen Arthur C. Pigou
 
-- Pigou-Steuern können gegenüber direkte Verordnungen zum Schadstoffausstoß den Vorteil haben, dass weniger Informationen benötigt werden um wohlfahrtsoptimale Entscheidungen zu implementieren.
++ Pigou-Steuern können gegenüber direkte Verordnungen zum Schadstoffausstoß den Vorteil haben, dass weniger Informationen benötigt werden um wohlfahrtsoptimale Entscheidungen zu implementieren.
 
-- Die Kernidee ist das Erzeuger einer Externalität, diese durch die Steuer internalisieren.
++ Die Kernidee ist das Erzeuger einer Externalität, diese durch die Steuer internalisieren.
 
 #. frame 2.5 Optimale Lenkungssteuern: Allgemeinerer Rahmen
 
-- Wir betrachten optimale Lenkungssteuern nochmal in einem allgemeinen Rahmen
++ Wir betrachten optimale Lenkungssteuern nochmal in einem allgemeinen Rahmen
 
-- Partei A kann unterschiedeliche Aktivitäten x
++ Partei A kann unterschiedeliche Aktivitäten x
   durchführen
 
-- Gewinn für A: G(x)
++ Gewinn für A: G(x)
  
 
-- Die Aktivität kann positive oder negative Externalitäten auf andere Parteien ausüben.
++ Die Aktivität kann positive oder negative Externalitäten auf andere Parteien ausüben.
 
-– Sei E(x) die Nettosumme aller Externalitäten der Aktivität x
++ Sei E(x) die Nettosumme aller Externalitäten der Aktivität x
  
 
-– Falls E(x)<0 hat die Aktivität insgesamt eine negative Externalität
++ Falls E(x)<0 hat die Aktivität insgesamt eine negative Externalität
 
-- Die Gesamtwohlfahrt als Funktion von x
++ Die Gesamtwohlfahrt als Funktion von x
   ist
   
-  W(x)=G(x)+E(x)+const
+  $$W(x)=G(x)+E(x)+const$$
  
 
-– const ist eine Konstante, die unabhängig von xist
++ const ist eine Konstante, die unabhängig von x ist
 
 #. frame 2.5 Optimale Lenkungssteuern: Allgemeinerer Rahmen
 
-- Ein Steuertarif mit optimaler Lenkungswirkung ist gegeben durch
++ Ein Steuertarif mit optimaler Lenkungswirkung ist gegeben durch
   $$T^{o}(x)=-E(x)$$
  
++ Bei positiver Externalität ist $T^{o}$ eine Subvention
 
-– Bei positiver Externalität ist T^{o} eine Subvention
-
-- Partei A's Nettogewinn unter diesem Steuertarif ist
++ Partei A's Nettogewinn unter diesem Steuertarif ist
   $$
   U(x)	=	G(x)-T^{o}(x)
 	      =	G(x)+E(x)
 	      =	W(x)-const
   $$
 
-- Folge: A maximiert seinen Nettogewinn durch Wahl der wohlfahrtsmaximierenden Aktivität x^{o}!
++ Folge: A maximiert seinen Nettogewinn durch Wahl der wohlfahrtsmaximierenden Aktivität $x^{o}$!
 
-– Alle Externalitäten werden internalisiert
++ Alle Externalitäten werden internalisiert
 
 #. frame Optimale Lenkungssteuern: Probleme
 
-- Warum führen wir nicht nur Steuern mit optimaler Lenkungswirkung ein?
++ Warum führen wir nicht nur Steuern mit optimaler Lenkungswirkung ein?
 
-- Informationsprobleme:
++ Informationsprobleme:
 
-– Wie hoch sind Externalitäten einer Aktivität x?
++ Wie hoch sind Externalitäten einer Aktivität x?
 
-– Meßbarkeit der Aktivität x
++ Meßbarkeit der Aktivität x
  
-- Verwaltungsaufwand
++ Verwaltungsaufwand
 
-- Höhe des Steueraufkommen ist eine weitere wichtige Zielfunktion
++ Höhe des Steueraufkommen ist eine weitere wichtige Zielfunktion
 
-- Verteilungswirkung von Lenkungssteuern kann unerwünscht sein
++ Verteilungswirkung von Lenkungssteuern kann unerwünscht sein
 
 #. frame 2.6 Eigentumsrechte & Verhandlungen (Coase Theorem)
 
@@ -461,50 +449,50 @@ link: https://en.wikipedia.org/wiki/Ronald_Coase
 align: right
 #>
 
-- Bisherige Perspektive:
++ Bisherige Perspektive:
 
   + Unregulierte Märkte => mangelnde Internalisierung von Externalitäten => suboptimale Entscheidungen aus Wohlfahrtssicht
 
-- Nahe liegende Forderung: Staatliche Eingriffe wie Steuern (Pigou) oder Verordnungen
++ Nahe liegende Forderung: Staatliche Eingriffe wie Steuern (Pigou) oder Verordnungen
 
 
-- R. Coase (“The Problem of Social Cost”, J. of Law and Economics 1960) bezweifelt die Notwendigkeit staatlicher Intervention
++ R. Coase (“The Problem of Social Cost”, J. of Law and Economics 1960) bezweifelt die Notwendigkeit staatlicher Intervention
 
-- Argument: Suboptimaler Zustand => Anreize für die Beteiligten, die vorhandenen Effizienzgewinne durch Verhandlungen auszuschöpfen
++ Argument: Suboptimaler Zustand => Anreize für die Beteiligten, die vorhandenen Effizienzgewinne durch Verhandlungen auszuschöpfen
 
 #. frame Eigentumsrechte & Verhandlungen (Coase Theorem)
 
-- Kernidee: Eigentumsrechte müssen wohldefiniert sein und Verträge über Verschmutzungsmenge können abgeschlossen werden.
++ Kernidee: Eigentumsrechte müssen wohldefiniert sein und Verträge über Verschmutzungsmenge können abgeschlossen werden.
 
-- Eigentumsrechte auf Verschmutzung in unserem Modell:
++ Eigentumsrechte auf Verschmutzung in unserem Modell:
 
-– Verursacher hat das Recht ohne Zustimmung des Geschädigten bis zu einer gewissen Obergrenze x_{r} zu verschmutzen. Geschädigte haben das Recht Verschmutzung über x_{r} zu verbieten.
++ Verursacher hat das Recht ohne Zustimmung des Geschädigten bis zu einer gewissen Obergrenze $x_{r}$ zu verschmutzen. Geschädigte haben das Recht Verschmutzung über $x_{r}$ zu verbieten.
 
-- Zwei Extremfälle sind folgende beiden Rechtregeln:
++ Zwei Extremfälle sind folgende beiden Rechtregeln:
 
-– Laissez-faire-Regel: Verursacher hat das Recht beliebig viel zu verschmutzen ($x_{r}=\infty$).
++ Laissez-faire-Regel: Verursacher hat das Recht beliebig viel zu verschmutzen ($x_{r}=\infty$).
 
-– Verursacher-Regel: Eigentumsrechte liegen beim Geschädigten. Verursacher darf ohne Zustimmung des Geschädigten nicht verschmutzen ($x_{r}=0$).
++ Verursacher-Regel: Eigentumsrechte liegen beim Geschädigten. Verursacher darf ohne Zustimmung des Geschädigten nicht verschmutzen ($x_{r}=0$).
 
 #. frame Eigentumsrechte (Coase Theorem)
 
 Coase-Theorem: 
 
-- Verhandlungen zwischen den Beteiligten führen zu einer Internalisierung aller externer Effekte und somit zu optimalen Produktions- und Konsumentscheidungen, wenn
++ Verhandlungen zwischen den Beteiligten führen zu einer Internalisierung aller externer Effekte und somit zu optimalen Produktions- und Konsumentscheidungen, wenn
 
-– keine Transaktionskosten anfallen
++ keine Transaktionskosten anfallen
 
-– keine Informationsasymmetrien bestehen
++ keine Informationsasymmetrien bestehen
 
-– die Parteien ausreichend finanzielle Mittel besitzen um vertraglich festgelegte Zahlungen zu leisten
++ die Parteien ausreichend finanzielle Mittel besitzen um vertraglich festgelegte Zahlungen zu leisten
 
-– Eigentumsrechte auf (Nicht-)Verschmutzung festgelegt sind und Verträge über die Verschmutzungshöhe abgeschlossen werden dürfen.
++ Eigentumsrechte auf (Nicht-)Verschmutzung festgelegt sind und Verträge über die Verschmutzungshöhe abgeschlossen werden dürfen.
 
-Aber: Es ist ist egal wie die Eigentumsrechte auf Verschmutzung verteilt werden, d.h. welches x_{r} gewählt wird.
+Aber: Es ist ist egal wie die Eigentumsrechte auf Verschmutzung verteilt werden, d.h. welches $x_{r}$ gewählt wird.
 
 #. frame 2.7 Illustration des Coase Theorem
 
-- Betrachten Sie unser vorheriges Beispiel mit Gewinnfunktion des Produzenten A von
+Betrachten Sie unser vorheriges Beispiel mit Gewinnfunktion des Produzenten A von
 
   $$G(x)=\gamma x-\frac{1}{2}x^{2}$$
   
@@ -519,9 +507,9 @@ a) Nehmen Sie an, der Produzent A hat das Recht auf beliebige Verschmutzung. B k
 
 Zur Erinnerung: Der Wohlfahrtsoptimale Schadstoffausstoß ist gegeben durch $x^o=\gamma - \sigma$ und ohne Steuern und Verhandlungen, würde die Firma $x^* = \gamma$ wählen.
 
-Nehmen Sie an, B bietet A einen Vertrag (x,z) an, bei dem sich A verpflichtet nur eine Schadstoffmenge $x<x^*$ auszustossen und erhält im Gegenzug eine Zahlung $z$.
+Nehmen Sie an, B bietet A einen Vertrag (x,z) an, bei dem sich A verpflichtet nur eine Schadstoffmenge $x < x^*$ auszustossen und erhält im Gegenzug eine Zahlung $z$.
 
-Falls A den Vertrag ablehnt, gibt es (per Annahme) keine weiteren Verhandlungen und A wählt $x=x^*$ und erhält den Gewinn $G(x^*)$.
+Falls A den Vertrag ablehnt, gibt es (per Annahme) keine weiteren Verhandlungen und A wählt $x = x^*$ und erhält den Gewinn $G(x^*)$.
 
 Wenn A den Vertrag annimmt, erhält er einen Gesamtgewinn von $G(x) + z$.
 
@@ -529,7 +517,7 @@ Die minimale Zahlung $z(x)$ damit A bereit ist einen Vertrag mit Ausstoss $x$ an
 
 $$z(x) = G(x^*) - G(x)$$
 
-B muss A für den entgangenen Gewinn aufgrund der Schadstoffreduktion kompensieren. Da wir nehmen, dass es nach einer etwaigen Ablehnung kein Gegenangebot gibt, hat B hier die vollstädnige Verhandlungsmacht und wird nur $z(x)$ als Zahlung anbieten.
+B muss A für den entgangenen Gewinn aufgrund der Schadstoffreduktion kompensieren. Da wir annehmen, dass es nach einer etwaigen Ablehnung kein Gegenangebot gibt, hat B hier die vollstädnige Verhandlungsmacht und wird nur $z(x)$ als Zahlung anbieten.
 
 Die Frage für B ist, welches x er im Vertrag anbietet. Der resultierende Nutzen für B bei Vertragsannahme ist:
 
@@ -556,14 +544,14 @@ $$z = z(x^o) = G(x^*) - G(x^o)$$
 #>
 
 
-b) Lösen Sie Aufgabe a) mit der Variante, dass A ein Recht auf Verschmutzung in Höhe von x_{r} mit x^{o}<x_{r}\leq x^{*} hat. Zeigen Sie, dass weiterhin vertraglich x=x^{o} gewählt wird und sich nur die Zahlungen des B an A verändern.
+b) Lösen Sie Aufgabe a) mit der Variante, dass A ein Recht auf Verschmutzung hat, in Höhe von $x_{r}$ mit $x^{o}<x_{r} \leq x^{*}$. Zeigen Sie, dass weiterhin vertraglich $x=x^{o}$ gewählt wird und sich nur die Zahlungen des B an A verändern.
 
 #< note Lösung
 Die Überlegungen sind sehr ähnlich wie in Teilaufgabe a).
 
-Nehmen Sie an, B bietet A einen Vertrag (x,z) an, bei dem sich A verpflichtet nur eine Schadstoffmenge $x<x_r$ auszustossen und erhält im Gegenzug eine Zahlung $z$.
+Nehmen Sie an, B bietet A einen Vertrag (x,z) an, bei dem sich A verpflichtet nur eine Schadstoffmenge $x < x_r$ auszustossen und erhält im Gegenzug eine Zahlung $z$.
 
-Falls A den Vertrag ablehnt, gibt es (per Annahme) keine weiteren Verhandlungen und A wählt $x=x_r$ und erhält den Gewinn $G(x_r)$.
+Falls A den Vertrag ablehnt, gibt es (per Annahme) keine weiteren Verhandlungen und A wählt $x = x_r$ und erhält den Gewinn $G(x_r)$.
 
 Wenn A den Vertrag annimmt, erhält er einen Gesamtgewinn von $G(x) + z$.
 
@@ -589,16 +577,16 @@ D.h. der Nutzen des B lässt sich wieder schreiben als die Wohlfahrt $W(x)$, min
 
 D.h. ein Nutzenmaximierender B wird im Vertrag das wohlfahrtsoptimale $x=x^o$ anbieten, zusammen mit der Zahlung $z(x^o)$. Diesen Vertrag wird der A annehmen. Die Verhandlungen à la Coase führen also hier zu einem wohlfahrtsoptimalen Schadstoffaustoß!
 
-Der resultierende Schadstoffausstoss $x=x^o$ Ergebnis ist unabhängig von der genauen Höhe von $x_r$. Das Verschmutzungsrecht $x_r$ bestimmt aber die Höhe der Zahlung des B an A. Je höher $x_r$, desto mehr muss B den A kompensieren. Die Höhe der Verschmutzungsrechte hate hier keine Effizienzwirkung,  aber immer noch eine Verteilungswirkung zwischen Schädiger A und Geschädigtem B.
+Der resultierende Schadstoffausstoss $x=x^o$ Ergebnis ist unabhängig von der genauen Höhe von $x_r$. Das Verschmutzungsrecht $x_r$ bestimmt aber die Höhe der Zahlung des B an A. Je höher $x_r$, desto mehr muss B den A kompensieren. Die Höhe der Verschmutzungsrechte hat hier keine Effizienzwirkung,  aber immer noch eine Verteilungswirkung zwischen Schädiger A und Geschädigtem B.
 #>
 
-c) Nehmen Sie nun an, B hat das Recht auf 100% saubere Luft (x_{r}=0).
+c) Nehmen Sie nun an, B hat das Recht auf 100% saubere Luft ($x_{r}=0$).
 Nun kann A aber B einen “take-it-or-leave-it” Vertrag anbieten, der A eine gewisse Menge x Verschmutzung zugesteht im Gegenzug von Kompensationszahlungen z an B.
 
 Welchen Vertrag wird A optimalerweise anbieten? Welches x und z wird gewählt?
 
 #< note Lösung
-Nun kann A dem B einen Vertrag anbieten, der A erlaubt $x > x_r = 0$ an Schadstoffausstoßen im Gegenzug für eine Kompensationszahlung von $z$ an B. Wenn B den Vertrag ablehnt, wird A das maximale erlaubte $x_r = 0$ ausstoßen und B hat einen Schaden von $S(x_r) = S(0) = 0$.
+Nun kann A dem B einen Vertrag anbieten, der A erlaubt $x > x_r = 0$ an Schadstoff auszustoßen, im Gegenzug für eine Kompensationszahlung von $z$ an B. Wenn B den Vertrag ablehnt, wird A das maximale erlaubte $x_r = 0$ ausstoßen und B hat einen Schaden von $S(x_r) = S(0) = 0$.
 
 Zunächst bestimmen wir die minimale Zahlung $z(x)$ unter der B sich nicht schlechter stellt, wenn er den Vertrag annimmt. Wir haben
 
@@ -610,7 +598,7 @@ Der Nutzen des A, wenn B den Vertrag annimmt, ist gegeben durch
 
 $$
 \begin{align*}
-U_A(x) & =  G(x) -  z(x) \\\\
+U_A(x) & =  G(x) -  z(x) \\
        & =  G(x) - S(x) + S(x_r) \\
        & =  W(x) + S(x_r)
 \end{align*}
@@ -633,30 +621,30 @@ $$z = z(x^o) = S(x^o) - S(0) = \sigma (\gamma - \sigma)$$
 
 #. frame 2.7 Coase Theorem: Erste Diskussion
 
-- Wenn die Annahmen des Coase Theorems erfüllt wären, hätten der Staat einen vergleichsweise einfachen Job.
+* Wenn die Annahmen des Coase Theorems erfüllt wären, hätten der Staat einen vergleichsweise einfachen Job.
 
-– Sie müssten nur Rechte auf Verschmutzungen festlegen und einen Rechtsrahmen zum Abschluss und Kontrolle über Verträge zur Verschmutzung schaffen.
+* Sie müssten nur Rechte auf Verschmutzungen festlegen und einen Rechtsrahmen zum Abschluss und Kontrolle über Verträge zur Verschmutzung schaffen.
 
-– Egal welche Verschmutzungsrechte x_{r} gewährt werden, führen Verhandlungen zu einem effizienten Verschmutzungsgrad x^{o}. Die Höhe der Verschmutzungsrechte hat nur eine Verteilungswirkung zwischen Schadensverursacher und Geschädigten. 
+* Egal welche Verschmutzungsrechte $x_{r}$ gewährt werden, führen Verhandlungen zu einem effizienten Verschmutzungsgrad $x^{o}$. Die Höhe der Verschmutzungsrechte hat nur eine Verteilungswirkung zwischen Schadensverursacher und Geschädigten. 
 
-– Im Vergleich zu fest verordneten Verschmutzungsobergrenzen \bar{x} oder Steuern, bräuchte der Staat keine Informationen über Schadensfunktionen oder sogar Gewinnfunktionen.
+* Im Vergleich zu fest verordneten Verschmutzungsobergrenzen $\bar{x}$ oder Steuern, bräuchte der Staat keine Informationen über Schadensfunktionen oder sogar Gewinnfunktionen.
 
-- Problem: Die Annahmen des Coase Theorems sind in der Realität fast nie erfüllt. Wir illustrieren später verschiedene Gründe warum trotz Verhandlungen die Höhe der Verschmutzungsrechte x_{r} doch eine Auswirkung auf die resultierende Verschmutzung x und Gesamtwohlfahrt W(x) hat.
+* Problem: Die Annahmen des Coase Theorems sind in der Realität fast nie erfüllt. Wir illustrieren später verschiedene Gründe warum trotz Verhandlungen die Höhe der Verschmutzungsrechte $x_{r}$ doch eine Auswirkung auf die resultierende Verschmutzung x und Gesamtwohlfahrt W(x) hat.
 
 
 #. frame 2.8 Nicht-Optimalität von Pigou Steuern bei Gültigkeit des Coase Theorems
 
-- Betrachten Sie Aufgabe 2.7 a) mit Verhandlungen für den Fall, dass eine Steuer $t \geq 0$ auf die Schadstoffe erhoben wird. Bei welchem Steuersatz wird in der Verhandlungslösung, die wohlfahrtsoptimale Schadstoffmenge x^{o} gewählt?
+Betrachten Sie Aufgabe 2.7 a) mit Verhandlungen für den Fall, dass eine Steuer $t \geq 0$ auf die Schadstoffe erhoben wird. Bei welchem Steuersatz wird in der Verhandlungslösung, die wohlfahrtsoptimale Schadstoffmenge $x^{o}$ gewählt? Wird bei dem Pigou Steuersatz $t^{o}$ in Kombination mit Eigentumsrechten und Verhandlungen zuviel oder zuwenig Schadstoff ausgestoßen?
 
 #< note Lösung
 
-Wie in Aufgabe 2.7 a) kann B so viel verschmutzen wir er möchte, muss jetzt aber eine Steuer $tx$ zahlen. Weiterhin kann B dem A einen Vertrag anbieten, das Verschmutzungsniveau zu reduzieren, im Gegenzug für eine Zahlung z von B and A.
+Wie in Aufgabe 2.7 a) kann A so viel verschmutzen wir er möchte, muss jetzt aber eine Steuer $tx$ zahlen. Weiterhin kann B dem A einen Vertrag anbieten, das Verschmutzungsniveau zu reduzieren, im Gegenzug für eine Zahlung z von B and A.
 
 Zunächst bestimmen wir das Verschmutzungsniveau ohne Vertrag. Der Nettogewinn des A ist
 
-$$\Pi(x) = G(x) - tx$$.
+$$\Pi(x) = G(x) - tx.$$
 
-Das profitmaximale $x_t$ erfüllt, die Bedingung erster Ordnung:
+Das profitmaximale $x_t$ erfüllt die Bedingung erster Ordnung:
 
 $$G'(x_t) = t$$
 $$\gamma - x_t = t$$
@@ -666,7 +654,7 @@ und ist somit gegeben durch
 $$x_t = \gamma -t$$
 
 
-Nehmen Sie an, B bietet A einen Vertrag (x,z) an, bei dem sich A verpflichtet nur eine Schadstoffmenge $x<x_t$ auszustossen und erhält im Gegenzug eine Zahlung $z$. Die minimale Zahlung $z(x)$ damit A bereit ist einen Vertrag mit Ausstoss $x$ anzunehmen ist der entgangene Nettogewinn:
+Nehmen Sie an, B bietet A einen Vertrag (x,z) an, bei dem sich A verpflichtet nur eine Schadstoffmenge $x < x_t$ auszustossen und erhält im Gegenzug eine Zahlung $z$. Die minimale Zahlung $z(x)$ damit A bereit ist einen Vertrag mit Ausstoss $x$ anzunehmen ist der entgangene Nettogewinn:
 
 $$z(x) = \Pi(x_t) - \Pi(x)$$
 
@@ -674,16 +662,16 @@ oder umgeschrieben
 
 $$z(x) = G(x_t) - t x_t - G(x) + t x$$
 
-Wenn A diesen Vertrag annimmt ist der resultierende Nutzen für B:
+Wenn A diesen Vertrag annimmt, ist der resultierende Nutzen für B:
 
 $$U_b(x) = -S(x) - z(x)$$
 
-Wenn wir die Zahlungen einsetzen haben wir
+Wenn wir die Zahlungen einsetzen, haben wir
 
 $$
 \begin{align*}
-U_B(x) & =  -S(x) -  (G(x_t) - G(x) - t(x_t-x)) \\\\
-       & =  G(x) - S(x) - tx - G(x_t) + t x_t \\\\
+U_B(x) & =  -S(x) -  (G(x_t) - G(x) - t(x_t-x)) \\
+       & =  G(x) - S(x) - tx - G(x_t) + t x_t \\
        & =  W(x) - tx - G(x_t) + t x_t
 \end{align*}
 $$
@@ -694,151 +682,252 @@ $$U_B(x) = W(x) - tx - const$$
 
 Der negative Term $-tx$ sorgt aber diesmal dafür, dass Nutzenmaximierung des B nicht äquivalent zu Wohlfahrtsmaximierung ist. B möchte stattdessen ein kleinere Menge $x$ im Vertrag anbieten, als wohlfahrtsoptimal ist.
 
-Nur im Falle eines Steuersatzes, von $t=0$, d.h. keine Steuern, ist Nutzenmaximierung wieder äquivalent zur Wohlfahrtsmaximierung.
+Nur im Falle eines Steuersatzes, von $t=0$, d.h. keine Steuern, führt die Vertragslösung wieder zur Wohlfahrtsmaximierung.
 
+Die Bedingung erster Ordnung für Nutzenmaximierung des B lautet:
 
+$$U_B'(x) = G'(x) - S'(x) - t = 0$$
 
-D.h. der Nutzen des B lässt sich schreiben als die Wohlfahrt $W(x)$, minus dem Gewinn des A ohne Vertrag $G(x^*)$, der jedoch unabhängig vom im Vertrag angebotenen $x$ ist.
+Dies ist äquivalent zu der Bedingung:
 
-D.h. ein Nutzenmaximierender B wird im Vertrag das wohlfahrtsoptimale $x=x^o$ anbieten, zusammen mit der Zahlung $z(x^o)$. Diesen Vertrag wird der A annehmen. Die Verhandlungen à la Coase führen also hier zu einem wohlfahrtsoptimalen Schadstoffaustoß!
+$$G'(x) = S'(x) +t$$
 
-In unserem Beispiel haben wir
+Grenzgewinn = Grenzschaden + Steuersatz t
 
-$$x = x^o = \gamma - \sigma$$
-$$z = z(x^o) = G(x^*) - G(x^o)$$ 
+Ausgerechnet finden wir
 
+$$x = \gamma \sigma -t = x^o -t$$
 
+D.h. der resultierende Schadstoffausstoß ist um $t$ Einheiten kleiner, als das wohlfahrtsoptimale Niveau.
+
+Beim Pigousteuersatz $t^0 = S'(x^o) = \sigma$, haben wir
+
+$$x = \gamma - 2 \sigma < x^o$$
+
+Der Grenzschaden wird doppelt berücksichtigt. Pigou-Steuern plus Verhandlungen á la Coase führen zu einem zu starken Rückgang der Emmissionen: doppelt gemoppelt ist zu viel des Guten in unserem einfachen Modell.
 #>
-
-- Wird bei dem Pigou Steuersatz t^{o} in Kombination mit Eigentumsrechten und Verhandlungen zuviel oder zuwenig Schadstoff ausgestoßen?
 
 
 #. frame Nichtgültigkeit des Coase Theorems
 
-- Leider gibt es in der Realität viele Faktoren, die zur Nichtgültigkeit des Coase Theorems führen können und Umweltpolitik komplexer machen. Wir analysieren im Folgenden einige solcher Faktoren:
+* Leider gibt es in der Realität viele Faktoren, die zur Nichtgültigkeit des Coase Theorems führen können und Umweltpolitik komplexer machen. Wir analysieren im Folgenden einige solcher Faktoren:
 
-– Transaktionskosten
+* Transaktionskosten
 
-– Ineffiziente Aktionen um Verhandlungsmacht zu gewinnen
+* Ineffiziente Aktionen um Verhandlungsmacht zu gewinnen
 
-– Informationsasymmetrien
+* Informationsasymmetrien
 
 #. frame 2.9 Transaktionskosten & Coase-Theorem
 
-- Transaktionskosten in der Realität nicht vernachlässigbar
+* Transaktionskosten in der Realität nicht vernachlässigbar
 
-– Verträge nicht ohne Kosten abschließbar
+* Verträge nicht ohne Kosten abschließbar
 
-– Kosten der Kontrolle der Vertragsumsetzung
+* Kosten der Kontrolle der Vertragsumsetzung
 
-- Transaktionskosten müssten bei der Optimierung berücksichtigt werden:
+* Transaktionskosten müssten bei der Optimierung berücksichtigt werden:
 
-– Transaktionskosten > Kooperationsgewinn \Rightarrow
-  Kooperation unterbleibt \Rightarrow effizient?
+* Transaktionskosten > Kooperationsgewinn $\Rightarrow$
+  Kooperation unterbleibt $\Rightarrow$ effizient?
 
-– Daher müssen verschiedene Allokationsverfahren von Rechten (private Verhandlungen, bestimmte Formen staatlicher Umweltpolitik), die sich in den Transaktionskosten unterscheiden verglichen werden.
+* Daher müssen verschiedene Allokationsverfahren von Rechten (private Verhandlungen, bestimmte Formen staatlicher Umweltpolitik), die sich in den Transaktionskosten unterscheiden verglichen werden.
 
 #. frame 2.10 Ineffiziente Investitionen um Verhandlungsmacht zu gewinnen
 
 Beispiel:
 
-- Bevor Verhandlungen stattfinden, kann A zwischen Produktionstechnologien mit niedrigem $\sigma=\sigma_{L}$
-  oder hohem $\sigma=\sigma_{H}$ Schadstoffausstoß wählen, die für A gleich teuer sind.
++ Bevor Verhandlungen stattfinden, kann A zwischen Produktionstechnologien mit niedrigem $\sigma=\sigma_{L}$ oder hohem $\sigma=\sigma_{H}$ Schadstoffausstoß wählen, die für A gleich teuer sind.
 
-- Sei x die Produktionsmenge. Die Gewinn- und Schadensfunktionen seien
++ Sei x die Produktionsmenge. Die Gewinn- und Schadensfunktionen seien
 $$G(x)	=	\gamma x-\frac{1}{2}x$$
 $$S(x)	=	\sigma x$$
  
-- Laissez-Faire: A kann so viel Schadstoff ausstoßen, wie er möchte. 
++ Laissez-Faire: A kann so viel Schadstoff ausstoßen, wie er möchte. 
 
-- Nachdem A seine Technologie gewählt hat, kann er B einen Vertrag anbieten: “Gegen eine Zahlung von Z produziere ich nur \tilde{x}<x^{*} . Sonst produziere ich meine optimale Menge x^{*}”
++ Nachdem A seine Technologie gewählt hat, kann er B einen Vertrag anbieten: "Gegen eine Zahlung von $z$ produziere ich nur $\tilde{x} < x^{*}$ . Sonst produziere ich meine optimale Menge $x^{*}$"
 
-- Welche Technologie wird A wählen und welchen Vertrag anbieten? Erklären Sie warum eine Ineffizienz auftritt.
++ Welche Technologie wird A wählen und welchen Vertrag anbieten? Erklären Sie warum eine Ineffizienz auftritt.
 
-Ohne Vertrag gilt: x^{*}=\gamma
- 
+#< note Lösung
+Zunächst lösen wir das Verhandlungsergebnis für ein gegebenes $\sigma$.
+
+Ohne Vertrag wird die Menge $x^* = \gamma$ von A gewählt.
+
+Die maximimale Zahlung $z(x)$, die B bereit ist an A zu zahlen, wenn dieser seine Menge auf $x < x^{*}$ reduziert, besteht aus der hieraus entstehenden Reduktion seines Schadens: 
+
+$$z(x) = S(x^*) - S(x)$$
+
+Ähnlich wie in den Aufgaben zuvor, wird A wieder anbieten, x auf das wohlfahrtsoptimale Niveau $x^o = \gamma - \sigma$ zu senken. Die vereinbarten Zahlungen sind dann
+
+$$
+\begin{align*}
+z(x^o) &= S(x^*) - S(x^o) \\
+       &= \gamma \sigma - (\gamma -\sigma) \sigma \\
+       &= \sigma^2
+\end{align*}
+$$
+
+D.h. im Falle der dreckigen Technologie mit $\sigma = \sigma_H$ erhält A von B eine höhere Zahlung als im Falle der sauberen Technologie mit $\sigma = \sigma_L$.
+
+Betrachten wir den Gesamtnutzen von A bei Vertragsabschluss
+
+$$
+\begin{align*}
+U_A(x^o)  &= G(x^o) + z(x^o) \\
+          &= \gamma (\gamma - \sigma) - \frac{1}{2} (\gamma - \sigma)^2 + \sigma^2 \\
+          &= \gamma^2 - \gamma \sigma - \frac{1}{2} \gamma^2 + \gamma \sigma - \frac {1}{2} \sigma^2 + \sigma^2 \\
+          &= \frac {1}{2} (\gamma^2+\sigma^2)
+\end{align*}
+$$
+
+D.h. auch der Gesamtnutzen des A steigt mit der Dreckigkeit $\sigma$ seiner Technologie.
+
+Der intuitive Grund ist, dass A dem B mit einer dreckigeren Technologie höheren Schaden zufügt und damit zu höheren Zahlungen erpressen kann.
+Somit wird A vor den Verhandlungen, ineffizienterweise die dreckige Technologie wählen, obwohl die saubere Technologie gleich teuer ist. Die Möglichkeiten von späteren Verhandlungen führen also hier zu Ineffizienzen.
+
+Falls die Verhandlungen schon vor der Technologiewahl stattfinden würden, gäbe es diese Ineffizienzen übrigens nicht, da man in den Verhandlungen sich auf die saubere Technologie einigen würden. In der Realität ist es aber ganz plausibel, dass manche Entscheidungen getroffen werden, bevor Verhandlungen mit betroffenen Parteien stattfinden.
+
+#> 
 
 #. frame 2.11 Ineffiziente Investitionen um Verhandlungsmacht zu gewinnen
 
-- Problem: Vertragslösungen erlauben es die Fähigkeit anderen Parteien zu schaden, in Geld umzuwandeln.
+* Problem: Vertragslösungen erlauben es die Fähigkeit anderen Parteien zu schaden, in Geld umzuwandeln.
 
-- Dies kann zu gesamtwirtschaftlich ineffizienten Investitionen führen, die das Schadenspotential der eigenen Aktionen erhöhen und somit die eigene Verhandlungsmacht stärken.
+* Dies kann zu gesamtwirtschaftlich ineffizienten Investitionen führen, die das Schadenspotential der eigenen Aktionen erhöhen und somit die eigene Verhandlungsmacht stärken.
 
-- Welches Ergebnis hätten wir in obigen Beispiel bei einer “Verursacher” Regel bei der Geschädigte das Recht haben, nicht geschädigt zu werden?
+* Welches Ergebnis hätten wir in obigen Beispiel bei einer “Verursacher” Regel bei der Geschädigte das Recht haben, nicht geschädigt zu werden?
 
-- Ist die Möglichkeit ineffizienter Investitionen im Zusammenhang Geld von der anderen Partei auszuhandeln nur ein Problem einer “Laissez-Faire” Regel und würde beim Verursacher Prinzip nicht passieren?
+* Ist die Möglichkeit ineffizienter Investitionen im Zusammenhang Geld von der anderen Partei auszuhandeln nur ein Problem einer “Laissez-Faire” Regel und würde beim Verursacher Prinzip nicht passieren?
 
 #. frame 2.12 Ineffiziente Investionen unter Verursacher Prinzip
 
 Beispiel:
 
-- A hat eine Fabrik etwas abseits einer Stadt bei deren Produktion innerhalb von 1km relativ großer Lärm entsteht. Bei gewinnmaximierender Produktionsmenge, macht die Fabrik einen Gewinn von G(x^{*})
- .
++ A hat eine Fabrik etwas abseits einer Stadt bei deren Produktion innerhalb von 1km relativ großer Lärm entsteht. Bei gewinnmaximierender Produktionsmenge, macht die Fabrik einen Gewinn von $G(x^{*})$.
 
-- B hat ein unbebautes Grundstück im 1km Radius der Fabrik und hat die Möglichkeit dort einen kleinen Schrebergarten mit Gartenhütte zu Kosten k<G(x^{*})
++ B hat ein unbebautes Grundstück im 1km Radius der Fabrik und hat die Möglichkeit dort einen kleinen Schrebergarten mit Gartenhütte zu Kosten $k < G(x^{*})$
   einzurichten. B hat jedoch keinerlei intrinsischen Nutzen aus dem Schrebergarten. 
 
-- Nehmen Sie an, es gilt das “Verursacher Prinzip” (x_{r}=0)
-  und als Schrebergartennutzer hat B das Recht auf absolute Stille, was nur möglich ist, wenn A nicht produziert. Wenn B das Grundstück nicht nutzt, hat er jedoch kein Recht auf Stille.
++ Nehmen Sie an, es gilt das “Verursacher Prinzip” ($x_{r}=0$) und als Schrebergartennutzer hat B das Recht auf absolute Stille, was nur möglich ist, wenn A nicht produziert. Wenn B das Grundstück nicht nutzt, hat er jedoch kein Recht auf Stille.
 
-- B kann A einen Vertrag anbieten “Ich erlaube dir die optimale Menge x^{*}
-  zu produzieren, wenn du mir Z
-  zahlst.
++ B kann A einen Vertrag anbieten "Ich erlaube dir die optimale Menge $x^{*}$
+  zu produzieren, wenn du mir z zahlst."
 
-- Was wird ein gewinnmaximierender B tun?
++ Was wird ein gewinnmaximierender B tun?
+
+#< note Lösung
+Wir lösen die Aufgabe nur informal.
+
+B wird den Schrebergarten bauen, nur aus dem Grund von A eine Kompensationszahlung verlangen zu können, damit dieser weiter produzieren kann.
+
+Dies ist effizient. In unserem kleinen Modellrahmen besteht die Ineffizienz nur aus den Kosten $k$ des Schrebergartens. In einem größeren Modellrahmen, würde die Möglichkeit solcher Erpressung durch B, die Industrieansiedlung des A evtl. behindern oder zu einer Schließung der Fabrik und Arbeitsplatzverlust führen.
+
+Dies und das vorherige Beispiel illustrieren, dass die tatsächliche Aufteilung von ursprünglichen Verschmutzungsrechten, weitaus relevanter sein kann, als das Coase Theorem suggerieren mag.
+#>
 
 #. frame 2.13 Informationsasymmetrien
 
-- Gewinnfunktion des A und Schadensfunktionen des B seien
++ Gewinnfunktion des A und Schadensfunktionen des B seien
 
 $$G(x)	=	\gamma x$$
 $$S(x)	=	\phi\frac{1}{2}x^{2}$$
  
++ B kennt nicht den Parameter $\gamma$ in A's Gewinnfunktion
 
-- B kennt nicht den Parameter \gamma in A's Gewinnfunktion
++ B weiß nur
 
-- B weiß nur
-
-  – mit Wahrscheinlichkeit p
+  + mit Wahrscheinlichkeit p
     ist $\gamma=\gamma_{H}>0$
     (A ist H-Typ)
   
-  – mit Wahrscheinlichkeit 1-p
+  + mit Wahrscheinlichkeit 1-p
     ist $\gamma=\gamma_{L}<0$
     (A ist L-Typ)
 
-#. frame 2.13 Informationsasymmetrien
++ Annahme: A hat Recht auf Verschmutzung bis zu einer Obergrenze $x_r > \frac{\gamma_{H}}{\phi}$ .
 
-- Annahme: A hat Recht auf Verschmutzung bis zu einer Obergrenze \bar{x}>\frac{\gamma_{H}}{\phi} .
++ B kann A einen Vertrag anbieten, in dem er A eine Zahlung z im Gegenzug einer Verschmutzungsmenge von maximal $\tilde{x} < x_r$ verspricht.
 
-- B kann A einen Vertrag anbieten, in dem er A eine Zahlung z
-  im Gegenzug einer Verschmutzungsmenge von maximal \tilde{x}<\bar{x}
-  verspricht.
++ Welchen Vertrag wird B optimalerweise anbieten? Zeigen Sie, dass in der Vertragslösung die Verschmutzung über den wohlfahrtsoptimalen Niveau liegt.
 
-- Welchen Vertrag wird B
-  optimalerweise anbieten? Zeigen Sie, dass in der Vertragslösung die Verschmutzung über den wohlfahrtsoptimalen Niveau liegt.
+#< note Lösung
+Bestimmen wir zunächst das wohlfahrtsoptimale Verschmutzungsniveau, und das Verschmutzungsniveau, welches ohne Vertrag gewählt wird.
 
-Lösung: Optimales Verschmutzungsniveau. Wenn L-Typ dann x^{o}=0
- . Wenn H-Typ dann\gamma_{H}	=	\phi x
-x^{o}	=	\frac{\gamma_{H}}{\phi}
+L-Typ:
+
+Da $\gamma_L < 0$ wird der L-Typ $x_L^*=0$ wählen und auch das wohlfahrtsoptimale Niveau ist $x_L^o=0$.
+
+H-Typ:
+
+Da $\gamma_H > 0$, steigt A's Gewinn $G(x) = \gamma_H x$ strikt in $x$. D.h. A wird ohne Vertrag das maximal erlaubte $x^* = x_r$ wählen.
+
+Die Gesamtwohlfahrt ist gegeben durch
+
+$$
+\begin{align*}
+W(x) &= G(x) - S(x)
+     &= \gamma_H x - \phi\frac{1}{2}x^{2}
+\end{align*}
+$$
+Die Bedingung erster Ordnung für ein Wohlfahrtsmaximum lautet:
+
+$$
+W'(x_H^o) &= \gamma_H - \phi x_H^o = 0
+$$
+und somit
+
+$$x_H^o = \frac{\gamma_{H}}{\phi} < x_r$$
+
+Betrachten Sie nun ein Vertragsangebot des B, dass der A seine Menge auf $x < x_r$ (oder kleinere Werte) reduziert im Gegenzug für eine Zahlung z.
+
+Ein L-Typ nimmt den Vertrag immer an, da er sowieso $x=0$ wählen wird. Die minimale Zahlung, damit ein H-Typ einen Vertrag mit $x < x_r$ annimmt, beträgt:
+
+$$z(x) = G_H(x_r)-G_H(x) = \gamma_{H}(x_r-x)$$
+
+Einen Vertrag mit $x>0$ anzubieten, macht für B nur Sinn, wenn diesen Vertrag auch der H-Typ annimmt, da der L-Typ, ja  selbst ohne Vertrag $x=0$ wählt. Der erwartete Nutzen des B, wenn er einen Vertrag (x, z(x)), mit $0 \leq x \leq x_r$ anbietet, ist
+
+$$
+\begin(align*)
+U_B(x) &= - p S(x) - (1-p) S(0) - z(x) \\
+       &= - p (	\phi\frac{1}{2}x^{2}) - \gamma_{H}(x_r-x)
+\end(align*)
+$$
+
+Die Bedingung erster Ordnung lautet:
+
+$$U_B'(x) &= - p \phi x + \gamma_{H} = 0$$
+
+oder
+
+$$x = \frac{gamma_{H}{p \phi}} = {1/p} x_H^o$$
+
+Dieses optimalerweise angebotene $x$ ist um den Faktor $1/p$ größer als die wohlfahrtsoptimale Menge $x_H^o$, wenn A ein H-Typ ist. D.h. Verhandlungen führen nicht immer zu einem effizienten Ergebnis.
+
+Die Intuition ist wie folgt. Da B nicht den Typen des A kennt, muss er beiden den gleichen Vertrag anbieten. D.h. ein L-Typ bekommt auch die Zahlung $z$, obwohl er sogar ohne Vertrag $x=0$ gewählt hat. Nur mit der Wahrscheinlichkeit $p$ eines H-typen bringt der Vertrag und die geleistete Zahlung dem B tatsächlich etwas. Aus diesen Grund wird B im Optimum eine geringere Zahlung anbieten, kann damit aber auch nur eine weniger starke Reduktion von x durchsetzen, als Wohlfahrtsoptimal ist.
+
+Wenn B den Typen des A kennen würde, könnte er beiden Typen unterschiedliche Verträge anbieten, und wir bekämen wieder Effizienz.
+
+Informationsasymmetrien sind sehr oft ein Problem, was effiziente Verhandlungsergebnisse verhindert.
+#>
  
 
 #. frame Diskussion
 
-- Aus ökonomischer Sicht ist die Internalisierung von Externaliäten eine Hauptaufgabe der Umweltpolitik.
++ Aus ökonomischer Sicht ist die Internalisierung von Externaliäten eine Hauptaufgabe der Umweltpolitik.
 
-- Klassische Instrumente wie Verordnungen und Steuern erfordern Informationen über die Höhe der Externalitäten und ggf. auch der Gewinnfunktionen der Schädiger. Eine genaue (monetäre) Bewertung allein von Externalitäten ist jedoch oft schwierig.
++ Klassische Instrumente wie Verordnungen und Steuern erfordern Informationen über die Höhe der Externalitäten und ggf. auch der Gewinnfunktionen der Schädiger. Eine genaue (monetäre) Bewertung allein von Externalitäten ist jedoch oft schwierig.
 
-- Wenn das Coase Theorem gelten würde, bräuchte der Staat nur handelbare Eigentumsrechte für Verschmutzung zu schaffen und den Marktparteien die Internalisierung überlassen. Unabhängig von der Verteilung der Eigentumsrechte würde durch dezentrale Verhandlungen eine optimale Lösung resultieren.
++ Wenn das Coase Theorem gelten würde, bräuchte der Staat nur handelbare Eigentumsrechte für Verschmutzung zu schaffen und den Marktparteien die Internalisierung überlassen. Unabhängig von der Verteilung der Eigentumsrechte würde durch dezentrale Verhandlungen eine optimale Lösung resultieren.
 
-- Faktoren wie Transaktionskosten oder Informationsprobleme können aber dezentrale Verhandlungen massiv erschweren oder verhindern.
++ Faktoren wie Transaktionskosten oder Informationsprobleme können aber dezentrale Verhandlungen massiv erschweren oder verhindern.
 
-– Auch kann dann die Rechtslage, d.h. die ursprüngliche Aufteilung von Verschmutzungsrechten, sehr wohl wieder Auswirkungen auf das resultierende Verschmutzungsniveau und die Gesamtwohlfahrt haben.
++ Auch kann dann die Rechtslage, d.h. die ursprüngliche Aufteilung von Verschmutzungsrechten, sehr wohl wieder Auswirkungen auf das resultierende Verschmutzungsniveau und die Gesamtwohlfahrt haben.
 
 #. frame Diskussion: Externalitäten bei Infrastrukturprojekten
 
-- Gerade auch bei staatlich geförderten / genehmigten Infrastrukturprojekten gibt es viele Externalitäten, die oft nicht vollständig oder nur zu einem kleinen Teil internalisiert werden.
++ Gerade auch bei staatlich geförderten / genehmigten Infrastrukturprojekten gibt es viele Externalitäten, die oft nicht vollständig oder nur zu einem kleinen Teil internalisiert werden.
 
-- Diskutieren Sie die Externalitäten und deren Internalisierung von verschiedenen Projekten:
++ Diskutieren Sie die Externalitäten und deren Internalisierung von verschiedenen Projekten:
 
-– Flughäfen, Atomkraftwerke, Atommüllendlager, Stromtrasse, Windkraftwerk, Naherholungsgebiete, ...
++ Flughäfen, Atomkraftwerke, Atommüllendlager, Stromtrasse, Windkraftwerk, Naherholungsgebiete, ...
