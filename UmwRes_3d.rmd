@@ -1,0 +1,387 @@
+#< ignore
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error=TRUE)
+```
+#>
+
+#. include slide_defaults.rmd
+
+
+#< css
+@media print {
+  .slide-container-div {
+    page-break-inside: auto;
+  }
+}
+#>
+
+#< precompute
+```{r}
+dat1 = data_frame(
+  t = 1:2,
+  a = 100,
+  b = 1,
+  c = 10,
+  R = c(50,20),
+  p = a - b *R,
+  m = p-c
+)
+.whiskers = as.list(dat1[1,])
+```
+#>
+
+
+#< pane Rp
+xy: [R_,p_]
+datavar: dat1
+xrange: [0, 100]
+yrange: [0, 110]
+xaxis:
+  latex: R
+yaxis:
+  label: p,m
+curves:
+  P:
+    eq: p_ == a - b*R_
+    colors: red
+    latex: P(R)
+    tooltip: |
+      Die inverse Nachfragefunktion nach Ressourcen.
+      Sie bestimmt den Marktpreis als Funktion der
+      Menge R in einer Periode abgebauten Ressourcen.
+xmarkers:
+  R:
+    tooltip: |
+      Abgebaute Ressourcenmenge
+      R_{{t}} = {{R}}
+    latex: R_{{t}}
+    to: p
+ymarkers:
+  p:
+    tooltip: | 
+      Ressourcenpreis 
+      in Periode {{t}}
+      p_{{t}} = {{p}}
+    latex: p_{{t}}
+    to: R
+  m:
+    tooltip: |
+      Markup in Periode {{t}} 
+      m_{{t}} = {{p}} - {{c}} = {{m}}
+    latex: m_{{t}}
+    opacity: 0
+    to: R
+#>
+
+#. frame
+<center>
+<h2> Umwelt- und Ressourcenökonomik </h2>
+<h2> Lösungen zu Kapitel 3d:<br></h2>
+
+<h3> Uni Ulm</h3>
+<h3> Prof. Dr. Sebastian Kranz </h3>
+<h3> SoSe 2016</h3>
+</center>
+
+
+
+#. frame Verteilungsfragen
+
++ Viele umweltökonomische und wirtschaftspolitische Fragestellungen beinhalten eine Verteilungskomponente, z. B.
+
+  + intertemporal: Welchen (erwarteten) Wohlstand billigen heutige Generationen zukünftigen Generationen zu
+
+  + regional: Welche Länder tragen welche Kosten zur CO2 Reduzierung? Wie hoch sind Kompensationszahlungen / Entwicklungshilfe?
+
+#. frame Intertemporale Diskontrate in Politischen Entscheidungen
+
++ Viele Ökonomen sind der Meinung, dass aus ethischer Perspektive die gesellschaftliche Diskontrate kleiner sein sollte als die individuelle Diskontrate. D.h. politische Entscheidungen sollten den Nutzen zukünftiger Generationen stärker berücksichtigen, als die in Marktzinssätzen reflektierten individuellen Sparentscheidungen.
+
++ Im Abschnitt 3.2 argumentiert Sinn (2008) jedoch wie folgt (S. 369):
+
+
+  *It is not the philosophers or economic thinkers that make collective policy decisions, but the current generation of voters themselves. The future generations under concern neither participate in today’s market decisions nor in today’s elections. If the current generation discounts utility when they make their private intertemporal allocation decisions, they will elect politicians who do the same. These politicians will not find any mistakes in the intertemporal allocation pattern of markets and will, therefore, not take countervailing policy actions.*
+
++ Diskutieren Sie diese Argumentation
+
+#. frame Ein einfaches Modell
+
++ Betrachten Sie ein Land mit $n$
+  identischen Einwohnern.
+
++ Jeder Einwohner $i=1,...,n$
+  hat genau eine Ressourceneinheit, die er entweder konsumieren kann oder für zukünftige Generationen sparen kann.
+
++ Sei $x_{i}\in[0,1]$
+  der gewählte Konsum von Einwohner $i$
+ 
+  + $s_{i}=1-x_{i}$ ist die Ersparnis / Sparquote
+
++ Der Konsumnutzen jedes Einwohners $i$
+  sei gegeben durch
+  $$\pi(x_{i})=\gamma\ln x$$
+  mit $\gamma<1$.
+ 
+
++ Der Konsumnutzen zukünftiger Generationen sei einfachheitshalber gegeben durch die gesamte Ersparnis $$S=\sum_{i=1}^{n}\left(1-x_{i}\right)$$
+ 
+
++ Die gesamte Wohlfahrt sei die Summe der Konsumnutzen der heutigen und zukünftigen Generationen
+$$W=\sum_{i=1}^{n}\pi(x_{i})+\sum_{i=1}^{n}\left(1-x_{i}\right)$$
+ 
+
+#. frame 
+
++ Die Einwohner haben folgende altruistische Nutzenfunktion
+  $$u=\pi(x_{i})+\alpha W$$ wobei $\alpha$ ein Maß dafür ist, wie stark die gesamte Wohlfahrt in den Entscheidungen der Konsumenten berücksichtigt wird.
+
+Aufgabe 3c.1:
+
+Wir lösen folgende Teilaufgaben, allgemein und für das Zahlenbeispiel:
+Zahl der Einwohner $n = 1 000 000$, $\gamma=\frac{1}{2}$ und $\alpha=1/1000=0.001$ (außer in Aufgabe b)).
+
+a) Welches heutige Konsumniveau $x^o$ und entsrpechende Sparquote $s^o$ maximieren die gesamte Wohlfahrt? Stellen Sie die Bedingung erster Ordnung grafisch dar.
+
+#< note Lösung
+
+Da alle heutigen Einwohner die gleiche, konkave Nutzenfunktion haben, ist es wohlfahrtsoptimal, wenn jeder heutige Einwohner $i$ die gleiche Menge $x_i = x$ konsumiert. Wir maximieren jetzt die Wohlfahrt über dieses Niveau $x$.
+
+$$
+\begin{align*}
+W(x) 
+  &=\sum_{i=1}^{n}\pi(x)+\sum_{i=1}^{n}\left(1-x\right) \\
+  &=n\pi(x)+ n\left(1-x\right)
+\end{align*}
+$$
+
+Die Bedingung erster Ordnung für Wohlfahrtsmaximierung:
+
+$$W'(x^o)  =n\pi'(x^o) - n = 0 $$
+
+Dies ist äquivalent zu der Bedingung
+
+$$\pi'(x^o)=1$$
+
+Der Grenzkonsumnutzen eines heutigen Einwohners ist beim wohlfahrtsoptimalen Konsumniveau gleich 1, wobei 1 der Grenznutzen der zukünftigen Generationen von einer zusätzlichen Ersparniseinheit ist.
+
+Für unsere materielle Nutzenfunktion
+
+$$\pi(x) = \gamma \log(x)$$ haben wir
+
+$$\pi'(x) = \frac{\gamma}{x}$$.
+
+Somit lautet die Bedingung erster Ordnung
+
+$$
+\begin{align*}
+ \frac{\gamma}{x^o}=1 \\
+ x^{o}=\gamma
+\end{align*}
+$$
+
+Die entsprechende wohlfahrtsoptimale Sparquote ergibt sich dann aus
+
+$$s^o  = 1 - x^o = 1 - \gamma.$$
+
+In unserem Zahlenbeispiel mit $\gamma = 0.5$ wird optimalerweise die Hälfte gespart:
+$$x^o = s^o = 0.5$$
+#>
+
+b) Angenommen jeder Einwohner maximiert nur seinen eigenen Konsumnutzen, d.h. $\alpha=0$. Wie hoch ist die resultierende Sparquote $s_i$ jedes Einwohners? Angenommen die Einwohner können in einem Referendum über eine verbindliche Mindestsparquote $s_r$ abstimmen. Für welche Sparquote wird jeder Einwohner stimmen?
+
+#< note Lösung
+Mit $\alpha = 0$ maximiert jeder Einwohner nur seinen eigenen materiellen Nutzen 
+
+$$\pi(x_i) = \gamma \log(x_i)$$
+
+d.h. er wird nichts für zukünftige Generationen sparen und somit $x_i = 1$ und $s_i = 0$ wählen.
+
+In einem Referendum wird er genauso präferieren, dass der Staat keine verindliche Mindestsparquote bestimmt und für $s_r = 0$ wählen.
+
+Dies entspricht der Argumentation von Hans-Werner Sinn, dass in Abstimmungen und Wahlen gleiche Präferenzen ausgedrückt werden, wie in individuellen Sparentscheidungen.
+#>
+
+
+c) Angenommen die Einwohner sind in einem Gewissen Maße altruistisch, d.h. $\alpha>0$. Wie hoch sind die individuellen Konsumniveaus $x_i^*$ und Sparquoten $s_i^*$ als Funktion von $\alpha$? Ab welchen Mindestwert von $\alpha$ wird ein Einwohner tatsächlich beginnen für zukünftige Generationen zu sparen?
+
+#< note Lösung
+
+Die Nutzenfunktion eines Einwohners $i$ als Funktion seines Konsumnievaus ist gegeben durch
+
+$$
+\begin{align*}
+u(x_i) = \pi(x_i) + \alpha W
+\end{align*}
+$$
+
+Wenn wir zunächst erstmal die Beschränkungen $0 \leq x_i \leq 1$ außer Acht lassen, wäre die Bedingung erster Ordnung für Nutzenmaximierung:
+
+$$
+u'(x_{i})=\pi'(x_{i})+\alpha\frac{\partial W}{\partial x_{i}} = 0
+$$
+
+Wichtig ist, dass wir die Ableitung $\frac{\partial W}{\partial x_{i}}$ der Gesamtwohlfahrt nach dem Konsum $x_i$ von Einwohner $i$ korrekt bestimmten.
+
+Die Wohlfahrt ist gegeben durch 
+
+$$W=\sum_{j=1}^{n}\pi(x_{j})+\sum_{j=1}^{n}\left(1-x_{j}\right)$$
+
+Beachten Sie, dass wir statt $i$ den Buchstaben $j$ als Indexvariable in der Summe nehmen, da wir ja das $i$ schon auf den spezifischen Einwohner beziehen, der sein $x_i$ anpasst.
+
+Wir haben dann
+$$\frac{\partial W}{\partial x_{i}} =  \pi'(x_i) - 1$$
+Alle Terme $x_j$ fur $j \ne i$ in den Summen fallen in der Ableitung weg, da die Konsumentscheidungen der anderen Einwohner konstant gehalten werden, wenn wir über die Konsumentscheidung von Einwohner $i$ nachdenken.
+
+Wir haben also
+
+$$
+\begin{align*}
+u'(x_{i}) 
+  &= \pi'(x_{i})+\alpha\frac{\partial W}{\partial x_{i}} \\
+  &= \pi'(x_{i})+\alpha (pi'(x_i) - 1) \\
+  &= (1+\alpha) \pi'(x_{i}) - \alpha 
+\end{align*}
+$$
+
+Die Bedingung erster Ordnung für Nutzenmaximierung, kann somit wie folgt geschrieben werdem:
+$$\pi'(x_i) = \frac{\alpha}{1+\alpha}$$
+
+Oder, wenn wir für $\pi'(x_i)$ unsere funktionale Form einsetzen
+
+$$
+\begin{align*}
+\frac{\gamma}{x_i} &= \frac{\alpha}{1+\alpha} \\
+{x_i} &= \gamma \frac{1+\alpha}{\alpha}
+\end{align*}
+$$
+
+In unserem Zahlenbeispiel hätten wir:
+
+$${x_i} = \gamma \frac{1+\alpha}{\alpha} = 0.5 \cdot 1000 \cdot 1.001 = 500.5$$
+
+Dieses $x_i$, welches den Grenznutzen gleich 0 setzt, kann also durchaus größer als 1 sein. In diesem Fall, wird der Konsument tatsächlich nur das maximale Konsumnvieau von 1 konsumieren. D.h. wir haben
+
+$$x_i^* = \min \{\gamma \frac{1+\alpha}{\alpha}, 1\}$$
+
+und die Sparquote ist einfach $s_i^* = 1- x_i^*$$
+
+D.h. in unserem Zahlenbeispiel werden die Einwohner alles Konsumieren:
+
+$x_i^* = 1$ und $s_i^*=0$.
+
+Wir können den minimal notwendigen Grad an Altruismus $\alpha$ berechnen, so dass ein Einwohner anfange würde von sich selbst aus, für zukünftige Generationen etwas zu sparen, d.h. $x_i^* < 1$. Wir benötigen
+
+$$ \gamma \frac{1+\alpha}{\alpha} < 1 $$
+
+Aufgelöst nach $\alpha$, ist dies äquivalent zu 
+$$\alpha > \frac{\gamma}{1-\gamma}.$$
+
+In unserem Beispiel wäre dies
+
+$$\alpha > \frac{0.5}{0.5} = 1.$$
+
+Intuitiv beschreibt $\alpha$ ab welchen Effizienzgewinn ein Einwohner bereit ist, von sich aus für zukünftige Generationen zu sparen. Für $\alpha = 1 / 1000$, würde er nur dann bereit sein eigene "Nutzeneinheit" aufzugeben, wenn dadurch die Gesamtwohlfahrt um mindestens 1000 Nutzeneinheiten gesteigert werden könnte. Ersparnisse für zukünftige Generationen müssten also äußerst effizient sein, verglichen mit dem Verlust heutigen Konsums. 
+
+In unserem Modell mit $\gamma = 0.5$ ist der Nutzen zukünftiger Generationen bei einer einer zusätzlichen Spareinheit genau 1, der Grenznutzen des heutigen Konsument an der Stelle $x_i = 1$ aber $\gamma / x_i = \gamma = 0.5$. Dieser Nutzenunterschied ist nicht ausreichend groß, um bei einem Altruismuskoeffizienten von $\alpha = 0.001$ bereits zu sparen.
+
+Anmerkung:
+Beachten Sie, dass selbst bei einem $\alpha$ zwischen 0.5 und 1 noch nichts gespart wird. Zwar haben zukünftige Generationen einen doppelt so hohen Grenznutzen wie ein heutiger Einwohner wenn $x_i = 1$, aber der Nutzen des heutigen Einwohners geht selbst nochmal in die Wohlfahrtsfunktion ein und zählt somit "doppelt". Deshalb brauchen, wie $\alpha > 1$ damit ein Einwohner in unserem Modell bereit ist, von sich selbst aus etwas für die zukünftigen Generationen zu sparen. 
+#>
+
+
+d) Angenommen die altruistischen Einwohner können in einem Referendum über eine verbindliche Mindestsparquote $s_r$ für alle Einwohner Ihres Landes abstimmen. Für welche Sparquote werden Sie stimmen? Vergleichen Sie das Ergebnis mit der individuellen Sparquote. Gegen welche Sparquote konvergiert das Referendumsergebnis in einem sehr großen Land, d.h. wenn $n\rightarrow\infty$? Was ist die Intuition?
+
+#< note Lösung
+Sei $x_r = 1-s_r$ das entsprechende Konsumniveau, wenn im Referendum $s_r$ als Sparquote bestimmt wird.
+
+Der Nutzen eines altruistischen Einwohners als Funktion von $x_r$ lautet:
+
+$$
+\begin{align*}
+u(x_r) = \pi(x_r) + \alpha W(x_r)
+\end{align*}
+$$
+
+Wir nehmen an, jeder Einwohner stimmt für dasjenige $x_r$, welches seinen Nutzen maximiert. Wenn wir wieder zunächst, die Einschränkung $0 \leq x_r \leq 1$ außer Acht lassen, lautet die Bedingung erster Ordnung:
+$$
+u'(x_r)=\pi'(x_{i})+\alpha\frac{\partial W}{\partial x_r} = 0
+$$
+
+Der große Unterschied zur individuellen Ersparniss $x_i$ in Aufgabe c), ist das eine im Referendum festgelegter Konsum $x_r$ alle Einwohner betrifft, und deshalb die Ableitung $\frac{\partial W}{\partial x_r}$ viel größer ist, als in Aufgabe c).
+
+Die Wohlfahrt als Funktion von $x_r$ kann wie folgt geschrieben werden
+
+$$
+\begin{align*}
+W(x_r) 
+  &=\sum_{j=1}^{n}\pi(x_r)+\sum_{j=1}^{n}\left(1-x_r\right) \\
+  &=n\pi(x_r)+n\left(1-x_r\right)
+\end{align*}
+$$
+
+Somit haben wir
+$$
+\begin{align*}
+\frac{\partial W}{\partial x_r} 
+  &=n\pi'(x_r)-n
+\end{align*}
+$$
+
+Die Bedingung erster Ordnung für das Nutzenmaximierend $x_r$ in der Abstimmung lautet also:
+
+$$
+\begin{align*}
+u'(x_r) 
+  &=\pi'(x_r)+\alpha\frac{\partial W}{\partial x_r} \\
+  &=\pi'(x_r)+n\pi'(x_r)-n \\
+  &=(1+n)\pi'(x_r)-n = 0 \\
+\end{align*}
+$$
+oder
+$$\pi'(x_r) = \frac{n}{1+n}$$
+
+Wir sehen das für große $n$, die rechte Seite gegen 1 konvergiert und dann im Limit die Bedingung gegen die Bedingung für das wohlfahrtsoptimale Konsumniveau konvergiert:
+
+$$\pi'(x^o) = 1$$.
+
+D.h. für $n\rightarrow\infty$ wird im Referendum die wohlfahrtsoptimale Ersparnis gewählt.
+
+
+Wir sehen dies noch klarer, wenn wir die funktionalen Form einsetzen:
+$$
+\begin{align*}
+\pi'(x_r) &= \frac{n}{1+n} \\
+\frac{\gamma}{x_r} &= \frac{n}{1+n} \\
+x_r &= \gamma \frac{1+n}{n} \\
+\end{align*}
+$$
+
+In unserem Zahlenbeispiel haben wir
+$$x_r = 0.5 \frac{1 000 001}{1 000 000} = 0.5000005$$
+
+D.h. im Referendum wird fast genau das wohlfahrtsoptimale Konsum- und Sparniveau von $x^o=s^0 = 0.5$ gewählt! Ein großer Unterschied zu den individuellen Sparentscheidungen, wo niemand etwas für zukünftige Generationen sparen wird.
+
+
+
+Was ist die Intuition für dieses Ergebnis? Wenn im Referundum beschlossen wird, eine Einheit mehr zu sparen, muss zwar jeder Einwohner auf diese Einheit Konsum verzichten, aber für zukünftige Generationen werden insgesamt $n$ = 1 Millionen Einheiten mehr gespart. Der Verzicht um eine Einheit bewirkt für den Wähler eine Gesamtspende um 1 Millionen Einheiten für zukünftige Generationen. Im Referendum ist eine ähnliche Situation, als ob man angeboten bekäme, dass für jeden Euro den man zukünftigen Generationen spendet, nochmal 999999 Euro draufgelegt werden.
+
+D.h. aus Perspektive eines Einzelnen ist dieser Verzicht wohlfahrtstechnich so effizient, dass er bereit ist selbst bei einem so kleinen Altruismusparameter, wie $\alpha = 1/ 1000$ für eine nahezu wohlfahrtsoptimale Ersparnis zu stimmen.
+
+Eine andere Intuition ist, dass bei altruistischen Präferenzen eine wohlfahrtserhöhende Spende eines Einwohners eine positive Externaltät auf alle anderen heutigen Einwohner hat. Bei individuellen Sparentscheidungen, wird diese Externalität nicht berücksichtigt und deshalb zu wenig gespart. Das Referendum erlaubt jedoch eine Internalisierung dieser Externalität und damit ein höheres Sparniveau. Wir haben keine vollständige Internalisierung, da zukünftige Generationen nicht mitabstimmen können, aber in diesem Beispiel reicht der Altruismus der heutigen Wähler, um schon ein fast wohlfahrtseffizientes Sparniveau im Referendum zu erhalten.
+
+Dieses Ergebnis liegt natürlich an den Annahmen unseres Modells. Auch wenn ein Altruismusparameter $\alpha  = 1 / 1000$ sehr klein erscheinen mag, haben wir hier angenommen, dass es keine Obergrenze der Sparbereitschaft gibt. In der Realität mag diese Bereitschaft, trotz möglicher hoher Wohlfahrtsgewinne, eine bindende Obergrenze haben, die dazu führt, dass auch in Referenden oder bei Wahlen, für substantiell geringere Zukunfstvorsorge gestimmt wird, als wohlfahrtsoptimal wäre.
+
+Dennoch haben wir gezeigt, dass Hans-Werner Sinn's Argument, dass Wähler in Wahlentscheidungen ähnlich Zeitpräferenzen wie in individuellen Sparentscheidungen haben, nicht unbedingt korrekt ist, wenn Einwohner altruistische Präferenzen haben. 
+#>
+
+#. frame Diskussion
+
++ Wenn in die Nutzenfunktion der Einwohner, die gesamte Wohlfahrt der Welt und zukünftiger Generationen ein klein wenig eingeht, kann dies dazu führen, dass individuelle Sparentscheidungen und politische Entscheidungen über Ersparnisse für zukünftige Generationen stark voneinander abweichen.
+
++ Intuition: Die Ersparnisse (oder auch Spenden) anderer Einwohner haben jetzt eine positive Externalität auf andere heutige Wähler im Land. Verbindliche Gesetze sind in der Lage, diese Externalitäten zu internalisieren.
+
++ Als Konsequenz scheint es selbst für Politiker, die nur ihre Wahlchancen bei den heutigen Wählern maximieren wollen, durchaus plausibel, den Nutzen zukünftiger Generationen in einem geringeren Maße abzudiskontieren, als mit der individuellen Zeitdiskontraten der einzelnen Wähler, die sich in den Marktzinssätzen widerspiegeln.
+
++ Eine ähnliche Argumentation kann man für andere Verteilungsfragen anwenden, wie z. B. auf die Höhe von Entwicklungshilfe.
+
++ Diskussionsfrage: Erscheint Ihnen die unterstellte partiell altruistische Nutzenfunktion plausibel? Welche alternativen Formulierungen kann man sich vorstellen?

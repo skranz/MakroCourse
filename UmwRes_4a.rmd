@@ -1,0 +1,454 @@
+#< ignore
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error=TRUE)
+```
+#>
+
+#. include slide_defaults.rmd
+
+
+#< css
+@media print {
+  .slide-container-div {
+    page-break-inside: auto;
+  }
+}
+#>
+
+#< precompute
+```{r}
+dat1 = data_frame(
+  t = 1:2,
+  a = 100,
+  b = 1,
+  c = 10,
+  R = c(50,20),
+  p = a - b *R,
+  m = p-c
+)
+.whiskers = as.list(dat1[1,])
+```
+#>
+
+
+#< pane Rp
+xy: [R_,p_]
+datavar: dat1
+xrange: [0, 100]
+yrange: [0, 110]
+xaxis:
+  latex: R
+yaxis:
+  label: p,m
+curves:
+  P:
+    eq: p_ == a - b*R_
+    colors: red
+    latex: P(R)
+    tooltip: |
+      Die inverse Nachfragefunktion nach Ressourcen.
+      Sie bestimmt den Marktpreis als Funktion der
+      Menge R in einer Periode abgebauten Ressourcen.
+xmarkers:
+  R:
+    tooltip: |
+      Abgebaute Ressourcenmenge
+      R_{{t}} = {{R}}
+    latex: R_{{t}}
+    to: p
+ymarkers:
+  p:
+    tooltip: | 
+      Ressourcenpreis 
+      in Periode {{t}}
+      p_{{t}} = {{p}}
+    latex: p_{{t}}
+    to: R
+  m:
+    tooltip: |
+      Markup in Periode {{t}} 
+      m_{{t}} = {{p}} - {{c}} = {{m}}
+    latex: m_{{t}}
+    opacity: 0
+    to: R
+#>
+
+#. frame
+<center>
+<h2> Umwelt- und Ressourcenökonomik </h2>
+<h2> Lösungen zu Kapitel 4a:<br></h2>
+
+<h3> Uni Ulm</h3>
+<h3> Prof. Dr. Sebastian Kranz </h3>
+<h3> SoSe 2016</h3>
+</center>
+
+
+#. frame Umweltpolitische Instrumente
+
++ Zur Verbesserung der Umweltqualität lassen sich ganz unterschiedliche Instrumente einsetzen.
+
++ Am weitesten verbreitet sind immer noch ordnungsrechtliche Auflagen (Gebote / Verbote).
+
+  + Ökonomen bevorzugen jedoch oft preisbasierte Instrumente
+
++ Abgaben (wie Pigou-Steuer)
+
+  + Preis für Emissionen wird exogen vom Staat vorgegeben.
+
++ Emissionszertifikate: (Cap & Trade)
+
+  + Staat gibt nur Gesamtmenge an Zertifikaten (zulässige Gesamtemissionsmenge) vor.
+
+  + Zertifikate können frei gehandelt werden
+
+  + Preis für Emissionen bestimmt sich endogen am Zertifikatemarkt.
+
+#. frame Kriterien zur Bewertung Umweltpolitischer Instrumente
+
++ Ökologische Treffsicherheit
+
+  + wie genau wird das angestrebte Umweltqualitätsziel erreicht
+
++ Niedrige Transaktionskosten
+
+  + dazu gehören auch Informations- und Kontrollkosten
+
++ Statische Effizienz
+
+  + Erreichung des angestrebten Umweltziels mit möglichst geringen Vermeidungskosten
+
+#. frame Kriterien zur Bewertung Umweltpolitischer Instrumente
+
++ Dynamische Anreizwirkung
+
+  + Förderung des umwelttechnischen Fortschritts
+
++ Akzeptable Verteilungseffekte
+
+  + Kostenbelastung soll als fair akzeptiert werden, und einkommensschwache Bevölkerungsgruppen sollen nicht übermäßig belastet werden.
+
+  + Theoretisch Kompensationszahlungen möglich (z. B. Stromkostenzuschuss), praktisch aber nicht immer umsetzbar 
+
+#. frame Arten von Auflagen
+
++ Inputauflagen:
+
+  + Z. B. Verbot bestimmter Chemikalien (DDT) im Produktionsprozess.
+
++ Prozessnormen: Produktionsanlagen müssen bestimmten Standards genügen.
+
+  + Regel der Technik: "Nur das Übliche"
+  
+  + Stand der Technik: anspruchsvoller als Regel der Technik
+  
+  + Stand der Forschung: am weit reichendsten
+
++ Outputauflagen: Nur Zulassung nicht zu umweltschädlicher Produkte
+
+  + z. B. Richtlinien zur Wärmedämmung im Hausbau
+
+#. frame Arten von Auflagen
+
++ Emissionsauflagen:
+
+  + Emission: Ausgestoßene Menge an Schadstoff
+  
+  + Verbot bestimmter Emissionen: Altöl in Flüsse und Seen
+  
+  + Obergrenzen für Emissionen: z. B. bei Hausheizung oder Kfz, Lärm
+
++ Immissionsbezogene Auflagen:
+
+  + Immission: Einwirkung / Schädigung eines SchadstoffesTypisches Maß: Menge vorhandenen Schadstoffs pro Menge Wasser, Boden oder Luft
+  
+  + Fahrverbote bei zu hoher Ozon- bzw. Feinstaubkonzentration in Luft.
+
+#. frame Vor- und Nachteile von Auflagen
+
++ Auflagen entsprechen gesundem Menschenverstand:
+
+  + Was andere schädigt, soll verboten oder zumindest begrenzt werden.
+
++ Auflagen richten sich an Verursacher der Schäden:
+
+  + Orientierung am Verursacherprinzip erscheint auch als fair.
+
++ Auflagen versprechen ökologische Treffsicherheit
+
+  + Jedoch große Unterschiede zwischen den einzelnen Auflage-Typen
+  
+  + Bei individuellen Emmissionsnormen besteht weiterhin Ungenauigkeit bezüglich aggregierter Emmission
+  
+  + Treffsicherheit oft stärker bei lokalen Immissionen (z. B. Lärm) als bei globalen Emissionen (z. B. CO2 Ausstoß) 
+
+#. frame Vor- und Nachteile von Auflagen
+
++ Transaktionskosten hängen von Auflagentyp ab
+
+  + Typenspezifische Auflagen (z. B. Prozessnormen) erfordern nur einmalige Kontrolle bei Zulassung.
+  
+  + Bei Emissionsauflagen werden Kontrollkosten von Häufigkeit der Kontrolle (Stichproben vs. kontinuierliche Messung) bestimmt.
+  
+  + Verbote oft geringere Transaktionskosten als Zahlung von Abgaben: Verbot von FCKW, Fahrverbot in Umweltzonen 
+
++ Hauptnachteil von Auflagen: Häufig mangelnde statische Kosteneffizienz
+
+  + Grund: Auflagen berücksichtigen typischerweise keine Unterschiede in Kosten der Emissionsvermeidung verschiedener Firmen
+
+#. frame Statische (In-)effizienz bei verschiedenen Firmen
+
++ $n$ Firmen $i=1,...,n$
+ 
+
++ Emissionen: $e_{i}=e_{i}^{0}-v_{i}$
+  
+
+  – Anfangsemissionen $e_{i}^{0}$
+ 
+
+  – Emissionsvermeidung $v_{i}$
+ 
+
++ Unterschiedliche Vermeidungskostenfunktion $R_{i}(v_{i})$
+  mit $R_{i}(0)=0$
+ 
+  + Grenzvermeidungskostenfunktionen GVK: $R'(v_{i})$, positiv und nicht fallend
+
++ Staat setzt Umweltziel $\bar{E}$: Maximal tolerierte Gesamtemissionsmenge
+
+  + $\bar{V}=\bar{E}-\sum_{i=1}^{n}e_{i}^{0}$ angestrebte Gesamtvermeidung
+
+#. frame Statische Ineffizienz von Auflagen
+
+Aufgabe 4.1:
+
+a) Zeigen Sie mit Hilfe eines Lagrange Ansatzes dass für jedes beliebige Umweltziel $\bar{E}$ (und entsprechenden Vermeidungsziel $\bar{V}$ statische Effizienz dann erzielt wird, wenn jede Firma soviel Emission vermeidet, dass die Grenzvermeidungskosten für alle Firmen gleich hoch sind: $$R_{i}'(v_{i}^{o})=\lambda\forall i$$ wobei $\lambda$ der Langrange Multiplikator ist.
+
+#< note Lösung
+Wir betrachten das Optimierungsproblem, die Gesamtkosten zu minimieren unter der Nebenbedingung, dass die Gesamtemmissionen $\bar{E}$ nicht überschreiten.
+
+Man könnte das Problem als Funktion der Emissionen $e_i$ oder der Emissionsvermeidungen $v_i$ schreiben. Wir stellen das Problem mit Hilfe der Emmissionsvermeidungen $v_i$ da.
+
+Die zu minimierenden Gesamtkosten der Emmissionsvermeidung sind dann
+
+$$R(v) = \sum_{i=1}^{n} R(v_i)$$
+
+und die Nebenbedingung lautet
+
+$$\sum_{i=1}^{n} v_i \geq \bar{V}$$ 
+
+D.h. die Gesamtvermeidungen müssen mindestens $\bar{V}$ betragen. Da Emmissionsvermeidung mit Kosten verbunden, ist wird diese Nebenbeding im Optimum mit Gleichheit halten.
+
+Wir können eine solche Minimierung mit Nebenbedingung mit Hilfe des Lagrange Ansatzes lösen. Hierfür schreiben wir die Lagrangefunktion auf, die folgende Form hat:
+
+$$L = Zielfunktion - \lambda Nebenbedingung$$
+
+wobei wir die Nebenbedingung so umstellen, dass rechts 0 steht, und wir dann die linke Seite der Nebenbedingung in die Lagrangefunktion einsetzen. Also hier hätten wir
+
+$$L = \sum_{i=1}^{n} R(v_i) - \lambda \left( \sum_{i=1}^{n} v_i - \bar{V} \right)$$
+
+Die Bedingung erster Ordnung für ein Optimum sind dass, die Ableitung der Lagrangefunktion nach den Entscheidungsvariablen $v_i$ gleich 0 sind und alle Nebenbedingungen erfüllt sind.
+
+Wir haben
+$$\frac{\partial L}{\partial v_i} = R'(v_i) - \lambda = 0 \forall i = 1,...,n$$
+
+Dies ist äquivalent zu der Bedingung
+$$R'(v_i) = \lambda \forall i = 1,...,n$$
+
+In Worten bedeutet diese Bedingung, dass im Optimum die Grenzvermeidungskosten $R'(v_i)$ jeder Firma gleich hoch sind und dem Schattenpreis $\lambda$ entsprechen. 
+
+#>
+
+Man kann $\lambda$ als den “Schattenpreis” des Emissionsziels interpretieren. Er gibt an, um wie viele Euro die gesamten Vermeidungskosten zunehmen, wenn das Emissionsziel um eine Einheit verschärft wird. 
+
+b) Lösen Sie Aufgabe a) für folgendes Beispiel:
+
+$$R_1(v_1) = v_1^2$$
+$$R_2(v_2) = 2 v_2^2$$
+$$e_1^0 = 230 e_2^0 = 170$$
+und $\bar{E} = 100$.
+
+#< note Lösung
+
+Ohne Politikeingriff werden die Firmen eine Emmission von $E^0 =  e_1^0 + e_2^0 = 400$ haben. Ein Emmissionsziel von  $\bar{E} = 100$ entspricht also einem Vermeidungsziel von $\bar{V} = E^0 - \bar{E} = 200$.
+
+Die Grenzvermeidungskosten sind für die Firmen:
+
+$$R_1'(v_1) = 2 v_1$$
+$$R_2'(v_2) = 4 v_2$$
+
+Die Bedingung erster Ordnung aus dem Lagrange-Problem waren
+
+$$R_1'(v_1) = 2 v_1 = \lambda$$
+$$R_2'(v_2) = 4 v_2 = \lambda$$
+
+Hieraus folgt
+
+$$2 v_1 = 4 v_2$$
+
+und somit
+$$ v_1 = 2 v_2$$
+
+Wenn wir dieses $v_1$ in die Nebenbedingung
+
+$$v_1 + v_2 = \bar{V} = 300$$
+
+einsetzen, erhalten wir
+
+$$2 v_2 + v_2 = \bar{V} = 300$$
+oder 
+$$v_2 = 100$$
+und somit
+$$v_1 = 200$$
+
+und einen Schattenpreis von
+$$\lambda = 2 v_1 = 400$
+
+Die Emmissionen der Firmen sind
+$$e_1 = e_1^0 - v_1 = 230 - 200 = 30$$
+und 
+$$e_2 = e21^0 - v_2 = 170 - 100 = 70$$
+
+#>
+
+
+c) Illustrieren Sie die optimalen Vermeidungsmengen grafisch für den Fall von 2 Firmen mit unterschiedlich hohen Vermeidungskosten.
+
+#< note Lösung
+Grafische Darstellung in Vorlesung.
+#>
+
+d) Illustrieren Sie grafisch, dass eine Emissionsauflage bei der jede Firma genau eine Schadstoffmenge $\frac{\bar{E}}{n}$ ausstoßen darf, im allgemeinen nicht kosteneffizient ist und stellen Sie den Wohlfahrtsverlust grafisch dar.
+
+#< note Lösung
+Grafische Darstellung in Vorlesung.
+#>
+
+
+#. frame Statische Effizienz von Abgaben / Steuern
+
+Aufgabe 4.2
+
+a) Betrachten Sie das vorangegangene Modell. Nehmen Sie nun an, der Staat erhebt von jeder der $n$ Firmen eine Emissionssteuer mit Steuersatz $t^{*}$ in Höhe des “Schattenpreises” der Emissionsvermeidungskosten $\lambda$ aus dem Lagrange Problem der wohlfahrtsoptimalen Lösung. Zeigen Sie, dass bei gewinnmaximierenden Firmen genau das Emissionsziel $\bar{E}$ und Vermeidungsziel $\bar{V}$ erzielt wird und dies auf kostenoptimale Art und Weise erfolgt. Welcher Steuersatz bildet sich im Zahlenbeispiel aus Aufgabe 4.1 b)? 
+
+#< note Lösung
+
+Zur Erinnerung, die Emmissionen einer Firma $i$ können wie folgt geschrieben werden:
+
+$e_{i}=e_{i}^{0}-v_{i}$,
+
+wobei $e_i^0$ die profitmaximalen Emmissionen sind (ohne Steuern), und $v_i$ Vermeidungen die zu geringeren Emmissionen führen.
+
+Bei einem Steuersatz $t$ die Steuerzahlungen, wie folgt als Funktion der Vermeidung $v_i$ schreiben
+
+$$t^* e_i = t(e_{i}^{0}-v_{i})$$
+
+Wir schreiben die Netto-Gewinnfunktion einer Firma, als Funktion von $v_i$ wie folgt:
+
+$$\pi(v_i) = G_0 - R(v_i) - t (e_{i}^{0}-v_{i})$$
+
+Wobei $G_0$ die Bruttogewinne ohne Vermeidung sind, $R(v_i)$ die Vermeidungskosten, und $t (e_{i}^{0}-v_{i})$ die gezahlten Emmissionsteuern.
+
+Die Bedingung erster Ordnung für Gewinnmaximierung ist gegeben durch:
+
+$$\pi'(v_i) = - R'(v_i) + t = 0$$
+
+Dies ist äquivalent zu der Bedingung
+
+$$R'(v_i) = t$$
+
+Grenzvermeidungskosten = Steuersatz auf Emmissionen
+
+Wenn der Steuersatz gleich dem Schattenpreis  aus der Lagrange Optimierung ist $t = t^* = \lambda$, haben wir die Bedingung
+
+$$R'(v_i) = \lambda$$
+
+Das ist genau die Bedingung für das wohlfahrtsoptimale Reduktionsniveau, d.h. die Steuer führt zu optimalen Reduktionsniveaus.
+
+In Aufgabe 4.1 b) hatten wir einen Schattenpreis von $\lambda = 400$ berechnet. D.h. der wohlfahrtsoptimale Steuersatz $t^*$ beträgt 400 Euro pro Emmissionseinheit.
+
+Wir können einfach nachprüfen, dass tatsächlich die gleichen Emmissionsreduktionen, wie in Aufgabe 4.1 b) herauskommen. Wir haben
+
+$$R'(v_1) = 2 v_1 = 400 \Leftrightarrow v_1 = 200$$
+$$R'(v_2) = 4 v_1 = 400 \Leftrightarrow v_2 = 400$$
+
+#>
+
+b) Illustrieren Sie die Lösung unter einer Emissionsabgabe grafisch.
+
+#< note Lösung
+Darstellung in Vorlesung
+#>
+
+#. frame Statische Effizienz von Emissionszertifikaten
+
++ Nehmen Sie an der Staat versteigert eine Anzahl $\bar{E}$
+  von Emissionszertifikaten, welche Firmen untereinander handeln können.
+
+  + Firmen benötigen für jede Einheit des Schadstoffes, die sie emittieren ein Zertifikat (sonst müssen Sie eine hohe Strafe zahlen)
+
+  + Sei z der Marktpreis im Wettbewerbsgleichgewicht für ein Zertifikat
+  
++ Die Nettogewinnfunktion einer Firma, die dann 
+   
+Aufgabe 4.3
+
+Betrachten Sie das Zahlenbeispiel aus 4.1 b) und zeigen Sie, dass wenn $\bar{E} = 100$ Emmissionszertifikate versteigert werden, sich ein Marktpreis der Zertifikate von $z = \lambda = t^* = 400$ ergibt. Leiten Sie hierfür eine Nachfragefunktion nach Zertifikaten her und ermitteln Sie den Zertifikatepreis durch die Bedingung das Zertifikatenachfrage gleich Zertifikateangebot ist.
+
+#< note Lösung
+
+In Aufgabe 4.2 hatten wir folgende Nettogewinnfunktion für eine Firma $i$:
+
+$$\pi(v_i) = G_0 - R(v_i) - t (e_{i}^{0}-v_{i})$$
+
+Statt eine Steuer $t$ pro Emmissionseinheit zu zahlen, muss die Firma jetzt ein Zertifikat zum Preis $z$ zahlen. D.h. die die Nettogewinnfunktion sieht jetzt wie folgt aus.
+
+$$\pi(v_i) = G_0 - R(v_i) - z (e_{i}^{0}-v_{i})$$
+
+und die Bedingung erster Ordnung für Gewinnmaximierung ist für jede Firma
+
+$$R'(v_i) = z$$
+
+Diese Bedingung beschreibt implizit, wie viel Reduktionen jede Firma vermeidet als Funktion des Zertifikatepreises z.
+
+Für unser Zahlenbeispiel haben wir für Firma 1:
+
+$$R'(v_1) = 2 v_1 = z$$
+
+Die Reduktion ist somit als Funktion des Zertifikatepreises
+
+$$v_1 = 0.5 z$$
+
+Die Entsprechenden Emmissionen ergeben sich in dem wir $v_i = e_{i}^{0} - e_i$ einsetzen:
+
+$$e_1^0-e_1 = 0.5 z$$
+$$e_1(z) = e_1^0 - 0.5 z = 230 - 0.5 z$$
+
+Da Firma 1 für jede Emmissionseinheit ein Zertifikat braucht, beschreibt dies die Nachfrage nach Emmissionszertifikaten asl Funktion des Zertifikatepreises.
+
+Für Firma 2 finden wir durch eine ähnliche Rechnung:
+
+$$R'(v_2) = 4 v_2 = z$$
+...
+$$e_2(z) = e_2^0 - 0.25 z = 170 - 0.25 z$$
+
+Die gesamte Nachfrage nach Emmissionszertifikaten ist dann wie folgt gegeben:
+
+$$E(z)= e_1(z) + e_2(z) = 400 - 0.75 z$$
+
+Im Gleichgewicht auf dem Zertifikatemarkt müssen die Nachfrage $E(z)$ und Angebot $\bar{E}$ von Zertifikaten gleich hoch sein.
+$$
+\begin{align*}
+E(z) &= \bar{E}
+400 - 0.75 z &= 100
+0.75 z &= 300
+z = (4/3) \cdot 300
+z = 400
+\end{align*}
+$$
+
+D.h. der gleichgewichtige Zertifikatepreis entsrpricht also in der Tat dem optimalen Steuersatz von 400 Euro pro Emmissionseinheit.
+
+Dieses Ergebnis hält allgemeiner, aber der allgemeine Beweis ist abstrakter. 
+#>

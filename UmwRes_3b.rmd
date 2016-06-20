@@ -61,13 +61,13 @@ ymarkers:
     tooltip: | 
       Ressourcenpreis 
       in Periode {{t}}
-      = {{p}}
+      p_{{t}} = {{p}}
     latex: p_{{t}}
     to: R
   m:
     tooltip: |
       Markup in Periode {{t}} 
-      = {{p}} - {{c}} = {{m}}
+      m_{{t}} = {{p}} - {{c}} = {{m}}
     latex: m_{{t}}
     opacity: 0
     to: R
@@ -146,11 +146,11 @@ objects:
   CS:
     type: area
     xy: ['0','a',  'R','p',  '0','p']
-    fill: '#7777ff'
+    fill: '#ffff88'
     'fill-opacity': 0.5
 #>
 
-Die Abbildung zeigt eine Beispielhafte inverse Nachfragefunktion. Die gelbe Fläche markiert die Konsumentenrente gegeben der Ressourcenabbaumenge $R_1$ und dem zugeörigem Preis $p_1$.
+Die Abbildung zeigt eine Beispielhafte inverse Nachfragefunktion. Die gefärbte Fläche markiert die Konsumentenrente gegeben der Ressourcenabbaumenge $R_1$ und dem zugeörigem Preis $p_1$.
 #>
 
 #. frame Wettbewerbliche Produzenten
@@ -195,7 +195,7 @@ a) Wie ist der Zusammenhang zwischen dem Markup $m_{t}$ in einer Periode und der
 
 #< note Lösung
 
-Ein höherer Markup $m_t$ entspricht einen höherem Preis $p_t = m_t + c$. Ein höherer Preis entspricht einer niedrigeren Abbaumenge $R_t$.
+Ein höherer Markup $m_t$ entspricht einem höheren Preis $p_t = m_t + c$. Ein höherer Preis entspricht einer niedrigeren Abbaumenge $R_t$.
 
 D.h. wenn die Markups im Laufe der Zeit wachsen, fallen die Abbaumengen im Laufe der Zeit.
 
@@ -212,7 +212,7 @@ hide:
 #>
 
 b) Angenommen der Zinssatz $i$ steigt, wie würde dies die Abbaumengen $R_{1}$
-  und $R_{2}$ in beiden Perioden verändern? (Nehmen Sie an, dass alle Ressourcen $\bar{S}$ tatsächlich abgebaut werden). Führen höhere Zinsen zu frühzeitigeren oder späteren Ressourcenabbau?
+  und $R_{2}$ in beiden Perioden verändern? (Nehmen Sie an, dass alle Ressourcen $\bar{S}$ tatsächlich abgebaut werden). Führen höhere Zinsen zu frühzeitigerem oder späterem Ressourcenabbau?
   
 #< note Lösung  
 Wir haben folgende Wirkungskette
@@ -242,21 +242,25 @@ $$m_2=(1+i)m_1$$
 
 Wir zeigen, dass wenn die Hotelling-Regel nicht halten würde, entweder $R_1$ oder $R_2$ gleich 0 sein müssen, wenn alle Ressourcenbesitzer gewinnoptimal agieren.
 
-Angenommen $m_2 < (1+i)m_1$. Dann würde es sich lohnen, statt in Periode 2 abzubauen und $m_2$ zu erhalten, lieber bereits in Periode 1 abzubauen und dann in Periode 2 $(1+i)m_1$ zu erhalten. Also folgt aus $m_2 < (1+i)m_1$, dass $R_2 = 0$.
+Angenommen $m_2 < (1+i)m_1$. Dann würde es sich lohnen, statt in Periode 2 abzubauen und $m_2$ zu erhalten, lieber bereits in Periode 1 abzubauen und dann in Periode 2 $(1+i)m_1$ zu haben. Also folgt aus $m_2 < (1+i)m_1$, dass $R_2 = 0$.
 
 Angenommen $m_2 > (1+i)m_1$. Dann würde es sich lohnen, statt in Periode 1 abzubauen und die $m_1$ anzulegen, lieber bis Periode 2 zu warten und $m_2$ zu bekommen. Also folgt bei gewinnoptimierenden Ressourcenbesitzern aus $m_2 > (1+i)m_1$, dass $R_1 = 0$.
 
-Wenn wir also einen Abbaupfad mit Abbau in beiden Perioden haben, d.h. $R_1 > 0$ und $R_2 > 0$ muss die Hotelling Regel gelten.
+Wenn wir also einen Abbaupfad mit positiven Abbaumengen in beiden Perioden haben, d.h. $R_1 > 0$ und $R_2 > 0$, muss die Hotelling Regel gelten.
 
 In welcher Situation könnte ein Abbau nur in einer Periode stattfinden?
 
-Abbau nur in Periode 1: $R_1 = \bar{S}$ und $R_2 = 0$. In diesem Fall wären die Markups $m_1 = P(\bar{S})-c$ und $m_2 = P(0)-c$. Es wäre tatsächlich profitabel nicht in Periode 2 abzubauen, wenn 
+#### Abbau nur in Periode 1: $R_1 = \bar{S}$ und $R_2 = 0$.
+
+In diesem Fall wären die Markups $m_1 = P(\bar{S})-c$ und $m_2 = P(0)-c$. Es wäre tatsächlich profitabel nicht in Periode 2 abzubauen, wenn 
 $$m_2 < (1+i)m_1$$
 oder 
 $$P(0)-c > (1+i)(P(\bar{S})-c)$$
-Das ist eine sehr starke Annahme, und würde wohl für komplett unrealistische Zinssätze gelten.
+Das ist eine sehr starke Annahme, und würde wohl nur für komplett unrealistische Zinssätze gelten.
 
-Abbau nur in Periode 2: $R_1 = 0$ und $R_2 = \bar{S}$. In diesem Fall wären die Markups $m_1 = P(0)-c$ und $m_2 = P(\bar{S})-c$. Es wäre tatsächlich profitabel nicht in Periode 1 abzubauen, wenn 
+#### Abbau nur in Periode 2: $R_1 = 0$ und $R_2 = \bar{S}$.
+
+In diesem Fall wären die Markups $m_1 = P(0)-c$ und $m_2 = P(\bar{S})-c$. Es wäre tatsächlich profitabel nicht in Periode 1 abzubauen, wenn 
 $$m_2 > (1+i)m_1$$
 oder 
 $$P(\bar{S})-c > (1+i)(P(0)-c)$$
@@ -346,7 +350,7 @@ $$R_{max} = \frac{a-c}{b}$$
 In $T$ Perioden wird dann maximal $S_{max} = T R_{max}$ abgebaut. Was ist der Wert einer im Boden liegenden Ressource für einen Minenbesitzer in Periode $t$, wenn der Ressourcenbestand $\bar{S}$ größer ist, als diese maximale Menge $S_{max}$?
 
 #< note Lösung
-Es werden nur dann Ressourcen abgebaut, wenn der Preis $P(R_t)$ mindestens den  Abbkosten pro Einheit $c$ entspricht. Da die Nachfragefunktion und $c$ jede Periode gleich sind, ist auch $R_{max}$ jede Periode gleich und gegeben durch die Bedingung:
+Es werden in einer Periode maximal so viele Ressourcen abgebaut, dass der Preis $P(R_t)$ noch mindestens den  Abbkosten pro Einheit $c$ entspricht. Da die Nachfragefunktion und $c$ jede Periode gleich sind, ist auch $R_{max}$ jede Periode gleich und gegeben durch die Bedingung:
 
 $$P(R_{max}) = c$$
 Wir können dies nach $R_{max}$ auflösen:
@@ -356,7 +360,7 @@ $$R_{max} = \frac{a-c}{b}$$
 
 Falls $S_{max} = T R_{max} \leq \bar{S}$, ist das Ressourcenangebot in jeder Periode $R_{max}$ und der Markup $m_t=0$. D.h. eine Ressource im Boden hat in unserem Modell einen Wert von 0, für die Ressourcenbesitzer.
 
-In der Realität werden, wir keinen perfekten Wettbewerb haben, und somit selbst bei sehr hohen Ressourcenbestand, die Preise typischerweise über den Abbaukosten liegen. Der perfekte Wettbewerb ist nur eine vereinfachende Annahme im Hotelling Modell.
+Beachten Sie: In der Realität werden, wir keinen perfekten Wettbewerb haben, und somit selbst bei sehr hohen Ressourcenbestand, die Preise typischerweise über den Abbaukosten liegen. Der perfekte Wettbewerb ist nur eine vereinfachende Annahme im Hotelling Modell.
 #>
 
  
@@ -413,15 +417,15 @@ $$p=1+\frac{\alpha}{1-\alpha}\bar{q}-\frac{1}{(1-\alpha)n}R$$
  
 #>
 
-b) Bestimmen Sie die Funktion $R_{max}(\alpha,\bar{q})$, die maximale profitable Abbaummenge in einer Periode gegeben einem Klimaschutzabkommen (\alpha,\bar{q}). Sei R_{max}^{0} die maximale profitable Abbaumenge ohne Abkommen.
+b) Bestimmen Sie $R_{max}(\alpha,\bar{q})$ die maximale profitable Abbaummenge in einer Periode gegeben einem Klimaschutzabkommen $(\alpha,\bar{q})$. Sei $R_{max}^{0}$ die maximale profitable Abbaumenge ohne Abkommen.
 
 #< note Lösung
 Zur Erinnerung, wir finden $R_{max}$ durch die Bedingung
 
-$$P(R_max) = c$$ und bei einer linearen inverse Nachfragefunktion der Form, $P(R) = a- b R$ hatten wir
+$$P(R_{max}) = c$$ und bei einer linearen inverse Nachfragefunktion der Form, $P(R) = a- b R$ hatten wir
 
 
-$$R_max = \frac{a-c}{b}$$
+$$R_{max} = \frac{a-c}{b}$$
 
 Mit Klimaschutzabkommen haben wir auch eine lineare inverse Nachfragefunktion:
 
@@ -468,7 +472,7 @@ Somit ist ohne Abkommen die Ressourcenmenge in der Erde bindend, und es werden i
 
 Jedes Land verbraucht also $50 / n = 0.5$ Ressourceneinheiten pro Periode. Da das Abkommen eine Halbierung des Ressourcenverbrauchs vorsieht, haben wir also $\bar{q} = 0.25$.
 
-ii) Jetzt müssen wir überlegen, ob mit dem Abkommen immer noch sämtliche im Boden enthaltene Ressourcen $\bar{S}=100$ aufgebraucht werden, oder ob durch die reduzierte Nachfrage, die maximal profitable Abbaummenge $S_{max}(\alpha,\bar(q)) = T R_{max}(\alpha,\bar(q))$ kleiner als $\bar{S}$ ist.
+ii) Jetzt müssen wir überlegen, ob mit dem Abkommen immer noch sämtliche im Boden enthaltene Ressourcen $\bar{S}=100$ aufgebraucht werden, oder ob durch die reduzierte Nachfrage, die maximal profitable Abbaummenge $S_{max}(\alpha,\bar{q}) = T R_{max}(\alpha,\bar{q})$ kleiner als $\bar{S}$ ist.
 
 Aus b) wissen wir, dass
 $$
@@ -480,9 +484,9 @@ R_{max}(\alpha,\bar{q})
 \end{align*}
 $$
 
-Da $R_{max}(\alpha,\bar{q}) > 50$, wird also selbst noch mit dem Klimaschutzabkommen die gesamte Ressourcenmenge $\bar{S}$ in den zwei Perioden aufgebraucht und somit weltweit die gleiche CO2 Menge ausgestoßen wird.
+Da $R_{max}(\alpha,\bar{q}) > 50$, wird also selbst noch mit dem Klimaschutzabkommen die gesamte Ressourcenmenge $\bar{S}$ in den zwei Perioden aufgebraucht. D.h. der weltweite Ressourcenverbrauch und CO2 Ausstoß verringert sich nicht.
 
-iii) Der Grund ist, dass sich C02 Ausstoß von Abkommensländern in Nicht-Abkommensländer verlagert ("Carbon-Leakage").
+iii) Der Grund ist, dass sich Verbrauch und C02 Ausstoß von Abkommensländern in Nicht-Abkommensländer verlagert ("Carbon-Leakage").
 
 Mit oder ohne Abkommen ist der weltweite Ressourcenverbrauch in jeder Periode $R_t = 50$.
 
@@ -490,7 +494,7 @@ Ohne Abkommen verbraucht jedes Land gleich viel: $50 / 100 = 0.5$
 
 Mit Abkommen verbrauchen die Abkommensländer nur $\bar{q} = 0.25$. D.h. die Nichtabkommensländer verbrauchen: $(50 - 50*0.25) / 50 = 0.75$. Der Verbrauch in den Abkommensländern fällt um 50%, steigt aber um 50% in den Nichtabkommensländern.
 
-Der Grund für den stärkeren Verbrauch in den Nichtabkommensländern, ist das die verinngerte Nachfrage aus den Abkommensländern den Marktpreis der Ressource fallen lässt, was den Ressourcenverbrauch attraktiver macht.
+Der Grund für den stärkeren Verbrauch in den Nichtabkommensländern ist, dass die verinngerte Nachfrage aus den Abkommensländern den Marktpreis der Ressource fallen lässt, was den Ressourcenverbrauch in Nichtabkommensländern attraktiver macht.
 
 Die inverse Nachfragefunktion war gegeben durch
 $$P(R)=1+\frac{\alpha}{1-\alpha}\bar{q}-\frac{1}{(1-\alpha)n}R$$
@@ -510,7 +514,7 @@ $$P(R)=1+0.25-(1/50)R$$
 
 und somit bildet sich der Preis
 
-$$p_t = 1.25 - 50 / 50 = 0.25$$.
+$$p_t = 1.25 - 50 / 50 = 0.25.$$
 
 D.h. das Abkommen halbiert den Ressourcenpreis.
 
@@ -518,9 +522,9 @@ iv)
 
 Anmerkung: Ein 100% Carbon Leakage, wie in dieser Aufgabe, würde man wohl kaum in der Realität erwarten. Trotzdem sollte man den Effekt nicht vernachlässigen. Je umfangreicher ein Klimaschutzabkommen ist, desto geringer dürfte Carbon Leakage ausfallen. 
 
-Der folgende R code generiert einen Plot, der die weltweite Reduktion des Ressourcenverbrauchs als Funktion des Anteils der Länder, die am Abkommen teilnimmt zeigt.
+Der folgende R code generiert einen Plot, der die weltweite Reduktion des Ressourcenverbrauchs als Funktion des Anteils $\alpha$ der Länder, die am Abkommen teilnimmt zeigt. Wir belassen $\bar{q}$ bei $0.25$.
 #< preknit
-```{r fig.height=8}
+```{r fig.height=5}
 alpha = seq(0, 1, by = 0.01)
 q_bar = 0.25
 c = 0.2
@@ -535,19 +539,18 @@ library(ggplot2)
 qplot(x=alpha*100, y=Reduction, geom="line", col=I("blue"), lwd=I(2), ylab="Weltweite Reduktion (%)", xlab="% der Länder die am Abkommen teilnehmen")
 
 ```
+#>
+
+Wir sehen, wie das Abkommen erst Wirkung zeigt, wenn ausreichend viele Länder teilnehmen. Wenn aber tatsächlich 100% der Länder sich verpflichten Ihren Ressourcenverbrauch um die Hälfte zu senken, sinkt tatsächlich auch der weltweite Ressourcenverbrauch um 100%. D.h. ab ca 55% Teilnahme steigt die Wirkung des Abkommens überproportinal mit jedem zusätzlichen % an Teilnehmerländer.
+
+D.h. es macht schon sehr viel Sinn, zu versuchen ein umfangreiches weltweites Abkommen zu implementieren. Andersherum ist es nicht klar, wieviel partielle Abkommen bewirken, bei denen sich nur ein kleiner Teil der Länder verpflichten ihre CO2 Reduktionen zu senken.
 
 #>
 
-Wir sehen, wie das Abkommen erst Wirkung zeigt, wenn ausreichend viele Länder teilnehmen. Wenn aber tatsächlich 100% der Länder sich verpflichten Ihren Ressourcenverbrauch um die Hälfte zu senken, sinkt tatsächlich auch der weltweite Ressourcenverbrauch um 100%.
-
-D.h. es macht schon sehr viel Sinn zu versuchen ein umfangreiches weltweites Abkommen zu implementieren, wobei es nicht klar ist, wieviel partielle Abkommen bewirken, bei denen sich nur ein kleiner Teil der Länder verpflichten ihre CO2 Reduktionen zu senken.
-
-#>
-
-d) "Grünes Paradoxon" Nehmen Sie die Parameter aus c) und wieder das Abkommen mit $alpha = 0.5$ und $\bar(q) = 0.25$. Nehmen Sie aber an, dass das Abkommen erst in Periode t=2 in Kraft tritt. Zeigen Sie, dass die gleiche Menge Ressourcen, wie ohne Abkommen abgebaut wird, aber die Ressourcen bereits früher abgebaut werden.
+d) **Grünes Paradoxon** Nehmen Sie die Parameter aus c) und wieder das Abkommen mit $\alpha = 0.5$ und $\bar{q} = 0.25$. Nehmen Sie aber an, dass das Abkommen erst in Periode t=2 in Kraft tritt. Zeigen Sie, dass die gleiche Menge Ressourcen, wie ohne Abkommen abgebaut wird, aber die Ressourcen bereits früher abgebaut werden.
 
 #< note Lösung
-i )Aus unseren vorherigen Rechnungen ist es schnell ersichtlich, dass wieder die gesamte Ressourcenmenge $\bar{S}=100$ abgebaut wird. In Periode 1 gibt es kein Abkommen, und ein Abbau bis
+i )Aus unseren Rechnungen in c) ist es schnell ersichtlich, dass wieder die gesamte Ressourcenmenge $\bar{S}=100$ abgebaut wird. In Periode 1 gibt es kein Abkommen, und ein Abbau bis
 
 $$R_{max}^0 = 80$$
 
@@ -557,7 +560,7 @@ $$R_{max}(\alpha,\bar{q}) =52.5$$
 
 ist profitabel, was in der Summe $100$ übersteigt.
 
-ii) Der genaue Abbaupfad bildet sich wieder durch die Hotelling Regel, die beim Zinssatz von $i = 0$, besagt, dass die Markups in beiden Perioden gleich hoch sein muss.
+ii) Der genaue Abbaupfad bildet sich wieder durch die Hotelling Regel, die beim Zinssatz von $i = 0$, besagt, dass die Markups in beiden Perioden gleich hoch sein müssen:
 
 $$m_2 = m_1$$
 
@@ -570,7 +573,7 @@ Die inverse Nachfragefunktion $P_t(R)$ hängt diesmal von der Periode $t$ ab, da
 
 Wir nutzen wieder unsere Berechnungen aus Teilaufgabe c) und finden für die erste Periode ohne Abkommen:
 
-$$P_1(R_1)=1 - R_1 / 100$$ 
+$$P_1(R_1)=1 - (1/100)R_1$$ 
 
 und in der zweiten Periode mit Abkommen:
 
