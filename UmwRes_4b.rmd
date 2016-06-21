@@ -1,0 +1,293 @@
+#< ignore
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error=TRUE)
+```
+#>
+
+#. include slide_defaults.rmd
+
+
+#< css
+@media print {
+  .slide-container-div {
+    page-break-inside: auto;
+  }
+}
+
+.border-table td {
+  border: 1px solid grey;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+#>
+
+
+#. frame
+<center>
+<h2> Umwelt- und Ressourcenökonomik </h2>
+<h2> 4 Umweltpolitische Instrumente im Vergleich:<br> Teil B (Weitzman Modell) mit Lösungen</h2>
+
+<h3> Uni Ulm</h3>
+<h3> Prof. Dr. Sebastian Kranz </h3>
+<h3> SoSe 2016</h3>
+</center>
+
+
+#. frame Steuern vs. Zertifikate unter Unsicherheit
+
++ Bislang können Steuern und Zertifikate (Cap & Trade) genau zum gleichen effizienten Ergebnis führen.
+
++ Optimales Emissionsziel $\bar{E}$ und Steuersätze können jedoch nur bestimmt werden, wenn politische Entscheidungsträger Schäden von Emissionen und Kosten der Emissionsvermeidung genau kennen.
+
++ Wenn Unsicherheiten über den Verlauf der Schadens- und Kostenkurven bestehen, können je nach Kurvenverlauf entweder Steuern oder Quoten die geeigneteren Instrumente sein
+
++ Weitzman (1974) untersucht in einem Modell mit ungenauen Informationen, wann Emmissionssteuern bzw. ein Zertifikatehandel geeigneter sind
+
++ Siehe auch Perman et. al. Kapitel 7 für einen Überblick und grafische Darstellung
+
+#. frame Das Weitzman Modell
+
++ $S(E)$ gesellschaftlicher Schaden einer Gesamtemmission $E$
+ 
+
++ $C(E)$ Vermeidungskosten einer Emissionsreduktion von $E_{0}$ auf $E$.
+
++ Lineare Grenzschadenskurve: 
+  $$MS(E)=S'(E)=a+bE\mbox{ mit }a,b>0$$
+ 
++ Ungenau beobachtbare lineare Grenzvermeidungskostenkurve:     
+  $$MC(E)=-C'(E)=c-dE+\varepsilon\mbox{ mit }c,d>0$$
+ 
+  + zusätzliche Vermeidungskosten, wenn $E$ um eine Einheit reduziert wird 
+
+  + $\varepsilon$ ist ein durch politische Entscheidungsträger nicht beobachtbarer Kostenschock mit Erwartungswert 0:
+
+#. frame Kernergebnis des Weitzman Modells
+
++ Seien $\mathbb{E}W_{t}$ und $\mathbb{E}W_{\bar{E}}$ die erwarteten Wohlfahrten unter einer optimalen Steuer bzw. einer optimalen Zertifikatemenge, wenn $\varepsilon$ nicht bekannt ist.
+
++ Weitzman zeigt, dass
+  
+  $$\mathbb{E}W_{\bar{E}}-\mathbb{E}W_{t}=(b-d)\frac{\mathbb{E}(\varepsilon^{2})}{2d^{2}}$$
+ 
+
+  + Zertifikate sind besser als Steuern, wenn Grenzschadenskurve steiler als Grenzkostenkurve ($b > d$).
+
+  + Steuern sind besser als Zertifikate, wenn Grenzschadenskurve flacher als Grenzkostenkurve ($b < d$).
+
++ Grafische Intuition für Ergebnis unten, in Vorlesung oder in Perman et. al. Kapitel 7
+
+#< note 'Intuition und Grafische Darstellung'
+
+#< precompute
+```{r}
+dat = data_frame(
+  a = c(40,0),
+  b = c(0.3,2),
+  c = c(120),
+  d = c(1),
+  eps = c(-30,-30),
+  Eo = (c+eps-a)/(b+d),
+  Ew = (c-a)/(b+d),
+  to = a + b * Eo,
+  tw = a + b * Ew,
+  MS_Ew = a+b*Ew,
+  MC_Ew = c-d*Ew+eps,
+  Eto = Eo,
+  Etw = (c+eps-tw) / d,
+  MS_Etw = a+b*Etw
+) 
+```
+#>
+
+#< pane weitzman
+xrange: [0,100]
+yrange: [0,100]
+datavar: dat
+xy: [E_,y_]
+xaxis:
+  label: E
+yaxis:
+  label:
+curves:
+  MS:
+    eq: y_ == a + b*E_
+    label: MS(E)
+    color: brown
+    tooltip: |
+      Die Grenzschadenskurve. Ist per Annahme immer korrekt bekannt.
+  MC:
+    eq: y_ == c - d*E_ + eps
+    label: MC(E)
+    colors: blue
+    tooltip: |
+      Die tatsächliche Grenzvermeidungskostenkurve:
+      MC(E) = c - d E + epsilon
+  MC_w:
+    eq: y_ == c - d*E_
+    latex: MC_w(E)
+    colors: lila
+    tooltip: |
+      Die falsch eingeschätzte Grenzvermeidungskostenkurve:
+      MC(E) = c - d E
+      in der das epsilon nicht berücksichtigt ist.
+ymarkers:
+  to:
+    latex: t°
+    to: Eo
+  tw:
+    latex: t^w
+    to: Ew
+xmarkers:
+  Eo:
+    latex: 'E°'
+    to: to
+  Ew:
+    latex: E^w
+    to: tw
+  Etw:
+    latex: E|t^w
+    to: tw
+  Eto:
+    latex: E(t°)
+#>
+
+#### Keine Fehleinschätzung
+Wenn sowohl die Grenzschadenskurve, als auch die Grenzvermeidungskostenkurve richtig eingeschätzt werden, führen sowohl eine die Steuerlösung, als auch eine Zertifikatelösung zu den wohlfahrtsoptimalen Emmissionen.
+
+#< plotpane weitzman
+data_rows: 1
+show: [MS, MC, to,Eo]
+xmarkers:
+  Eo:
+    latex: 'E° = E|t°'
+#>
+
+Im Falle einer Steuerlösung wird der Steuersatz $t^o$ auf den y-Wert des Schnittpunktes der Grenzschadenskurve MS(E) und der Grenzvermeidungskostenkurve MC(E) gelegt.
+
+Die Firmen werden dann bis zum Niveau $E|t^o$ emmitieren, was dem x-Wert dieses Schnittpunktes entspricht. Für kleinere Emmissionsniveaus wären dann die Vermeidungskosten teuerer als der Steuersatz. Bei größerem Emmissionsniveaus wäre es günstiger Emmissionen zu vermeiden, statt die Steuern $t^o$ zu zahlen.
+
+Bei einer Zertifikatelösung wird die Zertifikatemenge direkt auf das Niveau $E^o$, dem x-Wert des Schnittpunktes des MS(E) und MC(E) Kurve gelegt.
+
+#### Überschätzung der Vermeidungskosten
+
+Wir nehmen nun, an dass die Regierung die Grenzvermeidungskosten höher einschätzt als sie tatsächlich sind. Die Regierung glaubt die Grenzvermeidungskostenkurve sei $MC_w(E)$ statt der wahren, darunter verlaufenden Kurve $MC(E)$.
+
+**i) Zertifikatelösung**
+
+Folgende Abbildung zeigt das Ergebnis bei einer Zertifikatelösung in diesem Fall.
+
+#< plotpane weitzman
+show: [MS, MC, MC_w, to,Eo,Ew, Edwl]
+objects:
+  Edwl:
+    type: area
+    xy: ['Eo','to', 'Ew','tw', 'Ew', 'MC_Ew']
+    fill: '#ff8888'
+ymarkers:
+  MC_Ew:
+  tw:
+#>
+
+Statt die optimale Zertifikatemenge $E^o$ zu wählen, wählt die Regierung die falsche Zertifikatemenge $E^w$ am Schnittpunkt der Grenzschadenfunktion $MS(E)$ mit der falsch eingeschätzten Grenzvermeidungskostenfunktion $MC_w(E)$. Die gefärbte Fläche zeigt den resultierenden Wohlfahrtsverlust durch die Fehleinschätzung und der dadurch zu hoch angesetzten Zertifikatemenge.
+
+Man kann schon erkennen, dass je flacher die Grenzschadenskurve $MS(E)$ verläuft, desto weiter liegt die gewählte Zertifikatemenge $E^w$ von der optimalen $E^o$ entfernt.
+
+Wir sehen, dass die gewählte Zertifikatemenge $E^w$ größer ist als die Wohlfahrtsoptimalemenge $E^o$. Dies liegt darann, dass man bei fälschlicherweise zu hoch angenommenen Vermeidungskosten, die Firmen nicht zwingen möchte zu viele Emmissionen zu vermeiden.
+
+**ii) Steuerlösung**
+
+Folgende Abbildung zeigt das Ergebnis bei einer Steuerlösung.
+
+#< plotpane weitzman
+show: [MS, MC, MC_w, to, tw, Etw, tdwl, Eo]
+objects:
+  tdwl:
+    type: area
+    xy: ['Etw','MS_Etw', 'Etw','tw', 'Eo', 'to']
+    fill: '#8888ff'
+#>
+
+Statt den optimalen Steuersatz $t^o$ zu wählen, wählt die Regierung den Steuersatz $t^w$ am y-Achsen Schnittpunkt der Grenzschadenfunktion $MS(E)$ mit der falsch eingeschätzten Grenzvermeidungskostenfunktoon $MC_w(E)$. 
+
+Wir finden die resultierenden Emmissionen $E|t^w$ am Schnittpunkt dieses Steuersatzes $t^w$ mit der wahren Grenzvermeidungskostenkurve $MC(E)$. Wir nehmen hier also an, dass die Firmen selbst ihre Vermeidungskosten kennen.
+
+Die blau gefärbte Fläche zeigt den Wohlfahrtsverlust durch diese Fehleinschätzung.
+
+Man kann schon erkennen, dass je flacher die Grenzschadenskurve $MS(E)$ verläuft, desto näher liegt der falsch gewählte Steuersatz $t^w$ am optimalen Steuersatz $t^o$ drann, was auch zu einer niedrigeren Ineffizienz führt.
+
+Wir sehen auch, dass die resultierende Emmissionsmenge $E|t^w$ kleiner ist, als die wohlfahrtsoptimale Menge $E^o$. Dies liegt darann, dass man bei fälschlicherweise zu hoch angenommenen Vermeidungskosten animmt, dass ein hoher Steuersatz zu weniger Vermeidung führt, als dies tatsächlich der Fall ist.
+
+Beachten Sie auch: Im Extremfall einer horizontal verlaufenden Grenzschadenskurve $MS(E)$, haben wir trotz falsch eingeschätzter Grenzvermeidungskostenkurve, noch einen optimalen Steuersatz $t^w = t^o$.
+
+
+
+iii) Steuer- und Zertifiaktelösung bei flacher MS(E) Kurve
+
+Folgende Abbildung zeigt die Zertifikatelösung und Steuerlösung gemeinsam für die recht flach verlaufende Grenzschadenskurve:
+
+#< plotpane weitzman
+show: [MS, MC, MC_w, to, tw, Etw, tdwl, Eo, Ew, Edwl]
+objects:
+  tdwl:
+    type: area
+    xy: ['Etw','MS_Etw', 'Etw','tw', 'Eo', 'to']
+    fill: '#8888ff'
+  Edwl:
+    type: area
+    xy: ['Eo','to', 'Ew','tw', 'Ew', 'MC_Ew']
+    fill: '#ff8888'
+#>
+
+Wir sehen wie Ineffizienz bei der Zertifikatelösung substantiell größer ist, als bei der Steuerlösung. Die Richtung des Fehlers der resultierenden Emmissionen ist bei der Steuer- und Zertifikatelösung herumgedreht.
+
+Wenn die die Grenzvermeidungskosten überschätzt werden, haben wir
+
+$E|t^w < E^o < E^w$
+
+
+iv) Steuer- und Zertifiaktelösung bei steiler MS(E) Kurve
+
+Folgende Abbildung zeigt die Zertifikatelösung und Steuerlösung gemeinsam für eine recht steil verlaufende Grenzschadenskurve:
+
+#< plotpane weitzman
+data_rows: 2
+show: [MS, MC, MC_w, to, tw, Etw, tdwl, Eo, Ew, Edwl]
+objects:
+  tdwl:
+    type: area
+    xy: ['Etw','MS_Etw', 'Etw','tw', 'Eo', 'to']
+    fill: '#8888ff'
+  Edwl:
+    type: area
+    xy: ['Eo','to', 'Ew','tw', 'Ew', 'MC_Ew']
+    fill: '#ff8888'
+#>
+
+Wir sehen wie nun Ineffizienz bei der Steuerlösung substantiell größer ist, als bei der Zertifikatelösung.
+
+
+#>
+
+#. frame Beispiele
+
++ Beispiel Giftstoffe / Feinstaub
+
+  + Gesundheitsschäden können bei stärkerem Ausstoß rasant zunehmen
+
+  + Zu hoher Ausstoß in einem Jahr kann nicht durch zu geringen Ausstoß im nächsten Jahr kompensiert werden
+
+  + Steile Grenzschadenskurve
+
+  + Mengensteuerung über Auflagen (bzw. Zertifikate) erscheint günstiger als Steuerregelung 
+
++ Beispiel CO2 Ausstoß
+
+  + Schaden entsteht nur durch die aggregierte CO2 Menge in der Atmosphäre
+
+  + Kein großer Zusatzschaden, wenn ein gegebener Gesamtausstoß ungleich zwischen Jahren verteilt ist
+
+  + Recht flache Grenzschadenskurve im Bezug auf jährliche Emissionen
+
+  + CO2 Steuer erscheint günstiger als Mengensteuerung über Zertifikate

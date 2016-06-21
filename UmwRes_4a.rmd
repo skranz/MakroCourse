@@ -76,7 +76,7 @@ ymarkers:
 #. frame
 <center>
 <h2> Umwelt- und Ressourcenökonomik </h2>
-<h2> Lösungen zu Kapitel 4a:<br></h2>
+<h2> 4 Umweltpolitische Instrumente im Vergleich:<br> Teil A mit Lösungen</h2>
 
 <h3> Uni Ulm</h3>
 <h3> Prof. Dr. Sebastian Kranz </h3>
@@ -215,20 +215,20 @@ ymarkers:
  
   + Grenzvermeidungskostenfunktionen GVK: $R'(v_{i})$, positiv und nicht fallend
 
-+ Staat setzt Umweltziel $\bar{E}$: Maximal tolerierte Gesamtemissionsmenge
++ Staat setzt Umweltziel $\overline{E}$: Maximal tolerierte Gesamtemissionsmenge
 
-  + $\bar{V}=\bar{E}-\sum_{i=1}^{n}e_{i}^{0}$ angestrebte Gesamtvermeidung
+  + $\overline{V}=\sum_{i=1}^{n}e_{i}^{0} -\overline{E}$ angestrebte Gesamtvermeidung
 
 #. frame Statische Ineffizienz von Auflagen
 
 Aufgabe 4.1:
 
-a) Zeigen Sie mit Hilfe eines Lagrange Ansatzes dass für jedes beliebige Umweltziel $\bar{E}$ (und entsprechenden Vermeidungsziel $\bar{V}$ statische Effizienz dann erzielt wird, wenn jede Firma soviel Emission vermeidet, dass die Grenzvermeidungskosten für alle Firmen gleich hoch sind: $$R_{i}'(v_{i}^{o})=\lambda\forall i$$ wobei $\lambda$ der Langrange Multiplikator ist.
+a) Zeigen Sie mit Hilfe eines Lagrange Ansatzes dass für jedes beliebige Umweltziel $\overline{E}$ (und entsprechenden Vermeidungsziel $\overline{V}$ statische Effizienz dann erzielt wird, wenn jede Firma soviel Emission vermeidet, dass die Grenzvermeidungskosten für alle Firmen gleich hoch sind: $$R_{i}'(v_{i}^{o})=\lambda\forall i$$ wobei $\lambda$ der Langrange Multiplikator ist.
 
 #< note Lösung
-Wir betrachten das Optimierungsproblem, die Gesamtkosten zu minimieren unter der Nebenbedingung, dass die Gesamtemmissionen $\bar{E}$ nicht überschreiten.
+Wir betrachten das Optimierungsproblem, die Gesamtkosten zu minimieren unter der Nebenbedingung, dass die Gesamtemmissionen $\overline{E}$ nicht überschreiten.
 
-Man könnte das Problem als Funktion der Emissionen $e_i$ oder der Emissionsvermeidungen $v_i$ schreiben. Wir stellen das Problem mit Hilfe der Emmissionsvermeidungen $v_i$ da.
+Man könnte das Problem als Funktion der Emissionen $e_i$ oder der Emissionsvermeidungen $v_i$ schreiben. Wir stellen das Problem mit Hilfe der Emmissionsvermeidungen $v_i$ dar.
 
 Die zu minimierenden Gesamtkosten der Emmissionsvermeidung sind dann
 
@@ -236,19 +236,19 @@ $$R(v) = \sum_{i=1}^{n} R(v_i)$$
 
 und die Nebenbedingung lautet
 
-$$\sum_{i=1}^{n} v_i \geq \bar{V}$$ 
+$$\sum_{i=1}^{n} v_i \geq \overline{V}$$ 
 
-D.h. die Gesamtvermeidungen müssen mindestens $\bar{V}$ betragen. Da Emmissionsvermeidung mit Kosten verbunden, ist wird diese Nebenbeding im Optimum mit Gleichheit halten.
+D.h. die Gesamtvermeidungen aller Firmen müssen mindestens $\overline{V}$ betragen. Da Emmissionsvermeidung mit Kosten verbunden ist, wird diese Nebenbedingung im Optimum mit Gleichheit halten.
 
 Wir können eine solche Minimierung mit Nebenbedingung mit Hilfe des Lagrange Ansatzes lösen. Hierfür schreiben wir die Lagrangefunktion auf, die folgende Form hat:
 
 $$L = Zielfunktion - \lambda Nebenbedingung$$
 
-wobei wir die Nebenbedingung so umstellen, dass rechts 0 steht, und wir dann die linke Seite der Nebenbedingung in die Lagrangefunktion einsetzen. Also hier hätten wir
+wobei wir die Nebenbedingung so umstellen, dass rechts 0 steht, und wir dann die linke Seite der Nebenbedingung in die Lagrangefunktion einsetzen. Also haben wir hier
 
-$$L = \sum_{i=1}^{n} R(v_i) - \lambda \left( \sum_{i=1}^{n} v_i - \bar{V} \right)$$
+$$L = \sum_{i=1}^{n} R(v_i) - \lambda \left( \sum_{i=1}^{n} v_i - \overline{V} \right)$$
 
-Die Bedingung erster Ordnung für ein Optimum sind dass, die Ableitung der Lagrangefunktion nach den Entscheidungsvariablen $v_i$ gleich 0 sind und alle Nebenbedingungen erfüllt sind.
+Die Bedingungen erster Ordnung für ein Optimum sind dass, die Ableitung der Lagrangefunktion nach den Entscheidungsvariablen $v_i$ gleich 0 sind und alle Nebenbedingungen erfüllt sind.
 
 Wir haben
 $$\frac{\partial L}{\partial v_i} = R'(v_i) - \lambda = 0 \forall i = 1,...,n$$
@@ -262,16 +262,16 @@ In Worten bedeutet diese Bedingung, dass im Optimum die Grenzvermeidungskosten $
 
 Man kann $\lambda$ als den “Schattenpreis” des Emissionsziels interpretieren. Er gibt an, um wie viele Euro die gesamten Vermeidungskosten zunehmen, wenn das Emissionsziel um eine Einheit verschärft wird. 
 
-b) Lösen Sie Aufgabe a) für folgendes Beispiel:
+b) Finden Sie die wohfahrtsoptimalen Vermeidungsmengen und Emmissionen jeder Firma, und den Schattenpreis der Emmissionsvermeidung $\lambda$ für folgendes Zahlenbeispiel:
 
 $$R_1(v_1) = v_1^2$$
 $$R_2(v_2) = 2 v_2^2$$
-$$e_1^0 = 230 e_2^0 = 170$$
-und $\bar{E} = 100$.
+$$e_1^0 = 230, e_2^0 = 170$$
+$$\overline{E} = 100$$
 
 #< note Lösung
 
-Ohne Politikeingriff werden die Firmen eine Emmission von $E^0 =  e_1^0 + e_2^0 = 400$ haben. Ein Emmissionsziel von  $\bar{E} = 100$ entspricht also einem Vermeidungsziel von $\bar{V} = E^0 - \bar{E} = 200$.
+Ohne Politikeingriff werden die Firmen eine Emmission von $E^0 =  e_1^0 + e_2^0 = 400$ haben. Ein Emmissionsziel von  $\overline{E} = 100$ entspricht also einem Vermeidungsziel von $\overline{V} = E^0 - \overline{E} = 300$.
 
 Die Grenzvermeidungskosten sind für die Firmen:
 
@@ -292,18 +292,20 @@ $$ v_1 = 2 v_2$$
 
 Wenn wir dieses $v_1$ in die Nebenbedingung
 
-$$v_1 + v_2 = \bar{V} = 300$$
+$$v_1 + v_2 = \overline{V} = 300$$
 
 einsetzen, erhalten wir
 
-$$2 v_2 + v_2 = \bar{V} = 300$$
+$$2 v_2 + v_2 = \overline{V} = 300$$
 oder 
 $$v_2 = 100$$
 und somit
 $$v_1 = 200$$
 
 und einen Schattenpreis von
-$$\lambda = 2 v_1 = 400$
+$$\lambda = 2 v_1 = 400$$
+
+Die Einheit des Schattenpreis ist Euro pro Emmisionseinheit. 
 
 Die Emmissionen der Firmen sind
 $$e_1 = e_1^0 - v_1 = 230 - 200 = 30$$
@@ -319,7 +321,7 @@ c) Illustrieren Sie die optimalen Vermeidungsmengen grafisch für den Fall von 2
 Grafische Darstellung in Vorlesung.
 #>
 
-d) Illustrieren Sie grafisch, dass eine Emissionsauflage bei der jede Firma genau eine Schadstoffmenge $\frac{\bar{E}}{n}$ ausstoßen darf, im allgemeinen nicht kosteneffizient ist und stellen Sie den Wohlfahrtsverlust grafisch dar.
+d) Illustrieren Sie grafisch, dass eine Emissionsauflage bei der jede Firma genau eine Schadstoffmenge $\frac{\overline{E}}{n}$ ausstoßen darf, im allgemeinen nicht kosteneffizient ist und stellen Sie den Wohlfahrtsverlust grafisch dar.
 
 #< note Lösung
 Grafische Darstellung in Vorlesung.
@@ -330,7 +332,7 @@ Grafische Darstellung in Vorlesung.
 
 Aufgabe 4.2
 
-a) Betrachten Sie das vorangegangene Modell. Nehmen Sie nun an, der Staat erhebt von jeder der $n$ Firmen eine Emissionssteuer mit Steuersatz $t^{*}$ in Höhe des “Schattenpreises” der Emissionsvermeidungskosten $\lambda$ aus dem Lagrange Problem der wohlfahrtsoptimalen Lösung. Zeigen Sie, dass bei gewinnmaximierenden Firmen genau das Emissionsziel $\bar{E}$ und Vermeidungsziel $\bar{V}$ erzielt wird und dies auf kostenoptimale Art und Weise erfolgt. Welcher Steuersatz bildet sich im Zahlenbeispiel aus Aufgabe 4.1 b)? 
+a) Betrachten Sie das vorangegangene Modell. Nehmen Sie nun an, der Staat erhebt von jeder der $n$ Firmen eine Emissionssteuer mit Steuersatz $t^{*}$ in Höhe des “Schattenpreises” der Emissionsvermeidungskosten $\lambda$ aus dem Lagrange Problem der wohlfahrtsoptimalen Lösung. Zeigen Sie, dass bei gewinnmaximierenden Firmen genau das Emissionsziel $\overline{E}$ und Vermeidungsziel $\overline{V}$ erzielt wird und dies auf kostenoptimale Art und Weise erfolgt. Welcher Steuersatz bildet sich im Zahlenbeispiel aus Aufgabe 4.1 b)? 
 
 #< note Lösung
 
@@ -342,7 +344,7 @@ wobei $e_i^0$ die profitmaximalen Emmissionen sind (ohne Steuern), und $v_i$ Ver
 
 Bei einem Steuersatz $t$ die Steuerzahlungen, wie folgt als Funktion der Vermeidung $v_i$ schreiben
 
-$$t^* e_i = t(e_{i}^{0}-v_{i})$$
+$$t^ e_i = t(e_{i}^{0}-v_{i})$$
 
 Wir schreiben die Netto-Gewinnfunktion einer Firma, als Funktion von $v_i$ wie folgt:
 
@@ -368,10 +370,10 @@ Das ist genau die Bedingung für das wohlfahrtsoptimale Reduktionsniveau, d.h. d
 
 In Aufgabe 4.1 b) hatten wir einen Schattenpreis von $\lambda = 400$ berechnet. D.h. der wohlfahrtsoptimale Steuersatz $t^*$ beträgt 400 Euro pro Emmissionseinheit.
 
-Wir können einfach nachprüfen, dass tatsächlich die gleichen Emmissionsreduktionen, wie in Aufgabe 4.1 b) herauskommen. Wir haben
+Wir können einfach nachprüfen, dass tatsächlich die gleichen Emmissionsvermeidungen, wie in Aufgabe 4.1 b) herauskommen. Wir haben
 
 $$R'(v_1) = 2 v_1 = 400 \Leftrightarrow v_1 = 200$$
-$$R'(v_2) = 4 v_1 = 400 \Leftrightarrow v_2 = 400$$
+$$R'(v_2) = 4 v_1 = 400 \Leftrightarrow v_2 = 100$$
 
 #>
 
@@ -383,18 +385,16 @@ Darstellung in Vorlesung
 
 #. frame Statische Effizienz von Emissionszertifikaten
 
-+ Nehmen Sie an der Staat versteigert eine Anzahl $\bar{E}$
++ Nehmen Sie an der Staat versteigert eine Anzahl $\overline{E}$
   von Emissionszertifikaten, welche Firmen untereinander handeln können.
 
   + Firmen benötigen für jede Einheit des Schadstoffes, die sie emittieren ein Zertifikat (sonst müssen Sie eine hohe Strafe zahlen)
 
   + Sei z der Marktpreis im Wettbewerbsgleichgewicht für ein Zertifikat
-  
-+ Die Nettogewinnfunktion einer Firma, die dann 
-   
+ 
 Aufgabe 4.3
 
-Betrachten Sie das Zahlenbeispiel aus 4.1 b) und zeigen Sie, dass wenn $\bar{E} = 100$ Emmissionszertifikate versteigert werden, sich ein Marktpreis der Zertifikate von $z = \lambda = t^* = 400$ ergibt. Leiten Sie hierfür eine Nachfragefunktion nach Zertifikaten her und ermitteln Sie den Zertifikatepreis durch die Bedingung das Zertifikatenachfrage gleich Zertifikateangebot ist.
+Betrachten Sie das Zahlenbeispiel aus 4.1 b) und zeigen Sie, dass wenn $\overline{E} = 100$ Emmissionszertifikate versteigert werden, sich ein Marktpreis der Zertifikate von $z = \lambda = t^* = 400$ ergibt. Leiten Sie hierfür eine Nachfragefunktion nach Zertifikaten her und ermitteln Sie den Zertifikatepreis durch die Bedingung das Zertifikatenachfrage gleich Zertifikateangebot ist.
 
 #< note Lösung
 
@@ -410,13 +410,13 @@ und die Bedingung erster Ordnung für Gewinnmaximierung ist für jede Firma
 
 $$R'(v_i) = z$$
 
-Diese Bedingung beschreibt implizit, wie viel Reduktionen jede Firma vermeidet als Funktion des Zertifikatepreises z.
+Diese Bedingung beschreibt implizit, wie viel Emmissionsvermeidung jede Firma vornimmt, als Funktion des Zertifikatepreises z.
 
 Für unser Zahlenbeispiel haben wir für Firma 1:
 
 $$R'(v_1) = 2 v_1 = z$$
 
-Die Reduktion ist somit als Funktion des Zertifikatepreises
+Die Vermeidung ist somit als Funktion des Zertifikatepreises
 
 $$v_1 = 0.5 z$$
 
@@ -425,7 +425,7 @@ Die Entsprechenden Emmissionen ergeben sich in dem wir $v_i = e_{i}^{0} - e_i$ e
 $$e_1^0-e_1 = 0.5 z$$
 $$e_1(z) = e_1^0 - 0.5 z = 230 - 0.5 z$$
 
-Da Firma 1 für jede Emmissionseinheit ein Zertifikat braucht, beschreibt dies die Nachfrage nach Emmissionszertifikaten asl Funktion des Zertifikatepreises.
+Da Firma 1 für jede Emmissionseinheit ein Zertifikat braucht, beschreibt dies ihre Nachfrage nach Emmissionszertifikaten als Funktion des Zertifikatepreises.
 
 Für Firma 2 finden wir durch eine ähnliche Rechnung:
 
@@ -433,18 +433,19 @@ $$R'(v_2) = 4 v_2 = z$$
 ...
 $$e_2(z) = e_2^0 - 0.25 z = 170 - 0.25 z$$
 
-Die gesamte Nachfrage nach Emmissionszertifikaten ist dann wie folgt gegeben:
+Die gesamte Nachfrage nach Emmissionszertifikaten ist dann die Summe der Nachfragen aller Firmen:
 
 $$E(z)= e_1(z) + e_2(z) = 400 - 0.75 z$$
 
-Im Gleichgewicht auf dem Zertifikatemarkt müssen die Nachfrage $E(z)$ und Angebot $\bar{E}$ von Zertifikaten gleich hoch sein.
+Im Gleichgewicht auf dem Zertifikatemarkt müssen die Nachfrage $E(z)$ und Angebot $\overline{E}$ von Zertifikaten gleich hoch sein.
+
 $$
 \begin{align*}
-E(z) &= \bar{E}
-400 - 0.75 z &= 100
-0.75 z &= 300
-z = (4/3) \cdot 300
-z = 400
+E(z) &= \overline{E} \\
+400 - 0.75 z &= 100 \\
+0.75 z &= 300 \\
+z &= (4/3) \cdot 300 \\
+z &= 400
 \end{align*}
 $$
 
