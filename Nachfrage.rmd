@@ -1,0 +1,280 @@
+#< ignore
+Coypright: Sebastian Kranz, Ulm University
+
+The idea is to freely share teaching material.
+
+There are two issues: one sometimes may try to restrict access to sample solutions to students. Also citations should mention all contributing authors.
+
+I have not yet decided on the best license (set of licenses) for this purpose. 
+
+If the material is on Github, you can try it out personally.
+
+Please just contact me: sebastian.kranz@uni-ulm.de if you want to use the material for your own courses or modify and share it.
+#>
+
+#. include slide_defaults.rmd
+
+#< settings
+lang: de
+slides: TRUE
+slide.type: frame
+use.whiskers: TRUE
+whiskers.round: 2
+use.clicker: TRUE
+clicker.dir: 'D:/libraries/RTutor2/apps/clicker'
+#>
+
+#< precompute
+```{r}
+# r_ == r_NAI - 0.001 * (Y_-Y_NAI)
+# in row4 the centralbank sets Y=Y_NAI
+exdat = compute_frame(
+  t = c(1,2,3,2,2,3,2,3),
+  Y_NAI = 100,
+  slope_Yr = -0.001,
+  r_NAI = 0.03,
+  Y = c(110,110,110,100,90,100,95,95),
+  Y_max = 115,
+  u_NAI = 0.05,
+  c_Okun = 3,
+  u = u_NAI - (1/c_Okun) * ((Y-Y_NAI) / Y_NAI),
+  r_cb = r_NAI + slope_Yr*(Y-Y_NAI),
+  pi_T = 0.02,
+  Epi = c(0.02,0.054,0.089,0.054,0.054,0.02,0.054,0.03),
+  P_lag = 1.5 / (1+0.02),
+  EP = P_lag * (1+Epi),
+  slope_ws = 0.002,
+  tau = 20,
+  ws_P = 0.6,
+  mu = 1/ws_P -1,
+  ws = ws_P + slope_ws*(Y-Y_NAI),
+  Ew = ws * tau,
+  W = Ew*EP,
+  pi = Epi + (1+Epi) * (ws-ws_P)/(ws_P),
+  b_pc = (1+Epi)*slope_ws / ws_P,
+  Y_T = Y_NAI + (1/b_pc)*(pi_T-Epi),
+  alpha_y = 1 / Y_NAI,
+  alpha_pi = 1,
+  b_mr = - b_pc * alpha_y / alpha_pi,
+  Y__min = 80,
+  Y__max = 120,
+  r__min = 0,
+  r__max = r_cb(Y=Y__min),
+  u__min = 0,
+  u__max = u(Y=Y__min),
+  ws__min = ws(Y=Y__min),
+  ws__max = ws(Y=Y__max),
+  w__min = Ew(ws = ws__min),
+  w__max = Ew(ws = ws__max),
+  W__min = W(Ew = w__min),
+  W__max = W(Ew = w__max),
+  pi__min = pi(ws = ws__min),
+  pi__max = pi(ws = ws__max)
+  
+)
+
+.whiskers = as.list(exdat[1,])
+```
+#>
+
+
+#. frame
+<center>
+<h2> Makroökonomik </h2>
+<h2> Nachfrage, Ersparnis und Multiplikator</h2>
+
+<h3> Uni Ulm</h3>
+<h3> Prof. Dr. Sebastian Kranz </h3>
+</center>
+
+#. frame Überblick
+
+Wir werden verschiedene Aspekte von Konsum, Spar- und Investitionsentscheidungen schrittweise einführen. Dabei starten wir mit einem sehr einfachen Modell und fügen dann schrittweise neue Komponenten hinzu.
+
+
+#. section Eine einfache Ökonomie ohne Kapital und fester Geldmenge
+#. frame Eine einfache Ökonomie ohne Kapital und fester Geldmenge
+
++ Ganz einfache Ökonomie 
+
++ Güter werden rein durch Arbeitskraft hergestellt
+  -> Kein Produktionsfaktor *Kapital*.
+
++ Arbeitsteilung: Einwohner haben vielfältige Berufe und Erstellung eines Konsumgutes erfordert Koordinierung und Arbeitsteilung.
+
++ Nehmen Sie an bei Vollbeschäftigung aller Erwerbspersonen, könnten maximal $y_max$ reale Gütereinheiten konsumiert werden.
+
++ Einwohner besitzen zusammen eine konstante Menge $L$ an Goldmünzen, die als Zahlungsmittel fungieren. (L steht für Liquidität)
+
++ Sei $P$ der Preis in Golmünzen für eine Gütereinheit. Wir bezeichnen $P$ auch als Preisniveau
+
++ Sei $Y_max = P y_max$ der maximale, nominale Güterwert (gemessen in Goldmünzen) der zu Preisen $P$ produziert werden kann.
+
++ Starre Preise:
+
+  + Die Preise $P$ werden am Anfang der Periode festgesetzt, bevor die genaue Konsumnachfrage bekannt ist.
+
+  + Genaue Art und Weise der Preissetzung interessiert uns im Moment nicht.
+
++ Am Anfang der Periode habe Haushalt $j$ $L_j$ Goldmünzen. Dies sind die Liquiden Mittel des Haushaltes
+
++ Sei $EH_j$ das erwartete Nominaleinkommen eines Haushaltes $j$, d.h. der Haushalt glaubt, dass er diesen Betrag in dieser Periode verdient.
+
++ Haushalte entscheiden sich auf Basis dieser Erwartung wieviel Geld $C_j$ für Konsum ausgeben möchten. 
+
++ Für ein gegebens Konsumniveau, plant dann der Haushalt, dass er
+  $$ES_Lj = EH_j-C_j$$
+  Goldeinheiten in dieser Periode zu seiner anfänglichen Goldmenge $L_j$
+  hinzuspart.
+
++ Je nach Situation des Haushaltes kann diese geplante Ersparnis positiv oder negativ sein.
+  + Beispielsweise, werden ältere Menschen ggf. nicht mehr arbeiten und ihren Konsum durch den Verbrauch ihrer vorher angesparten Goldmünzen finanzieren. Sie hätten dann eine negative, gaplante Ersparnis $ES_Lj <0$.
+  + Jüngere Menschen werden stattdessen planen einen Teil ihres Arbeitseinkommens in Form von Goldmünzen sparen, um diese dann im Alter auszugeben, d.h. wir hätten $ES_Lj > 0$.
+  
++ Wir bezeichnen mit $C$, $EH$ und $ES_L$, die Summe der nominalen Konsumausgaben, der geplanten Einkommen und der geplanten Ersparnisse über alle Haushalte.
+
++ Wir können diese Variablen auch in Güterneinheiten messen, indem wir durch das Preisniveau teilen. Wir bezeichnen diese realen Variablen oft mit Kleinbuchstaben.
+  
+  + $c = C / P$ ist der reale Konsum
+  + $Eh = EH / P$ geplantes reales Haushaltseinkommen
+  + $Es_L = ES_L / P$ geplante reale Ersparnis
+
++ In diesem einfachen Modell ist die tatsächliche, reale Menge an produzierten Gütern $y$ einfach gegeben durch die real nachgefragte Konsummenge:
+
+  $$y = c$$
+
++ Auch das aggregierte realisierte Haushaltseinkommen $h$, entspricht dieser Konsummenge, da Haushalte ja nur dadurch Einkommen erhalten, dass sie anderen Haushalten durch ihre Arbeit hergestellte Konsumgüter verkaufen:
+
+  $$h = y = c$$  
+
+D.h. je mehr sich alle Einwohner entscheiden zu konsumieren, desto ein höheres höheres Einkommen haben sie ingesamt.
+
+
+#. Unterbeschäftigung / Zu geringer Produktion in unserem Modell
+
++ Wenn $C < Y_{max}$ ist die Konsumnachfrage so gering, dass weniger produziert wird, als bei Vollbeschäftigung produziert werden könnte. Wir haben Unterbeschäftigung.
+
++ Nehmen wir an, jeder Arbeitnehmer, der nicht vollzeit arbeitet, würde es präferieren lieber zu arbeiten und entsprechend mehr zu konsumieren. Unterbeschäftigung ist dann das Resultat eines Koordinierungsproblem, welches nicht *Pareto-optimal* ist. 
+
+
+#. frame 1. Unterbeschäftigung aufgrund Pessimismus über erwartetes Einkommen
+
++ Nehmen Sie an, in Summe sind die Haushalte auf einmal pessimistisch über ihr Haushaltseinkommen, z. B. weil sie Angst haben, evtl. arbeitslos werden. Dadurch erwarten Sie ein geringeres Einkommen, als das Einkommen bei Vollbeschäftigung
+  $$E_H < Y_max$$
+
++ Wenn die Haushalte aggregiert ihre Konsumausgaben Ausgaben, auf ihr erwartetes Einkommen setzen, haben wir also
+  $$C = E_H < Y_max$$
+  und somit
+  $$Y = H = C < Y_max$$
+
++ Dadurch, dass die Haushalte pessimistisch über ihr erwartetes Einkommen sind, fragen sie weniger Konsumgüter nach als bei Vollbeschäftigung produzierbar wäre, und dadurch fällt die tatsächliche Produktionsmenge und entsprechende Arbeitseinkommen auch niedriger aus. Wir haben hier einen Fall von selbsterfüllende pessimisstischen Erwartungen, die die Unterbeschäftigung auslösen.
+
+#. frame 2. Unterbeschäftigung durch positive geplante Ersparnis
+
++ Nehmen wir diesmal an, dass die Einwohner erwarten, dass ihr gesamtes Einkommen tatsächlich dem Vollbeschäftigungseinkommen entspricht:
+  $$EH = Y_max$$
+    
++ Jedoch möchten die Haushalte aggregiert eine positive Menge an Goldmünzen sparen:
+  $$ES_L > 0$$
+  
++ Dies kann durchaus passieren, wenn die Haushalte auf individueller Ebene stärker für die Zukunft vorsorgen möchten, verglichen zum Fall $ES_L = 0$:
+  + Junge Haushalte möchten vielleicht mehr Gold für das Alter ansparen.
+  + Ältere Haushalte möchten vielleicht auch noch für ein paar mehr Jahre vorsorgen, und deshalb ihren Goldbestand nicht ganz zu stark reduzieren.
+  
++ Jedoch ist per Annahme die gesamte Goldmenge fest. D.h. Haushalte können nur sparen (ihre Goldmenge erhöhen), wenn andere Haushalte im gleichen Maße entsparen (ihre Goldmenge verringern). In der Summe ist die resultierende Gesamtersparnis, d.h. die Veränderung der Goldmenge, immer 0:
+  $$S_L = 0$$
+  
++ Wir werden sehen, dass eine geplante, aggregierte positive Ersparnis einfach dazu führen wird, dass weniger produziert wird und die Einkommen sinken.
+
++ Die geplante Ersparnis ist ja das erwartete Einkommen, minus der Konsumausgaben:
+  $$ES_L = EH - C = Y_{max} - C$$
+  Wenn die geplanten Gesamtersparnisse positiv sind $ES_L >0$, ist dies in unserem Modell gleichbedeutend, damit dass weniger als $Y_{max}$ konsumiert wird.
+  $$C = Y_{max}- ES_L < Y_{max}$$
+  
+  Die resultierende Produktion und das entsprechende gesamte Haushaltseinkommen entspricht aber dieser Konsumnachfrage
+  
+  $$Y = H = C  = Y_{max}- ES_L < Y_{max}$$
+  
+  und liegt somit unter der Produktion bei Vollbeschäftigung.
+  
+  Die tatsächliche aggregierte Ersparnis ist in der Tat Null
+  $$S_L = H - C = 0$$
+  
++ D.h. wenn in der Summe alle Haushalte eine positive Menge sparen wollen (Goldbestand vermehren), führt dies einfach zu einem Konsum- Produktions- und Einkommensrückgang, ohne dass die Haushalte es aggregiert tatsächlich schaffen mehr zu sparen.
+
++ Dies ist wieder ein Koordinationsproblem, was zu einem ineffizienten Ergebnis führt.
+
+
+#. frame 3. Unterbeschäftigung aufgrund von Liquiditätsproblemen
+
++ Zuletzt können wir uns auch vorstellen, dass alle Haushalte in der Summe gerne $C = Y_{max}$ konsumieren möchten, aber manche Haushalte aufgrund von Liquiditätsproblemen sich nicht ihr gewünschtes Konsumniveau erzielen können.
+
++ Wir könnten uns z. B. eine Liquiditätsrestriktion für Haushalt $j$ von folgender Art vorstellen:
+  $$C_j <= L_j + 0.7 H_j$$
+  Diese Restriktion bedeutet, dass Konsumausgaben nicht größer als der am Anfang der Periode vorhandene Geldbetrag plus ein gewisser Teil des Hauhalteinkommens sein können.
+  
++ Angenommen für 10% der Haushalte ist diese Liquiditätsrestriktion bindend. Einfacherheitshalber nehmen wir, an dass diese Haushalte ursprünglich gar keine liquiden Mittel haben: $L_j = 0$.
+
+  $$C = H = 0.9 Y_{max} + 0.1 * 0.7 H$$
+  $$(1- 0.1 * 0.7) H = 0.9 Y_{max} $$
+  $$(1- 0.1 * 0.7) H = \frac{0.9}{1-0.1*0.7} Y_{max} $$
+  $$C = H = 0.968 Y_{max}$$
+
+D.h. aufgrund der Liquiditätsrestriktion wird das Gesamteinkommen hier ca 3.2% unterhalb des Einkommens bei Vollbeschäftigung liegen.
+
+
+#. Klassischer Optimissmus: Preissenkungen verhindern zu geringe Konsumausgaben
+
++ Alle drei vorgestellten Gründe für Unterbeschäftigung haben gemeinsam, dass die nominalen Konsumausgabe $C$ niedrigerer ausfallen, als der Wert der maximal produzierbaren Güter bei Vollbeschäftigung $Y_max$.
+
++ Eine optimistische Sicht auf Märkte, häufigen assoziert mit dem Begriff *klassischer Ökonomik*, würde einwenden, dass flexible Preise eine solche Situation von Unterbeschäftigung vermeiden würde.
+
++ Das klassiche Argument wäre in unserem Modellrahmen wie folgt:
+  
+  + Alle Erwerbspersonen möchten gerne Vollzeit arbeiten, womit real die Gütermenge $y_max$ erzeugt werden könnte.
+  + Wenn Haushalte sich entscheiden *nominal* nur den Geldbetrag $C < Y_max = P y_max$ für Konsumgüter auszugeben, ist die Nachfrage niedriger als das Angebot.
+  + In gut funktionierenden Märkten sollte sich nun der Preis der Konsumgüter so nach unten anpassen, dass das Angebot gleich wieder der Nachfrage ist.
+  + Wenn der nominale Güterpreis Preis auf das Niveau
+  $$P' = frac{C}{y_max}$$ fallen würde, wäre die reale Konsumnachfrage wieder gleich der maximalen Güterproduktion bei Vollbeschäftigung:
+  $$ C / P' = y_max$$
+  Statt zur Unterbeschäftigung führt eine gerinngere nominale Konsumnachfrage dann einfach zu einer Preissenkung.
+
+#. frame Schlüsselannahme: Preisrigidäten
+
++ Eine Schlüsselannahme der meisten modernen Makromodelle die konjukturelle Schwankungen modellerien ist das Preise zu einem gewissen Grade fest sind und sich nicht sofort flexibel so anpassen, um Vollbeschäftigung zu erzielen. Man spricht hierbei von Preisrigidität.
+
++ Preisrigidäten sind eine sehr plausible Annahme. Z. B. wird ein wichtiger Kostenfaktor: Löhne, ja oft nur einmal im Jahr verhandelt.
+
++ Auch Marktmacht von Firmen kann dazu führen, dass eine Senkung der nominalen Nachfrage zu einem gewissen Grad auch die real verkaufte Menge senkt, statt durch entsprechende Preissenkungen gleich vollständig kompensiert zu werden.
+
++ In unserem Modellrahmen nehmen wir typischerweise an, das Preise am Anfang einer Periode fest sind, auch wenn die Nachfrage unerwartet schwankt. Preise können sich aber im Zeitablauf anpassen.
+
+#. frame Zusammenfassung einfaches Modell
+
++ Einfaches Modell mit Arbeit als einzigen Produktionsfaktor und fester Geldmenge (Goldmünzen)
+
++ Haushalte können nur dadurch sparen, dass Sie weniger ausgeben und Goldmünzen für die Zukunft horten. 
+
++ Zu geringe Konsumnachfrage können zu Unterbeschäftigung und Unterproduktion führen.
+
++ Verschiedene Gründe für zu geringe Konsumnachfrage diskutiert:
+
+  1. Pessimismus über erwartetes Einkommen
+    -> Selbsterfüllende Erwartungen, da geringere Konsumausgaben dann tatsächlich zu niedrigerem Einkommen führen.
+  
+  2. Aggregierte Wunsch eine positive Menge an Gold zu sparen durch Konsumreduktion. Da gesamte Goldmenge fix, wird aber aggregiert gesehen nichts gespart sondern nur auf Konsum und Beschäftigung verzichtet.
+  
+  3. Liquiditätsprobleme einzelner Haushalte, die es nicht ermöglichen gewünschtes Konsumniveau zu erzielen.
+  
+#. Section Erweitertes Modell mit produktivem Kapital
+
+
++ Wenn alle Erwerbspersonen gerne Vollzeit arbeiten möchten und real eine G$Y_max$ produzieren möchten, die Konsumausgaben $C$ geringer
+  
+  + Die Idee ist wie folgt
+
+
++ Nehmen wir an, dass jeder Einwohner es präferieren würde 
+
++ In dieser einfachen Modellwelt kann es sehr leicht passieren, dass nich
+  
