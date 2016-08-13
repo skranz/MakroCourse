@@ -1,0 +1,57 @@
+#< ignore
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error=TRUE)
+```
+#>
+
+#. include slide_defaults.rmd
+
+
+#< css
+@media print {
+  .slide-container-div {
+    page-break-inside: auto;
+  }
+}
+
+.border-table td {
+  border: 1px solid grey;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+#>
+
+
+#. frame
+<center>
+<h2> Thoughts on Causality, Endogeniety and Instrumental Variable Estimation </h2>
+
+<h3> Sebastian Kranz </h3>
+<h3> Uni Ulm</h3>
+</center>
+
+
+#. frame Intro
+
+. Bob just started his career as an entrepreneur by taking over a small ice cream truck
+
+. The previous owner, Emma, drove to different locations each day and used a little blackboard, on which every morning she wrote down how much a ball of ice cream shall cost today
+
+. Emma left Bob a small collection of sales data, in which she noted for each day t
+ 
+
+- the price $p_{t}$ she had set
+
+- the number of ice balls $q_{t}$ she sold.
+
+- the wholesale price $w_{t}$ she had to pay for a big box of ice cream from the wholesale store.
+
+
+. Bob only wants to set a single price and not change the price from day to day. He asks you how to proceed.
+
+#. frame The data
+
+#< gv
+iv_dgp.gv
+#>
