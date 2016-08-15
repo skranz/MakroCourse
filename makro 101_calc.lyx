@@ -477,13 +477,53 @@ b_{mr}=\frac{1-\sigma}{\sigma}b_{pc}
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{b_{pc}}=\frac{1-\sigma}{\sigma}\frac{1}{b_{mr}}
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
-Corresponding interest rate:
+Corresponding 
+\begin_inset Formula $Y_{t}$
+\end_inset
+
+:
 \begin_inset Formula 
 \begin{eqnarray*}
 Y_{t} & = & Y_{NAI}+\frac{1}{b_{pc}}(\pi_{t}-E\pi_{t})\\
  & = & Y_{NAI}+\frac{1}{b_{pc}}(\sigma\pi_{T}+(1-\sigma)E\pi_{t}-E\pi_{t})\\
- & = & Y_{NAI}-\frac{\sigma}{b_{pc}}(E\pi_{t}-\pi_{T})
+Y_{t} & = & Y_{NAI}-\frac{\sigma}{b_{pc}}(E\pi_{t}-\pi_{T})
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Corrsponding interest rate: Assume the 
+\begin_inset Formula $Yr$
+\end_inset
+
+ curve is characterized as follows:
+\begin_inset Formula 
+\[
+r=r_{NAI}-b_{r}(Y-Y_{NAI})
+\]
+
+\end_inset
+
+We then have
+\begin_inset Formula 
+\begin{eqnarray*}
+r_{t} & = & r_{NAI}-b_{r}(Y_{NAI}-\frac{\sigma}{b_{pc}}(E\pi_{t}-\pi_{T})-Y_{NAI})\\
+r_{t} & = & r_{NAI}+\sigma\frac{b_{r}}{b_{pc}}(E\pi_{t}-\pi_{T})
 \end{eqnarray*}
 
 \end_inset
