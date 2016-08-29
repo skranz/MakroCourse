@@ -8,7 +8,11 @@ knitr::opts_chunk$set(echo = TRUE, error=TRUE)
 
 #< settings
 libs: ggplot2
+slides: FALSE
+toc.levels: [section,frame]
+number.levels: [section, frame]
 #>
+
 
 #< css
 @media print {
@@ -33,6 +37,9 @@ libs: ggplot2
 <h3> Sebastian Kranz </h3>
 <h3> Uni Ulm</h3>
 </center>
+
+#### Contents
+#. toc
 
 #. section Estimating A Demand Function
 
@@ -86,19 +93,19 @@ set.seed(123456)
 a0 = 100 # average intercept of demand function
 b = 1 # -b is the slope of the demand function
 T = 200 # number of observations
-sigma.eps = 5 # standard deviation of demand shock
+sigma.u = 5 # standard deviation of demand shock
 
 # Draw T demand shocks
-eps = rnorm(T,0,sigma.eps)
+u = rnorm(T,0,sigma.u)
 
 # Draw random costs
 c = runif(T, 10, 15)
 
 # Profit maximizing price
-p = (a0+eps) / (2*b) + c / 2
+p = (a0+u) / (2*b) + c / 2
 
 # Demand at p
-q = (a0+eps) - b * p
+q = (a0+u) - b * p
 
 # Combine data into a data frame
 dat = data.frame(t=1:T,p=p,q=q,c=c)
@@ -131,10 +138,10 @@ summary(lm(q~p))
 
 #. frame Best Linear Predictor and OLS
 
-+ Given a dependent random variable $y$ and random or deterministic explanatory variables $x=(x_1,...,x_K)$, the predicted value $\hat{y}(\beta | x)$ for a linear predictor $\beta = (\beta0, beta_1, $ is defined by
++ Given a dependent random variable $y$ and random or deterministic explanatory variables $x=(x_1,...,x_K)$, the predicted value $\hat{y}(\beta | x)$ for a linear predictor $\beta = (\beta0, \beta_1,...,\beta_K)$ is defined by
 $$\hat{y}(\beta | x) = \beta_0 + \beta_1 x_1 + ... + \beta_K x_K$$
 
-+ The best linear predictor minimizes the expected squared differences between $y$ and the predicted value $\hat{y(\beta | x)}$, i.e.
++ The best linear predictor minimizes the expected squared differences between $y$ and the predicted value $\hat{y}(\beta | x)$, i.e.
 
   $$\beta^{BLP} = \arg \min_{\beta} E (y-\hat{y}(\beta | x))^2 $$
 
@@ -142,26 +149,50 @@ $$\hat{y}(\beta | x) = \beta_0 + \beta_1 x_1 + ... + \beta_K x_K$$
 
 + The OLS estimator is simply defined as the sample analogue to the best linear predictor:
 
-$$\hat{\beta} = \arg \min_{\beta} \sum_{t=1}^T {(y_t-\hat{y}(\beta | x_t))^2} $$
+ $$\hat{\beta} = \arg \min_{\beta} \sum_{t=1}^T {(y_t-\hat{y}(\beta | x_t))^2}   $$
   where here $x_t$ denotes the vector of explanatory variables in period $t$.
 
 + Under fairly weak conditions, the OLS estimator $\hat{\beta}$ converges in probability to the best linear predictor $\beta^{BLP}$.
 
-#. frame Best Linear Predictor
+#. frame Best Linear Predictor and Error Term
 
 + The relationship between random variables $y$ and $x_1,...x_K$ can always be written in the following form:
 
   $$y = \beta_0^{BLP} + \beta_1^{BLP} x_1 + ... + \beta_K^{BLP} x_K + \eta$$
 
-  such that the `error term` $\eta = y - \bar($
+  such that the error term 
+  $$\eta = y - \hat{y}(\beta | x)$$
     + has mean 0: $E(\eta) = 0$ and
-    + is not correlated with any explanatory variable $\cor(\eta, x_k) = 0$$ for all $k=1,...,K$.
+    + is not correlated with any explanatory variable $cor(\eta, x_k) = 0$ for all $k=1,...,K$.
 
 + This result always holds, even if the "true" relationship between $y$ and the $x$ has a much more complicated, non-linear form.     
 
-##< proof
-Ommited
-##>
+#< assumption
+  - The explanatory variables $x_1,...,x_K$ are linearly independent.
+  - All first and second moments converge (the law of large number applies). 
+#>
+
+#< conjecture
+Given a dependent random variable $y$ and K explanatory variables $x_1,...,x_K$, there is a unique linear predictor $\beta^{BLP}$.
+#>
+
+#< conjecture
+Consider the following relationship between $y$ and $x_1,...,x_K$
+  $$y = \beta_0 + \beta_1 x_1 + ... + \beta_K x_K + \eta$$
+The following two statements are equivalent:
+  a) $\beta=\beta^{BLP}$ ($\beta$ are the coefficients of the best linear predictor)
+  b) $\eta$ has mean 0 and is uncorrelated with every explanatory variable $x_k$.
+  
+Then $\beta$ is the best linear predictor of y given $x_1,...,x_K$ if and only if
+
+- first
+- second
+- third
+#>
+
+#< proof
+Ommited.
+#>
 
 #. frame Remark: OLS Residuals
 
@@ -176,14 +207,69 @@ Ommited
 
 #. frame Best linear predictors in our example
 
-+ Recall the OLS estimates of the regression of output on prices in our example:
++ Recall the OLS regression of output on prices in our example:
 ```{r preknit=TRUE}
-lm(q~p, data=dat)
+coef(lm(q~p, data=dat))
+```
++ The estimated coefficients are fairly close to the best linear predictors $\beta^{BLP}$ of this regression model.
++ Recall the formula for equilibrium prices and output:
+  $$p_t = \frac{a_0+u_t}{2*b} + \frac{c_t}{2}$$
+  $$q_t = \frac{a_0+u_t}{2} - b \frac{c_t}{2}$$
+
++ The positive relationship between $p$ and $q$ arises from the fact that positive demand shocks $u_t$ cause both the demand and prices to increase. Even though - ceteris paribus-, i.e. holding $u$ fixed, demand decreases in the price $p$, this common positive influence outweights this negative effect in our numerical example.
+
+#. frame Causal Effects
+
++ In economics, we often want to estimate the *causal* effect that a change in an explanatory variable has on the dependent variable.
+
++ In economics, the notion of a causal effect is typically based on a thought experiment, in which we change an explanatory variable, while keeping all other factors that influence the dependent variable constant. This is also called ceteris-paribus analysis.
+
+#. frame Causal effect vs linear predictor in demand function example
+
++ In our example, we are interested in estimating the coefficients of the demand function:
+  $$q = \beta_0 + \beta_1 p + u$$
+
++ In this linear demand function, $\beta_1$ measures the causal effect of the price on demand. This means $\beta_1$ measures by how much the demand changes, when the price changes by 1 unit and we keep the the demand shock $u$ fixed. 
+
++ Here the coefficient for the causal effect $\beta_1$ (in our example -1) is quite different from the best linear predictor $\beta_1^{BLP}$ (in our example around 0.88). 
+
+For an illustration consider the following two diagrams
+
+#< figure
+<table style="width=100%"><tr><td>
+<center>DGP</center>
+#. include demand_dgp.svg
+</td><td>
+<center>Causal Effect</center>
+#. include demand_causal.svg
+</td></tr></table>
+##. caption
+Figure: (left) True data generating process. Demand shock u influences price p. (right) Causal effect based on an intervention that exogenously changes price p, while keeping demand shock u fixed.
+#>
+
+In our data generating process
+
+```{r}
+lm(u~p)
+
+cov(p,u) / var(p)
+
 ```
 
 
 
 #. frame BLP in our example
+
+
+#< figure [2col]
+##. left
+<img src="demand_dgp.svg">
+##. right
+<img src="demand_causal.svg">
+##. caption
+True data generating process (left). Causal effect based on an intervention that exogenously changes price (right).
+#>
+
 
 ```{r, preknit=TRUE, precompute=TRUE}
 sim.data = function(T=200, a0=100, b=1, sigma.u=5, cmin=10, cmax=15) {
@@ -194,10 +280,10 @@ sim.data = function(T=200, a0=100, b=1, sigma.u=5, cmin=10, cmax=15) {
   c = runif(T, cmin, cmax)
   
   # Profit maximizing price
-  p = (a0+eps) / (2*b) + c / 2
+  p = (a0+u) / (2*b) + c / 2
   
   # Demand at p
-  q = (a0+eps) - b * p
+  q = (a0+u) - b * p
   
   # Combine data into a data frame
   dat = data.frame(t=1:T,p=p,q=q,c=c, u=u)
@@ -209,15 +295,15 @@ summary(lm(q~p, data=dat))
 
 #. section Non-Linearities
 
-#. Linearized Causal Effects
+#. frame Linearized Causal Effects
 
 
 ```{r}
 T = 1000
-sigma.eps = 0.1
-eps = rnorm(T,0,sigma.eps)
-xnorm = function(x, factor=5) {x * factor*sd(eps) / sd(x)}
-y.fun = function(x) ifelse(x > 1, 1, x) + eps
+sigma.u = 0.1
+u = rnorm(T,0,sigma.u)
+xnorm = function(x, factor=5) {x * factor*sd(u) / sd(x)}
+y.fun = function(x) ifelse(x > 1, 1, x) + u
 
 x.min = 5; x.max = 20
 
@@ -226,8 +312,8 @@ x.vals = c(x.min,x.max)
 x.r1 = xnorm(runif(T,0,2))
 x.r2 = xnorm(sample(x.vals,T,replace=TRUE))
 
-x.e1 = xnorm(x.r1 - 5*eps)
-x.e2 = xnorm(x.r2 - eps)
+x.e1 = xnorm(x.r1 - 5*u)
+x.e2 = xnorm(x.r2 - u)
 
 
 # for x<1 slope = 1, else slope = 0
@@ -242,8 +328,8 @@ plot(x.r1,y.r1, xlim=range(c(x.r1,x.e1)),ylim=range(c(y.r1,y.e1)))
 points(x.e1,y.e1, col="red")
 
 lm(y.e1 ~ x.e1)
-cor(x.e1, eps)
-cor(y.e1, eps)
+cor(x.e1, u)
+cor(y.e1, u)
 
 ```
 
@@ -251,26 +337,26 @@ cor(y.e1, eps)
 T = 1000 # number of observations
 beta0 = 0 # average intercept of demand function
 beta1 = -1 # -b is the slope of the demand function
-sigma.eps = 5 # standard deviation of demand shock
+sigma.u = 5 # standard deviation of demand shock
 
 # Draw T demand shocks
-eps = rnorm(T,0,sigma.eps)
+u = rnorm(T,0,sigma.u)
 
 # Draw random costs
 c = runif(T, 10, 15)
 
 # Profit maximizing price
-p = (a0+eps) / (2*b) + c / 2
+p = (a0+u) / (2*b) + c / 2
 
 # Endogenous price
-p = (eps +runif(T,-1,1)) / 2
+p = (u +runif(T,-1,1)) / 2
 # random price
 #p = (runif(T,-1,1)) / 2
 
 
 # Demand at p
-q = beta0 + beta1 * p + eps
-q = beta0 + ifelse(p>0,0,beta1 * p) + eps
+q = beta0 + beta1 * p + u
+q = beta0 + ifelse(p>0,0,beta1 * p) + u
 
 
 plot(p,q)
@@ -283,23 +369,23 @@ plot(p,q)
 T = 10000
 a0 = 100 # average intercept of demand function
 b = 1 # -b is the slope of the demand function
-sigma.eps = 4 # standard deviation of demand shock
+sigma.u = 4 # standard deviation of demand shock
 
 # Draw T demand shocks
-eps = round(rnorm(T,0,sigma.eps),2)
+u = round(rnorm(T,0,sigma.u),2)
 
 # Draw random costs
 c = runif(T, 10, 25)
 c2 = c^2
 
 # Endogenous price
-p = (a0+eps) / (2*b) + c / 2
+p = (a0+u) / (2*b) + c / 2
 
 #p = c * runif(T,1,1.1)
 p2 = p^2
 
 # Demand at p
-q = (a0+eps) -  p - 0.1*p2
+q = (a0+u) -  p - 0.1*p2
 beta.p = c(-1,-0.1)
 
 
@@ -326,17 +412,17 @@ lines(p.seq, mfx.ols, col="blue")
 
 ```{r}
 T = 100000
-sigma.eps = 2
-eps = rnorm(T,0,sigma.eps)
+sigma.u = 2
+u = rnorm(T,0,sigma.u)
 
-xnorm = function(x, factor=4) {x * factor*sd(eps) / sd(x)}
+xnorm = function(x, factor=4) {x * factor*sd(u) / sd(x)}
 z1 = rnorm(T,0,1)
 z2 = rnorm(T,0,1)+0.1*z1
-x1 = rnorm(T,0,2)+z1+0.1*z2+eps
-x2 = rnorm(T,0,2)-0.5*z1-z2+0.1*x1+2*eps
+x1 = rnorm(T,0,2)+z1+0.1*z2+u
+x2 = rnorm(T,0,2)-0.5*z1-z2+0.1*x1+2*u
 cor(x1,x2)
 
-y = 0 + x1 + x2 + eps
+y = 0 + x1 + x2 + u
 # biassed OLS
 lm(y~x1+x2)
 
@@ -358,11 +444,11 @@ cor(x2.hat, eta2) # = 0 why?
 # Another simulation
 x1 = rnorm(T)
 x2 = -0.5*x1 + rnorm(T)
-eps1 = rnorm(T)
-eps2 = rnorm(T) + 10*eps1
+u1 = rnorm(T)
+u2 = rnorm(T) + 10*u1
 
-y1 = x1 + x2 + eps1
-y2 = -0.5*x1 + 2*x2 + eps2
+y1 = x1 + x2 + u1
+y2 = -0.5*x1 + 2*x2 + u2
 cor(y1,y2)
 
 summary(reg11 <- lm(y1~x1+x2))
@@ -384,3 +470,36 @@ cor(y2.hat, eta2) # = 0 why?
 
 ```
 
+#. section Notes on OLS
+
+
+```{r}
+T = 100
+x1 = runif(T,0,50)
+x2 = x1 + runif(T,0,50)
+# demean
+xd1 = x1 - mean(x1)
+xd2 = x2 - mean(x2)
+Xd = cbind(xd1,xd2)
+
+# Variance covariance matrix
+cov(Xd)
+t(Xd)%*%Xd / (T-1)
+
+icov = solve(cov(Xd))
+icov %*% cov(Xd)
+
+cov(Xd %*% icov)
+cov(Xd / sqrt(diag(cov(Xd))[1]))
+cov(Xd / diag(cov(Xd))[1])
+
+mat = t(sapply(seq.int(T), function(t) icov %*% Xd[t,]))
+cor(mat[,1],mat[,2])
+cov(mat)
+
+cov(Xdc)
+cor(Xdc[,1],Xdc[,2])
+
+```
+
+#. section

@@ -1,0 +1,22 @@
+digraph dgp {
+graph [];
+node [fontsize=12, fontname = 'Helvetica', style = filled,color=Black];
+
+# observed variables
+node [shape=rect, fillcolor=LightSalmon];
+#c [label='c' tooltip='variable cost'];
+p [label='p' tooltip='price'];
+q [label='q = &beta;_0 + &beta;_1 p + u' tooltip='realized demand'];
+
+# unobserved variables
+node [shape=circle, fillcolor=Lavender];
+#S [label='S'];
+#eta [label='&eta;'];
+u [label='u' tooltip="demand shock"];
+
+edge [style=solid]
+p->q [label='(-)'];
+edge [style=dashed]
+u -> q [label='(+)'];
+u -> p [label='(+)'];
+}

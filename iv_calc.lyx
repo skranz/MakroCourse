@@ -371,7 +371,7 @@ Let
 \begin_inset Formula $u$
 \end_inset
 
- from a distribution 
+ and drawn from a distribution 
 \begin_inset Formula $F_{\tilde{x}}$
 \end_inset
 
@@ -412,28 +412,11 @@ Let the best linear predictor of the equation above shall be
 \end_layout
 
 \begin_layout Standard
-Let 
-\begin_inset Formula $\tilde{x}$
+We can also rewrite this expression with 
+\begin_inset Formula $y$
 \end_inset
 
- be a fictituous randomly drawn 
-\begin_inset Formula $x$
-\end_inset
-
- that is independent of 
-\begin_inset Formula $u$
-\end_inset
-
- from a distribution 
-\begin_inset Formula $F_{\tilde{x}}$
-\end_inset
-
-.
- Let us define 
-\begin_inset Formula $\tilde{y}$
-\end_inset
-
- as
+ on the lhs:
 \end_layout
 
 \begin_layout Standard
@@ -474,12 +457,7 @@ with
 \end_layout
 
 \begin_layout Standard
-Let the best linear predictor of the equation above shall be 
-\begin_inset Formula $\tilde{\alpha}$
-\end_inset
-
-.
- We call it linearized causal effect: 
+Rewriting the linearized causal effect 
 \begin_inset Formula 
 \[
 \tilde{y}=\tilde{\alpha}_{0}+\tilde{\alpha}_{1}\tilde{x}+\varepsilon_{LCE}.
@@ -491,7 +469,7 @@ Let the best linear predictor of the equation above shall be
 \end_layout
 
 \begin_layout Standard
-We have here
+We have
 \begin_inset Formula 
 \begin{eqnarray*}
 y & = & \tilde{\alpha}_{0}+\tilde{\alpha}_{1}\tilde{x}+\varepsilon_{LCE}+\beta_{1}(x-\tilde{x})+\beta_{2}(x^{2}-\tilde{x}^{2}).
