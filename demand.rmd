@@ -249,24 +249,16 @@ D.h. aufgrund der Liquiditätsrestriktion wird das Gesamteinkommen hier ca 3.2% 
 
 + In unserem Modellrahmen nehmen wir typischerweise an, das Preise am Anfang einer Periode fest sind, auch wenn die Nachfrage unerwartet schwankt. Preise können sich aber im Zeitablauf anpassen.
 
-#. frame Zusammenfassung einfaches Modell
+#. frame Diskussion
 
-+ Einfaches Modell mit Arbeit als einzigen Produktionsfaktor und fester Geldmenge (Goldmünzen)
 
-+ Haushalte können nur dadurch sparen, dass Sie weniger ausgeben und Goldmünzen für die Zukunft horten. 
-
-+ Zu geringe Konsumnachfrage können zu Unterbeschäftigung und Unterproduktion führen.
-
-+ Verschiedene Gründe für zu geringe Konsumnachfrage diskutiert:
-
-  1. Pessimismus über erwartetes Einkommen
-    -> Selbsterfüllende Erwartungen, da geringere Konsumausgaben dann tatsächlich zu niedrigerem Einkommen führen.
   
-  2. Aggregierte Wunsch eine positive Menge an Gold zu sparen durch Konsumreduktion. Da gesamte Goldmenge fix, wird aber aggregiert gesehen nichts gespart sondern nur auf Konsum und Beschäftigung verzichtet.
++ Wenn alle Erwerbspersonen gerne Vollzeit arbeiten möchten und real eine G$Y_max$ produzieren möchten, die Konsumausgaben $C$ geringer
   
-  3. Liquiditätsprobleme einzelner Haushalte, die es nicht ermöglichen gewünschtes Konsumniveau zu erzielen.
+  + Die Idee ist wie folgt
+
+
++ Nehmen wir an, dass jeder Einwohner es präferieren würde 
+
++ In dieser einfachen Modellwelt kann es sehr leicht passieren, dass nich
   
-#. Section Erweitertes Modell mit produktivem Kapital
-
-#. frame Erweitertes Modell mit produktivem Kapital
-

@@ -1,0 +1,755 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+\newcommand{\hide}[1]{{\textcolor{white}{\Large #1}}}
+
+%\setbeamertemplate{footline}[page number]{}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,left]{date in head/foot}%
+    \hskip2pt \insertframenumber{} / \inserttotalframenumber 
+  \end{beamercolorbox}}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \insertsubsection
+  \end{beamercolorbox}%
+
+  \vskip0pt%
+}
+\beamertemplatenavigationsymbolsempty 
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language american
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 0
+\use_mathdots 0
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\use_refstyle 0
+\notefontcolor #ffffff
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+A simple dynamic macro model of saving, investment, consumption etc
+\end_layout
+
+\begin_layout BeginFrame
+Formen Individueller Ersparnis
+\end_layout
+
+\begin_layout Itemize
+Reale Investitionen: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Bau eines neues Hauses, Renovierung von Immobilien
+\end_layout
+
+\begin_layout Itemize
+Erhöht BIP
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Haltung liquider Mittel:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Bargeld, Girokontenguthaben
+\end_layout
+
+\begin_layout Itemize
+Nicht direkt BIP wirksam
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\end_layout
+
+\begin_layout BeginFrame
+Model
+\end_layout
+
+\begin_layout Itemize
+Sei 
+\begin_inset Formula $EY_{t}$
+\end_inset
+
+ das erwartete Realeinkommen.
+\end_layout
+
+\begin_layout Itemize
+Geplanter und durchgeführter Konsum 
+\begin_inset Formula $C_{t}=\bar{C}_{t}+m_{c}EY$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Geplante Ersparnis: 
+\begin_inset Formula $ES_{t}=EY_{t}-C_{t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Realisierte Ersparnis: 
+\begin_inset Formula $S_{t}=Y_{t}-C_{t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Zwei Formen von Sparen:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Geplante und realisierte Ersparnis in realen Investitionen, wie neue Immobilien,
+ Anlagen, Ausrüstungen:
+\begin_inset Formula 
+\[
+R_{t}=\rho(r_{t})ES_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+wobei 
+\begin_inset Formula $\rho(r_{t})\in(0,1)$
+\end_inset
+
+ der Anteil der realen Ersparnisse ist.
+ Steigt im Realzins 
+\begin_inset Formula $r_{t}$
+\end_inset
+
+ oder ist konstant.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Investition in unproduktive 
+\begin_inset Quotes eld
+\end_inset
+
+Stores of Values
+\begin_inset Quotes erd
+\end_inset
+
+, wie Gold, Grundstücke, oder alte Gemälde, bei denen nichts BIP wirksam
+ investiert wird, aber aus individueller Sicht gespart werden kann.
+ Im Moment modellieren wir diese Ersparnisse, nicht explizit, aber können
+ annehmen, dass sie zu den liquiden Reserven hinzuzählen.
+\end_layout
+
+\begin_layout Itemize
+Ersparnis in Form liquider Reserven / Geldhaltung
+\begin_inset Formula 
+\[
+L_{t}=S_{t}-R_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Idee: Konsum 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+ und reale Investitionen 
+\begin_inset Formula $R_{t}$
+\end_inset
+
+ werden am Anfang der Periode auf Basis des realen Zinssatzes und erwartetem
+ Einkommen festgelegt.
+ Weicht das tatsäcliche Einkommen von den Erwartungen ab, führt dies zu
+ ungeplanter höherer bzw.
+ niedrigere Geldhaltung, d.h.
+ die nichtproduktiven Ersparnisse 
+\begin_inset Formula $V_{t}$
+\end_inset
+
+ passen sich an.
+\end_layout
+
+\begin_layout Itemize
+Sei 
+\begin_inset Formula $m=m_{c}+\rho(r_{t})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Adaptive Einkommenserwartungen.
+ Nehmen wir an
+\begin_inset Formula 
+\[
+EY_{t}=Y_{t-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Multiplikatorwirkung angenommen der autonome Konsum 
+\begin_inset Formula $\bar{C}_{t}$
+\end_inset
+
+ steigt unerwarteterweise in Periode 
+\begin_inset Formula $t$
+\end_inset
+
+ um 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ Einheiten, ohne dass sich zunächst die Erwartungen 
+\begin_inset Formula $EY_{t}$
+\end_inset
+
+ ändern, hiernach verbleibt 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ bei 0.
+ Die Zentralbank belasse den Zinssatz konstant.
+ Was sind die Auswirkungen in den verschiedenen Perioden:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+t: 
+\begin_inset Formula $Y_{t}$
+\end_inset
+
+steigt um 
+\begin_inset Formula $\Delta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+t+1: 
+\begin_inset Formula $EY_{t+1}=Y_{t}$
+\end_inset
+
+ steigt um 
+\begin_inset Formula $\Delta$
+\end_inset
+
+.
+ Somit steigen Konsum um 
+\begin_inset Formula $m_{c}\Delta$
+\end_inset
+
+ und die Investitionen steigen um
+\end_layout
+
+\end_deeper
+\begin_layout BeginFrame
+Motivation
+\end_layout
+
+\begin_layout Itemize
+Add after 3-equation model has presented
+\end_layout
+
+\begin_layout Itemize
+Some sort of IS-LM replacement, but can do more
+\end_layout
+
+\begin_layout Itemize
+Explicit timing, not like IS-LM that tries to explain dynamics in a static
+ model
+\end_layout
+
+\begin_layout Itemize
+Should explain more about central bank policy
+\end_layout
+
+\begin_layout Itemize
+May easier allow to incorporate heterogeniety
+\end_layout
+
+\begin_layout BeginFrame
+A period
+\end_layout
+
+\begin_layout Itemize
+We have a discrete time model.
+ Each period could be a year, a month or a week.
+\end_layout
+
+\begin_layout Itemize
+Each period consists of several stages.
+\end_layout
+
+\begin_layout Itemize
+For simplicity all monetary and real consumption values are denoted per
+ capita.
+\end_layout
+
+\begin_layout Itemize
+At the beginning of a period:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Consumers start with some monetary wealth 
+\begin_inset Formula $M_{t}$
+\end_inset
+
+.
+ More generally this is stuff that can be liquidated.
+\end_layout
+
+\begin_layout Itemize
+For simplicity we assume that goods prices are fixed at a price level 
+\begin_inset Formula $P_{t}$
+\end_inset
+
+.
+ The price level is determined in the previous period.
+\end_layout
+
+\begin_layout Itemize
+Everybody has common expectations about a consumers nominal income 
+\begin_inset Formula $EY_{t}$
+\end_inset
+
+ and inflation rate 
+\begin_inset Formula $E\pi_{t}=\frac{EP_{t+1}-P_{t}}{P_{t}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Stage 1 (Central Bank): The central bank announces a nominal interest rate
+ 
+\begin_inset Formula $R_{t}^{CB}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Stage 2 (Government): The government announces government spending 
+\begin_inset Formula $G_{t}$
+\end_inset
+
+ and taxes 
+\begin_inset Formula $T_{t}$
+\end_inset
+
+ and new government debt 
+\begin_inset Formula $D_{t}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Stage 3: (Households):
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Households decide how much they want to spend on consumption 
+\begin_inset Formula $C_{t}$
+\end_inset
+
+; corresponding real consumption is given by 
+\begin_inset Formula $c_{t}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+The planned consumption depends on expected income and can also depend on
+ 
+\begin_inset Formula $M_{t}$
+\end_inset
+
+ and perhaps expected permament income.
+\end_layout
+
+\begin_layout Itemize
+In a simple formulation, let us just say 
+\begin_inset Formula $C_{t}=\gamma EY_{t}$
+\end_inset
+
+ with 
+\begin_inset Formula $0<\gamma<1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Expected savings by households are then given by 
+\begin_inset Formula 
+\[
+ES_{t}=EY_{t}-C_{t}=(1-\gamma)EY_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Stage 4 Without Central Bank: (Capital Market, Investments, Liquidity, Holding
+ and Interest Rate)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+We first take a look at what would happen in the capital market without
+ central bank intervention.
+ We will refer to the resulting investments, interest rates and money hoarding
+ as natural levels.
+\end_layout
+
+\begin_layout Itemize
+Expected household savings will be splitted in 
+\begin_inset Formula 
+\[
+ES_{t}=I_{t}^{N}+EH_{t}^{N}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $I_{t}^{N}$
+\end_inset
+
+ stands for nominal investments into capital (possibly intermediated via
+ bank loans) and 
+\begin_inset Formula $H_{t}^{N}$
+\end_inset
+
+ stands for 
+\begin_inset Quotes eld
+\end_inset
+
+hoarding
+\begin_inset Quotes erd
+\end_inset
+
+ will be savings in form of keeping liquidity.
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $R_{t}^{N}$
+\end_inset
+
+ be the nominal interest rate that will result in the capital markets.
+ We assume
+\begin_inset Formula 
+\begin{eqnarray*}
+I_{t}^{N}(R_{t}^{N}) & \equiv & \alpha(R_{t}^{N})ES_{t}\\
+EH_{t}^{N} & \equiv & (1-\alpha(R_{t}^{N}))ES_{t}
+\end{eqnarray*}
+
+\end_inset
+
+We also have an upward sloping curve that describes which fraction of savings
+ will be invested in real capital 
+\begin_inset Formula $\alpha^{S}(R)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+We have a downward sloping curve that describes real investment demand 
+\begin_inset Formula $i_{t}^{D}(r)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+We translate it into a nominal investment demand 
+\begin_inset Formula 
+\[
+I_{t}^{D}(R)=P_{t}i_{t}^{D}(\frac{R}{EP_{t}})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The larger the nominal interest rate, the higher the fraction of savings
+ that will be invested into real capital.
+\end_layout
+
+\begin_layout Itemize
+Equilibrium real investments and natural interest rate 
+\begin_inset Formula $R_{t}^{N}$
+\end_inset
+
+ satisfy
+\begin_inset Formula 
+\begin{eqnarray*}
+L_{t}^{N}(R_{t}^{N}) & = & I_{t}^{D}(R_{t}^{N})+D_{t}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+We will refer to the equilibrium interest rate without central bank intervention
+ as the 
+\begin_inset Quotes eld
+\end_inset
+
+natural
+\begin_inset Quotes erd
+\end_inset
+
+ interest rate 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Stage 4: With Central Bank that can provide loans at interest rate 
+\begin_inset Formula $R_{t}^{CB}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+So far we assume that the central bank can only intervene in the markets
+ by offering investors loans at an interest rate 
+\begin_inset Formula $R_{t}^{CB}$
+\end_inset
+
+.
+ The central bank can simply print the money for these loans.
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $R_{t}^{CB}\geq R_{t}^{N}$
+\end_inset
+
+, the central bank's loans won't be taken by investors and they have no
+ effect on the equilibrium.
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $R_{t}^{CB}<R_{t}^{N}$
+\end_inset
+
+, the central bank's loans will be taken and they reduce the equilibrium
+ interest rate and increase equilibrium consumption.
+ We then say that the central bank's interest rate is binding, or the central
+ bank is active.
+\end_layout
+
+\begin_layout Itemize
+Assume the central bank is active, we then have
+\begin_inset Formula 
+\[
+I_{t}=I_{t}^{D}(R_{t}^{CB})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Investments are now funded by two sources, the real capital 
+\begin_inset Formula $I_{t}^{HH}$
+\end_inset
+
+ by households and the investments directly funded by the central bank loans
+ 
+\begin_inset Formula $I_{t}^{CB}$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+I_{t}=L_{t}^{HH}+L_{t}^{CB}-D_{t}
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{eqnarray*}
+L_{t}^{HH} & = & \alpha(R_{t}^{CB})ES_{t}
+\end{eqnarray*}
+
+\end_inset
+
+and
+\begin_inset Formula 
+\begin{eqnarray*}
+L_{t}^{CB} & = & D_{t}+I_{t}-L_{t}^{HH}\\
+ & = & D_{t}+I_{t}^{D}(R_{t}^{CB})-\alpha(R_{t}^{CB})ES_{t}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Instead of fixing the interest rate, the central bank could also decide
+ to offer a fixed amount of loans 
+\begin_inset Formula $L_{t}^{CB}$
+\end_inset
+
+ and let the interest rate be determined by the market (in an auction).
+ This would yield the interest rate 
+\begin_inset Formula $R_{t}^{CB}$
+\end_inset
+
+ in the market.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Stage 5 (Goods market)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+We assume for simplicity that prices will fixed and all demand can be served.
+ Mainly firms will work more.
+ In an extended model, we could also include inventories, but we leave them
+ out for now.
+\end_layout
+
+\begin_layout Itemize
+So we have a nominal GDP of simply:
+\begin_inset Formula 
+\[
+Y_{t}=C_{t}+G_{t}+I_{t}
+\]
+
+\end_inset
+
+and a real GDP of
+\begin_inset Formula 
+\[
+y_{t}=\frac{Y_{t}}{P_{t}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Price level, wages and inflation works like in the 3 equation model.
+ If savings differ from expected savings, we have more or less money hording.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+\varepsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\end_body
+\end_document

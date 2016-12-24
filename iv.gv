@@ -1,0 +1,30 @@
+digraph dgp {
+graph [fontsize = 12, fontname = Signet];
+node [fontname = Helvetica, style = filled,color=Black];
+
+# observed variables
+node [shape=rect, fillcolor=LightSalmon];
+c [label='c' tooltip='variable cost'];
+phat [label='p&#770;' tooltip='fitted price', shape=rect, style=rounded, fillcolor=LightBlue];
+q [label='q = &beta;0 + &beta;1 p&#770; + u' tooltip='realized demand'];
+
+# unobserved variables
+node [shape=circle, fillcolor=Lavender];
+S [label='S'];
+eta [label='&eta;'];
+eps [label='&epsilon;' tooltip="The unobserved error term."];
+dp [label='p-p&#770;', shape=rect, style='rounded,filled', fillcolor=LightBlue]
+u [label = 'u']
+edge [style=solid]
+c->phat;
+phat->q;
+edge [style=dashed]
+S->eps;
+S->dp;
+eta->eps;
+eps -> u;
+dp -> u;
+u -> q;
+edge [style=dashed, dir=both, color=blue, tooltip='In small samples p&#770; and (p-p&#770;) are correlated, but the correlation goes to zero as the sample size increases']
+phat -> dp
+}

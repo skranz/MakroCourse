@@ -1,0 +1,25 @@
+digraph dgp {
+graph [fontsize = 12, fontname = Signet];
+node [fontname = Helvetica, style = filled,color=Black];
+
+# observed variables
+node [shape=rect, fillcolor=LightSalmon];
+c [label='c' tooltip='variable cost'];
+p [label='p \n(Intervention)' tooltip='price', shape=cds, fillcolor=orange];
+q [label='q = beta0 + beta1 p + eps' tooltip='realized demand'];
+
+# unobserved variables
+node [shape=circle, fillcolor=Lavender];
+S [label='S'];
+eta [label = '&eta;'];
+eps [label='&epsilon;' tooltip="The unobserved error term."];
+
+edge [style=solid]
+p->q;
+edge [style=dashed]
+S->eps;
+c->p [color=lightgrey];
+S->p [color=lightgrey];
+eta->eps;
+eps -> q;
+}

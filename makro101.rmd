@@ -12,6 +12,7 @@ knitr::opts_chunk$set(echo = TRUE, error=TRUE)
 #>
 
 #< settings
+rtutor: TRUE
 lang: de
 slides: TRUE
 slide.type: frame
@@ -196,7 +197,7 @@ exdat = compute_frame(
 
 dedat = compute_frame(
   Y_NAI = 3000,
-  slope_Yr = -0.001,
+  #slope_Yr = -0.001,
   r_NAI = 0.03,
   Y = 3100,
   r_cb = 0.02,
